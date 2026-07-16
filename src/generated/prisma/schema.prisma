@@ -144,6 +144,10 @@ model Project {
   estado           EstadoProjecto   @default(rascunho)
   boostActivoAte   DateTime?
 
+  // Campos específicos — Lançamentos (ficam null para outras secções)
+  dataLancamento DateTime?
+  linkSite       String?
+
   checklists      VerificationChecklist[]
   reactions       Reaction[]
   ndas            NDA[]

@@ -174,6 +174,8 @@ exports.Prisma.ProjectScalarFieldEnum = {
   nivelVerificacao: 'nivelVerificacao',
   estado: 'estado',
   boostActivoAte: 'boostActivoAte',
+  dataLancamento: 'dataLancamento',
+  linkSite: 'linkSite',
   criadoEm: 'criadoEm'
 };
 
