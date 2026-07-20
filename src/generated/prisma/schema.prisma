@@ -142,11 +142,21 @@ model Project {
 
   nivelVerificacao NivelVerificacao @default(nao_aplicavel)
   estado           EstadoProjecto   @default(rascunho)
+  motivoRejeicao   String?
   boostActivoAte   DateTime?
 
   // Campos específicos — Lançamentos (ficam null para outras secções)
   dataLancamento DateTime?
   linkSite       String?
+
+  // Campos específicos — Em Alta / Empresas em Funcionamento / À Venda
+  // (secção 5 do guia: exigem alguma prova de receita/documentação;
+  // por agora é texto livre revisto manualmente pelo admin — o upload
+  // de documentos e o checklist estruturado ficam para a fase NDA/KYC)
+  notaVerificacao String?
+
+  // Campo específico — À Venda (info pública no teaser, secção 10 do guia)
+  faixaPreco String?
 
   checklists      VerificationChecklist[]
   reactions       Reaction[]

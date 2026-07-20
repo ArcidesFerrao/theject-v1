@@ -6780,9 +6780,12 @@ export namespace Prisma {
     localizacao: string | null
     nivelVerificacao: $Enums.NivelVerificacao | null
     estado: $Enums.EstadoProjecto | null
+    motivoRejeicao: string | null
     boostActivoAte: Date | null
     dataLancamento: Date | null
     linkSite: string | null
+    notaVerificacao: string | null
+    faixaPreco: string | null
     criadoEm: Date | null
   }
 
@@ -6797,9 +6800,12 @@ export namespace Prisma {
     localizacao: string | null
     nivelVerificacao: $Enums.NivelVerificacao | null
     estado: $Enums.EstadoProjecto | null
+    motivoRejeicao: string | null
     boostActivoAte: Date | null
     dataLancamento: Date | null
     linkSite: string | null
+    notaVerificacao: string | null
+    faixaPreco: string | null
     criadoEm: Date | null
   }
 
@@ -6814,9 +6820,12 @@ export namespace Prisma {
     localizacao: number
     nivelVerificacao: number
     estado: number
+    motivoRejeicao: number
     boostActivoAte: number
     dataLancamento: number
     linkSite: number
+    notaVerificacao: number
+    faixaPreco: number
     criadoEm: number
     _all: number
   }
@@ -6833,9 +6842,12 @@ export namespace Prisma {
     localizacao?: true
     nivelVerificacao?: true
     estado?: true
+    motivoRejeicao?: true
     boostActivoAte?: true
     dataLancamento?: true
     linkSite?: true
+    notaVerificacao?: true
+    faixaPreco?: true
     criadoEm?: true
   }
 
@@ -6850,9 +6862,12 @@ export namespace Prisma {
     localizacao?: true
     nivelVerificacao?: true
     estado?: true
+    motivoRejeicao?: true
     boostActivoAte?: true
     dataLancamento?: true
     linkSite?: true
+    notaVerificacao?: true
+    faixaPreco?: true
     criadoEm?: true
   }
 
@@ -6867,9 +6882,12 @@ export namespace Prisma {
     localizacao?: true
     nivelVerificacao?: true
     estado?: true
+    motivoRejeicao?: true
     boostActivoAte?: true
     dataLancamento?: true
     linkSite?: true
+    notaVerificacao?: true
+    faixaPreco?: true
     criadoEm?: true
     _all?: true
   }
@@ -6957,9 +6975,12 @@ export namespace Prisma {
     localizacao: string
     nivelVerificacao: $Enums.NivelVerificacao
     estado: $Enums.EstadoProjecto
+    motivoRejeicao: string | null
     boostActivoAte: Date | null
     dataLancamento: Date | null
     linkSite: string | null
+    notaVerificacao: string | null
+    faixaPreco: string | null
     criadoEm: Date
     _count: ProjectCountAggregateOutputType | null
     _min: ProjectMinAggregateOutputType | null
@@ -6991,9 +7012,12 @@ export namespace Prisma {
     localizacao?: boolean
     nivelVerificacao?: boolean
     estado?: boolean
+    motivoRejeicao?: boolean
     boostActivoAte?: boolean
     dataLancamento?: boolean
     linkSite?: boolean
+    notaVerificacao?: boolean
+    faixaPreco?: boolean
     criadoEm?: boolean
     owner?: boolean | UserDefaultArgs<ExtArgs>
     checklists?: boolean | Project$checklistsArgs<ExtArgs>
@@ -7017,9 +7041,12 @@ export namespace Prisma {
     localizacao?: boolean
     nivelVerificacao?: boolean
     estado?: boolean
+    motivoRejeicao?: boolean
     boostActivoAte?: boolean
     dataLancamento?: boolean
     linkSite?: boolean
+    notaVerificacao?: boolean
+    faixaPreco?: boolean
     criadoEm?: boolean
     owner?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["project"]>
@@ -7035,9 +7062,12 @@ export namespace Prisma {
     localizacao?: boolean
     nivelVerificacao?: boolean
     estado?: boolean
+    motivoRejeicao?: boolean
     boostActivoAte?: boolean
     dataLancamento?: boolean
     linkSite?: boolean
+    notaVerificacao?: boolean
+    faixaPreco?: boolean
     criadoEm?: boolean
     owner?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["project"]>
@@ -7053,13 +7083,16 @@ export namespace Prisma {
     localizacao?: boolean
     nivelVerificacao?: boolean
     estado?: boolean
+    motivoRejeicao?: boolean
     boostActivoAte?: boolean
     dataLancamento?: boolean
     linkSite?: boolean
+    notaVerificacao?: boolean
+    faixaPreco?: boolean
     criadoEm?: boolean
   }
 
-  export type ProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "ownerId" | "seccao" | "titulo" | "descricao" | "categoria" | "sector" | "localizacao" | "nivelVerificacao" | "estado" | "boostActivoAte" | "dataLancamento" | "linkSite" | "criadoEm", ExtArgs["result"]["project"]>
+  export type ProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "ownerId" | "seccao" | "titulo" | "descricao" | "categoria" | "sector" | "localizacao" | "nivelVerificacao" | "estado" | "motivoRejeicao" | "boostActivoAte" | "dataLancamento" | "linkSite" | "notaVerificacao" | "faixaPreco" | "criadoEm", ExtArgs["result"]["project"]>
   export type ProjectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     owner?: boolean | UserDefaultArgs<ExtArgs>
     checklists?: boolean | Project$checklistsArgs<ExtArgs>
@@ -7101,9 +7134,12 @@ export namespace Prisma {
       localizacao: string
       nivelVerificacao: $Enums.NivelVerificacao
       estado: $Enums.EstadoProjecto
+      motivoRejeicao: string | null
       boostActivoAte: Date | null
       dataLancamento: Date | null
       linkSite: string | null
+      notaVerificacao: string | null
+      faixaPreco: string | null
       criadoEm: Date
     }, ExtArgs["result"]["project"]>
     composites: {}
@@ -7546,9 +7582,12 @@ export namespace Prisma {
     readonly localizacao: FieldRef<"Project", 'String'>
     readonly nivelVerificacao: FieldRef<"Project", 'NivelVerificacao'>
     readonly estado: FieldRef<"Project", 'EstadoProjecto'>
+    readonly motivoRejeicao: FieldRef<"Project", 'String'>
     readonly boostActivoAte: FieldRef<"Project", 'DateTime'>
     readonly dataLancamento: FieldRef<"Project", 'DateTime'>
     readonly linkSite: FieldRef<"Project", 'String'>
+    readonly notaVerificacao: FieldRef<"Project", 'String'>
+    readonly faixaPreco: FieldRef<"Project", 'String'>
     readonly criadoEm: FieldRef<"Project", 'DateTime'>
   }
     
@@ -16896,9 +16935,12 @@ export namespace Prisma {
     localizacao: 'localizacao',
     nivelVerificacao: 'nivelVerificacao',
     estado: 'estado',
+    motivoRejeicao: 'motivoRejeicao',
     boostActivoAte: 'boostActivoAte',
     dataLancamento: 'dataLancamento',
     linkSite: 'linkSite',
+    notaVerificacao: 'notaVerificacao',
+    faixaPreco: 'faixaPreco',
     criadoEm: 'criadoEm'
   };
 
@@ -17471,9 +17513,12 @@ export namespace Prisma {
     localizacao?: StringFilter<"Project"> | string
     nivelVerificacao?: EnumNivelVerificacaoFilter<"Project"> | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFilter<"Project"> | $Enums.EstadoProjecto
+    motivoRejeicao?: StringNullableFilter<"Project"> | string | null
     boostActivoAte?: DateTimeNullableFilter<"Project"> | Date | string | null
     dataLancamento?: DateTimeNullableFilter<"Project"> | Date | string | null
     linkSite?: StringNullableFilter<"Project"> | string | null
+    notaVerificacao?: StringNullableFilter<"Project"> | string | null
+    faixaPreco?: StringNullableFilter<"Project"> | string | null
     criadoEm?: DateTimeFilter<"Project"> | Date | string
     owner?: XOR<UserScalarRelationFilter, UserWhereInput>
     checklists?: VerificationChecklistListRelationFilter
@@ -17496,9 +17541,12 @@ export namespace Prisma {
     localizacao?: SortOrder
     nivelVerificacao?: SortOrder
     estado?: SortOrder
+    motivoRejeicao?: SortOrderInput | SortOrder
     boostActivoAte?: SortOrderInput | SortOrder
     dataLancamento?: SortOrderInput | SortOrder
     linkSite?: SortOrderInput | SortOrder
+    notaVerificacao?: SortOrderInput | SortOrder
+    faixaPreco?: SortOrderInput | SortOrder
     criadoEm?: SortOrder
     owner?: UserOrderByWithRelationInput
     checklists?: VerificationChecklistOrderByRelationAggregateInput
@@ -17524,9 +17572,12 @@ export namespace Prisma {
     localizacao?: StringFilter<"Project"> | string
     nivelVerificacao?: EnumNivelVerificacaoFilter<"Project"> | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFilter<"Project"> | $Enums.EstadoProjecto
+    motivoRejeicao?: StringNullableFilter<"Project"> | string | null
     boostActivoAte?: DateTimeNullableFilter<"Project"> | Date | string | null
     dataLancamento?: DateTimeNullableFilter<"Project"> | Date | string | null
     linkSite?: StringNullableFilter<"Project"> | string | null
+    notaVerificacao?: StringNullableFilter<"Project"> | string | null
+    faixaPreco?: StringNullableFilter<"Project"> | string | null
     criadoEm?: DateTimeFilter<"Project"> | Date | string
     owner?: XOR<UserScalarRelationFilter, UserWhereInput>
     checklists?: VerificationChecklistListRelationFilter
@@ -17549,9 +17600,12 @@ export namespace Prisma {
     localizacao?: SortOrder
     nivelVerificacao?: SortOrder
     estado?: SortOrder
+    motivoRejeicao?: SortOrderInput | SortOrder
     boostActivoAte?: SortOrderInput | SortOrder
     dataLancamento?: SortOrderInput | SortOrder
     linkSite?: SortOrderInput | SortOrder
+    notaVerificacao?: SortOrderInput | SortOrder
+    faixaPreco?: SortOrderInput | SortOrder
     criadoEm?: SortOrder
     _count?: ProjectCountOrderByAggregateInput
     _max?: ProjectMaxOrderByAggregateInput
@@ -17572,9 +17626,12 @@ export namespace Prisma {
     localizacao?: StringWithAggregatesFilter<"Project"> | string
     nivelVerificacao?: EnumNivelVerificacaoWithAggregatesFilter<"Project"> | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoWithAggregatesFilter<"Project"> | $Enums.EstadoProjecto
+    motivoRejeicao?: StringNullableWithAggregatesFilter<"Project"> | string | null
     boostActivoAte?: DateTimeNullableWithAggregatesFilter<"Project"> | Date | string | null
     dataLancamento?: DateTimeNullableWithAggregatesFilter<"Project"> | Date | string | null
     linkSite?: StringNullableWithAggregatesFilter<"Project"> | string | null
+    notaVerificacao?: StringNullableWithAggregatesFilter<"Project"> | string | null
+    faixaPreco?: StringNullableWithAggregatesFilter<"Project"> | string | null
     criadoEm?: DateTimeWithAggregatesFilter<"Project"> | Date | string
   }
 
@@ -18402,9 +18459,12 @@ export namespace Prisma {
     localizacao: string
     nivelVerificacao?: $Enums.NivelVerificacao
     estado?: $Enums.EstadoProjecto
+    motivoRejeicao?: string | null
     boostActivoAte?: Date | string | null
     dataLancamento?: Date | string | null
     linkSite?: string | null
+    notaVerificacao?: string | null
+    faixaPreco?: string | null
     criadoEm?: Date | string
     owner: UserCreateNestedOneWithoutProjectsInput
     checklists?: VerificationChecklistCreateNestedManyWithoutProjectInput
@@ -18427,9 +18487,12 @@ export namespace Prisma {
     localizacao: string
     nivelVerificacao?: $Enums.NivelVerificacao
     estado?: $Enums.EstadoProjecto
+    motivoRejeicao?: string | null
     boostActivoAte?: Date | string | null
     dataLancamento?: Date | string | null
     linkSite?: string | null
+    notaVerificacao?: string | null
+    faixaPreco?: string | null
     criadoEm?: Date | string
     checklists?: VerificationChecklistUncheckedCreateNestedManyWithoutProjectInput
     reactions?: ReactionUncheckedCreateNestedManyWithoutProjectInput
@@ -18450,9 +18513,12 @@ export namespace Prisma {
     localizacao?: StringFieldUpdateOperationsInput | string
     nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     owner?: UserUpdateOneRequiredWithoutProjectsNestedInput
     checklists?: VerificationChecklistUpdateManyWithoutProjectNestedInput
@@ -18475,9 +18541,12 @@ export namespace Prisma {
     localizacao?: StringFieldUpdateOperationsInput | string
     nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     checklists?: VerificationChecklistUncheckedUpdateManyWithoutProjectNestedInput
     reactions?: ReactionUncheckedUpdateManyWithoutProjectNestedInput
@@ -18499,9 +18568,12 @@ export namespace Prisma {
     localizacao: string
     nivelVerificacao?: $Enums.NivelVerificacao
     estado?: $Enums.EstadoProjecto
+    motivoRejeicao?: string | null
     boostActivoAte?: Date | string | null
     dataLancamento?: Date | string | null
     linkSite?: string | null
+    notaVerificacao?: string | null
+    faixaPreco?: string | null
     criadoEm?: Date | string
   }
 
@@ -18515,9 +18587,12 @@ export namespace Prisma {
     localizacao?: StringFieldUpdateOperationsInput | string
     nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -18532,9 +18607,12 @@ export namespace Prisma {
     localizacao?: StringFieldUpdateOperationsInput | string
     nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -19491,9 +19569,12 @@ export namespace Prisma {
     localizacao?: SortOrder
     nivelVerificacao?: SortOrder
     estado?: SortOrder
+    motivoRejeicao?: SortOrder
     boostActivoAte?: SortOrder
     dataLancamento?: SortOrder
     linkSite?: SortOrder
+    notaVerificacao?: SortOrder
+    faixaPreco?: SortOrder
     criadoEm?: SortOrder
   }
 
@@ -19508,9 +19589,12 @@ export namespace Prisma {
     localizacao?: SortOrder
     nivelVerificacao?: SortOrder
     estado?: SortOrder
+    motivoRejeicao?: SortOrder
     boostActivoAte?: SortOrder
     dataLancamento?: SortOrder
     linkSite?: SortOrder
+    notaVerificacao?: SortOrder
+    faixaPreco?: SortOrder
     criadoEm?: SortOrder
   }
 
@@ -19525,9 +19609,12 @@ export namespace Prisma {
     localizacao?: SortOrder
     nivelVerificacao?: SortOrder
     estado?: SortOrder
+    motivoRejeicao?: SortOrder
     boostActivoAte?: SortOrder
     dataLancamento?: SortOrder
     linkSite?: SortOrder
+    notaVerificacao?: SortOrder
+    faixaPreco?: SortOrder
     criadoEm?: SortOrder
   }
 
@@ -21082,9 +21169,12 @@ export namespace Prisma {
     localizacao: string
     nivelVerificacao?: $Enums.NivelVerificacao
     estado?: $Enums.EstadoProjecto
+    motivoRejeicao?: string | null
     boostActivoAte?: Date | string | null
     dataLancamento?: Date | string | null
     linkSite?: string | null
+    notaVerificacao?: string | null
+    faixaPreco?: string | null
     criadoEm?: Date | string
     checklists?: VerificationChecklistCreateNestedManyWithoutProjectInput
     reactions?: ReactionCreateNestedManyWithoutProjectInput
@@ -21105,9 +21195,12 @@ export namespace Prisma {
     localizacao: string
     nivelVerificacao?: $Enums.NivelVerificacao
     estado?: $Enums.EstadoProjecto
+    motivoRejeicao?: string | null
     boostActivoAte?: Date | string | null
     dataLancamento?: Date | string | null
     linkSite?: string | null
+    notaVerificacao?: string | null
+    faixaPreco?: string | null
     criadoEm?: Date | string
     checklists?: VerificationChecklistUncheckedCreateNestedManyWithoutProjectInput
     reactions?: ReactionUncheckedCreateNestedManyWithoutProjectInput
@@ -21343,9 +21436,12 @@ export namespace Prisma {
     localizacao?: StringFilter<"Project"> | string
     nivelVerificacao?: EnumNivelVerificacaoFilter<"Project"> | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFilter<"Project"> | $Enums.EstadoProjecto
+    motivoRejeicao?: StringNullableFilter<"Project"> | string | null
     boostActivoAte?: DateTimeNullableFilter<"Project"> | Date | string | null
     dataLancamento?: DateTimeNullableFilter<"Project"> | Date | string | null
     linkSite?: StringNullableFilter<"Project"> | string | null
+    notaVerificacao?: StringNullableFilter<"Project"> | string | null
+    faixaPreco?: StringNullableFilter<"Project"> | string | null
     criadoEm?: DateTimeFilter<"Project"> | Date | string
   }
 
@@ -22127,9 +22223,12 @@ export namespace Prisma {
     localizacao: string
     nivelVerificacao?: $Enums.NivelVerificacao
     estado?: $Enums.EstadoProjecto
+    motivoRejeicao?: string | null
     boostActivoAte?: Date | string | null
     dataLancamento?: Date | string | null
     linkSite?: string | null
+    notaVerificacao?: string | null
+    faixaPreco?: string | null
     criadoEm?: Date | string
     owner: UserCreateNestedOneWithoutProjectsInput
     reactions?: ReactionCreateNestedManyWithoutProjectInput
@@ -22151,9 +22250,12 @@ export namespace Prisma {
     localizacao: string
     nivelVerificacao?: $Enums.NivelVerificacao
     estado?: $Enums.EstadoProjecto
+    motivoRejeicao?: string | null
     boostActivoAte?: Date | string | null
     dataLancamento?: Date | string | null
     linkSite?: string | null
+    notaVerificacao?: string | null
+    faixaPreco?: string | null
     criadoEm?: Date | string
     reactions?: ReactionUncheckedCreateNestedManyWithoutProjectInput
     ndas?: NDAUncheckedCreateNestedManyWithoutProjectInput
@@ -22189,9 +22291,12 @@ export namespace Prisma {
     localizacao?: StringFieldUpdateOperationsInput | string
     nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     owner?: UserUpdateOneRequiredWithoutProjectsNestedInput
     reactions?: ReactionUpdateManyWithoutProjectNestedInput
@@ -22213,9 +22318,12 @@ export namespace Prisma {
     localizacao?: StringFieldUpdateOperationsInput | string
     nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     reactions?: ReactionUncheckedUpdateManyWithoutProjectNestedInput
     ndas?: NDAUncheckedUpdateManyWithoutProjectNestedInput
@@ -22235,9 +22343,12 @@ export namespace Prisma {
     localizacao: string
     nivelVerificacao?: $Enums.NivelVerificacao
     estado?: $Enums.EstadoProjecto
+    motivoRejeicao?: string | null
     boostActivoAte?: Date | string | null
     dataLancamento?: Date | string | null
     linkSite?: string | null
+    notaVerificacao?: string | null
+    faixaPreco?: string | null
     criadoEm?: Date | string
     owner: UserCreateNestedOneWithoutProjectsInput
     checklists?: VerificationChecklistCreateNestedManyWithoutProjectInput
@@ -22259,9 +22370,12 @@ export namespace Prisma {
     localizacao: string
     nivelVerificacao?: $Enums.NivelVerificacao
     estado?: $Enums.EstadoProjecto
+    motivoRejeicao?: string | null
     boostActivoAte?: Date | string | null
     dataLancamento?: Date | string | null
     linkSite?: string | null
+    notaVerificacao?: string | null
+    faixaPreco?: string | null
     criadoEm?: Date | string
     checklists?: VerificationChecklistUncheckedCreateNestedManyWithoutProjectInput
     ndas?: NDAUncheckedCreateNestedManyWithoutProjectInput
@@ -22344,9 +22458,12 @@ export namespace Prisma {
     localizacao?: StringFieldUpdateOperationsInput | string
     nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     owner?: UserUpdateOneRequiredWithoutProjectsNestedInput
     checklists?: VerificationChecklistUpdateManyWithoutProjectNestedInput
@@ -22368,9 +22485,12 @@ export namespace Prisma {
     localizacao?: StringFieldUpdateOperationsInput | string
     nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     checklists?: VerificationChecklistUncheckedUpdateManyWithoutProjectNestedInput
     ndas?: NDAUncheckedUpdateManyWithoutProjectNestedInput
@@ -22443,9 +22563,12 @@ export namespace Prisma {
     localizacao: string
     nivelVerificacao?: $Enums.NivelVerificacao
     estado?: $Enums.EstadoProjecto
+    motivoRejeicao?: string | null
     boostActivoAte?: Date | string | null
     dataLancamento?: Date | string | null
     linkSite?: string | null
+    notaVerificacao?: string | null
+    faixaPreco?: string | null
     criadoEm?: Date | string
     owner: UserCreateNestedOneWithoutProjectsInput
     checklists?: VerificationChecklistCreateNestedManyWithoutProjectInput
@@ -22467,9 +22590,12 @@ export namespace Prisma {
     localizacao: string
     nivelVerificacao?: $Enums.NivelVerificacao
     estado?: $Enums.EstadoProjecto
+    motivoRejeicao?: string | null
     boostActivoAte?: Date | string | null
     dataLancamento?: Date | string | null
     linkSite?: string | null
+    notaVerificacao?: string | null
+    faixaPreco?: string | null
     criadoEm?: Date | string
     checklists?: VerificationChecklistUncheckedCreateNestedManyWithoutProjectInput
     reactions?: ReactionUncheckedCreateNestedManyWithoutProjectInput
@@ -22552,9 +22678,12 @@ export namespace Prisma {
     localizacao?: StringFieldUpdateOperationsInput | string
     nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     owner?: UserUpdateOneRequiredWithoutProjectsNestedInput
     checklists?: VerificationChecklistUpdateManyWithoutProjectNestedInput
@@ -22576,9 +22705,12 @@ export namespace Prisma {
     localizacao?: StringFieldUpdateOperationsInput | string
     nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     checklists?: VerificationChecklistUncheckedUpdateManyWithoutProjectNestedInput
     reactions?: ReactionUncheckedUpdateManyWithoutProjectNestedInput
@@ -22651,9 +22783,12 @@ export namespace Prisma {
     localizacao: string
     nivelVerificacao?: $Enums.NivelVerificacao
     estado?: $Enums.EstadoProjecto
+    motivoRejeicao?: string | null
     boostActivoAte?: Date | string | null
     dataLancamento?: Date | string | null
     linkSite?: string | null
+    notaVerificacao?: string | null
+    faixaPreco?: string | null
     criadoEm?: Date | string
     owner: UserCreateNestedOneWithoutProjectsInput
     checklists?: VerificationChecklistCreateNestedManyWithoutProjectInput
@@ -22675,9 +22810,12 @@ export namespace Prisma {
     localizacao: string
     nivelVerificacao?: $Enums.NivelVerificacao
     estado?: $Enums.EstadoProjecto
+    motivoRejeicao?: string | null
     boostActivoAte?: Date | string | null
     dataLancamento?: Date | string | null
     linkSite?: string | null
+    notaVerificacao?: string | null
+    faixaPreco?: string | null
     criadoEm?: Date | string
     checklists?: VerificationChecklistUncheckedCreateNestedManyWithoutProjectInput
     reactions?: ReactionUncheckedCreateNestedManyWithoutProjectInput
@@ -22760,9 +22898,12 @@ export namespace Prisma {
     localizacao?: StringFieldUpdateOperationsInput | string
     nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     owner?: UserUpdateOneRequiredWithoutProjectsNestedInput
     checklists?: VerificationChecklistUpdateManyWithoutProjectNestedInput
@@ -22784,9 +22925,12 @@ export namespace Prisma {
     localizacao?: StringFieldUpdateOperationsInput | string
     nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     checklists?: VerificationChecklistUncheckedUpdateManyWithoutProjectNestedInput
     reactions?: ReactionUncheckedUpdateManyWithoutProjectNestedInput
@@ -22859,9 +23003,12 @@ export namespace Prisma {
     localizacao: string
     nivelVerificacao?: $Enums.NivelVerificacao
     estado?: $Enums.EstadoProjecto
+    motivoRejeicao?: string | null
     boostActivoAte?: Date | string | null
     dataLancamento?: Date | string | null
     linkSite?: string | null
+    notaVerificacao?: string | null
+    faixaPreco?: string | null
     criadoEm?: Date | string
     owner: UserCreateNestedOneWithoutProjectsInput
     checklists?: VerificationChecklistCreateNestedManyWithoutProjectInput
@@ -22883,9 +23030,12 @@ export namespace Prisma {
     localizacao: string
     nivelVerificacao?: $Enums.NivelVerificacao
     estado?: $Enums.EstadoProjecto
+    motivoRejeicao?: string | null
     boostActivoAte?: Date | string | null
     dataLancamento?: Date | string | null
     linkSite?: string | null
+    notaVerificacao?: string | null
+    faixaPreco?: string | null
     criadoEm?: Date | string
     checklists?: VerificationChecklistUncheckedCreateNestedManyWithoutProjectInput
     reactions?: ReactionUncheckedCreateNestedManyWithoutProjectInput
@@ -22968,9 +23118,12 @@ export namespace Prisma {
     localizacao?: StringFieldUpdateOperationsInput | string
     nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     owner?: UserUpdateOneRequiredWithoutProjectsNestedInput
     checklists?: VerificationChecklistUpdateManyWithoutProjectNestedInput
@@ -22992,9 +23145,12 @@ export namespace Prisma {
     localizacao?: StringFieldUpdateOperationsInput | string
     nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     checklists?: VerificationChecklistUncheckedUpdateManyWithoutProjectNestedInput
     reactions?: ReactionUncheckedUpdateManyWithoutProjectNestedInput
@@ -23067,9 +23223,12 @@ export namespace Prisma {
     localizacao: string
     nivelVerificacao?: $Enums.NivelVerificacao
     estado?: $Enums.EstadoProjecto
+    motivoRejeicao?: string | null
     boostActivoAte?: Date | string | null
     dataLancamento?: Date | string | null
     linkSite?: string | null
+    notaVerificacao?: string | null
+    faixaPreco?: string | null
     criadoEm?: Date | string
     owner: UserCreateNestedOneWithoutProjectsInput
     checklists?: VerificationChecklistCreateNestedManyWithoutProjectInput
@@ -23091,9 +23250,12 @@ export namespace Prisma {
     localizacao: string
     nivelVerificacao?: $Enums.NivelVerificacao
     estado?: $Enums.EstadoProjecto
+    motivoRejeicao?: string | null
     boostActivoAte?: Date | string | null
     dataLancamento?: Date | string | null
     linkSite?: string | null
+    notaVerificacao?: string | null
+    faixaPreco?: string | null
     criadoEm?: Date | string
     checklists?: VerificationChecklistUncheckedCreateNestedManyWithoutProjectInput
     reactions?: ReactionUncheckedCreateNestedManyWithoutProjectInput
@@ -23129,9 +23291,12 @@ export namespace Prisma {
     localizacao?: StringFieldUpdateOperationsInput | string
     nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     owner?: UserUpdateOneRequiredWithoutProjectsNestedInput
     checklists?: VerificationChecklistUpdateManyWithoutProjectNestedInput
@@ -23153,9 +23318,12 @@ export namespace Prisma {
     localizacao?: StringFieldUpdateOperationsInput | string
     nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     checklists?: VerificationChecklistUncheckedUpdateManyWithoutProjectNestedInput
     reactions?: ReactionUncheckedUpdateManyWithoutProjectNestedInput
@@ -23275,9 +23443,12 @@ export namespace Prisma {
     localizacao: string
     nivelVerificacao?: $Enums.NivelVerificacao
     estado?: $Enums.EstadoProjecto
+    motivoRejeicao?: string | null
     boostActivoAte?: Date | string | null
     dataLancamento?: Date | string | null
     linkSite?: string | null
+    notaVerificacao?: string | null
+    faixaPreco?: string | null
     criadoEm?: Date | string
     owner: UserCreateNestedOneWithoutProjectsInput
     checklists?: VerificationChecklistCreateNestedManyWithoutProjectInput
@@ -23299,9 +23470,12 @@ export namespace Prisma {
     localizacao: string
     nivelVerificacao?: $Enums.NivelVerificacao
     estado?: $Enums.EstadoProjecto
+    motivoRejeicao?: string | null
     boostActivoAte?: Date | string | null
     dataLancamento?: Date | string | null
     linkSite?: string | null
+    notaVerificacao?: string | null
+    faixaPreco?: string | null
     criadoEm?: Date | string
     checklists?: VerificationChecklistUncheckedCreateNestedManyWithoutProjectInput
     reactions?: ReactionUncheckedCreateNestedManyWithoutProjectInput
@@ -23337,9 +23511,12 @@ export namespace Prisma {
     localizacao?: StringFieldUpdateOperationsInput | string
     nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     owner?: UserUpdateOneRequiredWithoutProjectsNestedInput
     checklists?: VerificationChecklistUpdateManyWithoutProjectNestedInput
@@ -23361,9 +23538,12 @@ export namespace Prisma {
     localizacao?: StringFieldUpdateOperationsInput | string
     nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     checklists?: VerificationChecklistUncheckedUpdateManyWithoutProjectNestedInput
     reactions?: ReactionUncheckedUpdateManyWithoutProjectNestedInput
@@ -23403,9 +23583,12 @@ export namespace Prisma {
     localizacao: string
     nivelVerificacao?: $Enums.NivelVerificacao
     estado?: $Enums.EstadoProjecto
+    motivoRejeicao?: string | null
     boostActivoAte?: Date | string | null
     dataLancamento?: Date | string | null
     linkSite?: string | null
+    notaVerificacao?: string | null
+    faixaPreco?: string | null
     criadoEm?: Date | string
   }
 
@@ -23513,9 +23696,12 @@ export namespace Prisma {
     localizacao?: StringFieldUpdateOperationsInput | string
     nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     checklists?: VerificationChecklistUpdateManyWithoutProjectNestedInput
     reactions?: ReactionUpdateManyWithoutProjectNestedInput
@@ -23536,9 +23722,12 @@ export namespace Prisma {
     localizacao?: StringFieldUpdateOperationsInput | string
     nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     checklists?: VerificationChecklistUncheckedUpdateManyWithoutProjectNestedInput
     reactions?: ReactionUncheckedUpdateManyWithoutProjectNestedInput
@@ -23559,9 +23748,12 @@ export namespace Prisma {
     localizacao?: StringFieldUpdateOperationsInput | string
     nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 

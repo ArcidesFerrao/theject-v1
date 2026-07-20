@@ -1,35 +1,37 @@
 import { notFound } from "next/navigation";
-import { auth } from "@/auth";
 import { db } from "@/lib/prisma";
+import { labelDaSeccao } from "@/lib/seccoes";
 
-const estadoLabel: Record<string, string> = {
-  rascunho: "Rascunho",
-  pendente_revisao: "Pendente de revisão editorial",
-  publicado: "Publicado",
-  rejeitado: "Rejeitado",
-  arquivado: "Arquivado",
-};
-
-export default async function ProjectoDetalhePage({
+export default async function ProjectoPublicoPage({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const session = await auth();
-  if (!session?.user) notFound();
 
-  const projecto = await db.project.findUnique({ where: { id } });
-  if (!projecto || projecto.ownerId !== session.user.id) notFound();
+  const projecto = await db.project.findUnique({
+    where: { id },
+    include: { owner: { select: { name: true } } },
+  });
+
+  // Não expõe rascunhos/pendentes/rejeitados ao público — só o dono os vê,
+  // em /dashboard/projectos/[id].
+  if (!projecto || projecto.estado !== "publicado") notFound();
 
   return (
-    <main className="mx-auto max-w-xl px-4 py-12">
-      <span className="inline-block rounded-full bg-amber-100 px-3 py-1 text-sm font-medium text-amber-800">
-        {estadoLabel[projecto.estado]}
+    <main className="mx-auto max-w-2xl px-4 py-12">
+      <span className="text-xs font-medium uppercase text-gray-400">
+        {labelDaSeccao(projecto.seccao)}
       </span>
+      <h1 className="mt-1 text-2xl font-semibold">{projecto.titulo}</h1>
 
-      <h1 className="mt-4 text-2xl font-semibold">{projecto.titulo}</h1>
-      <p className="mt-2 whitespace-pre-wrap text-gray-700">
+      {projecto.nivelVerificacao === "verificado" && (
+        <span className="mt-2 inline-block rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-800">
+          Verificado
+        </span>
+      )}
+
+      <p className="mt-4 whitespace-pre-wrap text-gray-700">
         {projecto.descricao}
       </p>
 
@@ -45,6 +47,10 @@ export default async function ProjectoDetalhePage({
         <div>
           <dt className="text-gray-500">Localização</dt>
           <dd>{projecto.localizacao}</dd>
+        </div>
+        <div>
+          <dt className="text-gray-500">Fundador</dt>
+          <dd>{projecto.owner.name ?? "—"}</dd>
         </div>
         {projecto.dataLancamento && (
           <div>
@@ -66,12 +72,13 @@ export default async function ProjectoDetalhePage({
             </dd>
           </div>
         )}
+        {projecto.faixaPreco && (
+          <div className="col-span-2">
+            <dt className="text-gray-500">Faixa de preço</dt>
+            <dd>{projecto.faixaPreco}</dd>
+          </div>
+        )}
       </dl>
-
-      <p className="mt-8 text-sm text-gray-500">
-        Esta listagem está a aguardar revisão da equipa editorial antes de
-        aparecer publicamente no jornal.
-      </p>
     </main>
   );
 }

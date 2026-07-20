@@ -1,29 +1,49 @@
 "use client";
 
 import { useActionState } from "react";
-import { publicarLancamento, type PublicarLancamentoState } from "@/lib/actions/projeto-actions";
+import {
+  publicarLancamento,
+  type PublicarProjectoState,
+} from "@/lib/actions/projeto-actions";
 
-const initialState: PublicarLancamentoState = {};
+const initialState: PublicarProjectoState = {};
 
 export default function PublicarLancamentoPage() {
-  const [state, formAction, pending] = useActionState(publicarLancamento, initialState);
+  const [state, formAction, pending] = useActionState(
+    publicarLancamento,
+    initialState,
+  );
 
   return (
     <main className="mx-auto flex min-h-screen max-w-xl flex-col gap-6 px-4 py-12">
       <div>
         <h1 className="text-2xl font-semibold">Publicar um Lançamento</h1>
         <p className="mt-1 text-sm text-gray-600">
-          Novos projectos a estrear ou prestes a estrear. Depois de submeteres, a listagem
-          fica &quot;pendente de revisão&quot; até à aprovação editorial.
+          Novos projectos a estrear ou prestes a estrear. Depois de submeteres,
+          a listagem fica &quot;pendente de revisão&quot; até à aprovação
+          editorial.
         </p>
       </div>
 
       <form action={formAction} className="flex flex-col gap-4">
-        <Campo label="Título do projecto" name="titulo" erro={state.fieldErrors?.titulo}>
-          <input id="titulo" name="titulo" className="w-full rounded border px-3 py-2" required />
+        <Campo
+          label="Título do projecto"
+          name="titulo"
+          erro={state.fieldErrors?.titulo}
+        >
+          <input
+            id="titulo"
+            name="titulo"
+            className="w-full rounded border px-3 py-2"
+            required
+          />
         </Campo>
 
-        <Campo label="Descrição" name="descricao" erro={state.fieldErrors?.descricao}>
+        <Campo
+          label="Descrição"
+          name="descricao"
+          erro={state.fieldErrors?.descricao}
+        >
           <textarea
             id="descricao"
             name="descricao"
@@ -35,7 +55,11 @@ export default function PublicarLancamentoPage() {
         </Campo>
 
         <div className="grid grid-cols-2 gap-4">
-          <Campo label="Categoria" name="categoria" erro={state.fieldErrors?.categoria}>
+          <Campo
+            label="Categoria"
+            name="categoria"
+            erro={state.fieldErrors?.categoria}
+          >
             <input
               id="categoria"
               name="categoria"
@@ -56,7 +80,11 @@ export default function PublicarLancamentoPage() {
           </Campo>
         </div>
 
-        <Campo label="Localização" name="localizacao" erro={state.fieldErrors?.localizacao}>
+        <Campo
+          label="Localização"
+          name="localizacao"
+          erro={state.fieldErrors?.localizacao}
+        >
           <input
             id="localizacao"
             name="localizacao"
