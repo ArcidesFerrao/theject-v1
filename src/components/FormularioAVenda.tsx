@@ -2,33 +2,34 @@
 
 import { useActionState } from "react";
 import {
-  publicarLancamento,
+  publicarAVenda,
   type PublicarProjectoState,
 } from "@/lib/actions/projeto-actions";
 import { Campo } from "@/components/Campo";
 
 const initialState: PublicarProjectoState = {};
 
-export default function PublicarLancamentoPage() {
+export function FormularioAVenda() {
   const [state, formAction, pending] = useActionState(
-    publicarLancamento,
+    publicarAVenda,
     initialState,
   );
 
   return (
     <main className="mx-auto flex min-h-screen max-w-xl flex-col gap-6 px-4 py-12">
       <div>
-        <h1 className="text-2xl font-semibold">Publicar um Lançamento</h1>
+        <h1 className="text-2xl font-semibold">Publicar em À Venda</h1>
         <p className="mt-1 text-sm text-gray-600">
-          Novos projectos a estrear ou prestes a estrear. Depois de submeteres,
-          a listagem fica &quot;pendente de revisão&quot; até à aprovação
-          editorial.
+          Negócios lucrativos à venda. É a secção com o processo mais rigoroso —
+          verificação de rendimentos, e mais tarde NDA para quem quiser ver
+          dados sensíveis. A taxa de listagem fica para quando activarmos os
+          pagamentos; por agora a submissão é gratuita.
         </p>
       </div>
 
       <form action={formAction} className="flex flex-col gap-4">
         <Campo
-          label="Título do projecto"
+          label="Título do negócio"
           name="titulo"
           erro={state.fieldErrors?.titulo}
         >
@@ -50,7 +51,7 @@ export default function PublicarLancamentoPage() {
             name="descricao"
             rows={5}
             className="w-full rounded border px-3 py-2"
-            placeholder="O que é, para quem é, o que resolve..."
+            placeholder="O que faz o negócio, porque está à venda, o que está incluído..."
             required
           />
         </Campo>
@@ -65,7 +66,7 @@ export default function PublicarLancamentoPage() {
               id="categoria"
               name="categoria"
               className="w-full rounded border px-3 py-2"
-              placeholder="ex: Tecnologia"
+              placeholder="ex: Comércio"
               required
             />
           </Campo>
@@ -75,7 +76,7 @@ export default function PublicarLancamentoPage() {
               id="sector"
               name="sector"
               className="w-full rounded border px-3 py-2"
-              placeholder="ex: Fintech"
+              placeholder="ex: Agro"
               required
             />
           </Campo>
@@ -96,30 +97,35 @@ export default function PublicarLancamentoPage() {
         </Campo>
 
         <Campo
-          label="Data de lançamento"
-          name="dataLancamento"
-          erro={state.fieldErrors?.dataLancamento}
+          label="Faixa de preço"
+          name="faixaPreco"
+          erro={state.fieldErrors?.faixaPreco}
         >
           <input
-            id="dataLancamento"
-            name="dataLancamento"
-            type="date"
+            id="faixaPreco"
+            name="faixaPreco"
             className="w-full rounded border px-3 py-2"
+            placeholder="ex: 500.000 - 800.000 MZN"
             required
           />
+          <p className="mt-1 text-xs text-gray-400">
+            Aparece publicamente no teaser — os valores exactos ficam para
+            depois do NDA.
+          </p>
         </Campo>
 
         <Campo
-          label="Link do site/produto (opcional)"
-          name="linkSite"
-          erro={state.fieldErrors?.linkSite}
+          label="Prova de rendimentos"
+          name="notaVerificacao"
+          erro={state.fieldErrors?.notaVerificacao}
         >
-          <input
-            id="linkSite"
-            name="linkSite"
-            type="url"
+          <textarea
+            id="notaVerificacao"
+            name="notaVerificacao"
+            rows={3}
             className="w-full rounded border px-3 py-2"
-            placeholder="https://..."
+            placeholder="ex: facturação, lucro, clientes recorrentes..."
+            required
           />
         </Campo>
 

@@ -2,27 +2,28 @@
 
 import { useActionState } from "react";
 import {
-  publicarLancamento,
+  publicarEmFuncionamento,
   type PublicarProjectoState,
 } from "@/lib/actions/projeto-actions";
 import { Campo } from "@/components/Campo";
 
 const initialState: PublicarProjectoState = {};
 
-export default function PublicarLancamentoPage() {
+export function FormularioEmFuncionamento() {
   const [state, formAction, pending] = useActionState(
-    publicarLancamento,
+    publicarEmFuncionamento,
     initialState,
   );
 
   return (
     <main className="mx-auto flex min-h-screen max-w-xl flex-col gap-6 px-4 py-12">
       <div>
-        <h1 className="text-2xl font-semibold">Publicar um Lançamento</h1>
+        <h1 className="text-2xl font-semibold">
+          Publicar em Empresas em Funcionamento
+        </h1>
         <p className="mt-1 text-sm text-gray-600">
-          Novos projectos a estrear ou prestes a estrear. Depois de submeteres,
-          a listagem fica &quot;pendente de revisão&quot; até à aprovação
-          editorial.
+          Negócios activos — o foco é o que fazem, não quanto ganham. Exige
+          verificação de documentação/actividade (não de receita).
         </p>
       </div>
 
@@ -50,7 +51,7 @@ export default function PublicarLancamentoPage() {
             name="descricao"
             rows={5}
             className="w-full rounded border px-3 py-2"
-            placeholder="O que é, para quem é, o que resolve..."
+            placeholder="O que faz o negócio, desde quando opera, equipa..."
             required
           />
         </Campo>
@@ -65,7 +66,7 @@ export default function PublicarLancamentoPage() {
               id="categoria"
               name="categoria"
               className="w-full rounded border px-3 py-2"
-              placeholder="ex: Tecnologia"
+              placeholder="ex: Serviços"
               required
             />
           </Campo>
@@ -75,7 +76,7 @@ export default function PublicarLancamentoPage() {
               id="sector"
               name="sector"
               className="w-full rounded border px-3 py-2"
-              placeholder="ex: Fintech"
+              placeholder="ex: Consultoria"
               required
             />
           </Campo>
@@ -90,37 +91,28 @@ export default function PublicarLancamentoPage() {
             id="localizacao"
             name="localizacao"
             className="w-full rounded border px-3 py-2"
-            placeholder="ex: Maputo"
+            placeholder="ex: Nampula"
             required
           />
         </Campo>
 
         <Campo
-          label="Data de lançamento"
-          name="dataLancamento"
-          erro={state.fieldErrors?.dataLancamento}
+          label="Prova de documentação/actividade"
+          name="notaVerificacao"
+          erro={state.fieldErrors?.notaVerificacao}
         >
-          <input
-            id="dataLancamento"
-            name="dataLancamento"
-            type="date"
+          <textarea
+            id="notaVerificacao"
+            name="notaVerificacao"
+            rows={3}
             className="w-full rounded border px-3 py-2"
+            placeholder="ex: número de registo/alvará, NUIT da empresa, licença de actividade..."
             required
           />
-        </Campo>
-
-        <Campo
-          label="Link do site/produto (opcional)"
-          name="linkSite"
-          erro={state.fieldErrors?.linkSite}
-        >
-          <input
-            id="linkSite"
-            name="linkSite"
-            type="url"
-            className="w-full rounded border px-3 py-2"
-            placeholder="https://..."
-          />
+          <p className="mt-1 text-xs text-gray-400">
+            Por agora é só descrição — o upload de documentos comprovativos
+            chega numa fase seguinte do produto.
+          </p>
         </Campo>
 
         {state.error && <p className="text-sm text-red-600">{state.error}</p>}

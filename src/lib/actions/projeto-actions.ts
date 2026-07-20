@@ -48,6 +48,21 @@ async function garantirFounder(userId: string, role: string) {
   }
 }
 
+/**
+ * Bloqueia a publicação nas secções que exigem verificação de identidade
+ * (secção 5 do guia: Em Alta, Empresas em Funcionamento, À Venda).
+ * Devolve uma mensagem de erro se o KYC ainda não estiver aprovado, ou
+ * null se estiver tudo certo.
+ */
+async function exigirKycAprovado(userId: string): Promise<string | null> {
+  const user = await db.user.findUnique({ where: { id: userId }, select: { kycStatus: true } });
+  console.log("exigindo KYC aprovado, mas status do user:", user?.kycStatus);
+  if (user?.kycStatus !== "aprovado") {
+    return "Esta secção exige verificação de identidade aprovada. Submete os teus dados em /dashboard/kyc e aguarda a aprovação da equipa editorial.";
+  }
+  return null;
+}
+
 // ---------------------------------------------------------------------------
 // LANÇAMENTOS — sem prova de receita/documentação exigida (secção 5 do guia)
 // ---------------------------------------------------------------------------
@@ -154,6 +169,9 @@ export async function publicarEmAlta(
 
   await garantirFounder(session.user.id, session.user.role);
 
+  const bloqueioKyc = await exigirKycAprovado(session.user.id);
+  if (bloqueioKyc) return { error: bloqueioKyc };
+
   const projecto = await db.project.create({
     data: {
       ...parsed.data,
@@ -193,6 +211,9 @@ export async function publicarEmFuncionamento(
   if (!parsed.success) return { fieldErrors: issuesParaFieldErrors(parsed.error.issues) };
 
   await garantirFounder(session.user.id, session.user.role);
+
+  const bloqueioKyc = await exigirKycAprovado(session.user.id);
+  if (bloqueioKyc) return { error: bloqueioKyc };
 
   const projecto = await db.project.create({
     data: {
@@ -236,6 +257,9 @@ export async function publicarAVenda(
   if (!parsed.success) return { fieldErrors: issuesParaFieldErrors(parsed.error.issues) };
 
   await garantirFounder(session.user.id, session.user.role);
+
+  const bloqueioKyc = await exigirKycAprovado(session.user.id);
+  if (bloqueioKyc) return { error: bloqueioKyc };
 
   const projecto = await db.project.create({
     data: {
