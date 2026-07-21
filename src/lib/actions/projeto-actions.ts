@@ -75,6 +75,7 @@ const lancamentoSchema = z.object({
     .url("Tem de ser um link válido (com https://)")
     .optional()
     .or(z.literal("")),
+  dadosSensiveis: z.string().optional().or(z.literal("")),
 });
 
 export async function publicarLancamento(
@@ -88,18 +89,20 @@ export async function publicarLancamento(
     ...lerCamposBase(formData),
     dataLancamento: formData.get("dataLancamento"),
     linkSite: formData.get("linkSite"),
+    dadosSensiveis: formData.get("dadosSensiveis"),
   });
 
   if (!parsed.success) return { fieldErrors: issuesParaFieldErrors(parsed.error.issues) };
 
   await garantirFounder(session.user.id, session.user.role);
 
-  const { linkSite, ...resto } = parsed.data;
+  const { linkSite, dadosSensiveis, ...resto } = parsed.data;
 
   const projecto = await db.project.create({
     data: {
       ...resto,
       linkSite: linkSite || null,
+      dadosSensiveis: dadosSensiveis || null,
       ownerId: session.user.id,
       seccao: "lancamento",
       estado: "pendente_revisao", // taxa de publicação fica para a fase "Pagamentos"

@@ -6785,6 +6785,7 @@ export namespace Prisma {
     dataLancamento: Date | null
     linkSite: string | null
     notaVerificacao: string | null
+    dadosSensiveis: string | null
     faixaPreco: string | null
     criadoEm: Date | null
   }
@@ -6805,6 +6806,7 @@ export namespace Prisma {
     dataLancamento: Date | null
     linkSite: string | null
     notaVerificacao: string | null
+    dadosSensiveis: string | null
     faixaPreco: string | null
     criadoEm: Date | null
   }
@@ -6825,6 +6827,7 @@ export namespace Prisma {
     dataLancamento: number
     linkSite: number
     notaVerificacao: number
+    dadosSensiveis: number
     faixaPreco: number
     criadoEm: number
     _all: number
@@ -6847,6 +6850,7 @@ export namespace Prisma {
     dataLancamento?: true
     linkSite?: true
     notaVerificacao?: true
+    dadosSensiveis?: true
     faixaPreco?: true
     criadoEm?: true
   }
@@ -6867,6 +6871,7 @@ export namespace Prisma {
     dataLancamento?: true
     linkSite?: true
     notaVerificacao?: true
+    dadosSensiveis?: true
     faixaPreco?: true
     criadoEm?: true
   }
@@ -6887,6 +6892,7 @@ export namespace Prisma {
     dataLancamento?: true
     linkSite?: true
     notaVerificacao?: true
+    dadosSensiveis?: true
     faixaPreco?: true
     criadoEm?: true
     _all?: true
@@ -6980,6 +6986,7 @@ export namespace Prisma {
     dataLancamento: Date | null
     linkSite: string | null
     notaVerificacao: string | null
+    dadosSensiveis: string | null
     faixaPreco: string | null
     criadoEm: Date
     _count: ProjectCountAggregateOutputType | null
@@ -7017,6 +7024,7 @@ export namespace Prisma {
     dataLancamento?: boolean
     linkSite?: boolean
     notaVerificacao?: boolean
+    dadosSensiveis?: boolean
     faixaPreco?: boolean
     criadoEm?: boolean
     owner?: boolean | UserDefaultArgs<ExtArgs>
@@ -7046,6 +7054,7 @@ export namespace Prisma {
     dataLancamento?: boolean
     linkSite?: boolean
     notaVerificacao?: boolean
+    dadosSensiveis?: boolean
     faixaPreco?: boolean
     criadoEm?: boolean
     owner?: boolean | UserDefaultArgs<ExtArgs>
@@ -7067,6 +7076,7 @@ export namespace Prisma {
     dataLancamento?: boolean
     linkSite?: boolean
     notaVerificacao?: boolean
+    dadosSensiveis?: boolean
     faixaPreco?: boolean
     criadoEm?: boolean
     owner?: boolean | UserDefaultArgs<ExtArgs>
@@ -7088,11 +7098,12 @@ export namespace Prisma {
     dataLancamento?: boolean
     linkSite?: boolean
     notaVerificacao?: boolean
+    dadosSensiveis?: boolean
     faixaPreco?: boolean
     criadoEm?: boolean
   }
 
-  export type ProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "ownerId" | "seccao" | "titulo" | "descricao" | "categoria" | "sector" | "localizacao" | "nivelVerificacao" | "estado" | "motivoRejeicao" | "boostActivoAte" | "dataLancamento" | "linkSite" | "notaVerificacao" | "faixaPreco" | "criadoEm", ExtArgs["result"]["project"]>
+  export type ProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "ownerId" | "seccao" | "titulo" | "descricao" | "categoria" | "sector" | "localizacao" | "nivelVerificacao" | "estado" | "motivoRejeicao" | "boostActivoAte" | "dataLancamento" | "linkSite" | "notaVerificacao" | "dadosSensiveis" | "faixaPreco" | "criadoEm", ExtArgs["result"]["project"]>
   export type ProjectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     owner?: boolean | UserDefaultArgs<ExtArgs>
     checklists?: boolean | Project$checklistsArgs<ExtArgs>
@@ -7139,6 +7150,7 @@ export namespace Prisma {
       dataLancamento: Date | null
       linkSite: string | null
       notaVerificacao: string | null
+      dadosSensiveis: string | null
       faixaPreco: string | null
       criadoEm: Date
     }, ExtArgs["result"]["project"]>
@@ -7587,6 +7599,7 @@ export namespace Prisma {
     readonly dataLancamento: FieldRef<"Project", 'DateTime'>
     readonly linkSite: FieldRef<"Project", 'String'>
     readonly notaVerificacao: FieldRef<"Project", 'String'>
+    readonly dadosSensiveis: FieldRef<"Project", 'String'>
     readonly faixaPreco: FieldRef<"Project", 'String'>
     readonly criadoEm: FieldRef<"Project", 'DateTime'>
   }
@@ -16940,6 +16953,7 @@ export namespace Prisma {
     dataLancamento: 'dataLancamento',
     linkSite: 'linkSite',
     notaVerificacao: 'notaVerificacao',
+    dadosSensiveis: 'dadosSensiveis',
     faixaPreco: 'faixaPreco',
     criadoEm: 'criadoEm'
   };
@@ -17518,6 +17532,7 @@ export namespace Prisma {
     dataLancamento?: DateTimeNullableFilter<"Project"> | Date | string | null
     linkSite?: StringNullableFilter<"Project"> | string | null
     notaVerificacao?: StringNullableFilter<"Project"> | string | null
+    dadosSensiveis?: StringNullableFilter<"Project"> | string | null
     faixaPreco?: StringNullableFilter<"Project"> | string | null
     criadoEm?: DateTimeFilter<"Project"> | Date | string
     owner?: XOR<UserScalarRelationFilter, UserWhereInput>
@@ -17546,6 +17561,7 @@ export namespace Prisma {
     dataLancamento?: SortOrderInput | SortOrder
     linkSite?: SortOrderInput | SortOrder
     notaVerificacao?: SortOrderInput | SortOrder
+    dadosSensiveis?: SortOrderInput | SortOrder
     faixaPreco?: SortOrderInput | SortOrder
     criadoEm?: SortOrder
     owner?: UserOrderByWithRelationInput
@@ -17577,6 +17593,7 @@ export namespace Prisma {
     dataLancamento?: DateTimeNullableFilter<"Project"> | Date | string | null
     linkSite?: StringNullableFilter<"Project"> | string | null
     notaVerificacao?: StringNullableFilter<"Project"> | string | null
+    dadosSensiveis?: StringNullableFilter<"Project"> | string | null
     faixaPreco?: StringNullableFilter<"Project"> | string | null
     criadoEm?: DateTimeFilter<"Project"> | Date | string
     owner?: XOR<UserScalarRelationFilter, UserWhereInput>
@@ -17605,6 +17622,7 @@ export namespace Prisma {
     dataLancamento?: SortOrderInput | SortOrder
     linkSite?: SortOrderInput | SortOrder
     notaVerificacao?: SortOrderInput | SortOrder
+    dadosSensiveis?: SortOrderInput | SortOrder
     faixaPreco?: SortOrderInput | SortOrder
     criadoEm?: SortOrder
     _count?: ProjectCountOrderByAggregateInput
@@ -17631,6 +17649,7 @@ export namespace Prisma {
     dataLancamento?: DateTimeNullableWithAggregatesFilter<"Project"> | Date | string | null
     linkSite?: StringNullableWithAggregatesFilter<"Project"> | string | null
     notaVerificacao?: StringNullableWithAggregatesFilter<"Project"> | string | null
+    dadosSensiveis?: StringNullableWithAggregatesFilter<"Project"> | string | null
     faixaPreco?: StringNullableWithAggregatesFilter<"Project"> | string | null
     criadoEm?: DateTimeWithAggregatesFilter<"Project"> | Date | string
   }
@@ -18464,6 +18483,7 @@ export namespace Prisma {
     dataLancamento?: Date | string | null
     linkSite?: string | null
     notaVerificacao?: string | null
+    dadosSensiveis?: string | null
     faixaPreco?: string | null
     criadoEm?: Date | string
     owner: UserCreateNestedOneWithoutProjectsInput
@@ -18492,6 +18512,7 @@ export namespace Prisma {
     dataLancamento?: Date | string | null
     linkSite?: string | null
     notaVerificacao?: string | null
+    dadosSensiveis?: string | null
     faixaPreco?: string | null
     criadoEm?: Date | string
     checklists?: VerificationChecklistUncheckedCreateNestedManyWithoutProjectInput
@@ -18518,6 +18539,7 @@ export namespace Prisma {
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
     notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
     faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     owner?: UserUpdateOneRequiredWithoutProjectsNestedInput
@@ -18546,6 +18568,7 @@ export namespace Prisma {
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
     notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
     faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     checklists?: VerificationChecklistUncheckedUpdateManyWithoutProjectNestedInput
@@ -18573,6 +18596,7 @@ export namespace Prisma {
     dataLancamento?: Date | string | null
     linkSite?: string | null
     notaVerificacao?: string | null
+    dadosSensiveis?: string | null
     faixaPreco?: string | null
     criadoEm?: Date | string
   }
@@ -18592,6 +18616,7 @@ export namespace Prisma {
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
     notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
     faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -18612,6 +18637,7 @@ export namespace Prisma {
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
     notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
     faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -19574,6 +19600,7 @@ export namespace Prisma {
     dataLancamento?: SortOrder
     linkSite?: SortOrder
     notaVerificacao?: SortOrder
+    dadosSensiveis?: SortOrder
     faixaPreco?: SortOrder
     criadoEm?: SortOrder
   }
@@ -19594,6 +19621,7 @@ export namespace Prisma {
     dataLancamento?: SortOrder
     linkSite?: SortOrder
     notaVerificacao?: SortOrder
+    dadosSensiveis?: SortOrder
     faixaPreco?: SortOrder
     criadoEm?: SortOrder
   }
@@ -19614,6 +19642,7 @@ export namespace Prisma {
     dataLancamento?: SortOrder
     linkSite?: SortOrder
     notaVerificacao?: SortOrder
+    dadosSensiveis?: SortOrder
     faixaPreco?: SortOrder
     criadoEm?: SortOrder
   }
@@ -21174,6 +21203,7 @@ export namespace Prisma {
     dataLancamento?: Date | string | null
     linkSite?: string | null
     notaVerificacao?: string | null
+    dadosSensiveis?: string | null
     faixaPreco?: string | null
     criadoEm?: Date | string
     checklists?: VerificationChecklistCreateNestedManyWithoutProjectInput
@@ -21200,6 +21230,7 @@ export namespace Prisma {
     dataLancamento?: Date | string | null
     linkSite?: string | null
     notaVerificacao?: string | null
+    dadosSensiveis?: string | null
     faixaPreco?: string | null
     criadoEm?: Date | string
     checklists?: VerificationChecklistUncheckedCreateNestedManyWithoutProjectInput
@@ -21441,6 +21472,7 @@ export namespace Prisma {
     dataLancamento?: DateTimeNullableFilter<"Project"> | Date | string | null
     linkSite?: StringNullableFilter<"Project"> | string | null
     notaVerificacao?: StringNullableFilter<"Project"> | string | null
+    dadosSensiveis?: StringNullableFilter<"Project"> | string | null
     faixaPreco?: StringNullableFilter<"Project"> | string | null
     criadoEm?: DateTimeFilter<"Project"> | Date | string
   }
@@ -22228,6 +22260,7 @@ export namespace Prisma {
     dataLancamento?: Date | string | null
     linkSite?: string | null
     notaVerificacao?: string | null
+    dadosSensiveis?: string | null
     faixaPreco?: string | null
     criadoEm?: Date | string
     owner: UserCreateNestedOneWithoutProjectsInput
@@ -22255,6 +22288,7 @@ export namespace Prisma {
     dataLancamento?: Date | string | null
     linkSite?: string | null
     notaVerificacao?: string | null
+    dadosSensiveis?: string | null
     faixaPreco?: string | null
     criadoEm?: Date | string
     reactions?: ReactionUncheckedCreateNestedManyWithoutProjectInput
@@ -22296,6 +22330,7 @@ export namespace Prisma {
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
     notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
     faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     owner?: UserUpdateOneRequiredWithoutProjectsNestedInput
@@ -22323,6 +22358,7 @@ export namespace Prisma {
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
     notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
     faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     reactions?: ReactionUncheckedUpdateManyWithoutProjectNestedInput
@@ -22348,6 +22384,7 @@ export namespace Prisma {
     dataLancamento?: Date | string | null
     linkSite?: string | null
     notaVerificacao?: string | null
+    dadosSensiveis?: string | null
     faixaPreco?: string | null
     criadoEm?: Date | string
     owner: UserCreateNestedOneWithoutProjectsInput
@@ -22375,6 +22412,7 @@ export namespace Prisma {
     dataLancamento?: Date | string | null
     linkSite?: string | null
     notaVerificacao?: string | null
+    dadosSensiveis?: string | null
     faixaPreco?: string | null
     criadoEm?: Date | string
     checklists?: VerificationChecklistUncheckedCreateNestedManyWithoutProjectInput
@@ -22463,6 +22501,7 @@ export namespace Prisma {
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
     notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
     faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     owner?: UserUpdateOneRequiredWithoutProjectsNestedInput
@@ -22490,6 +22529,7 @@ export namespace Prisma {
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
     notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
     faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     checklists?: VerificationChecklistUncheckedUpdateManyWithoutProjectNestedInput
@@ -22568,6 +22608,7 @@ export namespace Prisma {
     dataLancamento?: Date | string | null
     linkSite?: string | null
     notaVerificacao?: string | null
+    dadosSensiveis?: string | null
     faixaPreco?: string | null
     criadoEm?: Date | string
     owner: UserCreateNestedOneWithoutProjectsInput
@@ -22595,6 +22636,7 @@ export namespace Prisma {
     dataLancamento?: Date | string | null
     linkSite?: string | null
     notaVerificacao?: string | null
+    dadosSensiveis?: string | null
     faixaPreco?: string | null
     criadoEm?: Date | string
     checklists?: VerificationChecklistUncheckedCreateNestedManyWithoutProjectInput
@@ -22683,6 +22725,7 @@ export namespace Prisma {
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
     notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
     faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     owner?: UserUpdateOneRequiredWithoutProjectsNestedInput
@@ -22710,6 +22753,7 @@ export namespace Prisma {
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
     notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
     faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     checklists?: VerificationChecklistUncheckedUpdateManyWithoutProjectNestedInput
@@ -22788,6 +22832,7 @@ export namespace Prisma {
     dataLancamento?: Date | string | null
     linkSite?: string | null
     notaVerificacao?: string | null
+    dadosSensiveis?: string | null
     faixaPreco?: string | null
     criadoEm?: Date | string
     owner: UserCreateNestedOneWithoutProjectsInput
@@ -22815,6 +22860,7 @@ export namespace Prisma {
     dataLancamento?: Date | string | null
     linkSite?: string | null
     notaVerificacao?: string | null
+    dadosSensiveis?: string | null
     faixaPreco?: string | null
     criadoEm?: Date | string
     checklists?: VerificationChecklistUncheckedCreateNestedManyWithoutProjectInput
@@ -22903,6 +22949,7 @@ export namespace Prisma {
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
     notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
     faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     owner?: UserUpdateOneRequiredWithoutProjectsNestedInput
@@ -22930,6 +22977,7 @@ export namespace Prisma {
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
     notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
     faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     checklists?: VerificationChecklistUncheckedUpdateManyWithoutProjectNestedInput
@@ -23008,6 +23056,7 @@ export namespace Prisma {
     dataLancamento?: Date | string | null
     linkSite?: string | null
     notaVerificacao?: string | null
+    dadosSensiveis?: string | null
     faixaPreco?: string | null
     criadoEm?: Date | string
     owner: UserCreateNestedOneWithoutProjectsInput
@@ -23035,6 +23084,7 @@ export namespace Prisma {
     dataLancamento?: Date | string | null
     linkSite?: string | null
     notaVerificacao?: string | null
+    dadosSensiveis?: string | null
     faixaPreco?: string | null
     criadoEm?: Date | string
     checklists?: VerificationChecklistUncheckedCreateNestedManyWithoutProjectInput
@@ -23123,6 +23173,7 @@ export namespace Prisma {
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
     notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
     faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     owner?: UserUpdateOneRequiredWithoutProjectsNestedInput
@@ -23150,6 +23201,7 @@ export namespace Prisma {
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
     notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
     faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     checklists?: VerificationChecklistUncheckedUpdateManyWithoutProjectNestedInput
@@ -23228,6 +23280,7 @@ export namespace Prisma {
     dataLancamento?: Date | string | null
     linkSite?: string | null
     notaVerificacao?: string | null
+    dadosSensiveis?: string | null
     faixaPreco?: string | null
     criadoEm?: Date | string
     owner: UserCreateNestedOneWithoutProjectsInput
@@ -23255,6 +23308,7 @@ export namespace Prisma {
     dataLancamento?: Date | string | null
     linkSite?: string | null
     notaVerificacao?: string | null
+    dadosSensiveis?: string | null
     faixaPreco?: string | null
     criadoEm?: Date | string
     checklists?: VerificationChecklistUncheckedCreateNestedManyWithoutProjectInput
@@ -23296,6 +23350,7 @@ export namespace Prisma {
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
     notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
     faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     owner?: UserUpdateOneRequiredWithoutProjectsNestedInput
@@ -23323,6 +23378,7 @@ export namespace Prisma {
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
     notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
     faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     checklists?: VerificationChecklistUncheckedUpdateManyWithoutProjectNestedInput
@@ -23448,6 +23504,7 @@ export namespace Prisma {
     dataLancamento?: Date | string | null
     linkSite?: string | null
     notaVerificacao?: string | null
+    dadosSensiveis?: string | null
     faixaPreco?: string | null
     criadoEm?: Date | string
     owner: UserCreateNestedOneWithoutProjectsInput
@@ -23475,6 +23532,7 @@ export namespace Prisma {
     dataLancamento?: Date | string | null
     linkSite?: string | null
     notaVerificacao?: string | null
+    dadosSensiveis?: string | null
     faixaPreco?: string | null
     criadoEm?: Date | string
     checklists?: VerificationChecklistUncheckedCreateNestedManyWithoutProjectInput
@@ -23516,6 +23574,7 @@ export namespace Prisma {
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
     notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
     faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     owner?: UserUpdateOneRequiredWithoutProjectsNestedInput
@@ -23543,6 +23602,7 @@ export namespace Prisma {
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
     notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
     faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     checklists?: VerificationChecklistUncheckedUpdateManyWithoutProjectNestedInput
@@ -23588,6 +23648,7 @@ export namespace Prisma {
     dataLancamento?: Date | string | null
     linkSite?: string | null
     notaVerificacao?: string | null
+    dadosSensiveis?: string | null
     faixaPreco?: string | null
     criadoEm?: Date | string
   }
@@ -23701,6 +23762,7 @@ export namespace Prisma {
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
     notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
     faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     checklists?: VerificationChecklistUpdateManyWithoutProjectNestedInput
@@ -23727,6 +23789,7 @@ export namespace Prisma {
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
     notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
     faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     checklists?: VerificationChecklistUncheckedUpdateManyWithoutProjectNestedInput
@@ -23753,6 +23816,7 @@ export namespace Prisma {
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
     notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
     faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
   }

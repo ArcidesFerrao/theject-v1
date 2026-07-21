@@ -178,6 +178,7 @@ exports.Prisma.ProjectScalarFieldEnum = {
   dataLancamento: 'dataLancamento',
   linkSite: 'linkSite',
   notaVerificacao: 'notaVerificacao',
+  dadosSensiveis: 'dadosSensiveis',
   faixaPreco: 'faixaPreco',
   criadoEm: 'criadoEm'
 };

@@ -155,6 +155,9 @@ model Project {
   // de documentos e o checklist estruturado ficam para a fase NDA/KYC)
   notaVerificacao String?
 
+  // Campo específico — Em Alta / À Venda: só visível após aceitação do NDA
+  dadosSensiveis String?
+
   // Campo específico — À Venda (info pública no teaser, secção 10 do guia)
   faixaPreco String?
 

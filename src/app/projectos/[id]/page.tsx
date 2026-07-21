@@ -1,6 +1,9 @@
 import { notFound } from "next/navigation";
 import { db } from "@/lib/prisma";
 import { labelDaSeccao } from "@/lib/seccoes";
+import { auth } from "@/auth";
+import { NdaAcceptButton } from "@/components/NdaAcceptButton";
+import Link from "next/link";
 
 export default async function ProjectoPublicoPage({
   params,
@@ -17,7 +20,16 @@ export default async function ProjectoPublicoPage({
   // Não expõe rascunhos/pendentes/rejeitados ao público — só o dono os vê,
   // em /dashboard/projectos/[id].
   if (!projecto || projecto.estado !== "publicado") notFound();
-
+  const session = await auth();
+  const seccaoExigeNda =
+    projecto.seccao === "em_alta" || projecto.seccao === "a_venda";
+  let ndaAceite = false;
+  if (seccaoExigeNda && session?.user) {
+    const nda = await db.nDA.findFirst({
+      where: { projectId: projecto.id, buyerId: session.user.id },
+    });
+    ndaAceite = !!nda;
+  }
   return (
     <main className="mx-auto max-w-2xl px-4 py-12">
       <span className="text-xs font-medium uppercase text-gray-400">
@@ -78,7 +90,33 @@ export default async function ProjectoPublicoPage({
             <dd>{projecto.faixaPreco}</dd>
           </div>
         )}
+        {projecto.dadosSensiveis && (
+          <div className="col-span-2">
+            <dt className="text-gray-500">Dados sensíveis</dt>
+            <dd>{projecto.dadosSensiveis}</dd>
+          </div>
+        )}
       </dl>
+      {seccaoExigeNda && (
+        <section className="mt-8 rounded border p-4">
+          <h2 className="font-semibold">Dados sensíveis</h2>
+          {ndaAceite ? (
+            <p className="mt-2 whitespace-pre-wrap text-gray-700">
+              {projecto.dadosSensiveis ??
+                "O fundador ainda não adicionou dados sensíveis."}
+            </p>
+          ) : session?.user ? (
+            <NdaAcceptButton projectId={projecto.id} />
+          ) : (
+            <p className="mt-2 text-sm text-gray-600">
+              <Link href="/entrar" className="font-medium text-[#1D9E75]">
+                Inicia sessão
+              </Link>{" "}
+              para pedir acesso aos dados sensíveis.
+            </p>
+          )}
+        </section>
+      )}
     </main>
   );
 }
