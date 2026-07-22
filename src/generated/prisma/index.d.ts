@@ -2224,6 +2224,7 @@ export namespace Prisma {
     telefone: string | null
     biNuit: string | null
     kycStatus: $Enums.KycStatus | null
+    kycMotivoRejeicao: string | null
     criadoEm: Date | null
   }
 
@@ -2238,6 +2239,7 @@ export namespace Prisma {
     telefone: string | null
     biNuit: string | null
     kycStatus: $Enums.KycStatus | null
+    kycMotivoRejeicao: string | null
     criadoEm: Date | null
   }
 
@@ -2252,6 +2254,7 @@ export namespace Prisma {
     telefone: number
     biNuit: number
     kycStatus: number
+    kycMotivoRejeicao: number
     criadoEm: number
     _all: number
   }
@@ -2268,6 +2271,7 @@ export namespace Prisma {
     telefone?: true
     biNuit?: true
     kycStatus?: true
+    kycMotivoRejeicao?: true
     criadoEm?: true
   }
 
@@ -2282,6 +2286,7 @@ export namespace Prisma {
     telefone?: true
     biNuit?: true
     kycStatus?: true
+    kycMotivoRejeicao?: true
     criadoEm?: true
   }
 
@@ -2296,6 +2301,7 @@ export namespace Prisma {
     telefone?: true
     biNuit?: true
     kycStatus?: true
+    kycMotivoRejeicao?: true
     criadoEm?: true
     _all?: true
   }
@@ -2383,6 +2389,7 @@ export namespace Prisma {
     telefone: string | null
     biNuit: string | null
     kycStatus: $Enums.KycStatus
+    kycMotivoRejeicao: string | null
     criadoEm: Date
     _count: UserCountAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
@@ -2414,6 +2421,7 @@ export namespace Prisma {
     telefone?: boolean
     biNuit?: boolean
     kycStatus?: boolean
+    kycMotivoRejeicao?: boolean
     criadoEm?: boolean
     accounts?: boolean | User$accountsArgs<ExtArgs>
     sessions?: boolean | User$sessionsArgs<ExtArgs>
@@ -2437,6 +2445,7 @@ export namespace Prisma {
     telefone?: boolean
     biNuit?: boolean
     kycStatus?: boolean
+    kycMotivoRejeicao?: boolean
     criadoEm?: boolean
   }, ExtArgs["result"]["user"]>
 
@@ -2451,6 +2460,7 @@ export namespace Prisma {
     telefone?: boolean
     biNuit?: boolean
     kycStatus?: boolean
+    kycMotivoRejeicao?: boolean
     criadoEm?: boolean
   }, ExtArgs["result"]["user"]>
 
@@ -2465,10 +2475,11 @@ export namespace Prisma {
     telefone?: boolean
     biNuit?: boolean
     kycStatus?: boolean
+    kycMotivoRejeicao?: boolean
     criadoEm?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "emailVerified" | "image" | "passwordHash" | "role" | "telefone" | "biNuit" | "kycStatus" | "criadoEm", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "emailVerified" | "image" | "passwordHash" | "role" | "telefone" | "biNuit" | "kycStatus" | "kycMotivoRejeicao" | "criadoEm", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     accounts?: boolean | User$accountsArgs<ExtArgs>
     sessions?: boolean | User$sessionsArgs<ExtArgs>
@@ -2506,6 +2517,7 @@ export namespace Prisma {
       telefone: string | null
       biNuit: string | null
       kycStatus: $Enums.KycStatus
+      kycMotivoRejeicao: string | null
       criadoEm: Date
     }, ExtArgs["result"]["user"]>
     composites: {}
@@ -2948,6 +2960,7 @@ export namespace Prisma {
     readonly telefone: FieldRef<"User", 'String'>
     readonly biNuit: FieldRef<"User", 'String'>
     readonly kycStatus: FieldRef<"User", 'KycStatus'>
+    readonly kycMotivoRejeicao: FieldRef<"User", 'String'>
     readonly criadoEm: FieldRef<"User", 'DateTime'>
   }
     
@@ -12524,6 +12537,8 @@ export namespace Prisma {
     estado: string | null
     confirmadoPor: string | null
     criadoEm: Date | null
+    referencia: string | null
+    motivoRejeicao: string | null
   }
 
   export type PaymentMaxAggregateOutputType = {
@@ -12536,6 +12551,8 @@ export namespace Prisma {
     estado: string | null
     confirmadoPor: string | null
     criadoEm: Date | null
+    referencia: string | null
+    motivoRejeicao: string | null
   }
 
   export type PaymentCountAggregateOutputType = {
@@ -12548,6 +12565,8 @@ export namespace Prisma {
     estado: number
     confirmadoPor: number
     criadoEm: number
+    referencia: number
+    motivoRejeicao: number
     _all: number
   }
 
@@ -12562,6 +12581,8 @@ export namespace Prisma {
     estado?: true
     confirmadoPor?: true
     criadoEm?: true
+    referencia?: true
+    motivoRejeicao?: true
   }
 
   export type PaymentMaxAggregateInputType = {
@@ -12574,6 +12595,8 @@ export namespace Prisma {
     estado?: true
     confirmadoPor?: true
     criadoEm?: true
+    referencia?: true
+    motivoRejeicao?: true
   }
 
   export type PaymentCountAggregateInputType = {
@@ -12586,6 +12609,8 @@ export namespace Prisma {
     estado?: true
     confirmadoPor?: true
     criadoEm?: true
+    referencia?: true
+    motivoRejeicao?: true
     _all?: true
   }
 
@@ -12671,6 +12696,8 @@ export namespace Prisma {
     estado: string
     confirmadoPor: string | null
     criadoEm: Date
+    referencia: string
+    motivoRejeicao: string | null
     _count: PaymentCountAggregateOutputType | null
     _min: PaymentMinAggregateOutputType | null
     _max: PaymentMaxAggregateOutputType | null
@@ -12700,6 +12727,8 @@ export namespace Prisma {
     estado?: boolean
     confirmadoPor?: boolean
     criadoEm?: boolean
+    referencia?: boolean
+    motivoRejeicao?: boolean
     project?: boolean | Payment$projectArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["payment"]>
@@ -12714,6 +12743,8 @@ export namespace Prisma {
     estado?: boolean
     confirmadoPor?: boolean
     criadoEm?: boolean
+    referencia?: boolean
+    motivoRejeicao?: boolean
     project?: boolean | Payment$projectArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["payment"]>
@@ -12728,6 +12759,8 @@ export namespace Prisma {
     estado?: boolean
     confirmadoPor?: boolean
     criadoEm?: boolean
+    referencia?: boolean
+    motivoRejeicao?: boolean
     project?: boolean | Payment$projectArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["payment"]>
@@ -12742,9 +12775,11 @@ export namespace Prisma {
     estado?: boolean
     confirmadoPor?: boolean
     criadoEm?: boolean
+    referencia?: boolean
+    motivoRejeicao?: boolean
   }
 
-  export type PaymentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "tipo" | "projectId" | "userId" | "metodo" | "comprovativoUrl" | "estado" | "confirmadoPor" | "criadoEm", ExtArgs["result"]["payment"]>
+  export type PaymentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "tipo" | "projectId" | "userId" | "metodo" | "comprovativoUrl" | "estado" | "confirmadoPor" | "criadoEm" | "referencia" | "motivoRejeicao", ExtArgs["result"]["payment"]>
   export type PaymentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     project?: boolean | Payment$projectArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -12774,6 +12809,8 @@ export namespace Prisma {
       estado: string
       confirmadoPor: string | null
       criadoEm: Date
+      referencia: string
+      motivoRejeicao: string | null
     }, ExtArgs["result"]["payment"]>
     composites: {}
   }
@@ -13208,6 +13245,8 @@ export namespace Prisma {
     readonly estado: FieldRef<"Payment", 'String'>
     readonly confirmadoPor: FieldRef<"Payment", 'String'>
     readonly criadoEm: FieldRef<"Payment", 'DateTime'>
+    readonly referencia: FieldRef<"Payment", 'String'>
+    readonly motivoRejeicao: FieldRef<"Payment", 'String'>
   }
     
 
@@ -16894,6 +16933,7 @@ export namespace Prisma {
     telefone: 'telefone',
     biNuit: 'biNuit',
     kycStatus: 'kycStatus',
+    kycMotivoRejeicao: 'kycMotivoRejeicao',
     criadoEm: 'criadoEm'
   };
 
@@ -17017,7 +17057,9 @@ export namespace Prisma {
     comprovativoUrl: 'comprovativoUrl',
     estado: 'estado',
     confirmadoPor: 'confirmadoPor',
-    criadoEm: 'criadoEm'
+    criadoEm: 'criadoEm',
+    referencia: 'referencia',
+    motivoRejeicao: 'motivoRejeicao'
   };
 
   export type PaymentScalarFieldEnum = (typeof PaymentScalarFieldEnum)[keyof typeof PaymentScalarFieldEnum]
@@ -17235,6 +17277,7 @@ export namespace Prisma {
     telefone?: StringNullableFilter<"User"> | string | null
     biNuit?: StringNullableFilter<"User"> | string | null
     kycStatus?: EnumKycStatusFilter<"User"> | $Enums.KycStatus
+    kycMotivoRejeicao?: StringNullableFilter<"User"> | string | null
     criadoEm?: DateTimeFilter<"User"> | Date | string
     accounts?: AccountListRelationFilter
     sessions?: SessionListRelationFilter
@@ -17257,6 +17300,7 @@ export namespace Prisma {
     telefone?: SortOrderInput | SortOrder
     biNuit?: SortOrderInput | SortOrder
     kycStatus?: SortOrder
+    kycMotivoRejeicao?: SortOrderInput | SortOrder
     criadoEm?: SortOrder
     accounts?: AccountOrderByRelationAggregateInput
     sessions?: SessionOrderByRelationAggregateInput
@@ -17282,6 +17326,7 @@ export namespace Prisma {
     telefone?: StringNullableFilter<"User"> | string | null
     biNuit?: StringNullableFilter<"User"> | string | null
     kycStatus?: EnumKycStatusFilter<"User"> | $Enums.KycStatus
+    kycMotivoRejeicao?: StringNullableFilter<"User"> | string | null
     criadoEm?: DateTimeFilter<"User"> | Date | string
     accounts?: AccountListRelationFilter
     sessions?: SessionListRelationFilter
@@ -17304,6 +17349,7 @@ export namespace Prisma {
     telefone?: SortOrderInput | SortOrder
     biNuit?: SortOrderInput | SortOrder
     kycStatus?: SortOrder
+    kycMotivoRejeicao?: SortOrderInput | SortOrder
     criadoEm?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
@@ -17324,6 +17370,7 @@ export namespace Prisma {
     telefone?: StringNullableWithAggregatesFilter<"User"> | string | null
     biNuit?: StringNullableWithAggregatesFilter<"User"> | string | null
     kycStatus?: EnumKycStatusWithAggregatesFilter<"User"> | $Enums.KycStatus
+    kycMotivoRejeicao?: StringNullableWithAggregatesFilter<"User"> | string | null
     criadoEm?: DateTimeWithAggregatesFilter<"User"> | Date | string
   }
 
@@ -17912,6 +17959,8 @@ export namespace Prisma {
     estado?: StringFilter<"Payment"> | string
     confirmadoPor?: StringNullableFilter<"Payment"> | string | null
     criadoEm?: DateTimeFilter<"Payment"> | Date | string
+    referencia?: StringFilter<"Payment"> | string
+    motivoRejeicao?: StringNullableFilter<"Payment"> | string | null
     project?: XOR<ProjectNullableScalarRelationFilter, ProjectWhereInput> | null
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
@@ -17926,12 +17975,15 @@ export namespace Prisma {
     estado?: SortOrder
     confirmadoPor?: SortOrderInput | SortOrder
     criadoEm?: SortOrder
+    referencia?: SortOrder
+    motivoRejeicao?: SortOrderInput | SortOrder
     project?: ProjectOrderByWithRelationInput
     user?: UserOrderByWithRelationInput
   }
 
   export type PaymentWhereUniqueInput = Prisma.AtLeast<{
     id?: string
+    referencia?: string
     AND?: PaymentWhereInput | PaymentWhereInput[]
     OR?: PaymentWhereInput[]
     NOT?: PaymentWhereInput | PaymentWhereInput[]
@@ -17943,9 +17995,10 @@ export namespace Prisma {
     estado?: StringFilter<"Payment"> | string
     confirmadoPor?: StringNullableFilter<"Payment"> | string | null
     criadoEm?: DateTimeFilter<"Payment"> | Date | string
+    motivoRejeicao?: StringNullableFilter<"Payment"> | string | null
     project?: XOR<ProjectNullableScalarRelationFilter, ProjectWhereInput> | null
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
-  }, "id">
+  }, "id" | "referencia">
 
   export type PaymentOrderByWithAggregationInput = {
     id?: SortOrder
@@ -17957,6 +18010,8 @@ export namespace Prisma {
     estado?: SortOrder
     confirmadoPor?: SortOrderInput | SortOrder
     criadoEm?: SortOrder
+    referencia?: SortOrder
+    motivoRejeicao?: SortOrderInput | SortOrder
     _count?: PaymentCountOrderByAggregateInput
     _max?: PaymentMaxOrderByAggregateInput
     _min?: PaymentMinOrderByAggregateInput
@@ -17975,6 +18030,8 @@ export namespace Prisma {
     estado?: StringWithAggregatesFilter<"Payment"> | string
     confirmadoPor?: StringNullableWithAggregatesFilter<"Payment"> | string | null
     criadoEm?: DateTimeWithAggregatesFilter<"Payment"> | Date | string
+    referencia?: StringWithAggregatesFilter<"Payment"> | string
+    motivoRejeicao?: StringNullableWithAggregatesFilter<"Payment"> | string | null
   }
 
   export type DocumentoSensivelWhereInput = {
@@ -18155,6 +18212,7 @@ export namespace Prisma {
     telefone?: string | null
     biNuit?: string | null
     kycStatus?: $Enums.KycStatus
+    kycMotivoRejeicao?: string | null
     criadoEm?: Date | string
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
@@ -18177,6 +18235,7 @@ export namespace Prisma {
     telefone?: string | null
     biNuit?: string | null
     kycStatus?: $Enums.KycStatus
+    kycMotivoRejeicao?: string | null
     criadoEm?: Date | string
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
@@ -18199,6 +18258,7 @@ export namespace Prisma {
     telefone?: NullableStringFieldUpdateOperationsInput | string | null
     biNuit?: NullableStringFieldUpdateOperationsInput | string | null
     kycStatus?: EnumKycStatusFieldUpdateOperationsInput | $Enums.KycStatus
+    kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
@@ -18221,6 +18281,7 @@ export namespace Prisma {
     telefone?: NullableStringFieldUpdateOperationsInput | string | null
     biNuit?: NullableStringFieldUpdateOperationsInput | string | null
     kycStatus?: EnumKycStatusFieldUpdateOperationsInput | $Enums.KycStatus
+    kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -18243,6 +18304,7 @@ export namespace Prisma {
     telefone?: string | null
     biNuit?: string | null
     kycStatus?: $Enums.KycStatus
+    kycMotivoRejeicao?: string | null
     criadoEm?: Date | string
   }
 
@@ -18257,6 +18319,7 @@ export namespace Prisma {
     telefone?: NullableStringFieldUpdateOperationsInput | string | null
     biNuit?: NullableStringFieldUpdateOperationsInput | string | null
     kycStatus?: EnumKycStatusFieldUpdateOperationsInput | $Enums.KycStatus
+    kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -18271,6 +18334,7 @@ export namespace Prisma {
     telefone?: NullableStringFieldUpdateOperationsInput | string | null
     biNuit?: NullableStringFieldUpdateOperationsInput | string | null
     kycStatus?: EnumKycStatusFieldUpdateOperationsInput | $Enums.KycStatus
+    kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -18888,6 +18952,8 @@ export namespace Prisma {
     estado?: string
     confirmadoPor?: string | null
     criadoEm?: Date | string
+    referencia: string
+    motivoRejeicao?: string | null
     project?: ProjectCreateNestedOneWithoutPaymentsInput
     user: UserCreateNestedOneWithoutPaymentsInput
   }
@@ -18902,6 +18968,8 @@ export namespace Prisma {
     estado?: string
     confirmadoPor?: string | null
     criadoEm?: Date | string
+    referencia: string
+    motivoRejeicao?: string | null
   }
 
   export type PaymentUpdateInput = {
@@ -18912,6 +18980,8 @@ export namespace Prisma {
     estado?: StringFieldUpdateOperationsInput | string
     confirmadoPor?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    referencia?: StringFieldUpdateOperationsInput | string
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     project?: ProjectUpdateOneWithoutPaymentsNestedInput
     user?: UserUpdateOneRequiredWithoutPaymentsNestedInput
   }
@@ -18926,6 +18996,8 @@ export namespace Prisma {
     estado?: StringFieldUpdateOperationsInput | string
     confirmadoPor?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    referencia?: StringFieldUpdateOperationsInput | string
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type PaymentCreateManyInput = {
@@ -18938,6 +19010,8 @@ export namespace Prisma {
     estado?: string
     confirmadoPor?: string | null
     criadoEm?: Date | string
+    referencia: string
+    motivoRejeicao?: string | null
   }
 
   export type PaymentUpdateManyMutationInput = {
@@ -18948,6 +19022,8 @@ export namespace Prisma {
     estado?: StringFieldUpdateOperationsInput | string
     confirmadoPor?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    referencia?: StringFieldUpdateOperationsInput | string
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type PaymentUncheckedUpdateManyInput = {
@@ -18960,6 +19036,8 @@ export namespace Prisma {
     estado?: StringFieldUpdateOperationsInput | string
     confirmadoPor?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    referencia?: StringFieldUpdateOperationsInput | string
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type DocumentoSensivelCreateInput = {
@@ -19284,6 +19362,7 @@ export namespace Prisma {
     telefone?: SortOrder
     biNuit?: SortOrder
     kycStatus?: SortOrder
+    kycMotivoRejeicao?: SortOrder
     criadoEm?: SortOrder
   }
 
@@ -19298,6 +19377,7 @@ export namespace Prisma {
     telefone?: SortOrder
     biNuit?: SortOrder
     kycStatus?: SortOrder
+    kycMotivoRejeicao?: SortOrder
     criadoEm?: SortOrder
   }
 
@@ -19312,6 +19392,7 @@ export namespace Prisma {
     telefone?: SortOrder
     biNuit?: SortOrder
     kycStatus?: SortOrder
+    kycMotivoRejeicao?: SortOrder
     criadoEm?: SortOrder
   }
 
@@ -19821,6 +19902,8 @@ export namespace Prisma {
     estado?: SortOrder
     confirmadoPor?: SortOrder
     criadoEm?: SortOrder
+    referencia?: SortOrder
+    motivoRejeicao?: SortOrder
   }
 
   export type PaymentMaxOrderByAggregateInput = {
@@ -19833,6 +19916,8 @@ export namespace Prisma {
     estado?: SortOrder
     confirmadoPor?: SortOrder
     criadoEm?: SortOrder
+    referencia?: SortOrder
+    motivoRejeicao?: SortOrder
   }
 
   export type PaymentMinOrderByAggregateInput = {
@@ -19845,6 +19930,8 @@ export namespace Prisma {
     estado?: SortOrder
     confirmadoPor?: SortOrder
     criadoEm?: SortOrder
+    referencia?: SortOrder
+    motivoRejeicao?: SortOrder
   }
 
   export type DocumentoSensivelCountOrderByAggregateInput = {
@@ -21336,6 +21423,8 @@ export namespace Prisma {
     estado?: string
     confirmadoPor?: string | null
     criadoEm?: Date | string
+    referencia: string
+    motivoRejeicao?: string | null
     project?: ProjectCreateNestedOneWithoutPaymentsInput
   }
 
@@ -21348,6 +21437,8 @@ export namespace Prisma {
     estado?: string
     confirmadoPor?: string | null
     criadoEm?: Date | string
+    referencia: string
+    motivoRejeicao?: string | null
   }
 
   export type PaymentCreateOrConnectWithoutUserInput = {
@@ -21589,6 +21680,8 @@ export namespace Prisma {
     estado?: StringFilter<"Payment"> | string
     confirmadoPor?: StringNullableFilter<"Payment"> | string | null
     criadoEm?: DateTimeFilter<"Payment"> | Date | string
+    referencia?: StringFilter<"Payment"> | string
+    motivoRejeicao?: StringNullableFilter<"Payment"> | string | null
   }
 
   export type NewsletterSubscriptionUpsertWithoutUserInput = {
@@ -21625,6 +21718,7 @@ export namespace Prisma {
     telefone?: string | null
     biNuit?: string | null
     kycStatus?: $Enums.KycStatus
+    kycMotivoRejeicao?: string | null
     criadoEm?: Date | string
     sessions?: SessionCreateNestedManyWithoutUserInput
     projects?: ProjectCreateNestedManyWithoutOwnerInput
@@ -21646,6 +21740,7 @@ export namespace Prisma {
     telefone?: string | null
     biNuit?: string | null
     kycStatus?: $Enums.KycStatus
+    kycMotivoRejeicao?: string | null
     criadoEm?: Date | string
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     projects?: ProjectUncheckedCreateNestedManyWithoutOwnerInput
@@ -21683,6 +21778,7 @@ export namespace Prisma {
     telefone?: NullableStringFieldUpdateOperationsInput | string | null
     biNuit?: NullableStringFieldUpdateOperationsInput | string | null
     kycStatus?: EnumKycStatusFieldUpdateOperationsInput | $Enums.KycStatus
+    kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUpdateManyWithoutUserNestedInput
     projects?: ProjectUpdateManyWithoutOwnerNestedInput
@@ -21704,6 +21800,7 @@ export namespace Prisma {
     telefone?: NullableStringFieldUpdateOperationsInput | string | null
     biNuit?: NullableStringFieldUpdateOperationsInput | string | null
     kycStatus?: EnumKycStatusFieldUpdateOperationsInput | $Enums.KycStatus
+    kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     projects?: ProjectUncheckedUpdateManyWithoutOwnerNestedInput
@@ -21725,6 +21822,7 @@ export namespace Prisma {
     telefone?: string | null
     biNuit?: string | null
     kycStatus?: $Enums.KycStatus
+    kycMotivoRejeicao?: string | null
     criadoEm?: Date | string
     accounts?: AccountCreateNestedManyWithoutUserInput
     projects?: ProjectCreateNestedManyWithoutOwnerInput
@@ -21746,6 +21844,7 @@ export namespace Prisma {
     telefone?: string | null
     biNuit?: string | null
     kycStatus?: $Enums.KycStatus
+    kycMotivoRejeicao?: string | null
     criadoEm?: Date | string
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     projects?: ProjectUncheckedCreateNestedManyWithoutOwnerInput
@@ -21783,6 +21882,7 @@ export namespace Prisma {
     telefone?: NullableStringFieldUpdateOperationsInput | string | null
     biNuit?: NullableStringFieldUpdateOperationsInput | string | null
     kycStatus?: EnumKycStatusFieldUpdateOperationsInput | $Enums.KycStatus
+    kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUpdateManyWithoutUserNestedInput
     projects?: ProjectUpdateManyWithoutOwnerNestedInput
@@ -21804,6 +21904,7 @@ export namespace Prisma {
     telefone?: NullableStringFieldUpdateOperationsInput | string | null
     biNuit?: NullableStringFieldUpdateOperationsInput | string | null
     kycStatus?: EnumKycStatusFieldUpdateOperationsInput | $Enums.KycStatus
+    kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     projects?: ProjectUncheckedUpdateManyWithoutOwnerNestedInput
@@ -21825,6 +21926,7 @@ export namespace Prisma {
     telefone?: string | null
     biNuit?: string | null
     kycStatus?: $Enums.KycStatus
+    kycMotivoRejeicao?: string | null
     criadoEm?: Date | string
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
@@ -21846,6 +21948,7 @@ export namespace Prisma {
     telefone?: string | null
     biNuit?: string | null
     kycStatus?: $Enums.KycStatus
+    kycMotivoRejeicao?: string | null
     criadoEm?: Date | string
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
@@ -22021,6 +22124,8 @@ export namespace Prisma {
     estado?: string
     confirmadoPor?: string | null
     criadoEm?: Date | string
+    referencia: string
+    motivoRejeicao?: string | null
     user: UserCreateNestedOneWithoutPaymentsInput
   }
 
@@ -22033,6 +22138,8 @@ export namespace Prisma {
     estado?: string
     confirmadoPor?: string | null
     criadoEm?: Date | string
+    referencia: string
+    motivoRejeicao?: string | null
   }
 
   export type PaymentCreateOrConnectWithoutProjectInput = {
@@ -22067,6 +22174,7 @@ export namespace Prisma {
     telefone?: NullableStringFieldUpdateOperationsInput | string | null
     biNuit?: NullableStringFieldUpdateOperationsInput | string | null
     kycStatus?: EnumKycStatusFieldUpdateOperationsInput | $Enums.KycStatus
+    kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
@@ -22088,6 +22196,7 @@ export namespace Prisma {
     telefone?: NullableStringFieldUpdateOperationsInput | string | null
     biNuit?: NullableStringFieldUpdateOperationsInput | string | null
     kycStatus?: EnumKycStatusFieldUpdateOperationsInput | $Enums.KycStatus
+    kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -22439,6 +22548,7 @@ export namespace Prisma {
     telefone?: string | null
     biNuit?: string | null
     kycStatus?: $Enums.KycStatus
+    kycMotivoRejeicao?: string | null
     criadoEm?: Date | string
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
@@ -22460,6 +22570,7 @@ export namespace Prisma {
     telefone?: string | null
     biNuit?: string | null
     kycStatus?: $Enums.KycStatus
+    kycMotivoRejeicao?: string | null
     criadoEm?: Date | string
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
@@ -22562,6 +22673,7 @@ export namespace Prisma {
     telefone?: NullableStringFieldUpdateOperationsInput | string | null
     biNuit?: NullableStringFieldUpdateOperationsInput | string | null
     kycStatus?: EnumKycStatusFieldUpdateOperationsInput | $Enums.KycStatus
+    kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
@@ -22583,6 +22695,7 @@ export namespace Prisma {
     telefone?: NullableStringFieldUpdateOperationsInput | string | null
     biNuit?: NullableStringFieldUpdateOperationsInput | string | null
     kycStatus?: EnumKycStatusFieldUpdateOperationsInput | $Enums.KycStatus
+    kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -22663,6 +22776,7 @@ export namespace Prisma {
     telefone?: string | null
     biNuit?: string | null
     kycStatus?: $Enums.KycStatus
+    kycMotivoRejeicao?: string | null
     criadoEm?: Date | string
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
@@ -22684,6 +22798,7 @@ export namespace Prisma {
     telefone?: string | null
     biNuit?: string | null
     kycStatus?: $Enums.KycStatus
+    kycMotivoRejeicao?: string | null
     criadoEm?: Date | string
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
@@ -22786,6 +22901,7 @@ export namespace Prisma {
     telefone?: NullableStringFieldUpdateOperationsInput | string | null
     biNuit?: NullableStringFieldUpdateOperationsInput | string | null
     kycStatus?: EnumKycStatusFieldUpdateOperationsInput | $Enums.KycStatus
+    kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
@@ -22807,6 +22923,7 @@ export namespace Prisma {
     telefone?: NullableStringFieldUpdateOperationsInput | string | null
     biNuit?: NullableStringFieldUpdateOperationsInput | string | null
     kycStatus?: EnumKycStatusFieldUpdateOperationsInput | $Enums.KycStatus
+    kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -22887,6 +23004,7 @@ export namespace Prisma {
     telefone?: string | null
     biNuit?: string | null
     kycStatus?: $Enums.KycStatus
+    kycMotivoRejeicao?: string | null
     criadoEm?: Date | string
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
@@ -22908,6 +23026,7 @@ export namespace Prisma {
     telefone?: string | null
     biNuit?: string | null
     kycStatus?: $Enums.KycStatus
+    kycMotivoRejeicao?: string | null
     criadoEm?: Date | string
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
@@ -23010,6 +23129,7 @@ export namespace Prisma {
     telefone?: NullableStringFieldUpdateOperationsInput | string | null
     biNuit?: NullableStringFieldUpdateOperationsInput | string | null
     kycStatus?: EnumKycStatusFieldUpdateOperationsInput | $Enums.KycStatus
+    kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
@@ -23031,6 +23151,7 @@ export namespace Prisma {
     telefone?: NullableStringFieldUpdateOperationsInput | string | null
     biNuit?: NullableStringFieldUpdateOperationsInput | string | null
     kycStatus?: EnumKycStatusFieldUpdateOperationsInput | $Enums.KycStatus
+    kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -23111,6 +23232,7 @@ export namespace Prisma {
     telefone?: string | null
     biNuit?: string | null
     kycStatus?: $Enums.KycStatus
+    kycMotivoRejeicao?: string | null
     criadoEm?: Date | string
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
@@ -23132,6 +23254,7 @@ export namespace Prisma {
     telefone?: string | null
     biNuit?: string | null
     kycStatus?: $Enums.KycStatus
+    kycMotivoRejeicao?: string | null
     criadoEm?: Date | string
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
@@ -23234,6 +23357,7 @@ export namespace Prisma {
     telefone?: NullableStringFieldUpdateOperationsInput | string | null
     biNuit?: NullableStringFieldUpdateOperationsInput | string | null
     kycStatus?: EnumKycStatusFieldUpdateOperationsInput | $Enums.KycStatus
+    kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
@@ -23255,6 +23379,7 @@ export namespace Prisma {
     telefone?: NullableStringFieldUpdateOperationsInput | string | null
     biNuit?: NullableStringFieldUpdateOperationsInput | string | null
     kycStatus?: EnumKycStatusFieldUpdateOperationsInput | $Enums.KycStatus
+    kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -23400,6 +23525,7 @@ export namespace Prisma {
     telefone?: string | null
     biNuit?: string | null
     kycStatus?: $Enums.KycStatus
+    kycMotivoRejeicao?: string | null
     criadoEm?: Date | string
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
@@ -23421,6 +23547,7 @@ export namespace Prisma {
     telefone?: string | null
     biNuit?: string | null
     kycStatus?: $Enums.KycStatus
+    kycMotivoRejeicao?: string | null
     criadoEm?: Date | string
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
@@ -23458,6 +23585,7 @@ export namespace Prisma {
     telefone?: NullableStringFieldUpdateOperationsInput | string | null
     biNuit?: NullableStringFieldUpdateOperationsInput | string | null
     kycStatus?: EnumKycStatusFieldUpdateOperationsInput | $Enums.KycStatus
+    kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
@@ -23479,6 +23607,7 @@ export namespace Prisma {
     telefone?: NullableStringFieldUpdateOperationsInput | string | null
     biNuit?: NullableStringFieldUpdateOperationsInput | string | null
     kycStatus?: EnumKycStatusFieldUpdateOperationsInput | $Enums.KycStatus
+    kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -23685,6 +23814,8 @@ export namespace Prisma {
     estado?: string
     confirmadoPor?: string | null
     criadoEm?: Date | string
+    referencia: string
+    motivoRejeicao?: string | null
   }
 
   export type AccountUpdateWithoutUserInput = {
@@ -23898,6 +24029,8 @@ export namespace Prisma {
     estado?: StringFieldUpdateOperationsInput | string
     confirmadoPor?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    referencia?: StringFieldUpdateOperationsInput | string
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     project?: ProjectUpdateOneWithoutPaymentsNestedInput
   }
 
@@ -23910,6 +24043,8 @@ export namespace Prisma {
     estado?: StringFieldUpdateOperationsInput | string
     confirmadoPor?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    referencia?: StringFieldUpdateOperationsInput | string
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type PaymentUncheckedUpdateManyWithoutUserInput = {
@@ -23921,6 +24056,8 @@ export namespace Prisma {
     estado?: StringFieldUpdateOperationsInput | string
     confirmadoPor?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    referencia?: StringFieldUpdateOperationsInput | string
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type VerificationChecklistCreateManyProjectInput = {
@@ -23978,6 +24115,8 @@ export namespace Prisma {
     estado?: string
     confirmadoPor?: string | null
     criadoEm?: Date | string
+    referencia: string
+    motivoRejeicao?: string | null
   }
 
   export type VerificationChecklistUpdateWithoutProjectInput = {
@@ -24126,6 +24265,8 @@ export namespace Prisma {
     estado?: StringFieldUpdateOperationsInput | string
     confirmadoPor?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    referencia?: StringFieldUpdateOperationsInput | string
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     user?: UserUpdateOneRequiredWithoutPaymentsNestedInput
   }
 
@@ -24138,6 +24279,8 @@ export namespace Prisma {
     estado?: StringFieldUpdateOperationsInput | string
     confirmadoPor?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    referencia?: StringFieldUpdateOperationsInput | string
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type PaymentUncheckedUpdateManyWithoutProjectInput = {
@@ -24149,6 +24292,8 @@ export namespace Prisma {
     estado?: StringFieldUpdateOperationsInput | string
     confirmadoPor?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    referencia?: StringFieldUpdateOperationsInput | string
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
 

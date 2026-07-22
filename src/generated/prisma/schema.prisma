@@ -64,13 +64,14 @@ model User {
   image         String?
   passwordHash  String? // null se o utilizador só usa Google
 
-  role      Role      @default(reader)
-  telefone  String?
-  biNuit    String?
-  kycStatus KycStatus @default(nao_iniciado)
+  role     Role    @default(reader)
+  telefone String?
+  biNuit   String?
 
-  accounts Account[]
-  sessions Session[]
+  kycStatus         KycStatus @default(nao_iniciado)
+  kycMotivoRejeicao String?
+  accounts          Account[]
+  sessions          Session[]
 
   projects               Project[]               @relation("ProjectOwner")
   reactions              Reaction[]
@@ -238,6 +239,8 @@ model Payment {
   estado          String   @default("pendente")
   confirmadoPor   String?
   criadoEm        DateTime @default(now())
+  referencia      String   @unique
+  motivoRejeicao  String?
 
   @@map("payments")
 }

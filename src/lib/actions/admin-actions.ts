@@ -13,8 +13,25 @@ async function exigirAdmin() {
   return session.user;
 }
 
-export async function aprovarProjecto(projectId: string) {
+export type AprovarState = { error?: string };
+
+export async function aprovarProjecto(projectId: string): Promise<AprovarState> {
   await exigirAdmin();
+
+  const projecto = await db.project.findUnique({ where: { id: projectId } });
+  if (!projecto) return { error: "Projecto não encontrado." };
+
+  if (projecto.seccao === "a_venda") {
+    const pagamentoConfirmado = await db.payment.findFirst({
+      where: { projectId, tipo: "listagem_venda", estado: "confirmado" },
+    });
+    if (!pagamentoConfirmado) {
+      return {
+        error:
+          "Não é possível aprovar: a taxa de listagem ainda não foi confirmada em /admin/pagamentos.",
+      };
+    }
+  }
 
   await db.project.update({
     where: { id: projectId },
@@ -25,6 +42,7 @@ export async function aprovarProjecto(projectId: string) {
   });
 
   revalidatePath("/admin/projectos");
+  return {};
 }
 
 const rejeicaoSchema = z.object({

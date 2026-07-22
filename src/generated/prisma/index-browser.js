@@ -131,6 +131,7 @@ exports.Prisma.UserScalarFieldEnum = {
   telefone: 'telefone',
   biNuit: 'biNuit',
   kycStatus: 'kycStatus',
+  kycMotivoRejeicao: 'kycMotivoRejeicao',
   criadoEm: 'criadoEm'
 };
 
@@ -227,7 +228,9 @@ exports.Prisma.PaymentScalarFieldEnum = {
   comprovativoUrl: 'comprovativoUrl',
   estado: 'estado',
   confirmadoPor: 'confirmadoPor',
-  criadoEm: 'criadoEm'
+  criadoEm: 'criadoEm',
+  referencia: 'referencia',
+  motivoRejeicao: 'motivoRejeicao'
 };
 
 exports.Prisma.DocumentoSensivelScalarFieldEnum = {

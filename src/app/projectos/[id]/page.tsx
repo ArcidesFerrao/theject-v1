@@ -1,9 +1,10 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
+import { auth } from "@/auth";
 import { db } from "@/lib/prisma";
 import { labelDaSeccao } from "@/lib/seccoes";
-import { auth } from "@/auth";
 import { NdaAcceptButton } from "@/components/NdaAcceptButton";
-import Link from "next/link";
+import { PaymentForm } from "@/components/PaymentForm";
 
 export default async function ProjectoPublicoPage({
   params,
@@ -20,16 +21,39 @@ export default async function ProjectoPublicoPage({
   // Não expõe rascunhos/pendentes/rejeitados ao público — só o dono os vê,
   // em /dashboard/projectos/[id].
   if (!projecto || projecto.estado !== "publicado") notFound();
+
   const session = await auth();
   const seccaoExigeNda =
     projecto.seccao === "em_alta" || projecto.seccao === "a_venda";
   let ndaAceite = false;
+  let ndaGratisDisponivel = false;
+  let pagamentoNdaPendente = false;
   if (seccaoExigeNda && session?.user) {
     const nda = await db.nDA.findFirst({
       where: { projectId: projecto.id, buyerId: session.user.id },
     });
     ndaAceite = !!nda;
+
+    if (!ndaAceite) {
+      const ndasAnteriores = await db.nDA.count({
+        where: { buyerId: session.user.id },
+      });
+      ndaGratisDisponivel = ndasAnteriores === 0;
+
+      if (!ndaGratisDisponivel) {
+        const pagamento = await db.payment.findFirst({
+          where: {
+            tipo: "nda_extra",
+            projectId: projecto.id,
+            userId: session.user.id,
+            estado: "pendente",
+          },
+        });
+        pagamentoNdaPendente = !!pagamento;
+      }
+    }
   }
+
   return (
     <main className="mx-auto max-w-2xl px-4 py-12">
       <span className="text-xs font-medium uppercase text-gray-400">
@@ -90,13 +114,8 @@ export default async function ProjectoPublicoPage({
             <dd>{projecto.faixaPreco}</dd>
           </div>
         )}
-        {projecto.dadosSensiveis && (
-          <div className="col-span-2">
-            <dt className="text-gray-500">Dados sensíveis</dt>
-            <dd>{projecto.dadosSensiveis}</dd>
-          </div>
-        )}
       </dl>
+
       {seccaoExigeNda && (
         <section className="mt-8 rounded border p-4">
           <h2 className="font-semibold">Dados sensíveis</h2>
@@ -105,15 +124,26 @@ export default async function ProjectoPublicoPage({
               {projecto.dadosSensiveis ??
                 "O fundador ainda não adicionou dados sensíveis."}
             </p>
-          ) : session?.user ? (
-            <NdaAcceptButton projectId={projecto.id} />
-          ) : (
+          ) : !session?.user ? (
             <p className="mt-2 text-sm text-gray-600">
               <Link href="/entrar" className="font-medium text-[#1D9E75]">
                 Inicia sessão
               </Link>{" "}
               para pedir acesso aos dados sensíveis.
             </p>
+          ) : ndaGratisDisponivel ? (
+            <NdaAcceptButton projectId={projecto.id} />
+          ) : pagamentoNdaPendente ? (
+            <p className="mt-2 text-sm text-amber-700">
+              Pagamento do NDA submetido — a aguardar confirmação da equipa.
+            </p>
+          ) : (
+            <PaymentForm
+              tipo="nda_extra"
+              projectId={projecto.id}
+              titulo="Pagar NDA extra"
+              descricao="Já usaste o teu NDA gratuito. A partir do 2º, é necessário pagamento antes de veres os dados sensíveis."
+            />
           )}
         </section>
       )}

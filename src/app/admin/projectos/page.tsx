@@ -41,7 +41,19 @@ export default async function AdminProjectosPage({
 
   return (
     <main className="mx-auto max-w-3xl px-4 py-12">
-      <h1 className="text-2xl font-semibold">Revisão editorial</h1>
+      <div className="flex gap-4 text-sm">
+        <Link href="/admin/projectos" className="font-medium text-[#1D9E75]">
+          Projectos
+        </Link>
+        <Link href="/admin/kyc" className="text-gray-500">
+          KYC
+        </Link>
+        <Link href="/admin/pagamentos" className="text-gray-500">
+          Pagamentos
+        </Link>
+      </div>
+
+      <h1 className="mt-4 text-2xl font-semibold">Revisão editorial</h1>
       <p className="mt-1 text-sm text-gray-600">
         Aprova ou rejeita listagens submetidas pelos founders antes de saírem no
         jornal.
