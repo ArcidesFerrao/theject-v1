@@ -174,14 +174,14 @@ exports.Prisma.ProjectScalarFieldEnum = {
   localizacao: 'localizacao',
   nivelVerificacao: 'nivelVerificacao',
   estado: 'estado',
-  motivoRejeicao: 'motivoRejeicao',
   boostActivoAte: 'boostActivoAte',
   dataLancamento: 'dataLancamento',
   linkSite: 'linkSite',
-  notaVerificacao: 'notaVerificacao',
-  dadosSensiveis: 'dadosSensiveis',
+  criadoEm: 'criadoEm',
+  motivoRejeicao: 'motivoRejeicao',
   faixaPreco: 'faixaPreco',
-  criadoEm: 'criadoEm'
+  notaVerificacao: 'notaVerificacao',
+  dadosSensiveis: 'dadosSensiveis'
 };
 
 exports.Prisma.VerificationChecklistScalarFieldEnum = {
@@ -229,8 +229,8 @@ exports.Prisma.PaymentScalarFieldEnum = {
   estado: 'estado',
   confirmadoPor: 'confirmadoPor',
   criadoEm: 'criadoEm',
-  referencia: 'referencia',
-  motivoRejeicao: 'motivoRejeicao'
+  motivoRejeicao: 'motivoRejeicao',
+  referencia: 'referencia'
 };
 
 exports.Prisma.DocumentoSensivelScalarFieldEnum = {

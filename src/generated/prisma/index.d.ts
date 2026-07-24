@@ -2035,22 +2035,22 @@ export namespace Prisma {
 
   export type UserCountOutputType = {
     accounts: number
-    sessions: number
+    contactRequests: number
+    ndasComoComprador: number
+    payments: number
     projects: number
     reactions: number
-    ndasComoComprador: number
-    contactRequests: number
-    payments: number
+    sessions: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     accounts?: boolean | UserCountOutputTypeCountAccountsArgs
-    sessions?: boolean | UserCountOutputTypeCountSessionsArgs
+    contactRequests?: boolean | UserCountOutputTypeCountContactRequestsArgs
+    ndasComoComprador?: boolean | UserCountOutputTypeCountNdasComoCompradorArgs
+    payments?: boolean | UserCountOutputTypeCountPaymentsArgs
     projects?: boolean | UserCountOutputTypeCountProjectsArgs
     reactions?: boolean | UserCountOutputTypeCountReactionsArgs
-    ndasComoComprador?: boolean | UserCountOutputTypeCountNdasComoCompradorArgs
-    contactRequests?: boolean | UserCountOutputTypeCountContactRequestsArgs
-    payments?: boolean | UserCountOutputTypeCountPaymentsArgs
+    sessions?: boolean | UserCountOutputTypeCountSessionsArgs
   }
 
   // Custom InputTypes
@@ -2074,8 +2074,22 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountSessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: SessionWhereInput
+  export type UserCountOutputTypeCountContactRequestsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ContactRequestWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountNdasComoCompradorArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: NDAWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountPaymentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PaymentWhereInput
   }
 
   /**
@@ -2095,22 +2109,8 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountNdasComoCompradorArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: NDAWhereInput
-  }
-
-  /**
-   * UserCountOutputType without action
-   */
-  export type UserCountOutputTypeCountContactRequestsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ContactRequestWhereInput
-  }
-
-  /**
-   * UserCountOutputType without action
-   */
-  export type UserCountOutputTypeCountPaymentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: PaymentWhereInput
+  export type UserCountOutputTypeCountSessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SessionWhereInput
   }
 
 
@@ -2119,23 +2119,23 @@ export namespace Prisma {
    */
 
   export type ProjectCountOutputType = {
-    checklists: number
-    reactions: number
-    ndas: number
     contactRequests: number
     documentos: number
     editorialPicks: number
+    ndas: number
     payments: number
+    reactions: number
+    checklists: number
   }
 
   export type ProjectCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    checklists?: boolean | ProjectCountOutputTypeCountChecklistsArgs
-    reactions?: boolean | ProjectCountOutputTypeCountReactionsArgs
-    ndas?: boolean | ProjectCountOutputTypeCountNdasArgs
     contactRequests?: boolean | ProjectCountOutputTypeCountContactRequestsArgs
     documentos?: boolean | ProjectCountOutputTypeCountDocumentosArgs
     editorialPicks?: boolean | ProjectCountOutputTypeCountEditorialPicksArgs
+    ndas?: boolean | ProjectCountOutputTypeCountNdasArgs
     payments?: boolean | ProjectCountOutputTypeCountPaymentsArgs
+    reactions?: boolean | ProjectCountOutputTypeCountReactionsArgs
+    checklists?: boolean | ProjectCountOutputTypeCountChecklistsArgs
   }
 
   // Custom InputTypes
@@ -2147,27 +2147,6 @@ export namespace Prisma {
      * Select specific fields to fetch from the ProjectCountOutputType
      */
     select?: ProjectCountOutputTypeSelect<ExtArgs> | null
-  }
-
-  /**
-   * ProjectCountOutputType without action
-   */
-  export type ProjectCountOutputTypeCountChecklistsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: VerificationChecklistWhereInput
-  }
-
-  /**
-   * ProjectCountOutputType without action
-   */
-  export type ProjectCountOutputTypeCountReactionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ReactionWhereInput
-  }
-
-  /**
-   * ProjectCountOutputType without action
-   */
-  export type ProjectCountOutputTypeCountNdasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: NDAWhereInput
   }
 
   /**
@@ -2194,8 +2173,29 @@ export namespace Prisma {
   /**
    * ProjectCountOutputType without action
    */
+  export type ProjectCountOutputTypeCountNdasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: NDAWhereInput
+  }
+
+  /**
+   * ProjectCountOutputType without action
+   */
   export type ProjectCountOutputTypeCountPaymentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: PaymentWhereInput
+  }
+
+  /**
+   * ProjectCountOutputType without action
+   */
+  export type ProjectCountOutputTypeCountReactionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ReactionWhereInput
+  }
+
+  /**
+   * ProjectCountOutputType without action
+   */
+  export type ProjectCountOutputTypeCountChecklistsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: VerificationChecklistWhereInput
   }
 
 
@@ -2424,13 +2424,13 @@ export namespace Prisma {
     kycMotivoRejeicao?: boolean
     criadoEm?: boolean
     accounts?: boolean | User$accountsArgs<ExtArgs>
-    sessions?: boolean | User$sessionsArgs<ExtArgs>
+    contactRequests?: boolean | User$contactRequestsArgs<ExtArgs>
+    ndasComoComprador?: boolean | User$ndasComoCompradorArgs<ExtArgs>
+    newsletterSubscription?: boolean | User$newsletterSubscriptionArgs<ExtArgs>
+    payments?: boolean | User$paymentsArgs<ExtArgs>
     projects?: boolean | User$projectsArgs<ExtArgs>
     reactions?: boolean | User$reactionsArgs<ExtArgs>
-    ndasComoComprador?: boolean | User$ndasComoCompradorArgs<ExtArgs>
-    contactRequests?: boolean | User$contactRequestsArgs<ExtArgs>
-    payments?: boolean | User$paymentsArgs<ExtArgs>
-    newsletterSubscription?: boolean | User$newsletterSubscriptionArgs<ExtArgs>
+    sessions?: boolean | User$sessionsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -2482,13 +2482,13 @@ export namespace Prisma {
   export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "emailVerified" | "image" | "passwordHash" | "role" | "telefone" | "biNuit" | "kycStatus" | "kycMotivoRejeicao" | "criadoEm", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     accounts?: boolean | User$accountsArgs<ExtArgs>
-    sessions?: boolean | User$sessionsArgs<ExtArgs>
+    contactRequests?: boolean | User$contactRequestsArgs<ExtArgs>
+    ndasComoComprador?: boolean | User$ndasComoCompradorArgs<ExtArgs>
+    newsletterSubscription?: boolean | User$newsletterSubscriptionArgs<ExtArgs>
+    payments?: boolean | User$paymentsArgs<ExtArgs>
     projects?: boolean | User$projectsArgs<ExtArgs>
     reactions?: boolean | User$reactionsArgs<ExtArgs>
-    ndasComoComprador?: boolean | User$ndasComoCompradorArgs<ExtArgs>
-    contactRequests?: boolean | User$contactRequestsArgs<ExtArgs>
-    payments?: boolean | User$paymentsArgs<ExtArgs>
-    newsletterSubscription?: boolean | User$newsletterSubscriptionArgs<ExtArgs>
+    sessions?: boolean | User$sessionsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -2498,13 +2498,13 @@ export namespace Prisma {
     name: "User"
     objects: {
       accounts: Prisma.$AccountPayload<ExtArgs>[]
-      sessions: Prisma.$SessionPayload<ExtArgs>[]
+      contactRequests: Prisma.$ContactRequestPayload<ExtArgs>[]
+      ndasComoComprador: Prisma.$NDAPayload<ExtArgs>[]
+      newsletterSubscription: Prisma.$NewsletterSubscriptionPayload<ExtArgs> | null
+      payments: Prisma.$PaymentPayload<ExtArgs>[]
       projects: Prisma.$ProjectPayload<ExtArgs>[]
       reactions: Prisma.$ReactionPayload<ExtArgs>[]
-      ndasComoComprador: Prisma.$NDAPayload<ExtArgs>[]
-      contactRequests: Prisma.$ContactRequestPayload<ExtArgs>[]
-      payments: Prisma.$PaymentPayload<ExtArgs>[]
-      newsletterSubscription: Prisma.$NewsletterSubscriptionPayload<ExtArgs> | null
+      sessions: Prisma.$SessionPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -2914,13 +2914,13 @@ export namespace Prisma {
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     accounts<T extends User$accountsArgs<ExtArgs> = {}>(args?: Subset<T, User$accountsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    sessions<T extends User$sessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    contactRequests<T extends User$contactRequestsArgs<ExtArgs> = {}>(args?: Subset<T, User$contactRequestsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ContactRequestPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    ndasComoComprador<T extends User$ndasComoCompradorArgs<ExtArgs> = {}>(args?: Subset<T, User$ndasComoCompradorArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NDAPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    newsletterSubscription<T extends User$newsletterSubscriptionArgs<ExtArgs> = {}>(args?: Subset<T, User$newsletterSubscriptionArgs<ExtArgs>>): Prisma__NewsletterSubscriptionClient<$Result.GetResult<Prisma.$NewsletterSubscriptionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    payments<T extends User$paymentsArgs<ExtArgs> = {}>(args?: Subset<T, User$paymentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     projects<T extends User$projectsArgs<ExtArgs> = {}>(args?: Subset<T, User$projectsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     reactions<T extends User$reactionsArgs<ExtArgs> = {}>(args?: Subset<T, User$reactionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReactionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    ndasComoComprador<T extends User$ndasComoCompradorArgs<ExtArgs> = {}>(args?: Subset<T, User$ndasComoCompradorArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NDAPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    contactRequests<T extends User$contactRequestsArgs<ExtArgs> = {}>(args?: Subset<T, User$contactRequestsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ContactRequestPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    payments<T extends User$paymentsArgs<ExtArgs> = {}>(args?: Subset<T, User$paymentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    newsletterSubscription<T extends User$newsletterSubscriptionArgs<ExtArgs> = {}>(args?: Subset<T, User$newsletterSubscriptionArgs<ExtArgs>>): Prisma__NewsletterSubscriptionClient<$Result.GetResult<Prisma.$NewsletterSubscriptionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    sessions<T extends User$sessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3379,27 +3379,94 @@ export namespace Prisma {
   }
 
   /**
-   * User.sessions
+   * User.contactRequests
    */
-  export type User$sessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type User$contactRequestsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Session
+     * Select specific fields to fetch from the ContactRequest
      */
-    select?: SessionSelect<ExtArgs> | null
+    select?: ContactRequestSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Session
+     * Omit specific fields from the ContactRequest
      */
-    omit?: SessionOmit<ExtArgs> | null
+    omit?: ContactRequestOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: SessionInclude<ExtArgs> | null
-    where?: SessionWhereInput
-    orderBy?: SessionOrderByWithRelationInput | SessionOrderByWithRelationInput[]
-    cursor?: SessionWhereUniqueInput
+    include?: ContactRequestInclude<ExtArgs> | null
+    where?: ContactRequestWhereInput
+    orderBy?: ContactRequestOrderByWithRelationInput | ContactRequestOrderByWithRelationInput[]
+    cursor?: ContactRequestWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: SessionScalarFieldEnum | SessionScalarFieldEnum[]
+    distinct?: ContactRequestScalarFieldEnum | ContactRequestScalarFieldEnum[]
+  }
+
+  /**
+   * User.ndasComoComprador
+   */
+  export type User$ndasComoCompradorArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDA
+     */
+    select?: NDASelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NDA
+     */
+    omit?: NDAOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDAInclude<ExtArgs> | null
+    where?: NDAWhereInput
+    orderBy?: NDAOrderByWithRelationInput | NDAOrderByWithRelationInput[]
+    cursor?: NDAWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: NDAScalarFieldEnum | NDAScalarFieldEnum[]
+  }
+
+  /**
+   * User.newsletterSubscription
+   */
+  export type User$newsletterSubscriptionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NewsletterSubscription
+     */
+    select?: NewsletterSubscriptionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NewsletterSubscription
+     */
+    omit?: NewsletterSubscriptionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NewsletterSubscriptionInclude<ExtArgs> | null
+    where?: NewsletterSubscriptionWhereInput
+  }
+
+  /**
+   * User.payments
+   */
+  export type User$paymentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Payment
+     */
+    select?: PaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Payment
+     */
+    omit?: PaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentInclude<ExtArgs> | null
+    where?: PaymentWhereInput
+    orderBy?: PaymentOrderByWithRelationInput | PaymentOrderByWithRelationInput[]
+    cursor?: PaymentWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PaymentScalarFieldEnum | PaymentScalarFieldEnum[]
   }
 
   /**
@@ -3451,94 +3518,27 @@ export namespace Prisma {
   }
 
   /**
-   * User.ndasComoComprador
+   * User.sessions
    */
-  export type User$ndasComoCompradorArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type User$sessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the NDA
+     * Select specific fields to fetch from the Session
      */
-    select?: NDASelect<ExtArgs> | null
+    select?: SessionSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the NDA
+     * Omit specific fields from the Session
      */
-    omit?: NDAOmit<ExtArgs> | null
+    omit?: SessionOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: NDAInclude<ExtArgs> | null
-    where?: NDAWhereInput
-    orderBy?: NDAOrderByWithRelationInput | NDAOrderByWithRelationInput[]
-    cursor?: NDAWhereUniqueInput
+    include?: SessionInclude<ExtArgs> | null
+    where?: SessionWhereInput
+    orderBy?: SessionOrderByWithRelationInput | SessionOrderByWithRelationInput[]
+    cursor?: SessionWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: NDAScalarFieldEnum | NDAScalarFieldEnum[]
-  }
-
-  /**
-   * User.contactRequests
-   */
-  export type User$contactRequestsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ContactRequest
-     */
-    select?: ContactRequestSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ContactRequest
-     */
-    omit?: ContactRequestOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ContactRequestInclude<ExtArgs> | null
-    where?: ContactRequestWhereInput
-    orderBy?: ContactRequestOrderByWithRelationInput | ContactRequestOrderByWithRelationInput[]
-    cursor?: ContactRequestWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: ContactRequestScalarFieldEnum | ContactRequestScalarFieldEnum[]
-  }
-
-  /**
-   * User.payments
-   */
-  export type User$paymentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Payment
-     */
-    select?: PaymentSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Payment
-     */
-    omit?: PaymentOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PaymentInclude<ExtArgs> | null
-    where?: PaymentWhereInput
-    orderBy?: PaymentOrderByWithRelationInput | PaymentOrderByWithRelationInput[]
-    cursor?: PaymentWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: PaymentScalarFieldEnum | PaymentScalarFieldEnum[]
-  }
-
-  /**
-   * User.newsletterSubscription
-   */
-  export type User$newsletterSubscriptionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the NewsletterSubscription
-     */
-    select?: NewsletterSubscriptionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the NewsletterSubscription
-     */
-    omit?: NewsletterSubscriptionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: NewsletterSubscriptionInclude<ExtArgs> | null
-    where?: NewsletterSubscriptionWhereInput
+    distinct?: SessionScalarFieldEnum | SessionScalarFieldEnum[]
   }
 
   /**
@@ -6793,14 +6793,14 @@ export namespace Prisma {
     localizacao: string | null
     nivelVerificacao: $Enums.NivelVerificacao | null
     estado: $Enums.EstadoProjecto | null
-    motivoRejeicao: string | null
     boostActivoAte: Date | null
     dataLancamento: Date | null
     linkSite: string | null
+    criadoEm: Date | null
+    motivoRejeicao: string | null
+    faixaPreco: string | null
     notaVerificacao: string | null
     dadosSensiveis: string | null
-    faixaPreco: string | null
-    criadoEm: Date | null
   }
 
   export type ProjectMaxAggregateOutputType = {
@@ -6814,14 +6814,14 @@ export namespace Prisma {
     localizacao: string | null
     nivelVerificacao: $Enums.NivelVerificacao | null
     estado: $Enums.EstadoProjecto | null
-    motivoRejeicao: string | null
     boostActivoAte: Date | null
     dataLancamento: Date | null
     linkSite: string | null
+    criadoEm: Date | null
+    motivoRejeicao: string | null
+    faixaPreco: string | null
     notaVerificacao: string | null
     dadosSensiveis: string | null
-    faixaPreco: string | null
-    criadoEm: Date | null
   }
 
   export type ProjectCountAggregateOutputType = {
@@ -6835,14 +6835,14 @@ export namespace Prisma {
     localizacao: number
     nivelVerificacao: number
     estado: number
-    motivoRejeicao: number
     boostActivoAte: number
     dataLancamento: number
     linkSite: number
+    criadoEm: number
+    motivoRejeicao: number
+    faixaPreco: number
     notaVerificacao: number
     dadosSensiveis: number
-    faixaPreco: number
-    criadoEm: number
     _all: number
   }
 
@@ -6858,14 +6858,14 @@ export namespace Prisma {
     localizacao?: true
     nivelVerificacao?: true
     estado?: true
-    motivoRejeicao?: true
     boostActivoAte?: true
     dataLancamento?: true
     linkSite?: true
+    criadoEm?: true
+    motivoRejeicao?: true
+    faixaPreco?: true
     notaVerificacao?: true
     dadosSensiveis?: true
-    faixaPreco?: true
-    criadoEm?: true
   }
 
   export type ProjectMaxAggregateInputType = {
@@ -6879,14 +6879,14 @@ export namespace Prisma {
     localizacao?: true
     nivelVerificacao?: true
     estado?: true
-    motivoRejeicao?: true
     boostActivoAte?: true
     dataLancamento?: true
     linkSite?: true
+    criadoEm?: true
+    motivoRejeicao?: true
+    faixaPreco?: true
     notaVerificacao?: true
     dadosSensiveis?: true
-    faixaPreco?: true
-    criadoEm?: true
   }
 
   export type ProjectCountAggregateInputType = {
@@ -6900,14 +6900,14 @@ export namespace Prisma {
     localizacao?: true
     nivelVerificacao?: true
     estado?: true
-    motivoRejeicao?: true
     boostActivoAte?: true
     dataLancamento?: true
     linkSite?: true
+    criadoEm?: true
+    motivoRejeicao?: true
+    faixaPreco?: true
     notaVerificacao?: true
     dadosSensiveis?: true
-    faixaPreco?: true
-    criadoEm?: true
     _all?: true
   }
 
@@ -6994,14 +6994,14 @@ export namespace Prisma {
     localizacao: string
     nivelVerificacao: $Enums.NivelVerificacao
     estado: $Enums.EstadoProjecto
-    motivoRejeicao: string | null
     boostActivoAte: Date | null
     dataLancamento: Date | null
     linkSite: string | null
+    criadoEm: Date
+    motivoRejeicao: string | null
+    faixaPreco: string | null
     notaVerificacao: string | null
     dadosSensiveis: string | null
-    faixaPreco: string | null
-    criadoEm: Date
     _count: ProjectCountAggregateOutputType | null
     _min: ProjectMinAggregateOutputType | null
     _max: ProjectMaxAggregateOutputType | null
@@ -7032,22 +7032,22 @@ export namespace Prisma {
     localizacao?: boolean
     nivelVerificacao?: boolean
     estado?: boolean
-    motivoRejeicao?: boolean
     boostActivoAte?: boolean
     dataLancamento?: boolean
     linkSite?: boolean
+    criadoEm?: boolean
+    motivoRejeicao?: boolean
+    faixaPreco?: boolean
     notaVerificacao?: boolean
     dadosSensiveis?: boolean
-    faixaPreco?: boolean
-    criadoEm?: boolean
-    owner?: boolean | UserDefaultArgs<ExtArgs>
-    checklists?: boolean | Project$checklistsArgs<ExtArgs>
-    reactions?: boolean | Project$reactionsArgs<ExtArgs>
-    ndas?: boolean | Project$ndasArgs<ExtArgs>
     contactRequests?: boolean | Project$contactRequestsArgs<ExtArgs>
     documentos?: boolean | Project$documentosArgs<ExtArgs>
     editorialPicks?: boolean | Project$editorialPicksArgs<ExtArgs>
+    ndas?: boolean | Project$ndasArgs<ExtArgs>
     payments?: boolean | Project$paymentsArgs<ExtArgs>
+    owner?: boolean | UserDefaultArgs<ExtArgs>
+    reactions?: boolean | Project$reactionsArgs<ExtArgs>
+    checklists?: boolean | Project$checklistsArgs<ExtArgs>
     _count?: boolean | ProjectCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["project"]>
 
@@ -7062,14 +7062,14 @@ export namespace Prisma {
     localizacao?: boolean
     nivelVerificacao?: boolean
     estado?: boolean
-    motivoRejeicao?: boolean
     boostActivoAte?: boolean
     dataLancamento?: boolean
     linkSite?: boolean
+    criadoEm?: boolean
+    motivoRejeicao?: boolean
+    faixaPreco?: boolean
     notaVerificacao?: boolean
     dadosSensiveis?: boolean
-    faixaPreco?: boolean
-    criadoEm?: boolean
     owner?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["project"]>
 
@@ -7084,14 +7084,14 @@ export namespace Prisma {
     localizacao?: boolean
     nivelVerificacao?: boolean
     estado?: boolean
-    motivoRejeicao?: boolean
     boostActivoAte?: boolean
     dataLancamento?: boolean
     linkSite?: boolean
+    criadoEm?: boolean
+    motivoRejeicao?: boolean
+    faixaPreco?: boolean
     notaVerificacao?: boolean
     dadosSensiveis?: boolean
-    faixaPreco?: boolean
-    criadoEm?: boolean
     owner?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["project"]>
 
@@ -7106,26 +7106,26 @@ export namespace Prisma {
     localizacao?: boolean
     nivelVerificacao?: boolean
     estado?: boolean
-    motivoRejeicao?: boolean
     boostActivoAte?: boolean
     dataLancamento?: boolean
     linkSite?: boolean
+    criadoEm?: boolean
+    motivoRejeicao?: boolean
+    faixaPreco?: boolean
     notaVerificacao?: boolean
     dadosSensiveis?: boolean
-    faixaPreco?: boolean
-    criadoEm?: boolean
   }
 
-  export type ProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "ownerId" | "seccao" | "titulo" | "descricao" | "categoria" | "sector" | "localizacao" | "nivelVerificacao" | "estado" | "motivoRejeicao" | "boostActivoAte" | "dataLancamento" | "linkSite" | "notaVerificacao" | "dadosSensiveis" | "faixaPreco" | "criadoEm", ExtArgs["result"]["project"]>
+  export type ProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "ownerId" | "seccao" | "titulo" | "descricao" | "categoria" | "sector" | "localizacao" | "nivelVerificacao" | "estado" | "boostActivoAte" | "dataLancamento" | "linkSite" | "criadoEm" | "motivoRejeicao" | "faixaPreco" | "notaVerificacao" | "dadosSensiveis", ExtArgs["result"]["project"]>
   export type ProjectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    owner?: boolean | UserDefaultArgs<ExtArgs>
-    checklists?: boolean | Project$checklistsArgs<ExtArgs>
-    reactions?: boolean | Project$reactionsArgs<ExtArgs>
-    ndas?: boolean | Project$ndasArgs<ExtArgs>
     contactRequests?: boolean | Project$contactRequestsArgs<ExtArgs>
     documentos?: boolean | Project$documentosArgs<ExtArgs>
     editorialPicks?: boolean | Project$editorialPicksArgs<ExtArgs>
+    ndas?: boolean | Project$ndasArgs<ExtArgs>
     payments?: boolean | Project$paymentsArgs<ExtArgs>
+    owner?: boolean | UserDefaultArgs<ExtArgs>
+    reactions?: boolean | Project$reactionsArgs<ExtArgs>
+    checklists?: boolean | Project$checklistsArgs<ExtArgs>
     _count?: boolean | ProjectCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ProjectIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -7138,14 +7138,14 @@ export namespace Prisma {
   export type $ProjectPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Project"
     objects: {
-      owner: Prisma.$UserPayload<ExtArgs>
-      checklists: Prisma.$VerificationChecklistPayload<ExtArgs>[]
-      reactions: Prisma.$ReactionPayload<ExtArgs>[]
-      ndas: Prisma.$NDAPayload<ExtArgs>[]
       contactRequests: Prisma.$ContactRequestPayload<ExtArgs>[]
       documentos: Prisma.$DocumentoSensivelPayload<ExtArgs>[]
       editorialPicks: Prisma.$EditorialPickPayload<ExtArgs>[]
+      ndas: Prisma.$NDAPayload<ExtArgs>[]
       payments: Prisma.$PaymentPayload<ExtArgs>[]
+      owner: Prisma.$UserPayload<ExtArgs>
+      reactions: Prisma.$ReactionPayload<ExtArgs>[]
+      checklists: Prisma.$VerificationChecklistPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -7158,14 +7158,14 @@ export namespace Prisma {
       localizacao: string
       nivelVerificacao: $Enums.NivelVerificacao
       estado: $Enums.EstadoProjecto
-      motivoRejeicao: string | null
       boostActivoAte: Date | null
       dataLancamento: Date | null
       linkSite: string | null
+      criadoEm: Date
+      motivoRejeicao: string | null
+      faixaPreco: string | null
       notaVerificacao: string | null
       dadosSensiveis: string | null
-      faixaPreco: string | null
-      criadoEm: Date
     }, ExtArgs["result"]["project"]>
     composites: {}
   }
@@ -7560,14 +7560,14 @@ export namespace Prisma {
    */
   export interface Prisma__ProjectClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    owner<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    checklists<T extends Project$checklistsArgs<ExtArgs> = {}>(args?: Subset<T, Project$checklistsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VerificationChecklistPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    reactions<T extends Project$reactionsArgs<ExtArgs> = {}>(args?: Subset<T, Project$reactionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReactionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    ndas<T extends Project$ndasArgs<ExtArgs> = {}>(args?: Subset<T, Project$ndasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NDAPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     contactRequests<T extends Project$contactRequestsArgs<ExtArgs> = {}>(args?: Subset<T, Project$contactRequestsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ContactRequestPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     documentos<T extends Project$documentosArgs<ExtArgs> = {}>(args?: Subset<T, Project$documentosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DocumentoSensivelPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     editorialPicks<T extends Project$editorialPicksArgs<ExtArgs> = {}>(args?: Subset<T, Project$editorialPicksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EditorialPickPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    ndas<T extends Project$ndasArgs<ExtArgs> = {}>(args?: Subset<T, Project$ndasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NDAPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     payments<T extends Project$paymentsArgs<ExtArgs> = {}>(args?: Subset<T, Project$paymentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    owner<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    reactions<T extends Project$reactionsArgs<ExtArgs> = {}>(args?: Subset<T, Project$reactionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReactionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    checklists<T extends Project$checklistsArgs<ExtArgs> = {}>(args?: Subset<T, Project$checklistsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VerificationChecklistPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -7607,14 +7607,14 @@ export namespace Prisma {
     readonly localizacao: FieldRef<"Project", 'String'>
     readonly nivelVerificacao: FieldRef<"Project", 'NivelVerificacao'>
     readonly estado: FieldRef<"Project", 'EstadoProjecto'>
-    readonly motivoRejeicao: FieldRef<"Project", 'String'>
     readonly boostActivoAte: FieldRef<"Project", 'DateTime'>
     readonly dataLancamento: FieldRef<"Project", 'DateTime'>
     readonly linkSite: FieldRef<"Project", 'String'>
+    readonly criadoEm: FieldRef<"Project", 'DateTime'>
+    readonly motivoRejeicao: FieldRef<"Project", 'String'>
+    readonly faixaPreco: FieldRef<"Project", 'String'>
     readonly notaVerificacao: FieldRef<"Project", 'String'>
     readonly dadosSensiveis: FieldRef<"Project", 'String'>
-    readonly faixaPreco: FieldRef<"Project", 'String'>
-    readonly criadoEm: FieldRef<"Project", 'DateTime'>
   }
     
 
@@ -8016,78 +8016,6 @@ export namespace Prisma {
   }
 
   /**
-   * Project.checklists
-   */
-  export type Project$checklistsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the VerificationChecklist
-     */
-    select?: VerificationChecklistSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the VerificationChecklist
-     */
-    omit?: VerificationChecklistOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: VerificationChecklistInclude<ExtArgs> | null
-    where?: VerificationChecklistWhereInput
-    orderBy?: VerificationChecklistOrderByWithRelationInput | VerificationChecklistOrderByWithRelationInput[]
-    cursor?: VerificationChecklistWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: VerificationChecklistScalarFieldEnum | VerificationChecklistScalarFieldEnum[]
-  }
-
-  /**
-   * Project.reactions
-   */
-  export type Project$reactionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Reaction
-     */
-    select?: ReactionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Reaction
-     */
-    omit?: ReactionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ReactionInclude<ExtArgs> | null
-    where?: ReactionWhereInput
-    orderBy?: ReactionOrderByWithRelationInput | ReactionOrderByWithRelationInput[]
-    cursor?: ReactionWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: ReactionScalarFieldEnum | ReactionScalarFieldEnum[]
-  }
-
-  /**
-   * Project.ndas
-   */
-  export type Project$ndasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the NDA
-     */
-    select?: NDASelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the NDA
-     */
-    omit?: NDAOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: NDAInclude<ExtArgs> | null
-    where?: NDAWhereInput
-    orderBy?: NDAOrderByWithRelationInput | NDAOrderByWithRelationInput[]
-    cursor?: NDAWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: NDAScalarFieldEnum | NDAScalarFieldEnum[]
-  }
-
-  /**
    * Project.contactRequests
    */
   export type Project$contactRequestsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -8160,6 +8088,30 @@ export namespace Prisma {
   }
 
   /**
+   * Project.ndas
+   */
+  export type Project$ndasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NDA
+     */
+    select?: NDASelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NDA
+     */
+    omit?: NDAOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NDAInclude<ExtArgs> | null
+    where?: NDAWhereInput
+    orderBy?: NDAOrderByWithRelationInput | NDAOrderByWithRelationInput[]
+    cursor?: NDAWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: NDAScalarFieldEnum | NDAScalarFieldEnum[]
+  }
+
+  /**
    * Project.payments
    */
   export type Project$paymentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -8181,6 +8133,54 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: PaymentScalarFieldEnum | PaymentScalarFieldEnum[]
+  }
+
+  /**
+   * Project.reactions
+   */
+  export type Project$reactionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reaction
+     */
+    select?: ReactionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reaction
+     */
+    omit?: ReactionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReactionInclude<ExtArgs> | null
+    where?: ReactionWhereInput
+    orderBy?: ReactionOrderByWithRelationInput | ReactionOrderByWithRelationInput[]
+    cursor?: ReactionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ReactionScalarFieldEnum | ReactionScalarFieldEnum[]
+  }
+
+  /**
+   * Project.checklists
+   */
+  export type Project$checklistsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VerificationChecklist
+     */
+    select?: VerificationChecklistSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VerificationChecklist
+     */
+    omit?: VerificationChecklistOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VerificationChecklistInclude<ExtArgs> | null
+    where?: VerificationChecklistWhereInput
+    orderBy?: VerificationChecklistOrderByWithRelationInput | VerificationChecklistOrderByWithRelationInput[]
+    cursor?: VerificationChecklistWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: VerificationChecklistScalarFieldEnum | VerificationChecklistScalarFieldEnum[]
   }
 
   /**
@@ -10529,8 +10529,8 @@ export namespace Prisma {
     ip?: boolean
     pago?: boolean
     criadoEm?: boolean
-    project?: boolean | ProjectDefaultArgs<ExtArgs>
     buyer?: boolean | UserDefaultArgs<ExtArgs>
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["nDA"]>
 
   export type NDASelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -10541,8 +10541,8 @@ export namespace Prisma {
     ip?: boolean
     pago?: boolean
     criadoEm?: boolean
-    project?: boolean | ProjectDefaultArgs<ExtArgs>
     buyer?: boolean | UserDefaultArgs<ExtArgs>
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["nDA"]>
 
   export type NDASelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -10553,8 +10553,8 @@ export namespace Prisma {
     ip?: boolean
     pago?: boolean
     criadoEm?: boolean
-    project?: boolean | ProjectDefaultArgs<ExtArgs>
     buyer?: boolean | UserDefaultArgs<ExtArgs>
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["nDA"]>
 
   export type NDASelectScalar = {
@@ -10569,23 +10569,23 @@ export namespace Prisma {
 
   export type NDAOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "projectId" | "buyerId" | "aceiteEm" | "ip" | "pago" | "criadoEm", ExtArgs["result"]["nDA"]>
   export type NDAInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    project?: boolean | ProjectDefaultArgs<ExtArgs>
     buyer?: boolean | UserDefaultArgs<ExtArgs>
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
   }
   export type NDAIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    project?: boolean | ProjectDefaultArgs<ExtArgs>
     buyer?: boolean | UserDefaultArgs<ExtArgs>
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
   }
   export type NDAIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    project?: boolean | ProjectDefaultArgs<ExtArgs>
     buyer?: boolean | UserDefaultArgs<ExtArgs>
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
   }
 
   export type $NDAPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "NDA"
     objects: {
-      project: Prisma.$ProjectPayload<ExtArgs>
       buyer: Prisma.$UserPayload<ExtArgs>
+      project: Prisma.$ProjectPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -10989,8 +10989,8 @@ export namespace Prisma {
    */
   export interface Prisma__NDAClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    project<T extends ProjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectDefaultArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     buyer<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    project<T extends ProjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectDefaultArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -11610,8 +11610,8 @@ export namespace Prisma {
     buyerId?: boolean
     estado?: boolean
     criadoEm?: boolean
-    project?: boolean | ProjectDefaultArgs<ExtArgs>
     buyer?: boolean | UserDefaultArgs<ExtArgs>
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["contactRequest"]>
 
   export type ContactRequestSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -11620,8 +11620,8 @@ export namespace Prisma {
     buyerId?: boolean
     estado?: boolean
     criadoEm?: boolean
-    project?: boolean | ProjectDefaultArgs<ExtArgs>
     buyer?: boolean | UserDefaultArgs<ExtArgs>
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["contactRequest"]>
 
   export type ContactRequestSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -11630,8 +11630,8 @@ export namespace Prisma {
     buyerId?: boolean
     estado?: boolean
     criadoEm?: boolean
-    project?: boolean | ProjectDefaultArgs<ExtArgs>
     buyer?: boolean | UserDefaultArgs<ExtArgs>
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["contactRequest"]>
 
   export type ContactRequestSelectScalar = {
@@ -11644,23 +11644,23 @@ export namespace Prisma {
 
   export type ContactRequestOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "projectId" | "buyerId" | "estado" | "criadoEm", ExtArgs["result"]["contactRequest"]>
   export type ContactRequestInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    project?: boolean | ProjectDefaultArgs<ExtArgs>
     buyer?: boolean | UserDefaultArgs<ExtArgs>
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
   }
   export type ContactRequestIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    project?: boolean | ProjectDefaultArgs<ExtArgs>
     buyer?: boolean | UserDefaultArgs<ExtArgs>
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
   }
   export type ContactRequestIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    project?: boolean | ProjectDefaultArgs<ExtArgs>
     buyer?: boolean | UserDefaultArgs<ExtArgs>
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
   }
 
   export type $ContactRequestPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "ContactRequest"
     objects: {
-      project: Prisma.$ProjectPayload<ExtArgs>
       buyer: Prisma.$UserPayload<ExtArgs>
+      project: Prisma.$ProjectPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -12062,8 +12062,8 @@ export namespace Prisma {
    */
   export interface Prisma__ContactRequestClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    project<T extends ProjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectDefaultArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     buyer<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    project<T extends ProjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectDefaultArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -12537,8 +12537,8 @@ export namespace Prisma {
     estado: string | null
     confirmadoPor: string | null
     criadoEm: Date | null
-    referencia: string | null
     motivoRejeicao: string | null
+    referencia: string | null
   }
 
   export type PaymentMaxAggregateOutputType = {
@@ -12551,8 +12551,8 @@ export namespace Prisma {
     estado: string | null
     confirmadoPor: string | null
     criadoEm: Date | null
-    referencia: string | null
     motivoRejeicao: string | null
+    referencia: string | null
   }
 
   export type PaymentCountAggregateOutputType = {
@@ -12565,8 +12565,8 @@ export namespace Prisma {
     estado: number
     confirmadoPor: number
     criadoEm: number
-    referencia: number
     motivoRejeicao: number
+    referencia: number
     _all: number
   }
 
@@ -12581,8 +12581,8 @@ export namespace Prisma {
     estado?: true
     confirmadoPor?: true
     criadoEm?: true
-    referencia?: true
     motivoRejeicao?: true
+    referencia?: true
   }
 
   export type PaymentMaxAggregateInputType = {
@@ -12595,8 +12595,8 @@ export namespace Prisma {
     estado?: true
     confirmadoPor?: true
     criadoEm?: true
-    referencia?: true
     motivoRejeicao?: true
+    referencia?: true
   }
 
   export type PaymentCountAggregateInputType = {
@@ -12609,8 +12609,8 @@ export namespace Prisma {
     estado?: true
     confirmadoPor?: true
     criadoEm?: true
-    referencia?: true
     motivoRejeicao?: true
+    referencia?: true
     _all?: true
   }
 
@@ -12696,8 +12696,8 @@ export namespace Prisma {
     estado: string
     confirmadoPor: string | null
     criadoEm: Date
-    referencia: string
     motivoRejeicao: string | null
+    referencia: string
     _count: PaymentCountAggregateOutputType | null
     _min: PaymentMinAggregateOutputType | null
     _max: PaymentMaxAggregateOutputType | null
@@ -12727,8 +12727,8 @@ export namespace Prisma {
     estado?: boolean
     confirmadoPor?: boolean
     criadoEm?: boolean
-    referencia?: boolean
     motivoRejeicao?: boolean
+    referencia?: boolean
     project?: boolean | Payment$projectArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["payment"]>
@@ -12743,8 +12743,8 @@ export namespace Prisma {
     estado?: boolean
     confirmadoPor?: boolean
     criadoEm?: boolean
-    referencia?: boolean
     motivoRejeicao?: boolean
+    referencia?: boolean
     project?: boolean | Payment$projectArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["payment"]>
@@ -12759,8 +12759,8 @@ export namespace Prisma {
     estado?: boolean
     confirmadoPor?: boolean
     criadoEm?: boolean
-    referencia?: boolean
     motivoRejeicao?: boolean
+    referencia?: boolean
     project?: boolean | Payment$projectArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["payment"]>
@@ -12775,11 +12775,11 @@ export namespace Prisma {
     estado?: boolean
     confirmadoPor?: boolean
     criadoEm?: boolean
-    referencia?: boolean
     motivoRejeicao?: boolean
+    referencia?: boolean
   }
 
-  export type PaymentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "tipo" | "projectId" | "userId" | "metodo" | "comprovativoUrl" | "estado" | "confirmadoPor" | "criadoEm" | "referencia" | "motivoRejeicao", ExtArgs["result"]["payment"]>
+  export type PaymentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "tipo" | "projectId" | "userId" | "metodo" | "comprovativoUrl" | "estado" | "confirmadoPor" | "criadoEm" | "motivoRejeicao" | "referencia", ExtArgs["result"]["payment"]>
   export type PaymentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     project?: boolean | Payment$projectArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -12809,8 +12809,8 @@ export namespace Prisma {
       estado: string
       confirmadoPor: string | null
       criadoEm: Date
-      referencia: string
       motivoRejeicao: string | null
+      referencia: string
     }, ExtArgs["result"]["payment"]>
     composites: {}
   }
@@ -13245,8 +13245,8 @@ export namespace Prisma {
     readonly estado: FieldRef<"Payment", 'String'>
     readonly confirmadoPor: FieldRef<"Payment", 'String'>
     readonly criadoEm: FieldRef<"Payment", 'DateTime'>
-    readonly referencia: FieldRef<"Payment", 'String'>
     readonly motivoRejeicao: FieldRef<"Payment", 'String'>
+    readonly referencia: FieldRef<"Payment", 'String'>
   }
     
 
@@ -16988,14 +16988,14 @@ export namespace Prisma {
     localizacao: 'localizacao',
     nivelVerificacao: 'nivelVerificacao',
     estado: 'estado',
-    motivoRejeicao: 'motivoRejeicao',
     boostActivoAte: 'boostActivoAte',
     dataLancamento: 'dataLancamento',
     linkSite: 'linkSite',
-    notaVerificacao: 'notaVerificacao',
-    dadosSensiveis: 'dadosSensiveis',
+    criadoEm: 'criadoEm',
+    motivoRejeicao: 'motivoRejeicao',
     faixaPreco: 'faixaPreco',
-    criadoEm: 'criadoEm'
+    notaVerificacao: 'notaVerificacao',
+    dadosSensiveis: 'dadosSensiveis'
   };
 
   export type ProjectScalarFieldEnum = (typeof ProjectScalarFieldEnum)[keyof typeof ProjectScalarFieldEnum]
@@ -17058,8 +17058,8 @@ export namespace Prisma {
     estado: 'estado',
     confirmadoPor: 'confirmadoPor',
     criadoEm: 'criadoEm',
-    referencia: 'referencia',
-    motivoRejeicao: 'motivoRejeicao'
+    motivoRejeicao: 'motivoRejeicao',
+    referencia: 'referencia'
   };
 
   export type PaymentScalarFieldEnum = (typeof PaymentScalarFieldEnum)[keyof typeof PaymentScalarFieldEnum]
@@ -17280,13 +17280,13 @@ export namespace Prisma {
     kycMotivoRejeicao?: StringNullableFilter<"User"> | string | null
     criadoEm?: DateTimeFilter<"User"> | Date | string
     accounts?: AccountListRelationFilter
-    sessions?: SessionListRelationFilter
+    contactRequests?: ContactRequestListRelationFilter
+    ndasComoComprador?: NDAListRelationFilter
+    newsletterSubscription?: XOR<NewsletterSubscriptionNullableScalarRelationFilter, NewsletterSubscriptionWhereInput> | null
+    payments?: PaymentListRelationFilter
     projects?: ProjectListRelationFilter
     reactions?: ReactionListRelationFilter
-    ndasComoComprador?: NDAListRelationFilter
-    contactRequests?: ContactRequestListRelationFilter
-    payments?: PaymentListRelationFilter
-    newsletterSubscription?: XOR<NewsletterSubscriptionNullableScalarRelationFilter, NewsletterSubscriptionWhereInput> | null
+    sessions?: SessionListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -17303,13 +17303,13 @@ export namespace Prisma {
     kycMotivoRejeicao?: SortOrderInput | SortOrder
     criadoEm?: SortOrder
     accounts?: AccountOrderByRelationAggregateInput
-    sessions?: SessionOrderByRelationAggregateInput
+    contactRequests?: ContactRequestOrderByRelationAggregateInput
+    ndasComoComprador?: NDAOrderByRelationAggregateInput
+    newsletterSubscription?: NewsletterSubscriptionOrderByWithRelationInput
+    payments?: PaymentOrderByRelationAggregateInput
     projects?: ProjectOrderByRelationAggregateInput
     reactions?: ReactionOrderByRelationAggregateInput
-    ndasComoComprador?: NDAOrderByRelationAggregateInput
-    contactRequests?: ContactRequestOrderByRelationAggregateInput
-    payments?: PaymentOrderByRelationAggregateInput
-    newsletterSubscription?: NewsletterSubscriptionOrderByWithRelationInput
+    sessions?: SessionOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -17329,13 +17329,13 @@ export namespace Prisma {
     kycMotivoRejeicao?: StringNullableFilter<"User"> | string | null
     criadoEm?: DateTimeFilter<"User"> | Date | string
     accounts?: AccountListRelationFilter
-    sessions?: SessionListRelationFilter
+    contactRequests?: ContactRequestListRelationFilter
+    ndasComoComprador?: NDAListRelationFilter
+    newsletterSubscription?: XOR<NewsletterSubscriptionNullableScalarRelationFilter, NewsletterSubscriptionWhereInput> | null
+    payments?: PaymentListRelationFilter
     projects?: ProjectListRelationFilter
     reactions?: ReactionListRelationFilter
-    ndasComoComprador?: NDAListRelationFilter
-    contactRequests?: ContactRequestListRelationFilter
-    payments?: PaymentListRelationFilter
-    newsletterSubscription?: XOR<NewsletterSubscriptionNullableScalarRelationFilter, NewsletterSubscriptionWhereInput> | null
+    sessions?: SessionListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -17574,22 +17574,22 @@ export namespace Prisma {
     localizacao?: StringFilter<"Project"> | string
     nivelVerificacao?: EnumNivelVerificacaoFilter<"Project"> | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFilter<"Project"> | $Enums.EstadoProjecto
-    motivoRejeicao?: StringNullableFilter<"Project"> | string | null
     boostActivoAte?: DateTimeNullableFilter<"Project"> | Date | string | null
     dataLancamento?: DateTimeNullableFilter<"Project"> | Date | string | null
     linkSite?: StringNullableFilter<"Project"> | string | null
+    criadoEm?: DateTimeFilter<"Project"> | Date | string
+    motivoRejeicao?: StringNullableFilter<"Project"> | string | null
+    faixaPreco?: StringNullableFilter<"Project"> | string | null
     notaVerificacao?: StringNullableFilter<"Project"> | string | null
     dadosSensiveis?: StringNullableFilter<"Project"> | string | null
-    faixaPreco?: StringNullableFilter<"Project"> | string | null
-    criadoEm?: DateTimeFilter<"Project"> | Date | string
-    owner?: XOR<UserScalarRelationFilter, UserWhereInput>
-    checklists?: VerificationChecklistListRelationFilter
-    reactions?: ReactionListRelationFilter
-    ndas?: NDAListRelationFilter
     contactRequests?: ContactRequestListRelationFilter
     documentos?: DocumentoSensivelListRelationFilter
     editorialPicks?: EditorialPickListRelationFilter
+    ndas?: NDAListRelationFilter
     payments?: PaymentListRelationFilter
+    owner?: XOR<UserScalarRelationFilter, UserWhereInput>
+    reactions?: ReactionListRelationFilter
+    checklists?: VerificationChecklistListRelationFilter
   }
 
   export type ProjectOrderByWithRelationInput = {
@@ -17603,22 +17603,22 @@ export namespace Prisma {
     localizacao?: SortOrder
     nivelVerificacao?: SortOrder
     estado?: SortOrder
-    motivoRejeicao?: SortOrderInput | SortOrder
     boostActivoAte?: SortOrderInput | SortOrder
     dataLancamento?: SortOrderInput | SortOrder
     linkSite?: SortOrderInput | SortOrder
+    criadoEm?: SortOrder
+    motivoRejeicao?: SortOrderInput | SortOrder
+    faixaPreco?: SortOrderInput | SortOrder
     notaVerificacao?: SortOrderInput | SortOrder
     dadosSensiveis?: SortOrderInput | SortOrder
-    faixaPreco?: SortOrderInput | SortOrder
-    criadoEm?: SortOrder
-    owner?: UserOrderByWithRelationInput
-    checklists?: VerificationChecklistOrderByRelationAggregateInput
-    reactions?: ReactionOrderByRelationAggregateInput
-    ndas?: NDAOrderByRelationAggregateInput
     contactRequests?: ContactRequestOrderByRelationAggregateInput
     documentos?: DocumentoSensivelOrderByRelationAggregateInput
     editorialPicks?: EditorialPickOrderByRelationAggregateInput
+    ndas?: NDAOrderByRelationAggregateInput
     payments?: PaymentOrderByRelationAggregateInput
+    owner?: UserOrderByWithRelationInput
+    reactions?: ReactionOrderByRelationAggregateInput
+    checklists?: VerificationChecklistOrderByRelationAggregateInput
   }
 
   export type ProjectWhereUniqueInput = Prisma.AtLeast<{
@@ -17635,22 +17635,22 @@ export namespace Prisma {
     localizacao?: StringFilter<"Project"> | string
     nivelVerificacao?: EnumNivelVerificacaoFilter<"Project"> | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFilter<"Project"> | $Enums.EstadoProjecto
-    motivoRejeicao?: StringNullableFilter<"Project"> | string | null
     boostActivoAte?: DateTimeNullableFilter<"Project"> | Date | string | null
     dataLancamento?: DateTimeNullableFilter<"Project"> | Date | string | null
     linkSite?: StringNullableFilter<"Project"> | string | null
+    criadoEm?: DateTimeFilter<"Project"> | Date | string
+    motivoRejeicao?: StringNullableFilter<"Project"> | string | null
+    faixaPreco?: StringNullableFilter<"Project"> | string | null
     notaVerificacao?: StringNullableFilter<"Project"> | string | null
     dadosSensiveis?: StringNullableFilter<"Project"> | string | null
-    faixaPreco?: StringNullableFilter<"Project"> | string | null
-    criadoEm?: DateTimeFilter<"Project"> | Date | string
-    owner?: XOR<UserScalarRelationFilter, UserWhereInput>
-    checklists?: VerificationChecklistListRelationFilter
-    reactions?: ReactionListRelationFilter
-    ndas?: NDAListRelationFilter
     contactRequests?: ContactRequestListRelationFilter
     documentos?: DocumentoSensivelListRelationFilter
     editorialPicks?: EditorialPickListRelationFilter
+    ndas?: NDAListRelationFilter
     payments?: PaymentListRelationFilter
+    owner?: XOR<UserScalarRelationFilter, UserWhereInput>
+    reactions?: ReactionListRelationFilter
+    checklists?: VerificationChecklistListRelationFilter
   }, "id">
 
   export type ProjectOrderByWithAggregationInput = {
@@ -17664,14 +17664,14 @@ export namespace Prisma {
     localizacao?: SortOrder
     nivelVerificacao?: SortOrder
     estado?: SortOrder
-    motivoRejeicao?: SortOrderInput | SortOrder
     boostActivoAte?: SortOrderInput | SortOrder
     dataLancamento?: SortOrderInput | SortOrder
     linkSite?: SortOrderInput | SortOrder
+    criadoEm?: SortOrder
+    motivoRejeicao?: SortOrderInput | SortOrder
+    faixaPreco?: SortOrderInput | SortOrder
     notaVerificacao?: SortOrderInput | SortOrder
     dadosSensiveis?: SortOrderInput | SortOrder
-    faixaPreco?: SortOrderInput | SortOrder
-    criadoEm?: SortOrder
     _count?: ProjectCountOrderByAggregateInput
     _max?: ProjectMaxOrderByAggregateInput
     _min?: ProjectMinOrderByAggregateInput
@@ -17691,14 +17691,14 @@ export namespace Prisma {
     localizacao?: StringWithAggregatesFilter<"Project"> | string
     nivelVerificacao?: EnumNivelVerificacaoWithAggregatesFilter<"Project"> | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoWithAggregatesFilter<"Project"> | $Enums.EstadoProjecto
-    motivoRejeicao?: StringNullableWithAggregatesFilter<"Project"> | string | null
     boostActivoAte?: DateTimeNullableWithAggregatesFilter<"Project"> | Date | string | null
     dataLancamento?: DateTimeNullableWithAggregatesFilter<"Project"> | Date | string | null
     linkSite?: StringNullableWithAggregatesFilter<"Project"> | string | null
+    criadoEm?: DateTimeWithAggregatesFilter<"Project"> | Date | string
+    motivoRejeicao?: StringNullableWithAggregatesFilter<"Project"> | string | null
+    faixaPreco?: StringNullableWithAggregatesFilter<"Project"> | string | null
     notaVerificacao?: StringNullableWithAggregatesFilter<"Project"> | string | null
     dadosSensiveis?: StringNullableWithAggregatesFilter<"Project"> | string | null
-    faixaPreco?: StringNullableWithAggregatesFilter<"Project"> | string | null
-    criadoEm?: DateTimeWithAggregatesFilter<"Project"> | Date | string
   }
 
   export type VerificationChecklistWhereInput = {
@@ -17831,8 +17831,8 @@ export namespace Prisma {
     ip?: StringFilter<"NDA"> | string
     pago?: BoolFilter<"NDA"> | boolean
     criadoEm?: DateTimeFilter<"NDA"> | Date | string
-    project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
     buyer?: XOR<UserScalarRelationFilter, UserWhereInput>
+    project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
   }
 
   export type NDAOrderByWithRelationInput = {
@@ -17843,8 +17843,8 @@ export namespace Prisma {
     ip?: SortOrder
     pago?: SortOrder
     criadoEm?: SortOrder
-    project?: ProjectOrderByWithRelationInput
     buyer?: UserOrderByWithRelationInput
+    project?: ProjectOrderByWithRelationInput
   }
 
   export type NDAWhereUniqueInput = Prisma.AtLeast<{
@@ -17858,8 +17858,8 @@ export namespace Prisma {
     ip?: StringFilter<"NDA"> | string
     pago?: BoolFilter<"NDA"> | boolean
     criadoEm?: DateTimeFilter<"NDA"> | Date | string
-    project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
     buyer?: XOR<UserScalarRelationFilter, UserWhereInput>
+    project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
   }, "id">
 
   export type NDAOrderByWithAggregationInput = {
@@ -17897,8 +17897,8 @@ export namespace Prisma {
     buyerId?: StringFilter<"ContactRequest"> | string
     estado?: StringFilter<"ContactRequest"> | string
     criadoEm?: DateTimeFilter<"ContactRequest"> | Date | string
-    project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
     buyer?: XOR<UserScalarRelationFilter, UserWhereInput>
+    project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
   }
 
   export type ContactRequestOrderByWithRelationInput = {
@@ -17907,8 +17907,8 @@ export namespace Prisma {
     buyerId?: SortOrder
     estado?: SortOrder
     criadoEm?: SortOrder
-    project?: ProjectOrderByWithRelationInput
     buyer?: UserOrderByWithRelationInput
+    project?: ProjectOrderByWithRelationInput
   }
 
   export type ContactRequestWhereUniqueInput = Prisma.AtLeast<{
@@ -17920,8 +17920,8 @@ export namespace Prisma {
     buyerId?: StringFilter<"ContactRequest"> | string
     estado?: StringFilter<"ContactRequest"> | string
     criadoEm?: DateTimeFilter<"ContactRequest"> | Date | string
-    project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
     buyer?: XOR<UserScalarRelationFilter, UserWhereInput>
+    project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
   }, "id">
 
   export type ContactRequestOrderByWithAggregationInput = {
@@ -17959,8 +17959,8 @@ export namespace Prisma {
     estado?: StringFilter<"Payment"> | string
     confirmadoPor?: StringNullableFilter<"Payment"> | string | null
     criadoEm?: DateTimeFilter<"Payment"> | Date | string
-    referencia?: StringFilter<"Payment"> | string
     motivoRejeicao?: StringNullableFilter<"Payment"> | string | null
+    referencia?: StringFilter<"Payment"> | string
     project?: XOR<ProjectNullableScalarRelationFilter, ProjectWhereInput> | null
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
@@ -17975,8 +17975,8 @@ export namespace Prisma {
     estado?: SortOrder
     confirmadoPor?: SortOrderInput | SortOrder
     criadoEm?: SortOrder
-    referencia?: SortOrder
     motivoRejeicao?: SortOrderInput | SortOrder
+    referencia?: SortOrder
     project?: ProjectOrderByWithRelationInput
     user?: UserOrderByWithRelationInput
   }
@@ -18010,8 +18010,8 @@ export namespace Prisma {
     estado?: SortOrder
     confirmadoPor?: SortOrderInput | SortOrder
     criadoEm?: SortOrder
-    referencia?: SortOrder
     motivoRejeicao?: SortOrderInput | SortOrder
+    referencia?: SortOrder
     _count?: PaymentCountOrderByAggregateInput
     _max?: PaymentMaxOrderByAggregateInput
     _min?: PaymentMinOrderByAggregateInput
@@ -18030,8 +18030,8 @@ export namespace Prisma {
     estado?: StringWithAggregatesFilter<"Payment"> | string
     confirmadoPor?: StringNullableWithAggregatesFilter<"Payment"> | string | null
     criadoEm?: DateTimeWithAggregatesFilter<"Payment"> | Date | string
-    referencia?: StringWithAggregatesFilter<"Payment"> | string
     motivoRejeicao?: StringNullableWithAggregatesFilter<"Payment"> | string | null
+    referencia?: StringWithAggregatesFilter<"Payment"> | string
   }
 
   export type DocumentoSensivelWhereInput = {
@@ -18215,13 +18215,13 @@ export namespace Prisma {
     kycMotivoRejeicao?: string | null
     criadoEm?: Date | string
     accounts?: AccountCreateNestedManyWithoutUserInput
-    sessions?: SessionCreateNestedManyWithoutUserInput
+    contactRequests?: ContactRequestCreateNestedManyWithoutBuyerInput
+    ndasComoComprador?: NDACreateNestedManyWithoutBuyerInput
+    newsletterSubscription?: NewsletterSubscriptionCreateNestedOneWithoutUserInput
+    payments?: PaymentCreateNestedManyWithoutUserInput
     projects?: ProjectCreateNestedManyWithoutOwnerInput
     reactions?: ReactionCreateNestedManyWithoutUserInput
-    ndasComoComprador?: NDACreateNestedManyWithoutBuyerInput
-    contactRequests?: ContactRequestCreateNestedManyWithoutBuyerInput
-    payments?: PaymentCreateNestedManyWithoutUserInput
-    newsletterSubscription?: NewsletterSubscriptionCreateNestedOneWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -18238,13 +18238,13 @@ export namespace Prisma {
     kycMotivoRejeicao?: string | null
     criadoEm?: Date | string
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    contactRequests?: ContactRequestUncheckedCreateNestedManyWithoutBuyerInput
+    ndasComoComprador?: NDAUncheckedCreateNestedManyWithoutBuyerInput
+    newsletterSubscription?: NewsletterSubscriptionUncheckedCreateNestedOneWithoutUserInput
+    payments?: PaymentUncheckedCreateNestedManyWithoutUserInput
     projects?: ProjectUncheckedCreateNestedManyWithoutOwnerInput
     reactions?: ReactionUncheckedCreateNestedManyWithoutUserInput
-    ndasComoComprador?: NDAUncheckedCreateNestedManyWithoutBuyerInput
-    contactRequests?: ContactRequestUncheckedCreateNestedManyWithoutBuyerInput
-    payments?: PaymentUncheckedCreateNestedManyWithoutUserInput
-    newsletterSubscription?: NewsletterSubscriptionUncheckedCreateNestedOneWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -18261,13 +18261,13 @@ export namespace Prisma {
     kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUpdateManyWithoutUserNestedInput
-    sessions?: SessionUpdateManyWithoutUserNestedInput
+    contactRequests?: ContactRequestUpdateManyWithoutBuyerNestedInput
+    ndasComoComprador?: NDAUpdateManyWithoutBuyerNestedInput
+    newsletterSubscription?: NewsletterSubscriptionUpdateOneWithoutUserNestedInput
+    payments?: PaymentUpdateManyWithoutUserNestedInput
     projects?: ProjectUpdateManyWithoutOwnerNestedInput
     reactions?: ReactionUpdateManyWithoutUserNestedInput
-    ndasComoComprador?: NDAUpdateManyWithoutBuyerNestedInput
-    contactRequests?: ContactRequestUpdateManyWithoutBuyerNestedInput
-    payments?: PaymentUpdateManyWithoutUserNestedInput
-    newsletterSubscription?: NewsletterSubscriptionUpdateOneWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -18284,13 +18284,13 @@ export namespace Prisma {
     kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    contactRequests?: ContactRequestUncheckedUpdateManyWithoutBuyerNestedInput
+    ndasComoComprador?: NDAUncheckedUpdateManyWithoutBuyerNestedInput
+    newsletterSubscription?: NewsletterSubscriptionUncheckedUpdateOneWithoutUserNestedInput
+    payments?: PaymentUncheckedUpdateManyWithoutUserNestedInput
     projects?: ProjectUncheckedUpdateManyWithoutOwnerNestedInput
     reactions?: ReactionUncheckedUpdateManyWithoutUserNestedInput
-    ndasComoComprador?: NDAUncheckedUpdateManyWithoutBuyerNestedInput
-    contactRequests?: ContactRequestUncheckedUpdateManyWithoutBuyerNestedInput
-    payments?: PaymentUncheckedUpdateManyWithoutUserNestedInput
-    newsletterSubscription?: NewsletterSubscriptionUncheckedUpdateOneWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -18542,22 +18542,22 @@ export namespace Prisma {
     localizacao: string
     nivelVerificacao?: $Enums.NivelVerificacao
     estado?: $Enums.EstadoProjecto
-    motivoRejeicao?: string | null
     boostActivoAte?: Date | string | null
     dataLancamento?: Date | string | null
     linkSite?: string | null
+    criadoEm?: Date | string
+    motivoRejeicao?: string | null
+    faixaPreco?: string | null
     notaVerificacao?: string | null
     dadosSensiveis?: string | null
-    faixaPreco?: string | null
-    criadoEm?: Date | string
-    owner: UserCreateNestedOneWithoutProjectsInput
-    checklists?: VerificationChecklistCreateNestedManyWithoutProjectInput
-    reactions?: ReactionCreateNestedManyWithoutProjectInput
-    ndas?: NDACreateNestedManyWithoutProjectInput
     contactRequests?: ContactRequestCreateNestedManyWithoutProjectInput
     documentos?: DocumentoSensivelCreateNestedManyWithoutProjectInput
     editorialPicks?: EditorialPickCreateNestedManyWithoutProjectInput
+    ndas?: NDACreateNestedManyWithoutProjectInput
     payments?: PaymentCreateNestedManyWithoutProjectInput
+    owner: UserCreateNestedOneWithoutProjectsInput
+    reactions?: ReactionCreateNestedManyWithoutProjectInput
+    checklists?: VerificationChecklistCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectUncheckedCreateInput = {
@@ -18571,21 +18571,21 @@ export namespace Prisma {
     localizacao: string
     nivelVerificacao?: $Enums.NivelVerificacao
     estado?: $Enums.EstadoProjecto
-    motivoRejeicao?: string | null
     boostActivoAte?: Date | string | null
     dataLancamento?: Date | string | null
     linkSite?: string | null
+    criadoEm?: Date | string
+    motivoRejeicao?: string | null
+    faixaPreco?: string | null
     notaVerificacao?: string | null
     dadosSensiveis?: string | null
-    faixaPreco?: string | null
-    criadoEm?: Date | string
-    checklists?: VerificationChecklistUncheckedCreateNestedManyWithoutProjectInput
-    reactions?: ReactionUncheckedCreateNestedManyWithoutProjectInput
-    ndas?: NDAUncheckedCreateNestedManyWithoutProjectInput
     contactRequests?: ContactRequestUncheckedCreateNestedManyWithoutProjectInput
     documentos?: DocumentoSensivelUncheckedCreateNestedManyWithoutProjectInput
     editorialPicks?: EditorialPickUncheckedCreateNestedManyWithoutProjectInput
+    ndas?: NDAUncheckedCreateNestedManyWithoutProjectInput
     payments?: PaymentUncheckedCreateNestedManyWithoutProjectInput
+    reactions?: ReactionUncheckedCreateNestedManyWithoutProjectInput
+    checklists?: VerificationChecklistUncheckedCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectUpdateInput = {
@@ -18598,22 +18598,22 @@ export namespace Prisma {
     localizacao?: StringFieldUpdateOperationsInput | string
     nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
-    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
     dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
-    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
-    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    owner?: UserUpdateOneRequiredWithoutProjectsNestedInput
-    checklists?: VerificationChecklistUpdateManyWithoutProjectNestedInput
-    reactions?: ReactionUpdateManyWithoutProjectNestedInput
-    ndas?: NDAUpdateManyWithoutProjectNestedInput
     contactRequests?: ContactRequestUpdateManyWithoutProjectNestedInput
     documentos?: DocumentoSensivelUpdateManyWithoutProjectNestedInput
     editorialPicks?: EditorialPickUpdateManyWithoutProjectNestedInput
+    ndas?: NDAUpdateManyWithoutProjectNestedInput
     payments?: PaymentUpdateManyWithoutProjectNestedInput
+    owner?: UserUpdateOneRequiredWithoutProjectsNestedInput
+    reactions?: ReactionUpdateManyWithoutProjectNestedInput
+    checklists?: VerificationChecklistUpdateManyWithoutProjectNestedInput
   }
 
   export type ProjectUncheckedUpdateInput = {
@@ -18627,21 +18627,21 @@ export namespace Prisma {
     localizacao?: StringFieldUpdateOperationsInput | string
     nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
-    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
     dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
-    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
-    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    checklists?: VerificationChecklistUncheckedUpdateManyWithoutProjectNestedInput
-    reactions?: ReactionUncheckedUpdateManyWithoutProjectNestedInput
-    ndas?: NDAUncheckedUpdateManyWithoutProjectNestedInput
     contactRequests?: ContactRequestUncheckedUpdateManyWithoutProjectNestedInput
     documentos?: DocumentoSensivelUncheckedUpdateManyWithoutProjectNestedInput
     editorialPicks?: EditorialPickUncheckedUpdateManyWithoutProjectNestedInput
+    ndas?: NDAUncheckedUpdateManyWithoutProjectNestedInput
     payments?: PaymentUncheckedUpdateManyWithoutProjectNestedInput
+    reactions?: ReactionUncheckedUpdateManyWithoutProjectNestedInput
+    checklists?: VerificationChecklistUncheckedUpdateManyWithoutProjectNestedInput
   }
 
   export type ProjectCreateManyInput = {
@@ -18655,14 +18655,14 @@ export namespace Prisma {
     localizacao: string
     nivelVerificacao?: $Enums.NivelVerificacao
     estado?: $Enums.EstadoProjecto
-    motivoRejeicao?: string | null
     boostActivoAte?: Date | string | null
     dataLancamento?: Date | string | null
     linkSite?: string | null
+    criadoEm?: Date | string
+    motivoRejeicao?: string | null
+    faixaPreco?: string | null
     notaVerificacao?: string | null
     dadosSensiveis?: string | null
-    faixaPreco?: string | null
-    criadoEm?: Date | string
   }
 
   export type ProjectUpdateManyMutationInput = {
@@ -18675,14 +18675,14 @@ export namespace Prisma {
     localizacao?: StringFieldUpdateOperationsInput | string
     nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
-    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
     dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
-    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
-    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ProjectUncheckedUpdateManyInput = {
@@ -18696,14 +18696,14 @@ export namespace Prisma {
     localizacao?: StringFieldUpdateOperationsInput | string
     nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
-    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
     dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
-    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
-    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type VerificationChecklistCreateInput = {
@@ -18828,8 +18828,8 @@ export namespace Prisma {
     ip: string
     pago?: boolean
     criadoEm?: Date | string
-    project: ProjectCreateNestedOneWithoutNdasInput
     buyer: UserCreateNestedOneWithoutNdasComoCompradorInput
+    project: ProjectCreateNestedOneWithoutNdasInput
   }
 
   export type NDAUncheckedCreateInput = {
@@ -18848,8 +18848,8 @@ export namespace Prisma {
     ip?: StringFieldUpdateOperationsInput | string
     pago?: BoolFieldUpdateOperationsInput | boolean
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    project?: ProjectUpdateOneRequiredWithoutNdasNestedInput
     buyer?: UserUpdateOneRequiredWithoutNdasComoCompradorNestedInput
+    project?: ProjectUpdateOneRequiredWithoutNdasNestedInput
   }
 
   export type NDAUncheckedUpdateInput = {
@@ -18894,8 +18894,8 @@ export namespace Prisma {
     id?: string
     estado?: string
     criadoEm?: Date | string
-    project: ProjectCreateNestedOneWithoutContactRequestsInput
     buyer: UserCreateNestedOneWithoutContactRequestsInput
+    project: ProjectCreateNestedOneWithoutContactRequestsInput
   }
 
   export type ContactRequestUncheckedCreateInput = {
@@ -18910,8 +18910,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     estado?: StringFieldUpdateOperationsInput | string
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    project?: ProjectUpdateOneRequiredWithoutContactRequestsNestedInput
     buyer?: UserUpdateOneRequiredWithoutContactRequestsNestedInput
+    project?: ProjectUpdateOneRequiredWithoutContactRequestsNestedInput
   }
 
   export type ContactRequestUncheckedUpdateInput = {
@@ -18952,8 +18952,8 @@ export namespace Prisma {
     estado?: string
     confirmadoPor?: string | null
     criadoEm?: Date | string
-    referencia: string
     motivoRejeicao?: string | null
+    referencia: string
     project?: ProjectCreateNestedOneWithoutPaymentsInput
     user: UserCreateNestedOneWithoutPaymentsInput
   }
@@ -18968,8 +18968,8 @@ export namespace Prisma {
     estado?: string
     confirmadoPor?: string | null
     criadoEm?: Date | string
-    referencia: string
     motivoRejeicao?: string | null
+    referencia: string
   }
 
   export type PaymentUpdateInput = {
@@ -18980,8 +18980,8 @@ export namespace Prisma {
     estado?: StringFieldUpdateOperationsInput | string
     confirmadoPor?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    referencia?: StringFieldUpdateOperationsInput | string
     motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
+    referencia?: StringFieldUpdateOperationsInput | string
     project?: ProjectUpdateOneWithoutPaymentsNestedInput
     user?: UserUpdateOneRequiredWithoutPaymentsNestedInput
   }
@@ -18996,8 +18996,8 @@ export namespace Prisma {
     estado?: StringFieldUpdateOperationsInput | string
     confirmadoPor?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    referencia?: StringFieldUpdateOperationsInput | string
     motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
+    referencia?: StringFieldUpdateOperationsInput | string
   }
 
   export type PaymentCreateManyInput = {
@@ -19010,8 +19010,8 @@ export namespace Prisma {
     estado?: string
     confirmadoPor?: string | null
     criadoEm?: Date | string
-    referencia: string
     motivoRejeicao?: string | null
+    referencia: string
   }
 
   export type PaymentUpdateManyMutationInput = {
@@ -19022,8 +19022,8 @@ export namespace Prisma {
     estado?: StringFieldUpdateOperationsInput | string
     confirmadoPor?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    referencia?: StringFieldUpdateOperationsInput | string
     motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
+    referencia?: StringFieldUpdateOperationsInput | string
   }
 
   export type PaymentUncheckedUpdateManyInput = {
@@ -19036,8 +19036,8 @@ export namespace Prisma {
     estado?: StringFieldUpdateOperationsInput | string
     confirmadoPor?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    referencia?: StringFieldUpdateOperationsInput | string
     motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
+    referencia?: StringFieldUpdateOperationsInput | string
   }
 
   export type DocumentoSensivelCreateInput = {
@@ -19277,10 +19277,27 @@ export namespace Prisma {
     none?: AccountWhereInput
   }
 
-  export type SessionListRelationFilter = {
-    every?: SessionWhereInput
-    some?: SessionWhereInput
-    none?: SessionWhereInput
+  export type ContactRequestListRelationFilter = {
+    every?: ContactRequestWhereInput
+    some?: ContactRequestWhereInput
+    none?: ContactRequestWhereInput
+  }
+
+  export type NDAListRelationFilter = {
+    every?: NDAWhereInput
+    some?: NDAWhereInput
+    none?: NDAWhereInput
+  }
+
+  export type NewsletterSubscriptionNullableScalarRelationFilter = {
+    is?: NewsletterSubscriptionWhereInput | null
+    isNot?: NewsletterSubscriptionWhereInput | null
+  }
+
+  export type PaymentListRelationFilter = {
+    every?: PaymentWhereInput
+    some?: PaymentWhereInput
+    none?: PaymentWhereInput
   }
 
   export type ProjectListRelationFilter = {
@@ -19295,27 +19312,10 @@ export namespace Prisma {
     none?: ReactionWhereInput
   }
 
-  export type NDAListRelationFilter = {
-    every?: NDAWhereInput
-    some?: NDAWhereInput
-    none?: NDAWhereInput
-  }
-
-  export type ContactRequestListRelationFilter = {
-    every?: ContactRequestWhereInput
-    some?: ContactRequestWhereInput
-    none?: ContactRequestWhereInput
-  }
-
-  export type PaymentListRelationFilter = {
-    every?: PaymentWhereInput
-    some?: PaymentWhereInput
-    none?: PaymentWhereInput
-  }
-
-  export type NewsletterSubscriptionNullableScalarRelationFilter = {
-    is?: NewsletterSubscriptionWhereInput | null
-    isNot?: NewsletterSubscriptionWhereInput | null
+  export type SessionListRelationFilter = {
+    every?: SessionWhereInput
+    some?: SessionWhereInput
+    none?: SessionWhereInput
   }
 
   export type SortOrderInput = {
@@ -19327,7 +19327,15 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type SessionOrderByRelationAggregateInput = {
+  export type ContactRequestOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type NDAOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type PaymentOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -19339,15 +19347,7 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type NDAOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type ContactRequestOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type PaymentOrderByRelationAggregateInput = {
+  export type SessionOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -19635,12 +19635,6 @@ export namespace Prisma {
     not?: NestedEnumEstadoProjectoFilter<$PrismaModel> | $Enums.EstadoProjecto
   }
 
-  export type VerificationChecklistListRelationFilter = {
-    every?: VerificationChecklistWhereInput
-    some?: VerificationChecklistWhereInput
-    none?: VerificationChecklistWhereInput
-  }
-
   export type DocumentoSensivelListRelationFilter = {
     every?: DocumentoSensivelWhereInput
     some?: DocumentoSensivelWhereInput
@@ -19653,8 +19647,10 @@ export namespace Prisma {
     none?: EditorialPickWhereInput
   }
 
-  export type VerificationChecklistOrderByRelationAggregateInput = {
-    _count?: SortOrder
+  export type VerificationChecklistListRelationFilter = {
+    every?: VerificationChecklistWhereInput
+    some?: VerificationChecklistWhereInput
+    none?: VerificationChecklistWhereInput
   }
 
   export type DocumentoSensivelOrderByRelationAggregateInput = {
@@ -19662,6 +19658,10 @@ export namespace Prisma {
   }
 
   export type EditorialPickOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type VerificationChecklistOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -19676,14 +19676,14 @@ export namespace Prisma {
     localizacao?: SortOrder
     nivelVerificacao?: SortOrder
     estado?: SortOrder
-    motivoRejeicao?: SortOrder
     boostActivoAte?: SortOrder
     dataLancamento?: SortOrder
     linkSite?: SortOrder
+    criadoEm?: SortOrder
+    motivoRejeicao?: SortOrder
+    faixaPreco?: SortOrder
     notaVerificacao?: SortOrder
     dadosSensiveis?: SortOrder
-    faixaPreco?: SortOrder
-    criadoEm?: SortOrder
   }
 
   export type ProjectMaxOrderByAggregateInput = {
@@ -19697,14 +19697,14 @@ export namespace Prisma {
     localizacao?: SortOrder
     nivelVerificacao?: SortOrder
     estado?: SortOrder
-    motivoRejeicao?: SortOrder
     boostActivoAte?: SortOrder
     dataLancamento?: SortOrder
     linkSite?: SortOrder
+    criadoEm?: SortOrder
+    motivoRejeicao?: SortOrder
+    faixaPreco?: SortOrder
     notaVerificacao?: SortOrder
     dadosSensiveis?: SortOrder
-    faixaPreco?: SortOrder
-    criadoEm?: SortOrder
   }
 
   export type ProjectMinOrderByAggregateInput = {
@@ -19718,14 +19718,14 @@ export namespace Prisma {
     localizacao?: SortOrder
     nivelVerificacao?: SortOrder
     estado?: SortOrder
-    motivoRejeicao?: SortOrder
     boostActivoAte?: SortOrder
     dataLancamento?: SortOrder
     linkSite?: SortOrder
+    criadoEm?: SortOrder
+    motivoRejeicao?: SortOrder
+    faixaPreco?: SortOrder
     notaVerificacao?: SortOrder
     dadosSensiveis?: SortOrder
-    faixaPreco?: SortOrder
-    criadoEm?: SortOrder
   }
 
   export type EnumSeccaoWithAggregatesFilter<$PrismaModel = never> = {
@@ -19902,8 +19902,8 @@ export namespace Prisma {
     estado?: SortOrder
     confirmadoPor?: SortOrder
     criadoEm?: SortOrder
-    referencia?: SortOrder
     motivoRejeicao?: SortOrder
+    referencia?: SortOrder
   }
 
   export type PaymentMaxOrderByAggregateInput = {
@@ -19916,8 +19916,8 @@ export namespace Prisma {
     estado?: SortOrder
     confirmadoPor?: SortOrder
     criadoEm?: SortOrder
-    referencia?: SortOrder
     motivoRejeicao?: SortOrder
+    referencia?: SortOrder
   }
 
   export type PaymentMinOrderByAggregateInput = {
@@ -19930,8 +19930,8 @@ export namespace Prisma {
     estado?: SortOrder
     confirmadoPor?: SortOrder
     criadoEm?: SortOrder
-    referencia?: SortOrder
     motivoRejeicao?: SortOrder
+    referencia?: SortOrder
   }
 
   export type DocumentoSensivelCountOrderByAggregateInput = {
@@ -20048,11 +20048,31 @@ export namespace Prisma {
     connect?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
   }
 
-  export type SessionCreateNestedManyWithoutUserInput = {
-    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
-    createMany?: SessionCreateManyUserInputEnvelope
-    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+  export type ContactRequestCreateNestedManyWithoutBuyerInput = {
+    create?: XOR<ContactRequestCreateWithoutBuyerInput, ContactRequestUncheckedCreateWithoutBuyerInput> | ContactRequestCreateWithoutBuyerInput[] | ContactRequestUncheckedCreateWithoutBuyerInput[]
+    connectOrCreate?: ContactRequestCreateOrConnectWithoutBuyerInput | ContactRequestCreateOrConnectWithoutBuyerInput[]
+    createMany?: ContactRequestCreateManyBuyerInputEnvelope
+    connect?: ContactRequestWhereUniqueInput | ContactRequestWhereUniqueInput[]
+  }
+
+  export type NDACreateNestedManyWithoutBuyerInput = {
+    create?: XOR<NDACreateWithoutBuyerInput, NDAUncheckedCreateWithoutBuyerInput> | NDACreateWithoutBuyerInput[] | NDAUncheckedCreateWithoutBuyerInput[]
+    connectOrCreate?: NDACreateOrConnectWithoutBuyerInput | NDACreateOrConnectWithoutBuyerInput[]
+    createMany?: NDACreateManyBuyerInputEnvelope
+    connect?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
+  }
+
+  export type NewsletterSubscriptionCreateNestedOneWithoutUserInput = {
+    create?: XOR<NewsletterSubscriptionCreateWithoutUserInput, NewsletterSubscriptionUncheckedCreateWithoutUserInput>
+    connectOrCreate?: NewsletterSubscriptionCreateOrConnectWithoutUserInput
+    connect?: NewsletterSubscriptionWhereUniqueInput
+  }
+
+  export type PaymentCreateNestedManyWithoutUserInput = {
+    create?: XOR<PaymentCreateWithoutUserInput, PaymentUncheckedCreateWithoutUserInput> | PaymentCreateWithoutUserInput[] | PaymentUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PaymentCreateOrConnectWithoutUserInput | PaymentCreateOrConnectWithoutUserInput[]
+    createMany?: PaymentCreateManyUserInputEnvelope
+    connect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
   }
 
   export type ProjectCreateNestedManyWithoutOwnerInput = {
@@ -20069,31 +20089,11 @@ export namespace Prisma {
     connect?: ReactionWhereUniqueInput | ReactionWhereUniqueInput[]
   }
 
-  export type NDACreateNestedManyWithoutBuyerInput = {
-    create?: XOR<NDACreateWithoutBuyerInput, NDAUncheckedCreateWithoutBuyerInput> | NDACreateWithoutBuyerInput[] | NDAUncheckedCreateWithoutBuyerInput[]
-    connectOrCreate?: NDACreateOrConnectWithoutBuyerInput | NDACreateOrConnectWithoutBuyerInput[]
-    createMany?: NDACreateManyBuyerInputEnvelope
-    connect?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
-  }
-
-  export type ContactRequestCreateNestedManyWithoutBuyerInput = {
-    create?: XOR<ContactRequestCreateWithoutBuyerInput, ContactRequestUncheckedCreateWithoutBuyerInput> | ContactRequestCreateWithoutBuyerInput[] | ContactRequestUncheckedCreateWithoutBuyerInput[]
-    connectOrCreate?: ContactRequestCreateOrConnectWithoutBuyerInput | ContactRequestCreateOrConnectWithoutBuyerInput[]
-    createMany?: ContactRequestCreateManyBuyerInputEnvelope
-    connect?: ContactRequestWhereUniqueInput | ContactRequestWhereUniqueInput[]
-  }
-
-  export type PaymentCreateNestedManyWithoutUserInput = {
-    create?: XOR<PaymentCreateWithoutUserInput, PaymentUncheckedCreateWithoutUserInput> | PaymentCreateWithoutUserInput[] | PaymentUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: PaymentCreateOrConnectWithoutUserInput | PaymentCreateOrConnectWithoutUserInput[]
-    createMany?: PaymentCreateManyUserInputEnvelope
-    connect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
-  }
-
-  export type NewsletterSubscriptionCreateNestedOneWithoutUserInput = {
-    create?: XOR<NewsletterSubscriptionCreateWithoutUserInput, NewsletterSubscriptionUncheckedCreateWithoutUserInput>
-    connectOrCreate?: NewsletterSubscriptionCreateOrConnectWithoutUserInput
-    connect?: NewsletterSubscriptionWhereUniqueInput
+  export type SessionCreateNestedManyWithoutUserInput = {
+    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
+    createMany?: SessionCreateManyUserInputEnvelope
+    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
   }
 
   export type AccountUncheckedCreateNestedManyWithoutUserInput = {
@@ -20103,11 +20103,31 @@ export namespace Prisma {
     connect?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
   }
 
-  export type SessionUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
-    createMany?: SessionCreateManyUserInputEnvelope
-    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+  export type ContactRequestUncheckedCreateNestedManyWithoutBuyerInput = {
+    create?: XOR<ContactRequestCreateWithoutBuyerInput, ContactRequestUncheckedCreateWithoutBuyerInput> | ContactRequestCreateWithoutBuyerInput[] | ContactRequestUncheckedCreateWithoutBuyerInput[]
+    connectOrCreate?: ContactRequestCreateOrConnectWithoutBuyerInput | ContactRequestCreateOrConnectWithoutBuyerInput[]
+    createMany?: ContactRequestCreateManyBuyerInputEnvelope
+    connect?: ContactRequestWhereUniqueInput | ContactRequestWhereUniqueInput[]
+  }
+
+  export type NDAUncheckedCreateNestedManyWithoutBuyerInput = {
+    create?: XOR<NDACreateWithoutBuyerInput, NDAUncheckedCreateWithoutBuyerInput> | NDACreateWithoutBuyerInput[] | NDAUncheckedCreateWithoutBuyerInput[]
+    connectOrCreate?: NDACreateOrConnectWithoutBuyerInput | NDACreateOrConnectWithoutBuyerInput[]
+    createMany?: NDACreateManyBuyerInputEnvelope
+    connect?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
+  }
+
+  export type NewsletterSubscriptionUncheckedCreateNestedOneWithoutUserInput = {
+    create?: XOR<NewsletterSubscriptionCreateWithoutUserInput, NewsletterSubscriptionUncheckedCreateWithoutUserInput>
+    connectOrCreate?: NewsletterSubscriptionCreateOrConnectWithoutUserInput
+    connect?: NewsletterSubscriptionWhereUniqueInput
+  }
+
+  export type PaymentUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<PaymentCreateWithoutUserInput, PaymentUncheckedCreateWithoutUserInput> | PaymentCreateWithoutUserInput[] | PaymentUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PaymentCreateOrConnectWithoutUserInput | PaymentCreateOrConnectWithoutUserInput[]
+    createMany?: PaymentCreateManyUserInputEnvelope
+    connect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
   }
 
   export type ProjectUncheckedCreateNestedManyWithoutOwnerInput = {
@@ -20124,31 +20144,11 @@ export namespace Prisma {
     connect?: ReactionWhereUniqueInput | ReactionWhereUniqueInput[]
   }
 
-  export type NDAUncheckedCreateNestedManyWithoutBuyerInput = {
-    create?: XOR<NDACreateWithoutBuyerInput, NDAUncheckedCreateWithoutBuyerInput> | NDACreateWithoutBuyerInput[] | NDAUncheckedCreateWithoutBuyerInput[]
-    connectOrCreate?: NDACreateOrConnectWithoutBuyerInput | NDACreateOrConnectWithoutBuyerInput[]
-    createMany?: NDACreateManyBuyerInputEnvelope
-    connect?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
-  }
-
-  export type ContactRequestUncheckedCreateNestedManyWithoutBuyerInput = {
-    create?: XOR<ContactRequestCreateWithoutBuyerInput, ContactRequestUncheckedCreateWithoutBuyerInput> | ContactRequestCreateWithoutBuyerInput[] | ContactRequestUncheckedCreateWithoutBuyerInput[]
-    connectOrCreate?: ContactRequestCreateOrConnectWithoutBuyerInput | ContactRequestCreateOrConnectWithoutBuyerInput[]
-    createMany?: ContactRequestCreateManyBuyerInputEnvelope
-    connect?: ContactRequestWhereUniqueInput | ContactRequestWhereUniqueInput[]
-  }
-
-  export type PaymentUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<PaymentCreateWithoutUserInput, PaymentUncheckedCreateWithoutUserInput> | PaymentCreateWithoutUserInput[] | PaymentUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: PaymentCreateOrConnectWithoutUserInput | PaymentCreateOrConnectWithoutUserInput[]
-    createMany?: PaymentCreateManyUserInputEnvelope
-    connect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
-  }
-
-  export type NewsletterSubscriptionUncheckedCreateNestedOneWithoutUserInput = {
-    create?: XOR<NewsletterSubscriptionCreateWithoutUserInput, NewsletterSubscriptionUncheckedCreateWithoutUserInput>
-    connectOrCreate?: NewsletterSubscriptionCreateOrConnectWithoutUserInput
-    connect?: NewsletterSubscriptionWhereUniqueInput
+  export type SessionUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
+    createMany?: SessionCreateManyUserInputEnvelope
+    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -20189,18 +20189,56 @@ export namespace Prisma {
     deleteMany?: AccountScalarWhereInput | AccountScalarWhereInput[]
   }
 
-  export type SessionUpdateManyWithoutUserNestedInput = {
-    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
-    upsert?: SessionUpsertWithWhereUniqueWithoutUserInput | SessionUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: SessionCreateManyUserInputEnvelope
-    set?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
-    disconnect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
-    delete?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
-    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
-    update?: SessionUpdateWithWhereUniqueWithoutUserInput | SessionUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: SessionUpdateManyWithWhereWithoutUserInput | SessionUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: SessionScalarWhereInput | SessionScalarWhereInput[]
+  export type ContactRequestUpdateManyWithoutBuyerNestedInput = {
+    create?: XOR<ContactRequestCreateWithoutBuyerInput, ContactRequestUncheckedCreateWithoutBuyerInput> | ContactRequestCreateWithoutBuyerInput[] | ContactRequestUncheckedCreateWithoutBuyerInput[]
+    connectOrCreate?: ContactRequestCreateOrConnectWithoutBuyerInput | ContactRequestCreateOrConnectWithoutBuyerInput[]
+    upsert?: ContactRequestUpsertWithWhereUniqueWithoutBuyerInput | ContactRequestUpsertWithWhereUniqueWithoutBuyerInput[]
+    createMany?: ContactRequestCreateManyBuyerInputEnvelope
+    set?: ContactRequestWhereUniqueInput | ContactRequestWhereUniqueInput[]
+    disconnect?: ContactRequestWhereUniqueInput | ContactRequestWhereUniqueInput[]
+    delete?: ContactRequestWhereUniqueInput | ContactRequestWhereUniqueInput[]
+    connect?: ContactRequestWhereUniqueInput | ContactRequestWhereUniqueInput[]
+    update?: ContactRequestUpdateWithWhereUniqueWithoutBuyerInput | ContactRequestUpdateWithWhereUniqueWithoutBuyerInput[]
+    updateMany?: ContactRequestUpdateManyWithWhereWithoutBuyerInput | ContactRequestUpdateManyWithWhereWithoutBuyerInput[]
+    deleteMany?: ContactRequestScalarWhereInput | ContactRequestScalarWhereInput[]
+  }
+
+  export type NDAUpdateManyWithoutBuyerNestedInput = {
+    create?: XOR<NDACreateWithoutBuyerInput, NDAUncheckedCreateWithoutBuyerInput> | NDACreateWithoutBuyerInput[] | NDAUncheckedCreateWithoutBuyerInput[]
+    connectOrCreate?: NDACreateOrConnectWithoutBuyerInput | NDACreateOrConnectWithoutBuyerInput[]
+    upsert?: NDAUpsertWithWhereUniqueWithoutBuyerInput | NDAUpsertWithWhereUniqueWithoutBuyerInput[]
+    createMany?: NDACreateManyBuyerInputEnvelope
+    set?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
+    disconnect?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
+    delete?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
+    connect?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
+    update?: NDAUpdateWithWhereUniqueWithoutBuyerInput | NDAUpdateWithWhereUniqueWithoutBuyerInput[]
+    updateMany?: NDAUpdateManyWithWhereWithoutBuyerInput | NDAUpdateManyWithWhereWithoutBuyerInput[]
+    deleteMany?: NDAScalarWhereInput | NDAScalarWhereInput[]
+  }
+
+  export type NewsletterSubscriptionUpdateOneWithoutUserNestedInput = {
+    create?: XOR<NewsletterSubscriptionCreateWithoutUserInput, NewsletterSubscriptionUncheckedCreateWithoutUserInput>
+    connectOrCreate?: NewsletterSubscriptionCreateOrConnectWithoutUserInput
+    upsert?: NewsletterSubscriptionUpsertWithoutUserInput
+    disconnect?: NewsletterSubscriptionWhereInput | boolean
+    delete?: NewsletterSubscriptionWhereInput | boolean
+    connect?: NewsletterSubscriptionWhereUniqueInput
+    update?: XOR<XOR<NewsletterSubscriptionUpdateToOneWithWhereWithoutUserInput, NewsletterSubscriptionUpdateWithoutUserInput>, NewsletterSubscriptionUncheckedUpdateWithoutUserInput>
+  }
+
+  export type PaymentUpdateManyWithoutUserNestedInput = {
+    create?: XOR<PaymentCreateWithoutUserInput, PaymentUncheckedCreateWithoutUserInput> | PaymentCreateWithoutUserInput[] | PaymentUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PaymentCreateOrConnectWithoutUserInput | PaymentCreateOrConnectWithoutUserInput[]
+    upsert?: PaymentUpsertWithWhereUniqueWithoutUserInput | PaymentUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: PaymentCreateManyUserInputEnvelope
+    set?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
+    disconnect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
+    delete?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
+    connect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
+    update?: PaymentUpdateWithWhereUniqueWithoutUserInput | PaymentUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: PaymentUpdateManyWithWhereWithoutUserInput | PaymentUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: PaymentScalarWhereInput | PaymentScalarWhereInput[]
   }
 
   export type ProjectUpdateManyWithoutOwnerNestedInput = {
@@ -20231,56 +20269,18 @@ export namespace Prisma {
     deleteMany?: ReactionScalarWhereInput | ReactionScalarWhereInput[]
   }
 
-  export type NDAUpdateManyWithoutBuyerNestedInput = {
-    create?: XOR<NDACreateWithoutBuyerInput, NDAUncheckedCreateWithoutBuyerInput> | NDACreateWithoutBuyerInput[] | NDAUncheckedCreateWithoutBuyerInput[]
-    connectOrCreate?: NDACreateOrConnectWithoutBuyerInput | NDACreateOrConnectWithoutBuyerInput[]
-    upsert?: NDAUpsertWithWhereUniqueWithoutBuyerInput | NDAUpsertWithWhereUniqueWithoutBuyerInput[]
-    createMany?: NDACreateManyBuyerInputEnvelope
-    set?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
-    disconnect?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
-    delete?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
-    connect?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
-    update?: NDAUpdateWithWhereUniqueWithoutBuyerInput | NDAUpdateWithWhereUniqueWithoutBuyerInput[]
-    updateMany?: NDAUpdateManyWithWhereWithoutBuyerInput | NDAUpdateManyWithWhereWithoutBuyerInput[]
-    deleteMany?: NDAScalarWhereInput | NDAScalarWhereInput[]
-  }
-
-  export type ContactRequestUpdateManyWithoutBuyerNestedInput = {
-    create?: XOR<ContactRequestCreateWithoutBuyerInput, ContactRequestUncheckedCreateWithoutBuyerInput> | ContactRequestCreateWithoutBuyerInput[] | ContactRequestUncheckedCreateWithoutBuyerInput[]
-    connectOrCreate?: ContactRequestCreateOrConnectWithoutBuyerInput | ContactRequestCreateOrConnectWithoutBuyerInput[]
-    upsert?: ContactRequestUpsertWithWhereUniqueWithoutBuyerInput | ContactRequestUpsertWithWhereUniqueWithoutBuyerInput[]
-    createMany?: ContactRequestCreateManyBuyerInputEnvelope
-    set?: ContactRequestWhereUniqueInput | ContactRequestWhereUniqueInput[]
-    disconnect?: ContactRequestWhereUniqueInput | ContactRequestWhereUniqueInput[]
-    delete?: ContactRequestWhereUniqueInput | ContactRequestWhereUniqueInput[]
-    connect?: ContactRequestWhereUniqueInput | ContactRequestWhereUniqueInput[]
-    update?: ContactRequestUpdateWithWhereUniqueWithoutBuyerInput | ContactRequestUpdateWithWhereUniqueWithoutBuyerInput[]
-    updateMany?: ContactRequestUpdateManyWithWhereWithoutBuyerInput | ContactRequestUpdateManyWithWhereWithoutBuyerInput[]
-    deleteMany?: ContactRequestScalarWhereInput | ContactRequestScalarWhereInput[]
-  }
-
-  export type PaymentUpdateManyWithoutUserNestedInput = {
-    create?: XOR<PaymentCreateWithoutUserInput, PaymentUncheckedCreateWithoutUserInput> | PaymentCreateWithoutUserInput[] | PaymentUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: PaymentCreateOrConnectWithoutUserInput | PaymentCreateOrConnectWithoutUserInput[]
-    upsert?: PaymentUpsertWithWhereUniqueWithoutUserInput | PaymentUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: PaymentCreateManyUserInputEnvelope
-    set?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
-    disconnect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
-    delete?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
-    connect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
-    update?: PaymentUpdateWithWhereUniqueWithoutUserInput | PaymentUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: PaymentUpdateManyWithWhereWithoutUserInput | PaymentUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: PaymentScalarWhereInput | PaymentScalarWhereInput[]
-  }
-
-  export type NewsletterSubscriptionUpdateOneWithoutUserNestedInput = {
-    create?: XOR<NewsletterSubscriptionCreateWithoutUserInput, NewsletterSubscriptionUncheckedCreateWithoutUserInput>
-    connectOrCreate?: NewsletterSubscriptionCreateOrConnectWithoutUserInput
-    upsert?: NewsletterSubscriptionUpsertWithoutUserInput
-    disconnect?: NewsletterSubscriptionWhereInput | boolean
-    delete?: NewsletterSubscriptionWhereInput | boolean
-    connect?: NewsletterSubscriptionWhereUniqueInput
-    update?: XOR<XOR<NewsletterSubscriptionUpdateToOneWithWhereWithoutUserInput, NewsletterSubscriptionUpdateWithoutUserInput>, NewsletterSubscriptionUncheckedUpdateWithoutUserInput>
+  export type SessionUpdateManyWithoutUserNestedInput = {
+    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
+    upsert?: SessionUpsertWithWhereUniqueWithoutUserInput | SessionUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: SessionCreateManyUserInputEnvelope
+    set?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    disconnect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    delete?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    update?: SessionUpdateWithWhereUniqueWithoutUserInput | SessionUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: SessionUpdateManyWithWhereWithoutUserInput | SessionUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: SessionScalarWhereInput | SessionScalarWhereInput[]
   }
 
   export type AccountUncheckedUpdateManyWithoutUserNestedInput = {
@@ -20297,18 +20297,56 @@ export namespace Prisma {
     deleteMany?: AccountScalarWhereInput | AccountScalarWhereInput[]
   }
 
-  export type SessionUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
-    upsert?: SessionUpsertWithWhereUniqueWithoutUserInput | SessionUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: SessionCreateManyUserInputEnvelope
-    set?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
-    disconnect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
-    delete?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
-    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
-    update?: SessionUpdateWithWhereUniqueWithoutUserInput | SessionUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: SessionUpdateManyWithWhereWithoutUserInput | SessionUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: SessionScalarWhereInput | SessionScalarWhereInput[]
+  export type ContactRequestUncheckedUpdateManyWithoutBuyerNestedInput = {
+    create?: XOR<ContactRequestCreateWithoutBuyerInput, ContactRequestUncheckedCreateWithoutBuyerInput> | ContactRequestCreateWithoutBuyerInput[] | ContactRequestUncheckedCreateWithoutBuyerInput[]
+    connectOrCreate?: ContactRequestCreateOrConnectWithoutBuyerInput | ContactRequestCreateOrConnectWithoutBuyerInput[]
+    upsert?: ContactRequestUpsertWithWhereUniqueWithoutBuyerInput | ContactRequestUpsertWithWhereUniqueWithoutBuyerInput[]
+    createMany?: ContactRequestCreateManyBuyerInputEnvelope
+    set?: ContactRequestWhereUniqueInput | ContactRequestWhereUniqueInput[]
+    disconnect?: ContactRequestWhereUniqueInput | ContactRequestWhereUniqueInput[]
+    delete?: ContactRequestWhereUniqueInput | ContactRequestWhereUniqueInput[]
+    connect?: ContactRequestWhereUniqueInput | ContactRequestWhereUniqueInput[]
+    update?: ContactRequestUpdateWithWhereUniqueWithoutBuyerInput | ContactRequestUpdateWithWhereUniqueWithoutBuyerInput[]
+    updateMany?: ContactRequestUpdateManyWithWhereWithoutBuyerInput | ContactRequestUpdateManyWithWhereWithoutBuyerInput[]
+    deleteMany?: ContactRequestScalarWhereInput | ContactRequestScalarWhereInput[]
+  }
+
+  export type NDAUncheckedUpdateManyWithoutBuyerNestedInput = {
+    create?: XOR<NDACreateWithoutBuyerInput, NDAUncheckedCreateWithoutBuyerInput> | NDACreateWithoutBuyerInput[] | NDAUncheckedCreateWithoutBuyerInput[]
+    connectOrCreate?: NDACreateOrConnectWithoutBuyerInput | NDACreateOrConnectWithoutBuyerInput[]
+    upsert?: NDAUpsertWithWhereUniqueWithoutBuyerInput | NDAUpsertWithWhereUniqueWithoutBuyerInput[]
+    createMany?: NDACreateManyBuyerInputEnvelope
+    set?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
+    disconnect?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
+    delete?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
+    connect?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
+    update?: NDAUpdateWithWhereUniqueWithoutBuyerInput | NDAUpdateWithWhereUniqueWithoutBuyerInput[]
+    updateMany?: NDAUpdateManyWithWhereWithoutBuyerInput | NDAUpdateManyWithWhereWithoutBuyerInput[]
+    deleteMany?: NDAScalarWhereInput | NDAScalarWhereInput[]
+  }
+
+  export type NewsletterSubscriptionUncheckedUpdateOneWithoutUserNestedInput = {
+    create?: XOR<NewsletterSubscriptionCreateWithoutUserInput, NewsletterSubscriptionUncheckedCreateWithoutUserInput>
+    connectOrCreate?: NewsletterSubscriptionCreateOrConnectWithoutUserInput
+    upsert?: NewsletterSubscriptionUpsertWithoutUserInput
+    disconnect?: NewsletterSubscriptionWhereInput | boolean
+    delete?: NewsletterSubscriptionWhereInput | boolean
+    connect?: NewsletterSubscriptionWhereUniqueInput
+    update?: XOR<XOR<NewsletterSubscriptionUpdateToOneWithWhereWithoutUserInput, NewsletterSubscriptionUpdateWithoutUserInput>, NewsletterSubscriptionUncheckedUpdateWithoutUserInput>
+  }
+
+  export type PaymentUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<PaymentCreateWithoutUserInput, PaymentUncheckedCreateWithoutUserInput> | PaymentCreateWithoutUserInput[] | PaymentUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PaymentCreateOrConnectWithoutUserInput | PaymentCreateOrConnectWithoutUserInput[]
+    upsert?: PaymentUpsertWithWhereUniqueWithoutUserInput | PaymentUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: PaymentCreateManyUserInputEnvelope
+    set?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
+    disconnect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
+    delete?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
+    connect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
+    update?: PaymentUpdateWithWhereUniqueWithoutUserInput | PaymentUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: PaymentUpdateManyWithWhereWithoutUserInput | PaymentUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: PaymentScalarWhereInput | PaymentScalarWhereInput[]
   }
 
   export type ProjectUncheckedUpdateManyWithoutOwnerNestedInput = {
@@ -20339,56 +20377,18 @@ export namespace Prisma {
     deleteMany?: ReactionScalarWhereInput | ReactionScalarWhereInput[]
   }
 
-  export type NDAUncheckedUpdateManyWithoutBuyerNestedInput = {
-    create?: XOR<NDACreateWithoutBuyerInput, NDAUncheckedCreateWithoutBuyerInput> | NDACreateWithoutBuyerInput[] | NDAUncheckedCreateWithoutBuyerInput[]
-    connectOrCreate?: NDACreateOrConnectWithoutBuyerInput | NDACreateOrConnectWithoutBuyerInput[]
-    upsert?: NDAUpsertWithWhereUniqueWithoutBuyerInput | NDAUpsertWithWhereUniqueWithoutBuyerInput[]
-    createMany?: NDACreateManyBuyerInputEnvelope
-    set?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
-    disconnect?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
-    delete?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
-    connect?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
-    update?: NDAUpdateWithWhereUniqueWithoutBuyerInput | NDAUpdateWithWhereUniqueWithoutBuyerInput[]
-    updateMany?: NDAUpdateManyWithWhereWithoutBuyerInput | NDAUpdateManyWithWhereWithoutBuyerInput[]
-    deleteMany?: NDAScalarWhereInput | NDAScalarWhereInput[]
-  }
-
-  export type ContactRequestUncheckedUpdateManyWithoutBuyerNestedInput = {
-    create?: XOR<ContactRequestCreateWithoutBuyerInput, ContactRequestUncheckedCreateWithoutBuyerInput> | ContactRequestCreateWithoutBuyerInput[] | ContactRequestUncheckedCreateWithoutBuyerInput[]
-    connectOrCreate?: ContactRequestCreateOrConnectWithoutBuyerInput | ContactRequestCreateOrConnectWithoutBuyerInput[]
-    upsert?: ContactRequestUpsertWithWhereUniqueWithoutBuyerInput | ContactRequestUpsertWithWhereUniqueWithoutBuyerInput[]
-    createMany?: ContactRequestCreateManyBuyerInputEnvelope
-    set?: ContactRequestWhereUniqueInput | ContactRequestWhereUniqueInput[]
-    disconnect?: ContactRequestWhereUniqueInput | ContactRequestWhereUniqueInput[]
-    delete?: ContactRequestWhereUniqueInput | ContactRequestWhereUniqueInput[]
-    connect?: ContactRequestWhereUniqueInput | ContactRequestWhereUniqueInput[]
-    update?: ContactRequestUpdateWithWhereUniqueWithoutBuyerInput | ContactRequestUpdateWithWhereUniqueWithoutBuyerInput[]
-    updateMany?: ContactRequestUpdateManyWithWhereWithoutBuyerInput | ContactRequestUpdateManyWithWhereWithoutBuyerInput[]
-    deleteMany?: ContactRequestScalarWhereInput | ContactRequestScalarWhereInput[]
-  }
-
-  export type PaymentUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<PaymentCreateWithoutUserInput, PaymentUncheckedCreateWithoutUserInput> | PaymentCreateWithoutUserInput[] | PaymentUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: PaymentCreateOrConnectWithoutUserInput | PaymentCreateOrConnectWithoutUserInput[]
-    upsert?: PaymentUpsertWithWhereUniqueWithoutUserInput | PaymentUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: PaymentCreateManyUserInputEnvelope
-    set?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
-    disconnect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
-    delete?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
-    connect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
-    update?: PaymentUpdateWithWhereUniqueWithoutUserInput | PaymentUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: PaymentUpdateManyWithWhereWithoutUserInput | PaymentUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: PaymentScalarWhereInput | PaymentScalarWhereInput[]
-  }
-
-  export type NewsletterSubscriptionUncheckedUpdateOneWithoutUserNestedInput = {
-    create?: XOR<NewsletterSubscriptionCreateWithoutUserInput, NewsletterSubscriptionUncheckedCreateWithoutUserInput>
-    connectOrCreate?: NewsletterSubscriptionCreateOrConnectWithoutUserInput
-    upsert?: NewsletterSubscriptionUpsertWithoutUserInput
-    disconnect?: NewsletterSubscriptionWhereInput | boolean
-    delete?: NewsletterSubscriptionWhereInput | boolean
-    connect?: NewsletterSubscriptionWhereUniqueInput
-    update?: XOR<XOR<NewsletterSubscriptionUpdateToOneWithWhereWithoutUserInput, NewsletterSubscriptionUpdateWithoutUserInput>, NewsletterSubscriptionUncheckedUpdateWithoutUserInput>
+  export type SessionUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
+    upsert?: SessionUpsertWithWhereUniqueWithoutUserInput | SessionUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: SessionCreateManyUserInputEnvelope
+    set?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    disconnect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    delete?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    update?: SessionUpdateWithWhereUniqueWithoutUserInput | SessionUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: SessionUpdateManyWithWhereWithoutUserInput | SessionUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: SessionScalarWhereInput | SessionScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutAccountsInput = {
@@ -20427,33 +20427,6 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutSessionsInput, UserUpdateWithoutSessionsInput>, UserUncheckedUpdateWithoutSessionsInput>
   }
 
-  export type UserCreateNestedOneWithoutProjectsInput = {
-    create?: XOR<UserCreateWithoutProjectsInput, UserUncheckedCreateWithoutProjectsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutProjectsInput
-    connect?: UserWhereUniqueInput
-  }
-
-  export type VerificationChecklistCreateNestedManyWithoutProjectInput = {
-    create?: XOR<VerificationChecklistCreateWithoutProjectInput, VerificationChecklistUncheckedCreateWithoutProjectInput> | VerificationChecklistCreateWithoutProjectInput[] | VerificationChecklistUncheckedCreateWithoutProjectInput[]
-    connectOrCreate?: VerificationChecklistCreateOrConnectWithoutProjectInput | VerificationChecklistCreateOrConnectWithoutProjectInput[]
-    createMany?: VerificationChecklistCreateManyProjectInputEnvelope
-    connect?: VerificationChecklistWhereUniqueInput | VerificationChecklistWhereUniqueInput[]
-  }
-
-  export type ReactionCreateNestedManyWithoutProjectInput = {
-    create?: XOR<ReactionCreateWithoutProjectInput, ReactionUncheckedCreateWithoutProjectInput> | ReactionCreateWithoutProjectInput[] | ReactionUncheckedCreateWithoutProjectInput[]
-    connectOrCreate?: ReactionCreateOrConnectWithoutProjectInput | ReactionCreateOrConnectWithoutProjectInput[]
-    createMany?: ReactionCreateManyProjectInputEnvelope
-    connect?: ReactionWhereUniqueInput | ReactionWhereUniqueInput[]
-  }
-
-  export type NDACreateNestedManyWithoutProjectInput = {
-    create?: XOR<NDACreateWithoutProjectInput, NDAUncheckedCreateWithoutProjectInput> | NDACreateWithoutProjectInput[] | NDAUncheckedCreateWithoutProjectInput[]
-    connectOrCreate?: NDACreateOrConnectWithoutProjectInput | NDACreateOrConnectWithoutProjectInput[]
-    createMany?: NDACreateManyProjectInputEnvelope
-    connect?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
-  }
-
   export type ContactRequestCreateNestedManyWithoutProjectInput = {
     create?: XOR<ContactRequestCreateWithoutProjectInput, ContactRequestUncheckedCreateWithoutProjectInput> | ContactRequestCreateWithoutProjectInput[] | ContactRequestUncheckedCreateWithoutProjectInput[]
     connectOrCreate?: ContactRequestCreateOrConnectWithoutProjectInput | ContactRequestCreateOrConnectWithoutProjectInput[]
@@ -20475,6 +20448,13 @@ export namespace Prisma {
     connect?: EditorialPickWhereUniqueInput | EditorialPickWhereUniqueInput[]
   }
 
+  export type NDACreateNestedManyWithoutProjectInput = {
+    create?: XOR<NDACreateWithoutProjectInput, NDAUncheckedCreateWithoutProjectInput> | NDACreateWithoutProjectInput[] | NDAUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: NDACreateOrConnectWithoutProjectInput | NDACreateOrConnectWithoutProjectInput[]
+    createMany?: NDACreateManyProjectInputEnvelope
+    connect?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
+  }
+
   export type PaymentCreateNestedManyWithoutProjectInput = {
     create?: XOR<PaymentCreateWithoutProjectInput, PaymentUncheckedCreateWithoutProjectInput> | PaymentCreateWithoutProjectInput[] | PaymentUncheckedCreateWithoutProjectInput[]
     connectOrCreate?: PaymentCreateOrConnectWithoutProjectInput | PaymentCreateOrConnectWithoutProjectInput[]
@@ -20482,25 +20462,24 @@ export namespace Prisma {
     connect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
   }
 
-  export type VerificationChecklistUncheckedCreateNestedManyWithoutProjectInput = {
-    create?: XOR<VerificationChecklistCreateWithoutProjectInput, VerificationChecklistUncheckedCreateWithoutProjectInput> | VerificationChecklistCreateWithoutProjectInput[] | VerificationChecklistUncheckedCreateWithoutProjectInput[]
-    connectOrCreate?: VerificationChecklistCreateOrConnectWithoutProjectInput | VerificationChecklistCreateOrConnectWithoutProjectInput[]
-    createMany?: VerificationChecklistCreateManyProjectInputEnvelope
-    connect?: VerificationChecklistWhereUniqueInput | VerificationChecklistWhereUniqueInput[]
+  export type UserCreateNestedOneWithoutProjectsInput = {
+    create?: XOR<UserCreateWithoutProjectsInput, UserUncheckedCreateWithoutProjectsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutProjectsInput
+    connect?: UserWhereUniqueInput
   }
 
-  export type ReactionUncheckedCreateNestedManyWithoutProjectInput = {
+  export type ReactionCreateNestedManyWithoutProjectInput = {
     create?: XOR<ReactionCreateWithoutProjectInput, ReactionUncheckedCreateWithoutProjectInput> | ReactionCreateWithoutProjectInput[] | ReactionUncheckedCreateWithoutProjectInput[]
     connectOrCreate?: ReactionCreateOrConnectWithoutProjectInput | ReactionCreateOrConnectWithoutProjectInput[]
     createMany?: ReactionCreateManyProjectInputEnvelope
     connect?: ReactionWhereUniqueInput | ReactionWhereUniqueInput[]
   }
 
-  export type NDAUncheckedCreateNestedManyWithoutProjectInput = {
-    create?: XOR<NDACreateWithoutProjectInput, NDAUncheckedCreateWithoutProjectInput> | NDACreateWithoutProjectInput[] | NDAUncheckedCreateWithoutProjectInput[]
-    connectOrCreate?: NDACreateOrConnectWithoutProjectInput | NDACreateOrConnectWithoutProjectInput[]
-    createMany?: NDACreateManyProjectInputEnvelope
-    connect?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
+  export type VerificationChecklistCreateNestedManyWithoutProjectInput = {
+    create?: XOR<VerificationChecklistCreateWithoutProjectInput, VerificationChecklistUncheckedCreateWithoutProjectInput> | VerificationChecklistCreateWithoutProjectInput[] | VerificationChecklistUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: VerificationChecklistCreateOrConnectWithoutProjectInput | VerificationChecklistCreateOrConnectWithoutProjectInput[]
+    createMany?: VerificationChecklistCreateManyProjectInputEnvelope
+    connect?: VerificationChecklistWhereUniqueInput | VerificationChecklistWhereUniqueInput[]
   }
 
   export type ContactRequestUncheckedCreateNestedManyWithoutProjectInput = {
@@ -20524,11 +20503,32 @@ export namespace Prisma {
     connect?: EditorialPickWhereUniqueInput | EditorialPickWhereUniqueInput[]
   }
 
+  export type NDAUncheckedCreateNestedManyWithoutProjectInput = {
+    create?: XOR<NDACreateWithoutProjectInput, NDAUncheckedCreateWithoutProjectInput> | NDACreateWithoutProjectInput[] | NDAUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: NDACreateOrConnectWithoutProjectInput | NDACreateOrConnectWithoutProjectInput[]
+    createMany?: NDACreateManyProjectInputEnvelope
+    connect?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
+  }
+
   export type PaymentUncheckedCreateNestedManyWithoutProjectInput = {
     create?: XOR<PaymentCreateWithoutProjectInput, PaymentUncheckedCreateWithoutProjectInput> | PaymentCreateWithoutProjectInput[] | PaymentUncheckedCreateWithoutProjectInput[]
     connectOrCreate?: PaymentCreateOrConnectWithoutProjectInput | PaymentCreateOrConnectWithoutProjectInput[]
     createMany?: PaymentCreateManyProjectInputEnvelope
     connect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
+  }
+
+  export type ReactionUncheckedCreateNestedManyWithoutProjectInput = {
+    create?: XOR<ReactionCreateWithoutProjectInput, ReactionUncheckedCreateWithoutProjectInput> | ReactionCreateWithoutProjectInput[] | ReactionUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: ReactionCreateOrConnectWithoutProjectInput | ReactionCreateOrConnectWithoutProjectInput[]
+    createMany?: ReactionCreateManyProjectInputEnvelope
+    connect?: ReactionWhereUniqueInput | ReactionWhereUniqueInput[]
+  }
+
+  export type VerificationChecklistUncheckedCreateNestedManyWithoutProjectInput = {
+    create?: XOR<VerificationChecklistCreateWithoutProjectInput, VerificationChecklistUncheckedCreateWithoutProjectInput> | VerificationChecklistCreateWithoutProjectInput[] | VerificationChecklistUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: VerificationChecklistCreateOrConnectWithoutProjectInput | VerificationChecklistCreateOrConnectWithoutProjectInput[]
+    createMany?: VerificationChecklistCreateManyProjectInputEnvelope
+    connect?: VerificationChecklistWhereUniqueInput | VerificationChecklistWhereUniqueInput[]
   }
 
   export type EnumSeccaoFieldUpdateOperationsInput = {
@@ -20541,56 +20541,6 @@ export namespace Prisma {
 
   export type EnumEstadoProjectoFieldUpdateOperationsInput = {
     set?: $Enums.EstadoProjecto
-  }
-
-  export type UserUpdateOneRequiredWithoutProjectsNestedInput = {
-    create?: XOR<UserCreateWithoutProjectsInput, UserUncheckedCreateWithoutProjectsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutProjectsInput
-    upsert?: UserUpsertWithoutProjectsInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutProjectsInput, UserUpdateWithoutProjectsInput>, UserUncheckedUpdateWithoutProjectsInput>
-  }
-
-  export type VerificationChecklistUpdateManyWithoutProjectNestedInput = {
-    create?: XOR<VerificationChecklistCreateWithoutProjectInput, VerificationChecklistUncheckedCreateWithoutProjectInput> | VerificationChecklistCreateWithoutProjectInput[] | VerificationChecklistUncheckedCreateWithoutProjectInput[]
-    connectOrCreate?: VerificationChecklistCreateOrConnectWithoutProjectInput | VerificationChecklistCreateOrConnectWithoutProjectInput[]
-    upsert?: VerificationChecklistUpsertWithWhereUniqueWithoutProjectInput | VerificationChecklistUpsertWithWhereUniqueWithoutProjectInput[]
-    createMany?: VerificationChecklistCreateManyProjectInputEnvelope
-    set?: VerificationChecklistWhereUniqueInput | VerificationChecklistWhereUniqueInput[]
-    disconnect?: VerificationChecklistWhereUniqueInput | VerificationChecklistWhereUniqueInput[]
-    delete?: VerificationChecklistWhereUniqueInput | VerificationChecklistWhereUniqueInput[]
-    connect?: VerificationChecklistWhereUniqueInput | VerificationChecklistWhereUniqueInput[]
-    update?: VerificationChecklistUpdateWithWhereUniqueWithoutProjectInput | VerificationChecklistUpdateWithWhereUniqueWithoutProjectInput[]
-    updateMany?: VerificationChecklistUpdateManyWithWhereWithoutProjectInput | VerificationChecklistUpdateManyWithWhereWithoutProjectInput[]
-    deleteMany?: VerificationChecklistScalarWhereInput | VerificationChecklistScalarWhereInput[]
-  }
-
-  export type ReactionUpdateManyWithoutProjectNestedInput = {
-    create?: XOR<ReactionCreateWithoutProjectInput, ReactionUncheckedCreateWithoutProjectInput> | ReactionCreateWithoutProjectInput[] | ReactionUncheckedCreateWithoutProjectInput[]
-    connectOrCreate?: ReactionCreateOrConnectWithoutProjectInput | ReactionCreateOrConnectWithoutProjectInput[]
-    upsert?: ReactionUpsertWithWhereUniqueWithoutProjectInput | ReactionUpsertWithWhereUniqueWithoutProjectInput[]
-    createMany?: ReactionCreateManyProjectInputEnvelope
-    set?: ReactionWhereUniqueInput | ReactionWhereUniqueInput[]
-    disconnect?: ReactionWhereUniqueInput | ReactionWhereUniqueInput[]
-    delete?: ReactionWhereUniqueInput | ReactionWhereUniqueInput[]
-    connect?: ReactionWhereUniqueInput | ReactionWhereUniqueInput[]
-    update?: ReactionUpdateWithWhereUniqueWithoutProjectInput | ReactionUpdateWithWhereUniqueWithoutProjectInput[]
-    updateMany?: ReactionUpdateManyWithWhereWithoutProjectInput | ReactionUpdateManyWithWhereWithoutProjectInput[]
-    deleteMany?: ReactionScalarWhereInput | ReactionScalarWhereInput[]
-  }
-
-  export type NDAUpdateManyWithoutProjectNestedInput = {
-    create?: XOR<NDACreateWithoutProjectInput, NDAUncheckedCreateWithoutProjectInput> | NDACreateWithoutProjectInput[] | NDAUncheckedCreateWithoutProjectInput[]
-    connectOrCreate?: NDACreateOrConnectWithoutProjectInput | NDACreateOrConnectWithoutProjectInput[]
-    upsert?: NDAUpsertWithWhereUniqueWithoutProjectInput | NDAUpsertWithWhereUniqueWithoutProjectInput[]
-    createMany?: NDACreateManyProjectInputEnvelope
-    set?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
-    disconnect?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
-    delete?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
-    connect?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
-    update?: NDAUpdateWithWhereUniqueWithoutProjectInput | NDAUpdateWithWhereUniqueWithoutProjectInput[]
-    updateMany?: NDAUpdateManyWithWhereWithoutProjectInput | NDAUpdateManyWithWhereWithoutProjectInput[]
-    deleteMany?: NDAScalarWhereInput | NDAScalarWhereInput[]
   }
 
   export type ContactRequestUpdateManyWithoutProjectNestedInput = {
@@ -20635,6 +20585,20 @@ export namespace Prisma {
     deleteMany?: EditorialPickScalarWhereInput | EditorialPickScalarWhereInput[]
   }
 
+  export type NDAUpdateManyWithoutProjectNestedInput = {
+    create?: XOR<NDACreateWithoutProjectInput, NDAUncheckedCreateWithoutProjectInput> | NDACreateWithoutProjectInput[] | NDAUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: NDACreateOrConnectWithoutProjectInput | NDACreateOrConnectWithoutProjectInput[]
+    upsert?: NDAUpsertWithWhereUniqueWithoutProjectInput | NDAUpsertWithWhereUniqueWithoutProjectInput[]
+    createMany?: NDACreateManyProjectInputEnvelope
+    set?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
+    disconnect?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
+    delete?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
+    connect?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
+    update?: NDAUpdateWithWhereUniqueWithoutProjectInput | NDAUpdateWithWhereUniqueWithoutProjectInput[]
+    updateMany?: NDAUpdateManyWithWhereWithoutProjectInput | NDAUpdateManyWithWhereWithoutProjectInput[]
+    deleteMany?: NDAScalarWhereInput | NDAScalarWhereInput[]
+  }
+
   export type PaymentUpdateManyWithoutProjectNestedInput = {
     create?: XOR<PaymentCreateWithoutProjectInput, PaymentUncheckedCreateWithoutProjectInput> | PaymentCreateWithoutProjectInput[] | PaymentUncheckedCreateWithoutProjectInput[]
     connectOrCreate?: PaymentCreateOrConnectWithoutProjectInput | PaymentCreateOrConnectWithoutProjectInput[]
@@ -20649,21 +20613,15 @@ export namespace Prisma {
     deleteMany?: PaymentScalarWhereInput | PaymentScalarWhereInput[]
   }
 
-  export type VerificationChecklistUncheckedUpdateManyWithoutProjectNestedInput = {
-    create?: XOR<VerificationChecklistCreateWithoutProjectInput, VerificationChecklistUncheckedCreateWithoutProjectInput> | VerificationChecklistCreateWithoutProjectInput[] | VerificationChecklistUncheckedCreateWithoutProjectInput[]
-    connectOrCreate?: VerificationChecklistCreateOrConnectWithoutProjectInput | VerificationChecklistCreateOrConnectWithoutProjectInput[]
-    upsert?: VerificationChecklistUpsertWithWhereUniqueWithoutProjectInput | VerificationChecklistUpsertWithWhereUniqueWithoutProjectInput[]
-    createMany?: VerificationChecklistCreateManyProjectInputEnvelope
-    set?: VerificationChecklistWhereUniqueInput | VerificationChecklistWhereUniqueInput[]
-    disconnect?: VerificationChecklistWhereUniqueInput | VerificationChecklistWhereUniqueInput[]
-    delete?: VerificationChecklistWhereUniqueInput | VerificationChecklistWhereUniqueInput[]
-    connect?: VerificationChecklistWhereUniqueInput | VerificationChecklistWhereUniqueInput[]
-    update?: VerificationChecklistUpdateWithWhereUniqueWithoutProjectInput | VerificationChecklistUpdateWithWhereUniqueWithoutProjectInput[]
-    updateMany?: VerificationChecklistUpdateManyWithWhereWithoutProjectInput | VerificationChecklistUpdateManyWithWhereWithoutProjectInput[]
-    deleteMany?: VerificationChecklistScalarWhereInput | VerificationChecklistScalarWhereInput[]
+  export type UserUpdateOneRequiredWithoutProjectsNestedInput = {
+    create?: XOR<UserCreateWithoutProjectsInput, UserUncheckedCreateWithoutProjectsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutProjectsInput
+    upsert?: UserUpsertWithoutProjectsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutProjectsInput, UserUpdateWithoutProjectsInput>, UserUncheckedUpdateWithoutProjectsInput>
   }
 
-  export type ReactionUncheckedUpdateManyWithoutProjectNestedInput = {
+  export type ReactionUpdateManyWithoutProjectNestedInput = {
     create?: XOR<ReactionCreateWithoutProjectInput, ReactionUncheckedCreateWithoutProjectInput> | ReactionCreateWithoutProjectInput[] | ReactionUncheckedCreateWithoutProjectInput[]
     connectOrCreate?: ReactionCreateOrConnectWithoutProjectInput | ReactionCreateOrConnectWithoutProjectInput[]
     upsert?: ReactionUpsertWithWhereUniqueWithoutProjectInput | ReactionUpsertWithWhereUniqueWithoutProjectInput[]
@@ -20677,18 +20635,18 @@ export namespace Prisma {
     deleteMany?: ReactionScalarWhereInput | ReactionScalarWhereInput[]
   }
 
-  export type NDAUncheckedUpdateManyWithoutProjectNestedInput = {
-    create?: XOR<NDACreateWithoutProjectInput, NDAUncheckedCreateWithoutProjectInput> | NDACreateWithoutProjectInput[] | NDAUncheckedCreateWithoutProjectInput[]
-    connectOrCreate?: NDACreateOrConnectWithoutProjectInput | NDACreateOrConnectWithoutProjectInput[]
-    upsert?: NDAUpsertWithWhereUniqueWithoutProjectInput | NDAUpsertWithWhereUniqueWithoutProjectInput[]
-    createMany?: NDACreateManyProjectInputEnvelope
-    set?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
-    disconnect?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
-    delete?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
-    connect?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
-    update?: NDAUpdateWithWhereUniqueWithoutProjectInput | NDAUpdateWithWhereUniqueWithoutProjectInput[]
-    updateMany?: NDAUpdateManyWithWhereWithoutProjectInput | NDAUpdateManyWithWhereWithoutProjectInput[]
-    deleteMany?: NDAScalarWhereInput | NDAScalarWhereInput[]
+  export type VerificationChecklistUpdateManyWithoutProjectNestedInput = {
+    create?: XOR<VerificationChecklistCreateWithoutProjectInput, VerificationChecklistUncheckedCreateWithoutProjectInput> | VerificationChecklistCreateWithoutProjectInput[] | VerificationChecklistUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: VerificationChecklistCreateOrConnectWithoutProjectInput | VerificationChecklistCreateOrConnectWithoutProjectInput[]
+    upsert?: VerificationChecklistUpsertWithWhereUniqueWithoutProjectInput | VerificationChecklistUpsertWithWhereUniqueWithoutProjectInput[]
+    createMany?: VerificationChecklistCreateManyProjectInputEnvelope
+    set?: VerificationChecklistWhereUniqueInput | VerificationChecklistWhereUniqueInput[]
+    disconnect?: VerificationChecklistWhereUniqueInput | VerificationChecklistWhereUniqueInput[]
+    delete?: VerificationChecklistWhereUniqueInput | VerificationChecklistWhereUniqueInput[]
+    connect?: VerificationChecklistWhereUniqueInput | VerificationChecklistWhereUniqueInput[]
+    update?: VerificationChecklistUpdateWithWhereUniqueWithoutProjectInput | VerificationChecklistUpdateWithWhereUniqueWithoutProjectInput[]
+    updateMany?: VerificationChecklistUpdateManyWithWhereWithoutProjectInput | VerificationChecklistUpdateManyWithWhereWithoutProjectInput[]
+    deleteMany?: VerificationChecklistScalarWhereInput | VerificationChecklistScalarWhereInput[]
   }
 
   export type ContactRequestUncheckedUpdateManyWithoutProjectNestedInput = {
@@ -20733,6 +20691,20 @@ export namespace Prisma {
     deleteMany?: EditorialPickScalarWhereInput | EditorialPickScalarWhereInput[]
   }
 
+  export type NDAUncheckedUpdateManyWithoutProjectNestedInput = {
+    create?: XOR<NDACreateWithoutProjectInput, NDAUncheckedCreateWithoutProjectInput> | NDACreateWithoutProjectInput[] | NDAUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: NDACreateOrConnectWithoutProjectInput | NDACreateOrConnectWithoutProjectInput[]
+    upsert?: NDAUpsertWithWhereUniqueWithoutProjectInput | NDAUpsertWithWhereUniqueWithoutProjectInput[]
+    createMany?: NDACreateManyProjectInputEnvelope
+    set?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
+    disconnect?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
+    delete?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
+    connect?: NDAWhereUniqueInput | NDAWhereUniqueInput[]
+    update?: NDAUpdateWithWhereUniqueWithoutProjectInput | NDAUpdateWithWhereUniqueWithoutProjectInput[]
+    updateMany?: NDAUpdateManyWithWhereWithoutProjectInput | NDAUpdateManyWithWhereWithoutProjectInput[]
+    deleteMany?: NDAScalarWhereInput | NDAScalarWhereInput[]
+  }
+
   export type PaymentUncheckedUpdateManyWithoutProjectNestedInput = {
     create?: XOR<PaymentCreateWithoutProjectInput, PaymentUncheckedCreateWithoutProjectInput> | PaymentCreateWithoutProjectInput[] | PaymentUncheckedCreateWithoutProjectInput[]
     connectOrCreate?: PaymentCreateOrConnectWithoutProjectInput | PaymentCreateOrConnectWithoutProjectInput[]
@@ -20745,6 +20717,34 @@ export namespace Prisma {
     update?: PaymentUpdateWithWhereUniqueWithoutProjectInput | PaymentUpdateWithWhereUniqueWithoutProjectInput[]
     updateMany?: PaymentUpdateManyWithWhereWithoutProjectInput | PaymentUpdateManyWithWhereWithoutProjectInput[]
     deleteMany?: PaymentScalarWhereInput | PaymentScalarWhereInput[]
+  }
+
+  export type ReactionUncheckedUpdateManyWithoutProjectNestedInput = {
+    create?: XOR<ReactionCreateWithoutProjectInput, ReactionUncheckedCreateWithoutProjectInput> | ReactionCreateWithoutProjectInput[] | ReactionUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: ReactionCreateOrConnectWithoutProjectInput | ReactionCreateOrConnectWithoutProjectInput[]
+    upsert?: ReactionUpsertWithWhereUniqueWithoutProjectInput | ReactionUpsertWithWhereUniqueWithoutProjectInput[]
+    createMany?: ReactionCreateManyProjectInputEnvelope
+    set?: ReactionWhereUniqueInput | ReactionWhereUniqueInput[]
+    disconnect?: ReactionWhereUniqueInput | ReactionWhereUniqueInput[]
+    delete?: ReactionWhereUniqueInput | ReactionWhereUniqueInput[]
+    connect?: ReactionWhereUniqueInput | ReactionWhereUniqueInput[]
+    update?: ReactionUpdateWithWhereUniqueWithoutProjectInput | ReactionUpdateWithWhereUniqueWithoutProjectInput[]
+    updateMany?: ReactionUpdateManyWithWhereWithoutProjectInput | ReactionUpdateManyWithWhereWithoutProjectInput[]
+    deleteMany?: ReactionScalarWhereInput | ReactionScalarWhereInput[]
+  }
+
+  export type VerificationChecklistUncheckedUpdateManyWithoutProjectNestedInput = {
+    create?: XOR<VerificationChecklistCreateWithoutProjectInput, VerificationChecklistUncheckedCreateWithoutProjectInput> | VerificationChecklistCreateWithoutProjectInput[] | VerificationChecklistUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: VerificationChecklistCreateOrConnectWithoutProjectInput | VerificationChecklistCreateOrConnectWithoutProjectInput[]
+    upsert?: VerificationChecklistUpsertWithWhereUniqueWithoutProjectInput | VerificationChecklistUpsertWithWhereUniqueWithoutProjectInput[]
+    createMany?: VerificationChecklistCreateManyProjectInputEnvelope
+    set?: VerificationChecklistWhereUniqueInput | VerificationChecklistWhereUniqueInput[]
+    disconnect?: VerificationChecklistWhereUniqueInput | VerificationChecklistWhereUniqueInput[]
+    delete?: VerificationChecklistWhereUniqueInput | VerificationChecklistWhereUniqueInput[]
+    connect?: VerificationChecklistWhereUniqueInput | VerificationChecklistWhereUniqueInput[]
+    update?: VerificationChecklistUpdateWithWhereUniqueWithoutProjectInput | VerificationChecklistUpdateWithWhereUniqueWithoutProjectInput[]
+    updateMany?: VerificationChecklistUpdateManyWithWhereWithoutProjectInput | VerificationChecklistUpdateManyWithWhereWithoutProjectInput[]
+    deleteMany?: VerificationChecklistScalarWhereInput | VerificationChecklistScalarWhereInput[]
   }
 
   export type ProjectCreateNestedOneWithoutChecklistsInput = {
@@ -20789,28 +20789,20 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutReactionsInput, UserUpdateWithoutReactionsInput>, UserUncheckedUpdateWithoutReactionsInput>
   }
 
-  export type ProjectCreateNestedOneWithoutNdasInput = {
-    create?: XOR<ProjectCreateWithoutNdasInput, ProjectUncheckedCreateWithoutNdasInput>
-    connectOrCreate?: ProjectCreateOrConnectWithoutNdasInput
-    connect?: ProjectWhereUniqueInput
-  }
-
   export type UserCreateNestedOneWithoutNdasComoCompradorInput = {
     create?: XOR<UserCreateWithoutNdasComoCompradorInput, UserUncheckedCreateWithoutNdasComoCompradorInput>
     connectOrCreate?: UserCreateOrConnectWithoutNdasComoCompradorInput
     connect?: UserWhereUniqueInput
   }
 
-  export type BoolFieldUpdateOperationsInput = {
-    set?: boolean
-  }
-
-  export type ProjectUpdateOneRequiredWithoutNdasNestedInput = {
+  export type ProjectCreateNestedOneWithoutNdasInput = {
     create?: XOR<ProjectCreateWithoutNdasInput, ProjectUncheckedCreateWithoutNdasInput>
     connectOrCreate?: ProjectCreateOrConnectWithoutNdasInput
-    upsert?: ProjectUpsertWithoutNdasInput
     connect?: ProjectWhereUniqueInput
-    update?: XOR<XOR<ProjectUpdateToOneWithWhereWithoutNdasInput, ProjectUpdateWithoutNdasInput>, ProjectUncheckedUpdateWithoutNdasInput>
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
   }
 
   export type UserUpdateOneRequiredWithoutNdasComoCompradorNestedInput = {
@@ -20821,10 +20813,12 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutNdasComoCompradorInput, UserUpdateWithoutNdasComoCompradorInput>, UserUncheckedUpdateWithoutNdasComoCompradorInput>
   }
 
-  export type ProjectCreateNestedOneWithoutContactRequestsInput = {
-    create?: XOR<ProjectCreateWithoutContactRequestsInput, ProjectUncheckedCreateWithoutContactRequestsInput>
-    connectOrCreate?: ProjectCreateOrConnectWithoutContactRequestsInput
+  export type ProjectUpdateOneRequiredWithoutNdasNestedInput = {
+    create?: XOR<ProjectCreateWithoutNdasInput, ProjectUncheckedCreateWithoutNdasInput>
+    connectOrCreate?: ProjectCreateOrConnectWithoutNdasInput
+    upsert?: ProjectUpsertWithoutNdasInput
     connect?: ProjectWhereUniqueInput
+    update?: XOR<XOR<ProjectUpdateToOneWithWhereWithoutNdasInput, ProjectUpdateWithoutNdasInput>, ProjectUncheckedUpdateWithoutNdasInput>
   }
 
   export type UserCreateNestedOneWithoutContactRequestsInput = {
@@ -20833,12 +20827,10 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
-  export type ProjectUpdateOneRequiredWithoutContactRequestsNestedInput = {
+  export type ProjectCreateNestedOneWithoutContactRequestsInput = {
     create?: XOR<ProjectCreateWithoutContactRequestsInput, ProjectUncheckedCreateWithoutContactRequestsInput>
     connectOrCreate?: ProjectCreateOrConnectWithoutContactRequestsInput
-    upsert?: ProjectUpsertWithoutContactRequestsInput
     connect?: ProjectWhereUniqueInput
-    update?: XOR<XOR<ProjectUpdateToOneWithWhereWithoutContactRequestsInput, ProjectUpdateWithoutContactRequestsInput>, ProjectUncheckedUpdateWithoutContactRequestsInput>
   }
 
   export type UserUpdateOneRequiredWithoutContactRequestsNestedInput = {
@@ -20847,6 +20839,14 @@ export namespace Prisma {
     upsert?: UserUpsertWithoutContactRequestsInput
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutContactRequestsInput, UserUpdateWithoutContactRequestsInput>, UserUncheckedUpdateWithoutContactRequestsInput>
+  }
+
+  export type ProjectUpdateOneRequiredWithoutContactRequestsNestedInput = {
+    create?: XOR<ProjectCreateWithoutContactRequestsInput, ProjectUncheckedCreateWithoutContactRequestsInput>
+    connectOrCreate?: ProjectCreateOrConnectWithoutContactRequestsInput
+    upsert?: ProjectUpsertWithoutContactRequestsInput
+    connect?: ProjectWhereUniqueInput
+    update?: XOR<XOR<ProjectUpdateToOneWithWhereWithoutContactRequestsInput, ProjectUpdateWithoutContactRequestsInput>, ProjectUncheckedUpdateWithoutContactRequestsInput>
   }
 
   export type ProjectCreateNestedOneWithoutPaymentsInput = {
@@ -21253,25 +21253,108 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type SessionCreateWithoutUserInput = {
+  export type ContactRequestCreateWithoutBuyerInput = {
     id?: string
-    sessionToken: string
-    expires: Date | string
+    estado?: string
+    criadoEm?: Date | string
+    project: ProjectCreateNestedOneWithoutContactRequestsInput
   }
 
-  export type SessionUncheckedCreateWithoutUserInput = {
+  export type ContactRequestUncheckedCreateWithoutBuyerInput = {
     id?: string
-    sessionToken: string
-    expires: Date | string
+    projectId: string
+    estado?: string
+    criadoEm?: Date | string
   }
 
-  export type SessionCreateOrConnectWithoutUserInput = {
-    where: SessionWhereUniqueInput
-    create: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput>
+  export type ContactRequestCreateOrConnectWithoutBuyerInput = {
+    where: ContactRequestWhereUniqueInput
+    create: XOR<ContactRequestCreateWithoutBuyerInput, ContactRequestUncheckedCreateWithoutBuyerInput>
   }
 
-  export type SessionCreateManyUserInputEnvelope = {
-    data: SessionCreateManyUserInput | SessionCreateManyUserInput[]
+  export type ContactRequestCreateManyBuyerInputEnvelope = {
+    data: ContactRequestCreateManyBuyerInput | ContactRequestCreateManyBuyerInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type NDACreateWithoutBuyerInput = {
+    id?: string
+    aceiteEm?: Date | string
+    ip: string
+    pago?: boolean
+    criadoEm?: Date | string
+    project: ProjectCreateNestedOneWithoutNdasInput
+  }
+
+  export type NDAUncheckedCreateWithoutBuyerInput = {
+    id?: string
+    projectId: string
+    aceiteEm?: Date | string
+    ip: string
+    pago?: boolean
+    criadoEm?: Date | string
+  }
+
+  export type NDACreateOrConnectWithoutBuyerInput = {
+    where: NDAWhereUniqueInput
+    create: XOR<NDACreateWithoutBuyerInput, NDAUncheckedCreateWithoutBuyerInput>
+  }
+
+  export type NDACreateManyBuyerInputEnvelope = {
+    data: NDACreateManyBuyerInput | NDACreateManyBuyerInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type NewsletterSubscriptionCreateWithoutUserInput = {
+    id?: string
+    estado?: string
+    criadoEm?: Date | string
+  }
+
+  export type NewsletterSubscriptionUncheckedCreateWithoutUserInput = {
+    id?: string
+    estado?: string
+    criadoEm?: Date | string
+  }
+
+  export type NewsletterSubscriptionCreateOrConnectWithoutUserInput = {
+    where: NewsletterSubscriptionWhereUniqueInput
+    create: XOR<NewsletterSubscriptionCreateWithoutUserInput, NewsletterSubscriptionUncheckedCreateWithoutUserInput>
+  }
+
+  export type PaymentCreateWithoutUserInput = {
+    id?: string
+    tipo: string
+    metodo: string
+    comprovativoUrl?: string | null
+    estado?: string
+    confirmadoPor?: string | null
+    criadoEm?: Date | string
+    motivoRejeicao?: string | null
+    referencia: string
+    project?: ProjectCreateNestedOneWithoutPaymentsInput
+  }
+
+  export type PaymentUncheckedCreateWithoutUserInput = {
+    id?: string
+    tipo: string
+    projectId?: string | null
+    metodo: string
+    comprovativoUrl?: string | null
+    estado?: string
+    confirmadoPor?: string | null
+    criadoEm?: Date | string
+    motivoRejeicao?: string | null
+    referencia: string
+  }
+
+  export type PaymentCreateOrConnectWithoutUserInput = {
+    where: PaymentWhereUniqueInput
+    create: XOR<PaymentCreateWithoutUserInput, PaymentUncheckedCreateWithoutUserInput>
+  }
+
+  export type PaymentCreateManyUserInputEnvelope = {
+    data: PaymentCreateManyUserInput | PaymentCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
@@ -21285,21 +21368,21 @@ export namespace Prisma {
     localizacao: string
     nivelVerificacao?: $Enums.NivelVerificacao
     estado?: $Enums.EstadoProjecto
-    motivoRejeicao?: string | null
     boostActivoAte?: Date | string | null
     dataLancamento?: Date | string | null
     linkSite?: string | null
+    criadoEm?: Date | string
+    motivoRejeicao?: string | null
+    faixaPreco?: string | null
     notaVerificacao?: string | null
     dadosSensiveis?: string | null
-    faixaPreco?: string | null
-    criadoEm?: Date | string
-    checklists?: VerificationChecklistCreateNestedManyWithoutProjectInput
-    reactions?: ReactionCreateNestedManyWithoutProjectInput
-    ndas?: NDACreateNestedManyWithoutProjectInput
     contactRequests?: ContactRequestCreateNestedManyWithoutProjectInput
     documentos?: DocumentoSensivelCreateNestedManyWithoutProjectInput
     editorialPicks?: EditorialPickCreateNestedManyWithoutProjectInput
+    ndas?: NDACreateNestedManyWithoutProjectInput
     payments?: PaymentCreateNestedManyWithoutProjectInput
+    reactions?: ReactionCreateNestedManyWithoutProjectInput
+    checklists?: VerificationChecklistCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectUncheckedCreateWithoutOwnerInput = {
@@ -21312,21 +21395,21 @@ export namespace Prisma {
     localizacao: string
     nivelVerificacao?: $Enums.NivelVerificacao
     estado?: $Enums.EstadoProjecto
-    motivoRejeicao?: string | null
     boostActivoAte?: Date | string | null
     dataLancamento?: Date | string | null
     linkSite?: string | null
+    criadoEm?: Date | string
+    motivoRejeicao?: string | null
+    faixaPreco?: string | null
     notaVerificacao?: string | null
     dadosSensiveis?: string | null
-    faixaPreco?: string | null
-    criadoEm?: Date | string
-    checklists?: VerificationChecklistUncheckedCreateNestedManyWithoutProjectInput
-    reactions?: ReactionUncheckedCreateNestedManyWithoutProjectInput
-    ndas?: NDAUncheckedCreateNestedManyWithoutProjectInput
     contactRequests?: ContactRequestUncheckedCreateNestedManyWithoutProjectInput
     documentos?: DocumentoSensivelUncheckedCreateNestedManyWithoutProjectInput
     editorialPicks?: EditorialPickUncheckedCreateNestedManyWithoutProjectInput
+    ndas?: NDAUncheckedCreateNestedManyWithoutProjectInput
     payments?: PaymentUncheckedCreateNestedManyWithoutProjectInput
+    reactions?: ReactionUncheckedCreateNestedManyWithoutProjectInput
+    checklists?: VerificationChecklistUncheckedCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectCreateOrConnectWithoutOwnerInput = {
@@ -21363,109 +21446,26 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type NDACreateWithoutBuyerInput = {
+  export type SessionCreateWithoutUserInput = {
     id?: string
-    aceiteEm?: Date | string
-    ip: string
-    pago?: boolean
-    criadoEm?: Date | string
-    project: ProjectCreateNestedOneWithoutNdasInput
+    sessionToken: string
+    expires: Date | string
   }
 
-  export type NDAUncheckedCreateWithoutBuyerInput = {
+  export type SessionUncheckedCreateWithoutUserInput = {
     id?: string
-    projectId: string
-    aceiteEm?: Date | string
-    ip: string
-    pago?: boolean
-    criadoEm?: Date | string
+    sessionToken: string
+    expires: Date | string
   }
 
-  export type NDACreateOrConnectWithoutBuyerInput = {
-    where: NDAWhereUniqueInput
-    create: XOR<NDACreateWithoutBuyerInput, NDAUncheckedCreateWithoutBuyerInput>
+  export type SessionCreateOrConnectWithoutUserInput = {
+    where: SessionWhereUniqueInput
+    create: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput>
   }
 
-  export type NDACreateManyBuyerInputEnvelope = {
-    data: NDACreateManyBuyerInput | NDACreateManyBuyerInput[]
+  export type SessionCreateManyUserInputEnvelope = {
+    data: SessionCreateManyUserInput | SessionCreateManyUserInput[]
     skipDuplicates?: boolean
-  }
-
-  export type ContactRequestCreateWithoutBuyerInput = {
-    id?: string
-    estado?: string
-    criadoEm?: Date | string
-    project: ProjectCreateNestedOneWithoutContactRequestsInput
-  }
-
-  export type ContactRequestUncheckedCreateWithoutBuyerInput = {
-    id?: string
-    projectId: string
-    estado?: string
-    criadoEm?: Date | string
-  }
-
-  export type ContactRequestCreateOrConnectWithoutBuyerInput = {
-    where: ContactRequestWhereUniqueInput
-    create: XOR<ContactRequestCreateWithoutBuyerInput, ContactRequestUncheckedCreateWithoutBuyerInput>
-  }
-
-  export type ContactRequestCreateManyBuyerInputEnvelope = {
-    data: ContactRequestCreateManyBuyerInput | ContactRequestCreateManyBuyerInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type PaymentCreateWithoutUserInput = {
-    id?: string
-    tipo: string
-    metodo: string
-    comprovativoUrl?: string | null
-    estado?: string
-    confirmadoPor?: string | null
-    criadoEm?: Date | string
-    referencia: string
-    motivoRejeicao?: string | null
-    project?: ProjectCreateNestedOneWithoutPaymentsInput
-  }
-
-  export type PaymentUncheckedCreateWithoutUserInput = {
-    id?: string
-    tipo: string
-    projectId?: string | null
-    metodo: string
-    comprovativoUrl?: string | null
-    estado?: string
-    confirmadoPor?: string | null
-    criadoEm?: Date | string
-    referencia: string
-    motivoRejeicao?: string | null
-  }
-
-  export type PaymentCreateOrConnectWithoutUserInput = {
-    where: PaymentWhereUniqueInput
-    create: XOR<PaymentCreateWithoutUserInput, PaymentUncheckedCreateWithoutUserInput>
-  }
-
-  export type PaymentCreateManyUserInputEnvelope = {
-    data: PaymentCreateManyUserInput | PaymentCreateManyUserInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type NewsletterSubscriptionCreateWithoutUserInput = {
-    id?: string
-    estado?: string
-    criadoEm?: Date | string
-  }
-
-  export type NewsletterSubscriptionUncheckedCreateWithoutUserInput = {
-    id?: string
-    estado?: string
-    criadoEm?: Date | string
-  }
-
-  export type NewsletterSubscriptionCreateOrConnectWithoutUserInput = {
-    where: NewsletterSubscriptionWhereUniqueInput
-    create: XOR<NewsletterSubscriptionCreateWithoutUserInput, NewsletterSubscriptionUncheckedCreateWithoutUserInput>
   }
 
   export type AccountUpsertWithWhereUniqueWithoutUserInput = {
@@ -21502,30 +21502,116 @@ export namespace Prisma {
     session_state?: StringNullableFilter<"Account"> | string | null
   }
 
-  export type SessionUpsertWithWhereUniqueWithoutUserInput = {
-    where: SessionWhereUniqueInput
-    update: XOR<SessionUpdateWithoutUserInput, SessionUncheckedUpdateWithoutUserInput>
-    create: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput>
+  export type ContactRequestUpsertWithWhereUniqueWithoutBuyerInput = {
+    where: ContactRequestWhereUniqueInput
+    update: XOR<ContactRequestUpdateWithoutBuyerInput, ContactRequestUncheckedUpdateWithoutBuyerInput>
+    create: XOR<ContactRequestCreateWithoutBuyerInput, ContactRequestUncheckedCreateWithoutBuyerInput>
   }
 
-  export type SessionUpdateWithWhereUniqueWithoutUserInput = {
-    where: SessionWhereUniqueInput
-    data: XOR<SessionUpdateWithoutUserInput, SessionUncheckedUpdateWithoutUserInput>
+  export type ContactRequestUpdateWithWhereUniqueWithoutBuyerInput = {
+    where: ContactRequestWhereUniqueInput
+    data: XOR<ContactRequestUpdateWithoutBuyerInput, ContactRequestUncheckedUpdateWithoutBuyerInput>
   }
 
-  export type SessionUpdateManyWithWhereWithoutUserInput = {
-    where: SessionScalarWhereInput
-    data: XOR<SessionUpdateManyMutationInput, SessionUncheckedUpdateManyWithoutUserInput>
+  export type ContactRequestUpdateManyWithWhereWithoutBuyerInput = {
+    where: ContactRequestScalarWhereInput
+    data: XOR<ContactRequestUpdateManyMutationInput, ContactRequestUncheckedUpdateManyWithoutBuyerInput>
   }
 
-  export type SessionScalarWhereInput = {
-    AND?: SessionScalarWhereInput | SessionScalarWhereInput[]
-    OR?: SessionScalarWhereInput[]
-    NOT?: SessionScalarWhereInput | SessionScalarWhereInput[]
-    id?: StringFilter<"Session"> | string
-    sessionToken?: StringFilter<"Session"> | string
-    userId?: StringFilter<"Session"> | string
-    expires?: DateTimeFilter<"Session"> | Date | string
+  export type ContactRequestScalarWhereInput = {
+    AND?: ContactRequestScalarWhereInput | ContactRequestScalarWhereInput[]
+    OR?: ContactRequestScalarWhereInput[]
+    NOT?: ContactRequestScalarWhereInput | ContactRequestScalarWhereInput[]
+    id?: StringFilter<"ContactRequest"> | string
+    projectId?: StringFilter<"ContactRequest"> | string
+    buyerId?: StringFilter<"ContactRequest"> | string
+    estado?: StringFilter<"ContactRequest"> | string
+    criadoEm?: DateTimeFilter<"ContactRequest"> | Date | string
+  }
+
+  export type NDAUpsertWithWhereUniqueWithoutBuyerInput = {
+    where: NDAWhereUniqueInput
+    update: XOR<NDAUpdateWithoutBuyerInput, NDAUncheckedUpdateWithoutBuyerInput>
+    create: XOR<NDACreateWithoutBuyerInput, NDAUncheckedCreateWithoutBuyerInput>
+  }
+
+  export type NDAUpdateWithWhereUniqueWithoutBuyerInput = {
+    where: NDAWhereUniqueInput
+    data: XOR<NDAUpdateWithoutBuyerInput, NDAUncheckedUpdateWithoutBuyerInput>
+  }
+
+  export type NDAUpdateManyWithWhereWithoutBuyerInput = {
+    where: NDAScalarWhereInput
+    data: XOR<NDAUpdateManyMutationInput, NDAUncheckedUpdateManyWithoutBuyerInput>
+  }
+
+  export type NDAScalarWhereInput = {
+    AND?: NDAScalarWhereInput | NDAScalarWhereInput[]
+    OR?: NDAScalarWhereInput[]
+    NOT?: NDAScalarWhereInput | NDAScalarWhereInput[]
+    id?: StringFilter<"NDA"> | string
+    projectId?: StringFilter<"NDA"> | string
+    buyerId?: StringFilter<"NDA"> | string
+    aceiteEm?: DateTimeFilter<"NDA"> | Date | string
+    ip?: StringFilter<"NDA"> | string
+    pago?: BoolFilter<"NDA"> | boolean
+    criadoEm?: DateTimeFilter<"NDA"> | Date | string
+  }
+
+  export type NewsletterSubscriptionUpsertWithoutUserInput = {
+    update: XOR<NewsletterSubscriptionUpdateWithoutUserInput, NewsletterSubscriptionUncheckedUpdateWithoutUserInput>
+    create: XOR<NewsletterSubscriptionCreateWithoutUserInput, NewsletterSubscriptionUncheckedCreateWithoutUserInput>
+    where?: NewsletterSubscriptionWhereInput
+  }
+
+  export type NewsletterSubscriptionUpdateToOneWithWhereWithoutUserInput = {
+    where?: NewsletterSubscriptionWhereInput
+    data: XOR<NewsletterSubscriptionUpdateWithoutUserInput, NewsletterSubscriptionUncheckedUpdateWithoutUserInput>
+  }
+
+  export type NewsletterSubscriptionUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    estado?: StringFieldUpdateOperationsInput | string
+    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NewsletterSubscriptionUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    estado?: StringFieldUpdateOperationsInput | string
+    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PaymentUpsertWithWhereUniqueWithoutUserInput = {
+    where: PaymentWhereUniqueInput
+    update: XOR<PaymentUpdateWithoutUserInput, PaymentUncheckedUpdateWithoutUserInput>
+    create: XOR<PaymentCreateWithoutUserInput, PaymentUncheckedCreateWithoutUserInput>
+  }
+
+  export type PaymentUpdateWithWhereUniqueWithoutUserInput = {
+    where: PaymentWhereUniqueInput
+    data: XOR<PaymentUpdateWithoutUserInput, PaymentUncheckedUpdateWithoutUserInput>
+  }
+
+  export type PaymentUpdateManyWithWhereWithoutUserInput = {
+    where: PaymentScalarWhereInput
+    data: XOR<PaymentUpdateManyMutationInput, PaymentUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type PaymentScalarWhereInput = {
+    AND?: PaymentScalarWhereInput | PaymentScalarWhereInput[]
+    OR?: PaymentScalarWhereInput[]
+    NOT?: PaymentScalarWhereInput | PaymentScalarWhereInput[]
+    id?: StringFilter<"Payment"> | string
+    tipo?: StringFilter<"Payment"> | string
+    projectId?: StringNullableFilter<"Payment"> | string | null
+    userId?: StringFilter<"Payment"> | string
+    metodo?: StringFilter<"Payment"> | string
+    comprovativoUrl?: StringNullableFilter<"Payment"> | string | null
+    estado?: StringFilter<"Payment"> | string
+    confirmadoPor?: StringNullableFilter<"Payment"> | string | null
+    criadoEm?: DateTimeFilter<"Payment"> | Date | string
+    motivoRejeicao?: StringNullableFilter<"Payment"> | string | null
+    referencia?: StringFilter<"Payment"> | string
   }
 
   export type ProjectUpsertWithWhereUniqueWithoutOwnerInput = {
@@ -21558,14 +21644,14 @@ export namespace Prisma {
     localizacao?: StringFilter<"Project"> | string
     nivelVerificacao?: EnumNivelVerificacaoFilter<"Project"> | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFilter<"Project"> | $Enums.EstadoProjecto
-    motivoRejeicao?: StringNullableFilter<"Project"> | string | null
     boostActivoAte?: DateTimeNullableFilter<"Project"> | Date | string | null
     dataLancamento?: DateTimeNullableFilter<"Project"> | Date | string | null
     linkSite?: StringNullableFilter<"Project"> | string | null
+    criadoEm?: DateTimeFilter<"Project"> | Date | string
+    motivoRejeicao?: StringNullableFilter<"Project"> | string | null
+    faixaPreco?: StringNullableFilter<"Project"> | string | null
     notaVerificacao?: StringNullableFilter<"Project"> | string | null
     dadosSensiveis?: StringNullableFilter<"Project"> | string | null
-    faixaPreco?: StringNullableFilter<"Project"> | string | null
-    criadoEm?: DateTimeFilter<"Project"> | Date | string
   }
 
   export type ReactionUpsertWithWhereUniqueWithoutUserInput = {
@@ -21595,116 +21681,30 @@ export namespace Prisma {
     criadoEm?: DateTimeFilter<"Reaction"> | Date | string
   }
 
-  export type NDAUpsertWithWhereUniqueWithoutBuyerInput = {
-    where: NDAWhereUniqueInput
-    update: XOR<NDAUpdateWithoutBuyerInput, NDAUncheckedUpdateWithoutBuyerInput>
-    create: XOR<NDACreateWithoutBuyerInput, NDAUncheckedCreateWithoutBuyerInput>
+  export type SessionUpsertWithWhereUniqueWithoutUserInput = {
+    where: SessionWhereUniqueInput
+    update: XOR<SessionUpdateWithoutUserInput, SessionUncheckedUpdateWithoutUserInput>
+    create: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput>
   }
 
-  export type NDAUpdateWithWhereUniqueWithoutBuyerInput = {
-    where: NDAWhereUniqueInput
-    data: XOR<NDAUpdateWithoutBuyerInput, NDAUncheckedUpdateWithoutBuyerInput>
+  export type SessionUpdateWithWhereUniqueWithoutUserInput = {
+    where: SessionWhereUniqueInput
+    data: XOR<SessionUpdateWithoutUserInput, SessionUncheckedUpdateWithoutUserInput>
   }
 
-  export type NDAUpdateManyWithWhereWithoutBuyerInput = {
-    where: NDAScalarWhereInput
-    data: XOR<NDAUpdateManyMutationInput, NDAUncheckedUpdateManyWithoutBuyerInput>
+  export type SessionUpdateManyWithWhereWithoutUserInput = {
+    where: SessionScalarWhereInput
+    data: XOR<SessionUpdateManyMutationInput, SessionUncheckedUpdateManyWithoutUserInput>
   }
 
-  export type NDAScalarWhereInput = {
-    AND?: NDAScalarWhereInput | NDAScalarWhereInput[]
-    OR?: NDAScalarWhereInput[]
-    NOT?: NDAScalarWhereInput | NDAScalarWhereInput[]
-    id?: StringFilter<"NDA"> | string
-    projectId?: StringFilter<"NDA"> | string
-    buyerId?: StringFilter<"NDA"> | string
-    aceiteEm?: DateTimeFilter<"NDA"> | Date | string
-    ip?: StringFilter<"NDA"> | string
-    pago?: BoolFilter<"NDA"> | boolean
-    criadoEm?: DateTimeFilter<"NDA"> | Date | string
-  }
-
-  export type ContactRequestUpsertWithWhereUniqueWithoutBuyerInput = {
-    where: ContactRequestWhereUniqueInput
-    update: XOR<ContactRequestUpdateWithoutBuyerInput, ContactRequestUncheckedUpdateWithoutBuyerInput>
-    create: XOR<ContactRequestCreateWithoutBuyerInput, ContactRequestUncheckedCreateWithoutBuyerInput>
-  }
-
-  export type ContactRequestUpdateWithWhereUniqueWithoutBuyerInput = {
-    where: ContactRequestWhereUniqueInput
-    data: XOR<ContactRequestUpdateWithoutBuyerInput, ContactRequestUncheckedUpdateWithoutBuyerInput>
-  }
-
-  export type ContactRequestUpdateManyWithWhereWithoutBuyerInput = {
-    where: ContactRequestScalarWhereInput
-    data: XOR<ContactRequestUpdateManyMutationInput, ContactRequestUncheckedUpdateManyWithoutBuyerInput>
-  }
-
-  export type ContactRequestScalarWhereInput = {
-    AND?: ContactRequestScalarWhereInput | ContactRequestScalarWhereInput[]
-    OR?: ContactRequestScalarWhereInput[]
-    NOT?: ContactRequestScalarWhereInput | ContactRequestScalarWhereInput[]
-    id?: StringFilter<"ContactRequest"> | string
-    projectId?: StringFilter<"ContactRequest"> | string
-    buyerId?: StringFilter<"ContactRequest"> | string
-    estado?: StringFilter<"ContactRequest"> | string
-    criadoEm?: DateTimeFilter<"ContactRequest"> | Date | string
-  }
-
-  export type PaymentUpsertWithWhereUniqueWithoutUserInput = {
-    where: PaymentWhereUniqueInput
-    update: XOR<PaymentUpdateWithoutUserInput, PaymentUncheckedUpdateWithoutUserInput>
-    create: XOR<PaymentCreateWithoutUserInput, PaymentUncheckedCreateWithoutUserInput>
-  }
-
-  export type PaymentUpdateWithWhereUniqueWithoutUserInput = {
-    where: PaymentWhereUniqueInput
-    data: XOR<PaymentUpdateWithoutUserInput, PaymentUncheckedUpdateWithoutUserInput>
-  }
-
-  export type PaymentUpdateManyWithWhereWithoutUserInput = {
-    where: PaymentScalarWhereInput
-    data: XOR<PaymentUpdateManyMutationInput, PaymentUncheckedUpdateManyWithoutUserInput>
-  }
-
-  export type PaymentScalarWhereInput = {
-    AND?: PaymentScalarWhereInput | PaymentScalarWhereInput[]
-    OR?: PaymentScalarWhereInput[]
-    NOT?: PaymentScalarWhereInput | PaymentScalarWhereInput[]
-    id?: StringFilter<"Payment"> | string
-    tipo?: StringFilter<"Payment"> | string
-    projectId?: StringNullableFilter<"Payment"> | string | null
-    userId?: StringFilter<"Payment"> | string
-    metodo?: StringFilter<"Payment"> | string
-    comprovativoUrl?: StringNullableFilter<"Payment"> | string | null
-    estado?: StringFilter<"Payment"> | string
-    confirmadoPor?: StringNullableFilter<"Payment"> | string | null
-    criadoEm?: DateTimeFilter<"Payment"> | Date | string
-    referencia?: StringFilter<"Payment"> | string
-    motivoRejeicao?: StringNullableFilter<"Payment"> | string | null
-  }
-
-  export type NewsletterSubscriptionUpsertWithoutUserInput = {
-    update: XOR<NewsletterSubscriptionUpdateWithoutUserInput, NewsletterSubscriptionUncheckedUpdateWithoutUserInput>
-    create: XOR<NewsletterSubscriptionCreateWithoutUserInput, NewsletterSubscriptionUncheckedCreateWithoutUserInput>
-    where?: NewsletterSubscriptionWhereInput
-  }
-
-  export type NewsletterSubscriptionUpdateToOneWithWhereWithoutUserInput = {
-    where?: NewsletterSubscriptionWhereInput
-    data: XOR<NewsletterSubscriptionUpdateWithoutUserInput, NewsletterSubscriptionUncheckedUpdateWithoutUserInput>
-  }
-
-  export type NewsletterSubscriptionUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    estado?: StringFieldUpdateOperationsInput | string
-    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type NewsletterSubscriptionUncheckedUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    estado?: StringFieldUpdateOperationsInput | string
-    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+  export type SessionScalarWhereInput = {
+    AND?: SessionScalarWhereInput | SessionScalarWhereInput[]
+    OR?: SessionScalarWhereInput[]
+    NOT?: SessionScalarWhereInput | SessionScalarWhereInput[]
+    id?: StringFilter<"Session"> | string
+    sessionToken?: StringFilter<"Session"> | string
+    userId?: StringFilter<"Session"> | string
+    expires?: DateTimeFilter<"Session"> | Date | string
   }
 
   export type UserCreateWithoutAccountsInput = {
@@ -21720,13 +21720,13 @@ export namespace Prisma {
     kycStatus?: $Enums.KycStatus
     kycMotivoRejeicao?: string | null
     criadoEm?: Date | string
-    sessions?: SessionCreateNestedManyWithoutUserInput
+    contactRequests?: ContactRequestCreateNestedManyWithoutBuyerInput
+    ndasComoComprador?: NDACreateNestedManyWithoutBuyerInput
+    newsletterSubscription?: NewsletterSubscriptionCreateNestedOneWithoutUserInput
+    payments?: PaymentCreateNestedManyWithoutUserInput
     projects?: ProjectCreateNestedManyWithoutOwnerInput
     reactions?: ReactionCreateNestedManyWithoutUserInput
-    ndasComoComprador?: NDACreateNestedManyWithoutBuyerInput
-    contactRequests?: ContactRequestCreateNestedManyWithoutBuyerInput
-    payments?: PaymentCreateNestedManyWithoutUserInput
-    newsletterSubscription?: NewsletterSubscriptionCreateNestedOneWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutAccountsInput = {
@@ -21742,13 +21742,13 @@ export namespace Prisma {
     kycStatus?: $Enums.KycStatus
     kycMotivoRejeicao?: string | null
     criadoEm?: Date | string
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    contactRequests?: ContactRequestUncheckedCreateNestedManyWithoutBuyerInput
+    ndasComoComprador?: NDAUncheckedCreateNestedManyWithoutBuyerInput
+    newsletterSubscription?: NewsletterSubscriptionUncheckedCreateNestedOneWithoutUserInput
+    payments?: PaymentUncheckedCreateNestedManyWithoutUserInput
     projects?: ProjectUncheckedCreateNestedManyWithoutOwnerInput
     reactions?: ReactionUncheckedCreateNestedManyWithoutUserInput
-    ndasComoComprador?: NDAUncheckedCreateNestedManyWithoutBuyerInput
-    contactRequests?: ContactRequestUncheckedCreateNestedManyWithoutBuyerInput
-    payments?: PaymentUncheckedCreateNestedManyWithoutUserInput
-    newsletterSubscription?: NewsletterSubscriptionUncheckedCreateNestedOneWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutAccountsInput = {
@@ -21780,13 +21780,13 @@ export namespace Prisma {
     kycStatus?: EnumKycStatusFieldUpdateOperationsInput | $Enums.KycStatus
     kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessions?: SessionUpdateManyWithoutUserNestedInput
+    contactRequests?: ContactRequestUpdateManyWithoutBuyerNestedInput
+    ndasComoComprador?: NDAUpdateManyWithoutBuyerNestedInput
+    newsletterSubscription?: NewsletterSubscriptionUpdateOneWithoutUserNestedInput
+    payments?: PaymentUpdateManyWithoutUserNestedInput
     projects?: ProjectUpdateManyWithoutOwnerNestedInput
     reactions?: ReactionUpdateManyWithoutUserNestedInput
-    ndasComoComprador?: NDAUpdateManyWithoutBuyerNestedInput
-    contactRequests?: ContactRequestUpdateManyWithoutBuyerNestedInput
-    payments?: PaymentUpdateManyWithoutUserNestedInput
-    newsletterSubscription?: NewsletterSubscriptionUpdateOneWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAccountsInput = {
@@ -21802,13 +21802,13 @@ export namespace Prisma {
     kycStatus?: EnumKycStatusFieldUpdateOperationsInput | $Enums.KycStatus
     kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    contactRequests?: ContactRequestUncheckedUpdateManyWithoutBuyerNestedInput
+    ndasComoComprador?: NDAUncheckedUpdateManyWithoutBuyerNestedInput
+    newsletterSubscription?: NewsletterSubscriptionUncheckedUpdateOneWithoutUserNestedInput
+    payments?: PaymentUncheckedUpdateManyWithoutUserNestedInput
     projects?: ProjectUncheckedUpdateManyWithoutOwnerNestedInput
     reactions?: ReactionUncheckedUpdateManyWithoutUserNestedInput
-    ndasComoComprador?: NDAUncheckedUpdateManyWithoutBuyerNestedInput
-    contactRequests?: ContactRequestUncheckedUpdateManyWithoutBuyerNestedInput
-    payments?: PaymentUncheckedUpdateManyWithoutUserNestedInput
-    newsletterSubscription?: NewsletterSubscriptionUncheckedUpdateOneWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutSessionsInput = {
@@ -21825,12 +21825,12 @@ export namespace Prisma {
     kycMotivoRejeicao?: string | null
     criadoEm?: Date | string
     accounts?: AccountCreateNestedManyWithoutUserInput
+    contactRequests?: ContactRequestCreateNestedManyWithoutBuyerInput
+    ndasComoComprador?: NDACreateNestedManyWithoutBuyerInput
+    newsletterSubscription?: NewsletterSubscriptionCreateNestedOneWithoutUserInput
+    payments?: PaymentCreateNestedManyWithoutUserInput
     projects?: ProjectCreateNestedManyWithoutOwnerInput
     reactions?: ReactionCreateNestedManyWithoutUserInput
-    ndasComoComprador?: NDACreateNestedManyWithoutBuyerInput
-    contactRequests?: ContactRequestCreateNestedManyWithoutBuyerInput
-    payments?: PaymentCreateNestedManyWithoutUserInput
-    newsletterSubscription?: NewsletterSubscriptionCreateNestedOneWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutSessionsInput = {
@@ -21847,12 +21847,12 @@ export namespace Prisma {
     kycMotivoRejeicao?: string | null
     criadoEm?: Date | string
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    contactRequests?: ContactRequestUncheckedCreateNestedManyWithoutBuyerInput
+    ndasComoComprador?: NDAUncheckedCreateNestedManyWithoutBuyerInput
+    newsletterSubscription?: NewsletterSubscriptionUncheckedCreateNestedOneWithoutUserInput
+    payments?: PaymentUncheckedCreateNestedManyWithoutUserInput
     projects?: ProjectUncheckedCreateNestedManyWithoutOwnerInput
     reactions?: ReactionUncheckedCreateNestedManyWithoutUserInput
-    ndasComoComprador?: NDAUncheckedCreateNestedManyWithoutBuyerInput
-    contactRequests?: ContactRequestUncheckedCreateNestedManyWithoutBuyerInput
-    payments?: PaymentUncheckedCreateNestedManyWithoutUserInput
-    newsletterSubscription?: NewsletterSubscriptionUncheckedCreateNestedOneWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutSessionsInput = {
@@ -21885,12 +21885,12 @@ export namespace Prisma {
     kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUpdateManyWithoutUserNestedInput
+    contactRequests?: ContactRequestUpdateManyWithoutBuyerNestedInput
+    ndasComoComprador?: NDAUpdateManyWithoutBuyerNestedInput
+    newsletterSubscription?: NewsletterSubscriptionUpdateOneWithoutUserNestedInput
+    payments?: PaymentUpdateManyWithoutUserNestedInput
     projects?: ProjectUpdateManyWithoutOwnerNestedInput
     reactions?: ReactionUpdateManyWithoutUserNestedInput
-    ndasComoComprador?: NDAUpdateManyWithoutBuyerNestedInput
-    contactRequests?: ContactRequestUpdateManyWithoutBuyerNestedInput
-    payments?: PaymentUpdateManyWithoutUserNestedInput
-    newsletterSubscription?: NewsletterSubscriptionUpdateOneWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutSessionsInput = {
@@ -21907,139 +21907,12 @@ export namespace Prisma {
     kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    contactRequests?: ContactRequestUncheckedUpdateManyWithoutBuyerNestedInput
+    ndasComoComprador?: NDAUncheckedUpdateManyWithoutBuyerNestedInput
+    newsletterSubscription?: NewsletterSubscriptionUncheckedUpdateOneWithoutUserNestedInput
+    payments?: PaymentUncheckedUpdateManyWithoutUserNestedInput
     projects?: ProjectUncheckedUpdateManyWithoutOwnerNestedInput
     reactions?: ReactionUncheckedUpdateManyWithoutUserNestedInput
-    ndasComoComprador?: NDAUncheckedUpdateManyWithoutBuyerNestedInput
-    contactRequests?: ContactRequestUncheckedUpdateManyWithoutBuyerNestedInput
-    payments?: PaymentUncheckedUpdateManyWithoutUserNestedInput
-    newsletterSubscription?: NewsletterSubscriptionUncheckedUpdateOneWithoutUserNestedInput
-  }
-
-  export type UserCreateWithoutProjectsInput = {
-    id?: string
-    name?: string | null
-    email: string
-    emailVerified?: Date | string | null
-    image?: string | null
-    passwordHash?: string | null
-    role?: $Enums.Role
-    telefone?: string | null
-    biNuit?: string | null
-    kycStatus?: $Enums.KycStatus
-    kycMotivoRejeicao?: string | null
-    criadoEm?: Date | string
-    accounts?: AccountCreateNestedManyWithoutUserInput
-    sessions?: SessionCreateNestedManyWithoutUserInput
-    reactions?: ReactionCreateNestedManyWithoutUserInput
-    ndasComoComprador?: NDACreateNestedManyWithoutBuyerInput
-    contactRequests?: ContactRequestCreateNestedManyWithoutBuyerInput
-    payments?: PaymentCreateNestedManyWithoutUserInput
-    newsletterSubscription?: NewsletterSubscriptionCreateNestedOneWithoutUserInput
-  }
-
-  export type UserUncheckedCreateWithoutProjectsInput = {
-    id?: string
-    name?: string | null
-    email: string
-    emailVerified?: Date | string | null
-    image?: string | null
-    passwordHash?: string | null
-    role?: $Enums.Role
-    telefone?: string | null
-    biNuit?: string | null
-    kycStatus?: $Enums.KycStatus
-    kycMotivoRejeicao?: string | null
-    criadoEm?: Date | string
-    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-    reactions?: ReactionUncheckedCreateNestedManyWithoutUserInput
-    ndasComoComprador?: NDAUncheckedCreateNestedManyWithoutBuyerInput
-    contactRequests?: ContactRequestUncheckedCreateNestedManyWithoutBuyerInput
-    payments?: PaymentUncheckedCreateNestedManyWithoutUserInput
-    newsletterSubscription?: NewsletterSubscriptionUncheckedCreateNestedOneWithoutUserInput
-  }
-
-  export type UserCreateOrConnectWithoutProjectsInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutProjectsInput, UserUncheckedCreateWithoutProjectsInput>
-  }
-
-  export type VerificationChecklistCreateWithoutProjectInput = {
-    id?: string
-    tipo: string
-    respostasJson: string
-    documentosUrls: string
-    estado?: string
-  }
-
-  export type VerificationChecklistUncheckedCreateWithoutProjectInput = {
-    id?: string
-    tipo: string
-    respostasJson: string
-    documentosUrls: string
-    estado?: string
-  }
-
-  export type VerificationChecklistCreateOrConnectWithoutProjectInput = {
-    where: VerificationChecklistWhereUniqueInput
-    create: XOR<VerificationChecklistCreateWithoutProjectInput, VerificationChecklistUncheckedCreateWithoutProjectInput>
-  }
-
-  export type VerificationChecklistCreateManyProjectInputEnvelope = {
-    data: VerificationChecklistCreateManyProjectInput | VerificationChecklistCreateManyProjectInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type ReactionCreateWithoutProjectInput = {
-    id?: string
-    tipo?: string
-    criadoEm?: Date | string
-    user: UserCreateNestedOneWithoutReactionsInput
-  }
-
-  export type ReactionUncheckedCreateWithoutProjectInput = {
-    id?: string
-    userId: string
-    tipo?: string
-    criadoEm?: Date | string
-  }
-
-  export type ReactionCreateOrConnectWithoutProjectInput = {
-    where: ReactionWhereUniqueInput
-    create: XOR<ReactionCreateWithoutProjectInput, ReactionUncheckedCreateWithoutProjectInput>
-  }
-
-  export type ReactionCreateManyProjectInputEnvelope = {
-    data: ReactionCreateManyProjectInput | ReactionCreateManyProjectInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type NDACreateWithoutProjectInput = {
-    id?: string
-    aceiteEm?: Date | string
-    ip: string
-    pago?: boolean
-    criadoEm?: Date | string
-    buyer: UserCreateNestedOneWithoutNdasComoCompradorInput
-  }
-
-  export type NDAUncheckedCreateWithoutProjectInput = {
-    id?: string
-    buyerId: string
-    aceiteEm?: Date | string
-    ip: string
-    pago?: boolean
-    criadoEm?: Date | string
-  }
-
-  export type NDACreateOrConnectWithoutProjectInput = {
-    where: NDAWhereUniqueInput
-    create: XOR<NDACreateWithoutProjectInput, NDAUncheckedCreateWithoutProjectInput>
-  }
-
-  export type NDACreateManyProjectInputEnvelope = {
-    data: NDACreateManyProjectInput | NDACreateManyProjectInput[]
-    skipDuplicates?: boolean
   }
 
   export type ContactRequestCreateWithoutProjectInput = {
@@ -22116,6 +21989,34 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type NDACreateWithoutProjectInput = {
+    id?: string
+    aceiteEm?: Date | string
+    ip: string
+    pago?: boolean
+    criadoEm?: Date | string
+    buyer: UserCreateNestedOneWithoutNdasComoCompradorInput
+  }
+
+  export type NDAUncheckedCreateWithoutProjectInput = {
+    id?: string
+    buyerId: string
+    aceiteEm?: Date | string
+    ip: string
+    pago?: boolean
+    criadoEm?: Date | string
+  }
+
+  export type NDACreateOrConnectWithoutProjectInput = {
+    where: NDAWhereUniqueInput
+    create: XOR<NDACreateWithoutProjectInput, NDAUncheckedCreateWithoutProjectInput>
+  }
+
+  export type NDACreateManyProjectInputEnvelope = {
+    data: NDACreateManyProjectInput | NDACreateManyProjectInput[]
+    skipDuplicates?: boolean
+  }
+
   export type PaymentCreateWithoutProjectInput = {
     id?: string
     tipo: string
@@ -22124,8 +22025,8 @@ export namespace Prisma {
     estado?: string
     confirmadoPor?: string | null
     criadoEm?: Date | string
-    referencia: string
     motivoRejeicao?: string | null
+    referencia: string
     user: UserCreateNestedOneWithoutPaymentsInput
   }
 
@@ -22138,8 +22039,8 @@ export namespace Prisma {
     estado?: string
     confirmadoPor?: string | null
     criadoEm?: Date | string
-    referencia: string
     motivoRejeicao?: string | null
+    referencia: string
   }
 
   export type PaymentCreateOrConnectWithoutProjectInput = {
@@ -22152,119 +22053,103 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type UserUpsertWithoutProjectsInput = {
-    update: XOR<UserUpdateWithoutProjectsInput, UserUncheckedUpdateWithoutProjectsInput>
+  export type UserCreateWithoutProjectsInput = {
+    id?: string
+    name?: string | null
+    email: string
+    emailVerified?: Date | string | null
+    image?: string | null
+    passwordHash?: string | null
+    role?: $Enums.Role
+    telefone?: string | null
+    biNuit?: string | null
+    kycStatus?: $Enums.KycStatus
+    kycMotivoRejeicao?: string | null
+    criadoEm?: Date | string
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    contactRequests?: ContactRequestCreateNestedManyWithoutBuyerInput
+    ndasComoComprador?: NDACreateNestedManyWithoutBuyerInput
+    newsletterSubscription?: NewsletterSubscriptionCreateNestedOneWithoutUserInput
+    payments?: PaymentCreateNestedManyWithoutUserInput
+    reactions?: ReactionCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutProjectsInput = {
+    id?: string
+    name?: string | null
+    email: string
+    emailVerified?: Date | string | null
+    image?: string | null
+    passwordHash?: string | null
+    role?: $Enums.Role
+    telefone?: string | null
+    biNuit?: string | null
+    kycStatus?: $Enums.KycStatus
+    kycMotivoRejeicao?: string | null
+    criadoEm?: Date | string
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    contactRequests?: ContactRequestUncheckedCreateNestedManyWithoutBuyerInput
+    ndasComoComprador?: NDAUncheckedCreateNestedManyWithoutBuyerInput
+    newsletterSubscription?: NewsletterSubscriptionUncheckedCreateNestedOneWithoutUserInput
+    payments?: PaymentUncheckedCreateNestedManyWithoutUserInput
+    reactions?: ReactionUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutProjectsInput = {
+    where: UserWhereUniqueInput
     create: XOR<UserCreateWithoutProjectsInput, UserUncheckedCreateWithoutProjectsInput>
-    where?: UserWhereInput
   }
 
-  export type UserUpdateToOneWithWhereWithoutProjectsInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutProjectsInput, UserUncheckedUpdateWithoutProjectsInput>
+  export type ReactionCreateWithoutProjectInput = {
+    id?: string
+    tipo?: string
+    criadoEm?: Date | string
+    user: UserCreateNestedOneWithoutReactionsInput
   }
 
-  export type UserUpdateWithoutProjectsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: StringFieldUpdateOperationsInput | string
-    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
-    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
-    telefone?: NullableStringFieldUpdateOperationsInput | string | null
-    biNuit?: NullableStringFieldUpdateOperationsInput | string | null
-    kycStatus?: EnumKycStatusFieldUpdateOperationsInput | $Enums.KycStatus
-    kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
-    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    accounts?: AccountUpdateManyWithoutUserNestedInput
-    sessions?: SessionUpdateManyWithoutUserNestedInput
-    reactions?: ReactionUpdateManyWithoutUserNestedInput
-    ndasComoComprador?: NDAUpdateManyWithoutBuyerNestedInput
-    contactRequests?: ContactRequestUpdateManyWithoutBuyerNestedInput
-    payments?: PaymentUpdateManyWithoutUserNestedInput
-    newsletterSubscription?: NewsletterSubscriptionUpdateOneWithoutUserNestedInput
+  export type ReactionUncheckedCreateWithoutProjectInput = {
+    id?: string
+    userId: string
+    tipo?: string
+    criadoEm?: Date | string
   }
 
-  export type UserUncheckedUpdateWithoutProjectsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: StringFieldUpdateOperationsInput | string
-    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
-    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
-    telefone?: NullableStringFieldUpdateOperationsInput | string | null
-    biNuit?: NullableStringFieldUpdateOperationsInput | string | null
-    kycStatus?: EnumKycStatusFieldUpdateOperationsInput | $Enums.KycStatus
-    kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
-    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-    reactions?: ReactionUncheckedUpdateManyWithoutUserNestedInput
-    ndasComoComprador?: NDAUncheckedUpdateManyWithoutBuyerNestedInput
-    contactRequests?: ContactRequestUncheckedUpdateManyWithoutBuyerNestedInput
-    payments?: PaymentUncheckedUpdateManyWithoutUserNestedInput
-    newsletterSubscription?: NewsletterSubscriptionUncheckedUpdateOneWithoutUserNestedInput
-  }
-
-  export type VerificationChecklistUpsertWithWhereUniqueWithoutProjectInput = {
-    where: VerificationChecklistWhereUniqueInput
-    update: XOR<VerificationChecklistUpdateWithoutProjectInput, VerificationChecklistUncheckedUpdateWithoutProjectInput>
-    create: XOR<VerificationChecklistCreateWithoutProjectInput, VerificationChecklistUncheckedCreateWithoutProjectInput>
-  }
-
-  export type VerificationChecklistUpdateWithWhereUniqueWithoutProjectInput = {
-    where: VerificationChecklistWhereUniqueInput
-    data: XOR<VerificationChecklistUpdateWithoutProjectInput, VerificationChecklistUncheckedUpdateWithoutProjectInput>
-  }
-
-  export type VerificationChecklistUpdateManyWithWhereWithoutProjectInput = {
-    where: VerificationChecklistScalarWhereInput
-    data: XOR<VerificationChecklistUpdateManyMutationInput, VerificationChecklistUncheckedUpdateManyWithoutProjectInput>
-  }
-
-  export type VerificationChecklistScalarWhereInput = {
-    AND?: VerificationChecklistScalarWhereInput | VerificationChecklistScalarWhereInput[]
-    OR?: VerificationChecklistScalarWhereInput[]
-    NOT?: VerificationChecklistScalarWhereInput | VerificationChecklistScalarWhereInput[]
-    id?: StringFilter<"VerificationChecklist"> | string
-    projectId?: StringFilter<"VerificationChecklist"> | string
-    tipo?: StringFilter<"VerificationChecklist"> | string
-    respostasJson?: StringFilter<"VerificationChecklist"> | string
-    documentosUrls?: StringFilter<"VerificationChecklist"> | string
-    estado?: StringFilter<"VerificationChecklist"> | string
-  }
-
-  export type ReactionUpsertWithWhereUniqueWithoutProjectInput = {
+  export type ReactionCreateOrConnectWithoutProjectInput = {
     where: ReactionWhereUniqueInput
-    update: XOR<ReactionUpdateWithoutProjectInput, ReactionUncheckedUpdateWithoutProjectInput>
     create: XOR<ReactionCreateWithoutProjectInput, ReactionUncheckedCreateWithoutProjectInput>
   }
 
-  export type ReactionUpdateWithWhereUniqueWithoutProjectInput = {
-    where: ReactionWhereUniqueInput
-    data: XOR<ReactionUpdateWithoutProjectInput, ReactionUncheckedUpdateWithoutProjectInput>
+  export type ReactionCreateManyProjectInputEnvelope = {
+    data: ReactionCreateManyProjectInput | ReactionCreateManyProjectInput[]
+    skipDuplicates?: boolean
   }
 
-  export type ReactionUpdateManyWithWhereWithoutProjectInput = {
-    where: ReactionScalarWhereInput
-    data: XOR<ReactionUpdateManyMutationInput, ReactionUncheckedUpdateManyWithoutProjectInput>
+  export type VerificationChecklistCreateWithoutProjectInput = {
+    id?: string
+    tipo: string
+    respostasJson: string
+    documentosUrls: string
+    estado?: string
   }
 
-  export type NDAUpsertWithWhereUniqueWithoutProjectInput = {
-    where: NDAWhereUniqueInput
-    update: XOR<NDAUpdateWithoutProjectInput, NDAUncheckedUpdateWithoutProjectInput>
-    create: XOR<NDACreateWithoutProjectInput, NDAUncheckedCreateWithoutProjectInput>
+  export type VerificationChecklistUncheckedCreateWithoutProjectInput = {
+    id?: string
+    tipo: string
+    respostasJson: string
+    documentosUrls: string
+    estado?: string
   }
 
-  export type NDAUpdateWithWhereUniqueWithoutProjectInput = {
-    where: NDAWhereUniqueInput
-    data: XOR<NDAUpdateWithoutProjectInput, NDAUncheckedUpdateWithoutProjectInput>
+  export type VerificationChecklistCreateOrConnectWithoutProjectInput = {
+    where: VerificationChecklistWhereUniqueInput
+    create: XOR<VerificationChecklistCreateWithoutProjectInput, VerificationChecklistUncheckedCreateWithoutProjectInput>
   }
 
-  export type NDAUpdateManyWithWhereWithoutProjectInput = {
-    where: NDAScalarWhereInput
-    data: XOR<NDAUpdateManyMutationInput, NDAUncheckedUpdateManyWithoutProjectInput>
+  export type VerificationChecklistCreateManyProjectInputEnvelope = {
+    data: VerificationChecklistCreateManyProjectInput | VerificationChecklistCreateManyProjectInput[]
+    skipDuplicates?: boolean
   }
 
   export type ContactRequestUpsertWithWhereUniqueWithoutProjectInput = {
@@ -22338,6 +22223,22 @@ export namespace Prisma {
     semanaReferencia?: StringFilter<"EditorialPick"> | string
   }
 
+  export type NDAUpsertWithWhereUniqueWithoutProjectInput = {
+    where: NDAWhereUniqueInput
+    update: XOR<NDAUpdateWithoutProjectInput, NDAUncheckedUpdateWithoutProjectInput>
+    create: XOR<NDACreateWithoutProjectInput, NDAUncheckedCreateWithoutProjectInput>
+  }
+
+  export type NDAUpdateWithWhereUniqueWithoutProjectInput = {
+    where: NDAWhereUniqueInput
+    data: XOR<NDAUpdateWithoutProjectInput, NDAUncheckedUpdateWithoutProjectInput>
+  }
+
+  export type NDAUpdateManyWithWhereWithoutProjectInput = {
+    where: NDAScalarWhereInput
+    data: XOR<NDAUpdateManyMutationInput, NDAUncheckedUpdateManyWithoutProjectInput>
+  }
+
   export type PaymentUpsertWithWhereUniqueWithoutProjectInput = {
     where: PaymentWhereUniqueInput
     update: XOR<PaymentUpdateWithoutProjectInput, PaymentUncheckedUpdateWithoutProjectInput>
@@ -22354,6 +22255,105 @@ export namespace Prisma {
     data: XOR<PaymentUpdateManyMutationInput, PaymentUncheckedUpdateManyWithoutProjectInput>
   }
 
+  export type UserUpsertWithoutProjectsInput = {
+    update: XOR<UserUpdateWithoutProjectsInput, UserUncheckedUpdateWithoutProjectsInput>
+    create: XOR<UserCreateWithoutProjectsInput, UserUncheckedCreateWithoutProjectsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutProjectsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutProjectsInput, UserUncheckedUpdateWithoutProjectsInput>
+  }
+
+  export type UserUpdateWithoutProjectsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    telefone?: NullableStringFieldUpdateOperationsInput | string | null
+    biNuit?: NullableStringFieldUpdateOperationsInput | string | null
+    kycStatus?: EnumKycStatusFieldUpdateOperationsInput | $Enums.KycStatus
+    kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
+    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    contactRequests?: ContactRequestUpdateManyWithoutBuyerNestedInput
+    ndasComoComprador?: NDAUpdateManyWithoutBuyerNestedInput
+    newsletterSubscription?: NewsletterSubscriptionUpdateOneWithoutUserNestedInput
+    payments?: PaymentUpdateManyWithoutUserNestedInput
+    reactions?: ReactionUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutProjectsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    telefone?: NullableStringFieldUpdateOperationsInput | string | null
+    biNuit?: NullableStringFieldUpdateOperationsInput | string | null
+    kycStatus?: EnumKycStatusFieldUpdateOperationsInput | $Enums.KycStatus
+    kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
+    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    contactRequests?: ContactRequestUncheckedUpdateManyWithoutBuyerNestedInput
+    ndasComoComprador?: NDAUncheckedUpdateManyWithoutBuyerNestedInput
+    newsletterSubscription?: NewsletterSubscriptionUncheckedUpdateOneWithoutUserNestedInput
+    payments?: PaymentUncheckedUpdateManyWithoutUserNestedInput
+    reactions?: ReactionUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type ReactionUpsertWithWhereUniqueWithoutProjectInput = {
+    where: ReactionWhereUniqueInput
+    update: XOR<ReactionUpdateWithoutProjectInput, ReactionUncheckedUpdateWithoutProjectInput>
+    create: XOR<ReactionCreateWithoutProjectInput, ReactionUncheckedCreateWithoutProjectInput>
+  }
+
+  export type ReactionUpdateWithWhereUniqueWithoutProjectInput = {
+    where: ReactionWhereUniqueInput
+    data: XOR<ReactionUpdateWithoutProjectInput, ReactionUncheckedUpdateWithoutProjectInput>
+  }
+
+  export type ReactionUpdateManyWithWhereWithoutProjectInput = {
+    where: ReactionScalarWhereInput
+    data: XOR<ReactionUpdateManyMutationInput, ReactionUncheckedUpdateManyWithoutProjectInput>
+  }
+
+  export type VerificationChecklistUpsertWithWhereUniqueWithoutProjectInput = {
+    where: VerificationChecklistWhereUniqueInput
+    update: XOR<VerificationChecklistUpdateWithoutProjectInput, VerificationChecklistUncheckedUpdateWithoutProjectInput>
+    create: XOR<VerificationChecklistCreateWithoutProjectInput, VerificationChecklistUncheckedCreateWithoutProjectInput>
+  }
+
+  export type VerificationChecklistUpdateWithWhereUniqueWithoutProjectInput = {
+    where: VerificationChecklistWhereUniqueInput
+    data: XOR<VerificationChecklistUpdateWithoutProjectInput, VerificationChecklistUncheckedUpdateWithoutProjectInput>
+  }
+
+  export type VerificationChecklistUpdateManyWithWhereWithoutProjectInput = {
+    where: VerificationChecklistScalarWhereInput
+    data: XOR<VerificationChecklistUpdateManyMutationInput, VerificationChecklistUncheckedUpdateManyWithoutProjectInput>
+  }
+
+  export type VerificationChecklistScalarWhereInput = {
+    AND?: VerificationChecklistScalarWhereInput | VerificationChecklistScalarWhereInput[]
+    OR?: VerificationChecklistScalarWhereInput[]
+    NOT?: VerificationChecklistScalarWhereInput | VerificationChecklistScalarWhereInput[]
+    id?: StringFilter<"VerificationChecklist"> | string
+    projectId?: StringFilter<"VerificationChecklist"> | string
+    tipo?: StringFilter<"VerificationChecklist"> | string
+    respostasJson?: StringFilter<"VerificationChecklist"> | string
+    documentosUrls?: StringFilter<"VerificationChecklist"> | string
+    estado?: StringFilter<"VerificationChecklist"> | string
+  }
+
   export type ProjectCreateWithoutChecklistsInput = {
     id?: string
     seccao: $Enums.Seccao
@@ -22364,21 +22364,21 @@ export namespace Prisma {
     localizacao: string
     nivelVerificacao?: $Enums.NivelVerificacao
     estado?: $Enums.EstadoProjecto
-    motivoRejeicao?: string | null
     boostActivoAte?: Date | string | null
     dataLancamento?: Date | string | null
     linkSite?: string | null
+    criadoEm?: Date | string
+    motivoRejeicao?: string | null
+    faixaPreco?: string | null
     notaVerificacao?: string | null
     dadosSensiveis?: string | null
-    faixaPreco?: string | null
-    criadoEm?: Date | string
-    owner: UserCreateNestedOneWithoutProjectsInput
-    reactions?: ReactionCreateNestedManyWithoutProjectInput
-    ndas?: NDACreateNestedManyWithoutProjectInput
     contactRequests?: ContactRequestCreateNestedManyWithoutProjectInput
     documentos?: DocumentoSensivelCreateNestedManyWithoutProjectInput
     editorialPicks?: EditorialPickCreateNestedManyWithoutProjectInput
+    ndas?: NDACreateNestedManyWithoutProjectInput
     payments?: PaymentCreateNestedManyWithoutProjectInput
+    owner: UserCreateNestedOneWithoutProjectsInput
+    reactions?: ReactionCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectUncheckedCreateWithoutChecklistsInput = {
@@ -22392,20 +22392,20 @@ export namespace Prisma {
     localizacao: string
     nivelVerificacao?: $Enums.NivelVerificacao
     estado?: $Enums.EstadoProjecto
-    motivoRejeicao?: string | null
     boostActivoAte?: Date | string | null
     dataLancamento?: Date | string | null
     linkSite?: string | null
+    criadoEm?: Date | string
+    motivoRejeicao?: string | null
+    faixaPreco?: string | null
     notaVerificacao?: string | null
     dadosSensiveis?: string | null
-    faixaPreco?: string | null
-    criadoEm?: Date | string
-    reactions?: ReactionUncheckedCreateNestedManyWithoutProjectInput
-    ndas?: NDAUncheckedCreateNestedManyWithoutProjectInput
     contactRequests?: ContactRequestUncheckedCreateNestedManyWithoutProjectInput
     documentos?: DocumentoSensivelUncheckedCreateNestedManyWithoutProjectInput
     editorialPicks?: EditorialPickUncheckedCreateNestedManyWithoutProjectInput
+    ndas?: NDAUncheckedCreateNestedManyWithoutProjectInput
     payments?: PaymentUncheckedCreateNestedManyWithoutProjectInput
+    reactions?: ReactionUncheckedCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectCreateOrConnectWithoutChecklistsInput = {
@@ -22434,21 +22434,21 @@ export namespace Prisma {
     localizacao?: StringFieldUpdateOperationsInput | string
     nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
-    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
     dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
-    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
-    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    owner?: UserUpdateOneRequiredWithoutProjectsNestedInput
-    reactions?: ReactionUpdateManyWithoutProjectNestedInput
-    ndas?: NDAUpdateManyWithoutProjectNestedInput
     contactRequests?: ContactRequestUpdateManyWithoutProjectNestedInput
     documentos?: DocumentoSensivelUpdateManyWithoutProjectNestedInput
     editorialPicks?: EditorialPickUpdateManyWithoutProjectNestedInput
+    ndas?: NDAUpdateManyWithoutProjectNestedInput
     payments?: PaymentUpdateManyWithoutProjectNestedInput
+    owner?: UserUpdateOneRequiredWithoutProjectsNestedInput
+    reactions?: ReactionUpdateManyWithoutProjectNestedInput
   }
 
   export type ProjectUncheckedUpdateWithoutChecklistsInput = {
@@ -22462,20 +22462,20 @@ export namespace Prisma {
     localizacao?: StringFieldUpdateOperationsInput | string
     nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
-    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
     dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
-    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
-    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    reactions?: ReactionUncheckedUpdateManyWithoutProjectNestedInput
-    ndas?: NDAUncheckedUpdateManyWithoutProjectNestedInput
     contactRequests?: ContactRequestUncheckedUpdateManyWithoutProjectNestedInput
     documentos?: DocumentoSensivelUncheckedUpdateManyWithoutProjectNestedInput
     editorialPicks?: EditorialPickUncheckedUpdateManyWithoutProjectNestedInput
+    ndas?: NDAUncheckedUpdateManyWithoutProjectNestedInput
     payments?: PaymentUncheckedUpdateManyWithoutProjectNestedInput
+    reactions?: ReactionUncheckedUpdateManyWithoutProjectNestedInput
   }
 
   export type ProjectCreateWithoutReactionsInput = {
@@ -22488,21 +22488,21 @@ export namespace Prisma {
     localizacao: string
     nivelVerificacao?: $Enums.NivelVerificacao
     estado?: $Enums.EstadoProjecto
-    motivoRejeicao?: string | null
     boostActivoAte?: Date | string | null
     dataLancamento?: Date | string | null
     linkSite?: string | null
+    criadoEm?: Date | string
+    motivoRejeicao?: string | null
+    faixaPreco?: string | null
     notaVerificacao?: string | null
     dadosSensiveis?: string | null
-    faixaPreco?: string | null
-    criadoEm?: Date | string
-    owner: UserCreateNestedOneWithoutProjectsInput
-    checklists?: VerificationChecklistCreateNestedManyWithoutProjectInput
-    ndas?: NDACreateNestedManyWithoutProjectInput
     contactRequests?: ContactRequestCreateNestedManyWithoutProjectInput
     documentos?: DocumentoSensivelCreateNestedManyWithoutProjectInput
     editorialPicks?: EditorialPickCreateNestedManyWithoutProjectInput
+    ndas?: NDACreateNestedManyWithoutProjectInput
     payments?: PaymentCreateNestedManyWithoutProjectInput
+    owner: UserCreateNestedOneWithoutProjectsInput
+    checklists?: VerificationChecklistCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectUncheckedCreateWithoutReactionsInput = {
@@ -22516,20 +22516,20 @@ export namespace Prisma {
     localizacao: string
     nivelVerificacao?: $Enums.NivelVerificacao
     estado?: $Enums.EstadoProjecto
-    motivoRejeicao?: string | null
     boostActivoAte?: Date | string | null
     dataLancamento?: Date | string | null
     linkSite?: string | null
+    criadoEm?: Date | string
+    motivoRejeicao?: string | null
+    faixaPreco?: string | null
     notaVerificacao?: string | null
     dadosSensiveis?: string | null
-    faixaPreco?: string | null
-    criadoEm?: Date | string
-    checklists?: VerificationChecklistUncheckedCreateNestedManyWithoutProjectInput
-    ndas?: NDAUncheckedCreateNestedManyWithoutProjectInput
     contactRequests?: ContactRequestUncheckedCreateNestedManyWithoutProjectInput
     documentos?: DocumentoSensivelUncheckedCreateNestedManyWithoutProjectInput
     editorialPicks?: EditorialPickUncheckedCreateNestedManyWithoutProjectInput
+    ndas?: NDAUncheckedCreateNestedManyWithoutProjectInput
     payments?: PaymentUncheckedCreateNestedManyWithoutProjectInput
+    checklists?: VerificationChecklistUncheckedCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectCreateOrConnectWithoutReactionsInput = {
@@ -22551,12 +22551,12 @@ export namespace Prisma {
     kycMotivoRejeicao?: string | null
     criadoEm?: Date | string
     accounts?: AccountCreateNestedManyWithoutUserInput
-    sessions?: SessionCreateNestedManyWithoutUserInput
-    projects?: ProjectCreateNestedManyWithoutOwnerInput
-    ndasComoComprador?: NDACreateNestedManyWithoutBuyerInput
     contactRequests?: ContactRequestCreateNestedManyWithoutBuyerInput
-    payments?: PaymentCreateNestedManyWithoutUserInput
+    ndasComoComprador?: NDACreateNestedManyWithoutBuyerInput
     newsletterSubscription?: NewsletterSubscriptionCreateNestedOneWithoutUserInput
+    payments?: PaymentCreateNestedManyWithoutUserInput
+    projects?: ProjectCreateNestedManyWithoutOwnerInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutReactionsInput = {
@@ -22573,12 +22573,12 @@ export namespace Prisma {
     kycMotivoRejeicao?: string | null
     criadoEm?: Date | string
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-    projects?: ProjectUncheckedCreateNestedManyWithoutOwnerInput
-    ndasComoComprador?: NDAUncheckedCreateNestedManyWithoutBuyerInput
     contactRequests?: ContactRequestUncheckedCreateNestedManyWithoutBuyerInput
-    payments?: PaymentUncheckedCreateNestedManyWithoutUserInput
+    ndasComoComprador?: NDAUncheckedCreateNestedManyWithoutBuyerInput
     newsletterSubscription?: NewsletterSubscriptionUncheckedCreateNestedOneWithoutUserInput
+    payments?: PaymentUncheckedCreateNestedManyWithoutUserInput
+    projects?: ProjectUncheckedCreateNestedManyWithoutOwnerInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutReactionsInput = {
@@ -22607,21 +22607,21 @@ export namespace Prisma {
     localizacao?: StringFieldUpdateOperationsInput | string
     nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
-    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
     dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
-    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
-    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    owner?: UserUpdateOneRequiredWithoutProjectsNestedInput
-    checklists?: VerificationChecklistUpdateManyWithoutProjectNestedInput
-    ndas?: NDAUpdateManyWithoutProjectNestedInput
     contactRequests?: ContactRequestUpdateManyWithoutProjectNestedInput
     documentos?: DocumentoSensivelUpdateManyWithoutProjectNestedInput
     editorialPicks?: EditorialPickUpdateManyWithoutProjectNestedInput
+    ndas?: NDAUpdateManyWithoutProjectNestedInput
     payments?: PaymentUpdateManyWithoutProjectNestedInput
+    owner?: UserUpdateOneRequiredWithoutProjectsNestedInput
+    checklists?: VerificationChecklistUpdateManyWithoutProjectNestedInput
   }
 
   export type ProjectUncheckedUpdateWithoutReactionsInput = {
@@ -22635,20 +22635,20 @@ export namespace Prisma {
     localizacao?: StringFieldUpdateOperationsInput | string
     nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
-    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
     dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
-    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
-    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    checklists?: VerificationChecklistUncheckedUpdateManyWithoutProjectNestedInput
-    ndas?: NDAUncheckedUpdateManyWithoutProjectNestedInput
     contactRequests?: ContactRequestUncheckedUpdateManyWithoutProjectNestedInput
     documentos?: DocumentoSensivelUncheckedUpdateManyWithoutProjectNestedInput
     editorialPicks?: EditorialPickUncheckedUpdateManyWithoutProjectNestedInput
+    ndas?: NDAUncheckedUpdateManyWithoutProjectNestedInput
     payments?: PaymentUncheckedUpdateManyWithoutProjectNestedInput
+    checklists?: VerificationChecklistUncheckedUpdateManyWithoutProjectNestedInput
   }
 
   export type UserUpsertWithoutReactionsInput = {
@@ -22676,12 +22676,12 @@ export namespace Prisma {
     kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUpdateManyWithoutUserNestedInput
-    sessions?: SessionUpdateManyWithoutUserNestedInput
-    projects?: ProjectUpdateManyWithoutOwnerNestedInput
-    ndasComoComprador?: NDAUpdateManyWithoutBuyerNestedInput
     contactRequests?: ContactRequestUpdateManyWithoutBuyerNestedInput
-    payments?: PaymentUpdateManyWithoutUserNestedInput
+    ndasComoComprador?: NDAUpdateManyWithoutBuyerNestedInput
     newsletterSubscription?: NewsletterSubscriptionUpdateOneWithoutUserNestedInput
+    payments?: PaymentUpdateManyWithoutUserNestedInput
+    projects?: ProjectUpdateManyWithoutOwnerNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutReactionsInput = {
@@ -22698,71 +22698,12 @@ export namespace Prisma {
     kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-    projects?: ProjectUncheckedUpdateManyWithoutOwnerNestedInput
-    ndasComoComprador?: NDAUncheckedUpdateManyWithoutBuyerNestedInput
     contactRequests?: ContactRequestUncheckedUpdateManyWithoutBuyerNestedInput
-    payments?: PaymentUncheckedUpdateManyWithoutUserNestedInput
+    ndasComoComprador?: NDAUncheckedUpdateManyWithoutBuyerNestedInput
     newsletterSubscription?: NewsletterSubscriptionUncheckedUpdateOneWithoutUserNestedInput
-  }
-
-  export type ProjectCreateWithoutNdasInput = {
-    id?: string
-    seccao: $Enums.Seccao
-    titulo: string
-    descricao: string
-    categoria: string
-    sector: string
-    localizacao: string
-    nivelVerificacao?: $Enums.NivelVerificacao
-    estado?: $Enums.EstadoProjecto
-    motivoRejeicao?: string | null
-    boostActivoAte?: Date | string | null
-    dataLancamento?: Date | string | null
-    linkSite?: string | null
-    notaVerificacao?: string | null
-    dadosSensiveis?: string | null
-    faixaPreco?: string | null
-    criadoEm?: Date | string
-    owner: UserCreateNestedOneWithoutProjectsInput
-    checklists?: VerificationChecklistCreateNestedManyWithoutProjectInput
-    reactions?: ReactionCreateNestedManyWithoutProjectInput
-    contactRequests?: ContactRequestCreateNestedManyWithoutProjectInput
-    documentos?: DocumentoSensivelCreateNestedManyWithoutProjectInput
-    editorialPicks?: EditorialPickCreateNestedManyWithoutProjectInput
-    payments?: PaymentCreateNestedManyWithoutProjectInput
-  }
-
-  export type ProjectUncheckedCreateWithoutNdasInput = {
-    id?: string
-    ownerId: string
-    seccao: $Enums.Seccao
-    titulo: string
-    descricao: string
-    categoria: string
-    sector: string
-    localizacao: string
-    nivelVerificacao?: $Enums.NivelVerificacao
-    estado?: $Enums.EstadoProjecto
-    motivoRejeicao?: string | null
-    boostActivoAte?: Date | string | null
-    dataLancamento?: Date | string | null
-    linkSite?: string | null
-    notaVerificacao?: string | null
-    dadosSensiveis?: string | null
-    faixaPreco?: string | null
-    criadoEm?: Date | string
-    checklists?: VerificationChecklistUncheckedCreateNestedManyWithoutProjectInput
-    reactions?: ReactionUncheckedCreateNestedManyWithoutProjectInput
-    contactRequests?: ContactRequestUncheckedCreateNestedManyWithoutProjectInput
-    documentos?: DocumentoSensivelUncheckedCreateNestedManyWithoutProjectInput
-    editorialPicks?: EditorialPickUncheckedCreateNestedManyWithoutProjectInput
-    payments?: PaymentUncheckedCreateNestedManyWithoutProjectInput
-  }
-
-  export type ProjectCreateOrConnectWithoutNdasInput = {
-    where: ProjectWhereUniqueInput
-    create: XOR<ProjectCreateWithoutNdasInput, ProjectUncheckedCreateWithoutNdasInput>
+    payments?: PaymentUncheckedUpdateManyWithoutUserNestedInput
+    projects?: ProjectUncheckedUpdateManyWithoutOwnerNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutNdasComoCompradorInput = {
@@ -22779,12 +22720,12 @@ export namespace Prisma {
     kycMotivoRejeicao?: string | null
     criadoEm?: Date | string
     accounts?: AccountCreateNestedManyWithoutUserInput
-    sessions?: SessionCreateNestedManyWithoutUserInput
+    contactRequests?: ContactRequestCreateNestedManyWithoutBuyerInput
+    newsletterSubscription?: NewsletterSubscriptionCreateNestedOneWithoutUserInput
+    payments?: PaymentCreateNestedManyWithoutUserInput
     projects?: ProjectCreateNestedManyWithoutOwnerInput
     reactions?: ReactionCreateNestedManyWithoutUserInput
-    contactRequests?: ContactRequestCreateNestedManyWithoutBuyerInput
-    payments?: PaymentCreateNestedManyWithoutUserInput
-    newsletterSubscription?: NewsletterSubscriptionCreateNestedOneWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutNdasComoCompradorInput = {
@@ -22801,12 +22742,12 @@ export namespace Prisma {
     kycMotivoRejeicao?: string | null
     criadoEm?: Date | string
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    contactRequests?: ContactRequestUncheckedCreateNestedManyWithoutBuyerInput
+    newsletterSubscription?: NewsletterSubscriptionUncheckedCreateNestedOneWithoutUserInput
+    payments?: PaymentUncheckedCreateNestedManyWithoutUserInput
     projects?: ProjectUncheckedCreateNestedManyWithoutOwnerInput
     reactions?: ReactionUncheckedCreateNestedManyWithoutUserInput
-    contactRequests?: ContactRequestUncheckedCreateNestedManyWithoutBuyerInput
-    payments?: PaymentUncheckedCreateNestedManyWithoutUserInput
-    newsletterSubscription?: NewsletterSubscriptionUncheckedCreateNestedOneWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutNdasComoCompradorInput = {
@@ -22814,69 +22755,63 @@ export namespace Prisma {
     create: XOR<UserCreateWithoutNdasComoCompradorInput, UserUncheckedCreateWithoutNdasComoCompradorInput>
   }
 
-  export type ProjectUpsertWithoutNdasInput = {
-    update: XOR<ProjectUpdateWithoutNdasInput, ProjectUncheckedUpdateWithoutNdasInput>
+  export type ProjectCreateWithoutNdasInput = {
+    id?: string
+    seccao: $Enums.Seccao
+    titulo: string
+    descricao: string
+    categoria: string
+    sector: string
+    localizacao: string
+    nivelVerificacao?: $Enums.NivelVerificacao
+    estado?: $Enums.EstadoProjecto
+    boostActivoAte?: Date | string | null
+    dataLancamento?: Date | string | null
+    linkSite?: string | null
+    criadoEm?: Date | string
+    motivoRejeicao?: string | null
+    faixaPreco?: string | null
+    notaVerificacao?: string | null
+    dadosSensiveis?: string | null
+    contactRequests?: ContactRequestCreateNestedManyWithoutProjectInput
+    documentos?: DocumentoSensivelCreateNestedManyWithoutProjectInput
+    editorialPicks?: EditorialPickCreateNestedManyWithoutProjectInput
+    payments?: PaymentCreateNestedManyWithoutProjectInput
+    owner: UserCreateNestedOneWithoutProjectsInput
+    reactions?: ReactionCreateNestedManyWithoutProjectInput
+    checklists?: VerificationChecklistCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectUncheckedCreateWithoutNdasInput = {
+    id?: string
+    ownerId: string
+    seccao: $Enums.Seccao
+    titulo: string
+    descricao: string
+    categoria: string
+    sector: string
+    localizacao: string
+    nivelVerificacao?: $Enums.NivelVerificacao
+    estado?: $Enums.EstadoProjecto
+    boostActivoAte?: Date | string | null
+    dataLancamento?: Date | string | null
+    linkSite?: string | null
+    criadoEm?: Date | string
+    motivoRejeicao?: string | null
+    faixaPreco?: string | null
+    notaVerificacao?: string | null
+    dadosSensiveis?: string | null
+    contactRequests?: ContactRequestUncheckedCreateNestedManyWithoutProjectInput
+    documentos?: DocumentoSensivelUncheckedCreateNestedManyWithoutProjectInput
+    editorialPicks?: EditorialPickUncheckedCreateNestedManyWithoutProjectInput
+    payments?: PaymentUncheckedCreateNestedManyWithoutProjectInput
+    reactions?: ReactionUncheckedCreateNestedManyWithoutProjectInput
+    checklists?: VerificationChecklistUncheckedCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectCreateOrConnectWithoutNdasInput = {
+    where: ProjectWhereUniqueInput
     create: XOR<ProjectCreateWithoutNdasInput, ProjectUncheckedCreateWithoutNdasInput>
-    where?: ProjectWhereInput
-  }
-
-  export type ProjectUpdateToOneWithWhereWithoutNdasInput = {
-    where?: ProjectWhereInput
-    data: XOR<ProjectUpdateWithoutNdasInput, ProjectUncheckedUpdateWithoutNdasInput>
-  }
-
-  export type ProjectUpdateWithoutNdasInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    seccao?: EnumSeccaoFieldUpdateOperationsInput | $Enums.Seccao
-    titulo?: StringFieldUpdateOperationsInput | string
-    descricao?: StringFieldUpdateOperationsInput | string
-    categoria?: StringFieldUpdateOperationsInput | string
-    sector?: StringFieldUpdateOperationsInput | string
-    localizacao?: StringFieldUpdateOperationsInput | string
-    nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
-    estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
-    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
-    boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    linkSite?: NullableStringFieldUpdateOperationsInput | string | null
-    notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
-    dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
-    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
-    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    owner?: UserUpdateOneRequiredWithoutProjectsNestedInput
-    checklists?: VerificationChecklistUpdateManyWithoutProjectNestedInput
-    reactions?: ReactionUpdateManyWithoutProjectNestedInput
-    contactRequests?: ContactRequestUpdateManyWithoutProjectNestedInput
-    documentos?: DocumentoSensivelUpdateManyWithoutProjectNestedInput
-    editorialPicks?: EditorialPickUpdateManyWithoutProjectNestedInput
-    payments?: PaymentUpdateManyWithoutProjectNestedInput
-  }
-
-  export type ProjectUncheckedUpdateWithoutNdasInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    ownerId?: StringFieldUpdateOperationsInput | string
-    seccao?: EnumSeccaoFieldUpdateOperationsInput | $Enums.Seccao
-    titulo?: StringFieldUpdateOperationsInput | string
-    descricao?: StringFieldUpdateOperationsInput | string
-    categoria?: StringFieldUpdateOperationsInput | string
-    sector?: StringFieldUpdateOperationsInput | string
-    localizacao?: StringFieldUpdateOperationsInput | string
-    nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
-    estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
-    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
-    boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    linkSite?: NullableStringFieldUpdateOperationsInput | string | null
-    notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
-    dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
-    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
-    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    checklists?: VerificationChecklistUncheckedUpdateManyWithoutProjectNestedInput
-    reactions?: ReactionUncheckedUpdateManyWithoutProjectNestedInput
-    contactRequests?: ContactRequestUncheckedUpdateManyWithoutProjectNestedInput
-    documentos?: DocumentoSensivelUncheckedUpdateManyWithoutProjectNestedInput
-    editorialPicks?: EditorialPickUncheckedUpdateManyWithoutProjectNestedInput
-    payments?: PaymentUncheckedUpdateManyWithoutProjectNestedInput
   }
 
   export type UserUpsertWithoutNdasComoCompradorInput = {
@@ -22904,12 +22839,12 @@ export namespace Prisma {
     kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUpdateManyWithoutUserNestedInput
-    sessions?: SessionUpdateManyWithoutUserNestedInput
+    contactRequests?: ContactRequestUpdateManyWithoutBuyerNestedInput
+    newsletterSubscription?: NewsletterSubscriptionUpdateOneWithoutUserNestedInput
+    payments?: PaymentUpdateManyWithoutUserNestedInput
     projects?: ProjectUpdateManyWithoutOwnerNestedInput
     reactions?: ReactionUpdateManyWithoutUserNestedInput
-    contactRequests?: ContactRequestUpdateManyWithoutBuyerNestedInput
-    payments?: PaymentUpdateManyWithoutUserNestedInput
-    newsletterSubscription?: NewsletterSubscriptionUpdateOneWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutNdasComoCompradorInput = {
@@ -22926,71 +22861,77 @@ export namespace Prisma {
     kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    contactRequests?: ContactRequestUncheckedUpdateManyWithoutBuyerNestedInput
+    newsletterSubscription?: NewsletterSubscriptionUncheckedUpdateOneWithoutUserNestedInput
+    payments?: PaymentUncheckedUpdateManyWithoutUserNestedInput
     projects?: ProjectUncheckedUpdateManyWithoutOwnerNestedInput
     reactions?: ReactionUncheckedUpdateManyWithoutUserNestedInput
-    contactRequests?: ContactRequestUncheckedUpdateManyWithoutBuyerNestedInput
-    payments?: PaymentUncheckedUpdateManyWithoutUserNestedInput
-    newsletterSubscription?: NewsletterSubscriptionUncheckedUpdateOneWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type ProjectCreateWithoutContactRequestsInput = {
-    id?: string
-    seccao: $Enums.Seccao
-    titulo: string
-    descricao: string
-    categoria: string
-    sector: string
-    localizacao: string
-    nivelVerificacao?: $Enums.NivelVerificacao
-    estado?: $Enums.EstadoProjecto
-    motivoRejeicao?: string | null
-    boostActivoAte?: Date | string | null
-    dataLancamento?: Date | string | null
-    linkSite?: string | null
-    notaVerificacao?: string | null
-    dadosSensiveis?: string | null
-    faixaPreco?: string | null
-    criadoEm?: Date | string
-    owner: UserCreateNestedOneWithoutProjectsInput
-    checklists?: VerificationChecklistCreateNestedManyWithoutProjectInput
-    reactions?: ReactionCreateNestedManyWithoutProjectInput
-    ndas?: NDACreateNestedManyWithoutProjectInput
-    documentos?: DocumentoSensivelCreateNestedManyWithoutProjectInput
-    editorialPicks?: EditorialPickCreateNestedManyWithoutProjectInput
-    payments?: PaymentCreateNestedManyWithoutProjectInput
+  export type ProjectUpsertWithoutNdasInput = {
+    update: XOR<ProjectUpdateWithoutNdasInput, ProjectUncheckedUpdateWithoutNdasInput>
+    create: XOR<ProjectCreateWithoutNdasInput, ProjectUncheckedCreateWithoutNdasInput>
+    where?: ProjectWhereInput
   }
 
-  export type ProjectUncheckedCreateWithoutContactRequestsInput = {
-    id?: string
-    ownerId: string
-    seccao: $Enums.Seccao
-    titulo: string
-    descricao: string
-    categoria: string
-    sector: string
-    localizacao: string
-    nivelVerificacao?: $Enums.NivelVerificacao
-    estado?: $Enums.EstadoProjecto
-    motivoRejeicao?: string | null
-    boostActivoAte?: Date | string | null
-    dataLancamento?: Date | string | null
-    linkSite?: string | null
-    notaVerificacao?: string | null
-    dadosSensiveis?: string | null
-    faixaPreco?: string | null
-    criadoEm?: Date | string
-    checklists?: VerificationChecklistUncheckedCreateNestedManyWithoutProjectInput
-    reactions?: ReactionUncheckedCreateNestedManyWithoutProjectInput
-    ndas?: NDAUncheckedCreateNestedManyWithoutProjectInput
-    documentos?: DocumentoSensivelUncheckedCreateNestedManyWithoutProjectInput
-    editorialPicks?: EditorialPickUncheckedCreateNestedManyWithoutProjectInput
-    payments?: PaymentUncheckedCreateNestedManyWithoutProjectInput
+  export type ProjectUpdateToOneWithWhereWithoutNdasInput = {
+    where?: ProjectWhereInput
+    data: XOR<ProjectUpdateWithoutNdasInput, ProjectUncheckedUpdateWithoutNdasInput>
   }
 
-  export type ProjectCreateOrConnectWithoutContactRequestsInput = {
-    where: ProjectWhereUniqueInput
-    create: XOR<ProjectCreateWithoutContactRequestsInput, ProjectUncheckedCreateWithoutContactRequestsInput>
+  export type ProjectUpdateWithoutNdasInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    seccao?: EnumSeccaoFieldUpdateOperationsInput | $Enums.Seccao
+    titulo?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
+    categoria?: StringFieldUpdateOperationsInput | string
+    sector?: StringFieldUpdateOperationsInput | string
+    localizacao?: StringFieldUpdateOperationsInput | string
+    nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
+    estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
+    boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
+    notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
+    contactRequests?: ContactRequestUpdateManyWithoutProjectNestedInput
+    documentos?: DocumentoSensivelUpdateManyWithoutProjectNestedInput
+    editorialPicks?: EditorialPickUpdateManyWithoutProjectNestedInput
+    payments?: PaymentUpdateManyWithoutProjectNestedInput
+    owner?: UserUpdateOneRequiredWithoutProjectsNestedInput
+    reactions?: ReactionUpdateManyWithoutProjectNestedInput
+    checklists?: VerificationChecklistUpdateManyWithoutProjectNestedInput
+  }
+
+  export type ProjectUncheckedUpdateWithoutNdasInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    ownerId?: StringFieldUpdateOperationsInput | string
+    seccao?: EnumSeccaoFieldUpdateOperationsInput | $Enums.Seccao
+    titulo?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
+    categoria?: StringFieldUpdateOperationsInput | string
+    sector?: StringFieldUpdateOperationsInput | string
+    localizacao?: StringFieldUpdateOperationsInput | string
+    nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
+    estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
+    boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
+    notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
+    contactRequests?: ContactRequestUncheckedUpdateManyWithoutProjectNestedInput
+    documentos?: DocumentoSensivelUncheckedUpdateManyWithoutProjectNestedInput
+    editorialPicks?: EditorialPickUncheckedUpdateManyWithoutProjectNestedInput
+    payments?: PaymentUncheckedUpdateManyWithoutProjectNestedInput
+    reactions?: ReactionUncheckedUpdateManyWithoutProjectNestedInput
+    checklists?: VerificationChecklistUncheckedUpdateManyWithoutProjectNestedInput
   }
 
   export type UserCreateWithoutContactRequestsInput = {
@@ -23007,12 +22948,12 @@ export namespace Prisma {
     kycMotivoRejeicao?: string | null
     criadoEm?: Date | string
     accounts?: AccountCreateNestedManyWithoutUserInput
-    sessions?: SessionCreateNestedManyWithoutUserInput
+    ndasComoComprador?: NDACreateNestedManyWithoutBuyerInput
+    newsletterSubscription?: NewsletterSubscriptionCreateNestedOneWithoutUserInput
+    payments?: PaymentCreateNestedManyWithoutUserInput
     projects?: ProjectCreateNestedManyWithoutOwnerInput
     reactions?: ReactionCreateNestedManyWithoutUserInput
-    ndasComoComprador?: NDACreateNestedManyWithoutBuyerInput
-    payments?: PaymentCreateNestedManyWithoutUserInput
-    newsletterSubscription?: NewsletterSubscriptionCreateNestedOneWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutContactRequestsInput = {
@@ -23029,12 +22970,12 @@ export namespace Prisma {
     kycMotivoRejeicao?: string | null
     criadoEm?: Date | string
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    ndasComoComprador?: NDAUncheckedCreateNestedManyWithoutBuyerInput
+    newsletterSubscription?: NewsletterSubscriptionUncheckedCreateNestedOneWithoutUserInput
+    payments?: PaymentUncheckedCreateNestedManyWithoutUserInput
     projects?: ProjectUncheckedCreateNestedManyWithoutOwnerInput
     reactions?: ReactionUncheckedCreateNestedManyWithoutUserInput
-    ndasComoComprador?: NDAUncheckedCreateNestedManyWithoutBuyerInput
-    payments?: PaymentUncheckedCreateNestedManyWithoutUserInput
-    newsletterSubscription?: NewsletterSubscriptionUncheckedCreateNestedOneWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutContactRequestsInput = {
@@ -23042,69 +22983,63 @@ export namespace Prisma {
     create: XOR<UserCreateWithoutContactRequestsInput, UserUncheckedCreateWithoutContactRequestsInput>
   }
 
-  export type ProjectUpsertWithoutContactRequestsInput = {
-    update: XOR<ProjectUpdateWithoutContactRequestsInput, ProjectUncheckedUpdateWithoutContactRequestsInput>
+  export type ProjectCreateWithoutContactRequestsInput = {
+    id?: string
+    seccao: $Enums.Seccao
+    titulo: string
+    descricao: string
+    categoria: string
+    sector: string
+    localizacao: string
+    nivelVerificacao?: $Enums.NivelVerificacao
+    estado?: $Enums.EstadoProjecto
+    boostActivoAte?: Date | string | null
+    dataLancamento?: Date | string | null
+    linkSite?: string | null
+    criadoEm?: Date | string
+    motivoRejeicao?: string | null
+    faixaPreco?: string | null
+    notaVerificacao?: string | null
+    dadosSensiveis?: string | null
+    documentos?: DocumentoSensivelCreateNestedManyWithoutProjectInput
+    editorialPicks?: EditorialPickCreateNestedManyWithoutProjectInput
+    ndas?: NDACreateNestedManyWithoutProjectInput
+    payments?: PaymentCreateNestedManyWithoutProjectInput
+    owner: UserCreateNestedOneWithoutProjectsInput
+    reactions?: ReactionCreateNestedManyWithoutProjectInput
+    checklists?: VerificationChecklistCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectUncheckedCreateWithoutContactRequestsInput = {
+    id?: string
+    ownerId: string
+    seccao: $Enums.Seccao
+    titulo: string
+    descricao: string
+    categoria: string
+    sector: string
+    localizacao: string
+    nivelVerificacao?: $Enums.NivelVerificacao
+    estado?: $Enums.EstadoProjecto
+    boostActivoAte?: Date | string | null
+    dataLancamento?: Date | string | null
+    linkSite?: string | null
+    criadoEm?: Date | string
+    motivoRejeicao?: string | null
+    faixaPreco?: string | null
+    notaVerificacao?: string | null
+    dadosSensiveis?: string | null
+    documentos?: DocumentoSensivelUncheckedCreateNestedManyWithoutProjectInput
+    editorialPicks?: EditorialPickUncheckedCreateNestedManyWithoutProjectInput
+    ndas?: NDAUncheckedCreateNestedManyWithoutProjectInput
+    payments?: PaymentUncheckedCreateNestedManyWithoutProjectInput
+    reactions?: ReactionUncheckedCreateNestedManyWithoutProjectInput
+    checklists?: VerificationChecklistUncheckedCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectCreateOrConnectWithoutContactRequestsInput = {
+    where: ProjectWhereUniqueInput
     create: XOR<ProjectCreateWithoutContactRequestsInput, ProjectUncheckedCreateWithoutContactRequestsInput>
-    where?: ProjectWhereInput
-  }
-
-  export type ProjectUpdateToOneWithWhereWithoutContactRequestsInput = {
-    where?: ProjectWhereInput
-    data: XOR<ProjectUpdateWithoutContactRequestsInput, ProjectUncheckedUpdateWithoutContactRequestsInput>
-  }
-
-  export type ProjectUpdateWithoutContactRequestsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    seccao?: EnumSeccaoFieldUpdateOperationsInput | $Enums.Seccao
-    titulo?: StringFieldUpdateOperationsInput | string
-    descricao?: StringFieldUpdateOperationsInput | string
-    categoria?: StringFieldUpdateOperationsInput | string
-    sector?: StringFieldUpdateOperationsInput | string
-    localizacao?: StringFieldUpdateOperationsInput | string
-    nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
-    estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
-    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
-    boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    linkSite?: NullableStringFieldUpdateOperationsInput | string | null
-    notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
-    dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
-    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
-    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    owner?: UserUpdateOneRequiredWithoutProjectsNestedInput
-    checklists?: VerificationChecklistUpdateManyWithoutProjectNestedInput
-    reactions?: ReactionUpdateManyWithoutProjectNestedInput
-    ndas?: NDAUpdateManyWithoutProjectNestedInput
-    documentos?: DocumentoSensivelUpdateManyWithoutProjectNestedInput
-    editorialPicks?: EditorialPickUpdateManyWithoutProjectNestedInput
-    payments?: PaymentUpdateManyWithoutProjectNestedInput
-  }
-
-  export type ProjectUncheckedUpdateWithoutContactRequestsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    ownerId?: StringFieldUpdateOperationsInput | string
-    seccao?: EnumSeccaoFieldUpdateOperationsInput | $Enums.Seccao
-    titulo?: StringFieldUpdateOperationsInput | string
-    descricao?: StringFieldUpdateOperationsInput | string
-    categoria?: StringFieldUpdateOperationsInput | string
-    sector?: StringFieldUpdateOperationsInput | string
-    localizacao?: StringFieldUpdateOperationsInput | string
-    nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
-    estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
-    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
-    boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    linkSite?: NullableStringFieldUpdateOperationsInput | string | null
-    notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
-    dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
-    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
-    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    checklists?: VerificationChecklistUncheckedUpdateManyWithoutProjectNestedInput
-    reactions?: ReactionUncheckedUpdateManyWithoutProjectNestedInput
-    ndas?: NDAUncheckedUpdateManyWithoutProjectNestedInput
-    documentos?: DocumentoSensivelUncheckedUpdateManyWithoutProjectNestedInput
-    editorialPicks?: EditorialPickUncheckedUpdateManyWithoutProjectNestedInput
-    payments?: PaymentUncheckedUpdateManyWithoutProjectNestedInput
   }
 
   export type UserUpsertWithoutContactRequestsInput = {
@@ -23132,12 +23067,12 @@ export namespace Prisma {
     kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUpdateManyWithoutUserNestedInput
-    sessions?: SessionUpdateManyWithoutUserNestedInput
+    ndasComoComprador?: NDAUpdateManyWithoutBuyerNestedInput
+    newsletterSubscription?: NewsletterSubscriptionUpdateOneWithoutUserNestedInput
+    payments?: PaymentUpdateManyWithoutUserNestedInput
     projects?: ProjectUpdateManyWithoutOwnerNestedInput
     reactions?: ReactionUpdateManyWithoutUserNestedInput
-    ndasComoComprador?: NDAUpdateManyWithoutBuyerNestedInput
-    payments?: PaymentUpdateManyWithoutUserNestedInput
-    newsletterSubscription?: NewsletterSubscriptionUpdateOneWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutContactRequestsInput = {
@@ -23154,12 +23089,77 @@ export namespace Prisma {
     kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    ndasComoComprador?: NDAUncheckedUpdateManyWithoutBuyerNestedInput
+    newsletterSubscription?: NewsletterSubscriptionUncheckedUpdateOneWithoutUserNestedInput
+    payments?: PaymentUncheckedUpdateManyWithoutUserNestedInput
     projects?: ProjectUncheckedUpdateManyWithoutOwnerNestedInput
     reactions?: ReactionUncheckedUpdateManyWithoutUserNestedInput
-    ndasComoComprador?: NDAUncheckedUpdateManyWithoutBuyerNestedInput
-    payments?: PaymentUncheckedUpdateManyWithoutUserNestedInput
-    newsletterSubscription?: NewsletterSubscriptionUncheckedUpdateOneWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type ProjectUpsertWithoutContactRequestsInput = {
+    update: XOR<ProjectUpdateWithoutContactRequestsInput, ProjectUncheckedUpdateWithoutContactRequestsInput>
+    create: XOR<ProjectCreateWithoutContactRequestsInput, ProjectUncheckedCreateWithoutContactRequestsInput>
+    where?: ProjectWhereInput
+  }
+
+  export type ProjectUpdateToOneWithWhereWithoutContactRequestsInput = {
+    where?: ProjectWhereInput
+    data: XOR<ProjectUpdateWithoutContactRequestsInput, ProjectUncheckedUpdateWithoutContactRequestsInput>
+  }
+
+  export type ProjectUpdateWithoutContactRequestsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    seccao?: EnumSeccaoFieldUpdateOperationsInput | $Enums.Seccao
+    titulo?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
+    categoria?: StringFieldUpdateOperationsInput | string
+    sector?: StringFieldUpdateOperationsInput | string
+    localizacao?: StringFieldUpdateOperationsInput | string
+    nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
+    estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
+    boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
+    notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
+    documentos?: DocumentoSensivelUpdateManyWithoutProjectNestedInput
+    editorialPicks?: EditorialPickUpdateManyWithoutProjectNestedInput
+    ndas?: NDAUpdateManyWithoutProjectNestedInput
+    payments?: PaymentUpdateManyWithoutProjectNestedInput
+    owner?: UserUpdateOneRequiredWithoutProjectsNestedInput
+    reactions?: ReactionUpdateManyWithoutProjectNestedInput
+    checklists?: VerificationChecklistUpdateManyWithoutProjectNestedInput
+  }
+
+  export type ProjectUncheckedUpdateWithoutContactRequestsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    ownerId?: StringFieldUpdateOperationsInput | string
+    seccao?: EnumSeccaoFieldUpdateOperationsInput | $Enums.Seccao
+    titulo?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
+    categoria?: StringFieldUpdateOperationsInput | string
+    sector?: StringFieldUpdateOperationsInput | string
+    localizacao?: StringFieldUpdateOperationsInput | string
+    nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
+    estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
+    boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
+    notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
+    documentos?: DocumentoSensivelUncheckedUpdateManyWithoutProjectNestedInput
+    editorialPicks?: EditorialPickUncheckedUpdateManyWithoutProjectNestedInput
+    ndas?: NDAUncheckedUpdateManyWithoutProjectNestedInput
+    payments?: PaymentUncheckedUpdateManyWithoutProjectNestedInput
+    reactions?: ReactionUncheckedUpdateManyWithoutProjectNestedInput
+    checklists?: VerificationChecklistUncheckedUpdateManyWithoutProjectNestedInput
   }
 
   export type ProjectCreateWithoutPaymentsInput = {
@@ -23172,21 +23172,21 @@ export namespace Prisma {
     localizacao: string
     nivelVerificacao?: $Enums.NivelVerificacao
     estado?: $Enums.EstadoProjecto
-    motivoRejeicao?: string | null
     boostActivoAte?: Date | string | null
     dataLancamento?: Date | string | null
     linkSite?: string | null
+    criadoEm?: Date | string
+    motivoRejeicao?: string | null
+    faixaPreco?: string | null
     notaVerificacao?: string | null
     dadosSensiveis?: string | null
-    faixaPreco?: string | null
-    criadoEm?: Date | string
-    owner: UserCreateNestedOneWithoutProjectsInput
-    checklists?: VerificationChecklistCreateNestedManyWithoutProjectInput
-    reactions?: ReactionCreateNestedManyWithoutProjectInput
-    ndas?: NDACreateNestedManyWithoutProjectInput
     contactRequests?: ContactRequestCreateNestedManyWithoutProjectInput
     documentos?: DocumentoSensivelCreateNestedManyWithoutProjectInput
     editorialPicks?: EditorialPickCreateNestedManyWithoutProjectInput
+    ndas?: NDACreateNestedManyWithoutProjectInput
+    owner: UserCreateNestedOneWithoutProjectsInput
+    reactions?: ReactionCreateNestedManyWithoutProjectInput
+    checklists?: VerificationChecklistCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectUncheckedCreateWithoutPaymentsInput = {
@@ -23200,20 +23200,20 @@ export namespace Prisma {
     localizacao: string
     nivelVerificacao?: $Enums.NivelVerificacao
     estado?: $Enums.EstadoProjecto
-    motivoRejeicao?: string | null
     boostActivoAte?: Date | string | null
     dataLancamento?: Date | string | null
     linkSite?: string | null
+    criadoEm?: Date | string
+    motivoRejeicao?: string | null
+    faixaPreco?: string | null
     notaVerificacao?: string | null
     dadosSensiveis?: string | null
-    faixaPreco?: string | null
-    criadoEm?: Date | string
-    checklists?: VerificationChecklistUncheckedCreateNestedManyWithoutProjectInput
-    reactions?: ReactionUncheckedCreateNestedManyWithoutProjectInput
-    ndas?: NDAUncheckedCreateNestedManyWithoutProjectInput
     contactRequests?: ContactRequestUncheckedCreateNestedManyWithoutProjectInput
     documentos?: DocumentoSensivelUncheckedCreateNestedManyWithoutProjectInput
     editorialPicks?: EditorialPickUncheckedCreateNestedManyWithoutProjectInput
+    ndas?: NDAUncheckedCreateNestedManyWithoutProjectInput
+    reactions?: ReactionUncheckedCreateNestedManyWithoutProjectInput
+    checklists?: VerificationChecklistUncheckedCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectCreateOrConnectWithoutPaymentsInput = {
@@ -23235,12 +23235,12 @@ export namespace Prisma {
     kycMotivoRejeicao?: string | null
     criadoEm?: Date | string
     accounts?: AccountCreateNestedManyWithoutUserInput
-    sessions?: SessionCreateNestedManyWithoutUserInput
+    contactRequests?: ContactRequestCreateNestedManyWithoutBuyerInput
+    ndasComoComprador?: NDACreateNestedManyWithoutBuyerInput
+    newsletterSubscription?: NewsletterSubscriptionCreateNestedOneWithoutUserInput
     projects?: ProjectCreateNestedManyWithoutOwnerInput
     reactions?: ReactionCreateNestedManyWithoutUserInput
-    ndasComoComprador?: NDACreateNestedManyWithoutBuyerInput
-    contactRequests?: ContactRequestCreateNestedManyWithoutBuyerInput
-    newsletterSubscription?: NewsletterSubscriptionCreateNestedOneWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutPaymentsInput = {
@@ -23257,12 +23257,12 @@ export namespace Prisma {
     kycMotivoRejeicao?: string | null
     criadoEm?: Date | string
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    contactRequests?: ContactRequestUncheckedCreateNestedManyWithoutBuyerInput
+    ndasComoComprador?: NDAUncheckedCreateNestedManyWithoutBuyerInput
+    newsletterSubscription?: NewsletterSubscriptionUncheckedCreateNestedOneWithoutUserInput
     projects?: ProjectUncheckedCreateNestedManyWithoutOwnerInput
     reactions?: ReactionUncheckedCreateNestedManyWithoutUserInput
-    ndasComoComprador?: NDAUncheckedCreateNestedManyWithoutBuyerInput
-    contactRequests?: ContactRequestUncheckedCreateNestedManyWithoutBuyerInput
-    newsletterSubscription?: NewsletterSubscriptionUncheckedCreateNestedOneWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutPaymentsInput = {
@@ -23291,21 +23291,21 @@ export namespace Prisma {
     localizacao?: StringFieldUpdateOperationsInput | string
     nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
-    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
     dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
-    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
-    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    owner?: UserUpdateOneRequiredWithoutProjectsNestedInput
-    checklists?: VerificationChecklistUpdateManyWithoutProjectNestedInput
-    reactions?: ReactionUpdateManyWithoutProjectNestedInput
-    ndas?: NDAUpdateManyWithoutProjectNestedInput
     contactRequests?: ContactRequestUpdateManyWithoutProjectNestedInput
     documentos?: DocumentoSensivelUpdateManyWithoutProjectNestedInput
     editorialPicks?: EditorialPickUpdateManyWithoutProjectNestedInput
+    ndas?: NDAUpdateManyWithoutProjectNestedInput
+    owner?: UserUpdateOneRequiredWithoutProjectsNestedInput
+    reactions?: ReactionUpdateManyWithoutProjectNestedInput
+    checklists?: VerificationChecklistUpdateManyWithoutProjectNestedInput
   }
 
   export type ProjectUncheckedUpdateWithoutPaymentsInput = {
@@ -23319,20 +23319,20 @@ export namespace Prisma {
     localizacao?: StringFieldUpdateOperationsInput | string
     nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
-    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
     dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
-    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
-    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    checklists?: VerificationChecklistUncheckedUpdateManyWithoutProjectNestedInput
-    reactions?: ReactionUncheckedUpdateManyWithoutProjectNestedInput
-    ndas?: NDAUncheckedUpdateManyWithoutProjectNestedInput
     contactRequests?: ContactRequestUncheckedUpdateManyWithoutProjectNestedInput
     documentos?: DocumentoSensivelUncheckedUpdateManyWithoutProjectNestedInput
     editorialPicks?: EditorialPickUncheckedUpdateManyWithoutProjectNestedInput
+    ndas?: NDAUncheckedUpdateManyWithoutProjectNestedInput
+    reactions?: ReactionUncheckedUpdateManyWithoutProjectNestedInput
+    checklists?: VerificationChecklistUncheckedUpdateManyWithoutProjectNestedInput
   }
 
   export type UserUpsertWithoutPaymentsInput = {
@@ -23360,12 +23360,12 @@ export namespace Prisma {
     kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUpdateManyWithoutUserNestedInput
-    sessions?: SessionUpdateManyWithoutUserNestedInput
+    contactRequests?: ContactRequestUpdateManyWithoutBuyerNestedInput
+    ndasComoComprador?: NDAUpdateManyWithoutBuyerNestedInput
+    newsletterSubscription?: NewsletterSubscriptionUpdateOneWithoutUserNestedInput
     projects?: ProjectUpdateManyWithoutOwnerNestedInput
     reactions?: ReactionUpdateManyWithoutUserNestedInput
-    ndasComoComprador?: NDAUpdateManyWithoutBuyerNestedInput
-    contactRequests?: ContactRequestUpdateManyWithoutBuyerNestedInput
-    newsletterSubscription?: NewsletterSubscriptionUpdateOneWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutPaymentsInput = {
@@ -23382,12 +23382,12 @@ export namespace Prisma {
     kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    contactRequests?: ContactRequestUncheckedUpdateManyWithoutBuyerNestedInput
+    ndasComoComprador?: NDAUncheckedUpdateManyWithoutBuyerNestedInput
+    newsletterSubscription?: NewsletterSubscriptionUncheckedUpdateOneWithoutUserNestedInput
     projects?: ProjectUncheckedUpdateManyWithoutOwnerNestedInput
     reactions?: ReactionUncheckedUpdateManyWithoutUserNestedInput
-    ndasComoComprador?: NDAUncheckedUpdateManyWithoutBuyerNestedInput
-    contactRequests?: ContactRequestUncheckedUpdateManyWithoutBuyerNestedInput
-    newsletterSubscription?: NewsletterSubscriptionUncheckedUpdateOneWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type ProjectCreateWithoutDocumentosInput = {
@@ -23400,21 +23400,21 @@ export namespace Prisma {
     localizacao: string
     nivelVerificacao?: $Enums.NivelVerificacao
     estado?: $Enums.EstadoProjecto
-    motivoRejeicao?: string | null
     boostActivoAte?: Date | string | null
     dataLancamento?: Date | string | null
     linkSite?: string | null
+    criadoEm?: Date | string
+    motivoRejeicao?: string | null
+    faixaPreco?: string | null
     notaVerificacao?: string | null
     dadosSensiveis?: string | null
-    faixaPreco?: string | null
-    criadoEm?: Date | string
-    owner: UserCreateNestedOneWithoutProjectsInput
-    checklists?: VerificationChecklistCreateNestedManyWithoutProjectInput
-    reactions?: ReactionCreateNestedManyWithoutProjectInput
-    ndas?: NDACreateNestedManyWithoutProjectInput
     contactRequests?: ContactRequestCreateNestedManyWithoutProjectInput
     editorialPicks?: EditorialPickCreateNestedManyWithoutProjectInput
+    ndas?: NDACreateNestedManyWithoutProjectInput
     payments?: PaymentCreateNestedManyWithoutProjectInput
+    owner: UserCreateNestedOneWithoutProjectsInput
+    reactions?: ReactionCreateNestedManyWithoutProjectInput
+    checklists?: VerificationChecklistCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectUncheckedCreateWithoutDocumentosInput = {
@@ -23428,20 +23428,20 @@ export namespace Prisma {
     localizacao: string
     nivelVerificacao?: $Enums.NivelVerificacao
     estado?: $Enums.EstadoProjecto
-    motivoRejeicao?: string | null
     boostActivoAte?: Date | string | null
     dataLancamento?: Date | string | null
     linkSite?: string | null
+    criadoEm?: Date | string
+    motivoRejeicao?: string | null
+    faixaPreco?: string | null
     notaVerificacao?: string | null
     dadosSensiveis?: string | null
-    faixaPreco?: string | null
-    criadoEm?: Date | string
-    checklists?: VerificationChecklistUncheckedCreateNestedManyWithoutProjectInput
-    reactions?: ReactionUncheckedCreateNestedManyWithoutProjectInput
-    ndas?: NDAUncheckedCreateNestedManyWithoutProjectInput
     contactRequests?: ContactRequestUncheckedCreateNestedManyWithoutProjectInput
     editorialPicks?: EditorialPickUncheckedCreateNestedManyWithoutProjectInput
+    ndas?: NDAUncheckedCreateNestedManyWithoutProjectInput
     payments?: PaymentUncheckedCreateNestedManyWithoutProjectInput
+    reactions?: ReactionUncheckedCreateNestedManyWithoutProjectInput
+    checklists?: VerificationChecklistUncheckedCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectCreateOrConnectWithoutDocumentosInput = {
@@ -23470,21 +23470,21 @@ export namespace Prisma {
     localizacao?: StringFieldUpdateOperationsInput | string
     nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
-    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
     dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
-    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
-    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    owner?: UserUpdateOneRequiredWithoutProjectsNestedInput
-    checklists?: VerificationChecklistUpdateManyWithoutProjectNestedInput
-    reactions?: ReactionUpdateManyWithoutProjectNestedInput
-    ndas?: NDAUpdateManyWithoutProjectNestedInput
     contactRequests?: ContactRequestUpdateManyWithoutProjectNestedInput
     editorialPicks?: EditorialPickUpdateManyWithoutProjectNestedInput
+    ndas?: NDAUpdateManyWithoutProjectNestedInput
     payments?: PaymentUpdateManyWithoutProjectNestedInput
+    owner?: UserUpdateOneRequiredWithoutProjectsNestedInput
+    reactions?: ReactionUpdateManyWithoutProjectNestedInput
+    checklists?: VerificationChecklistUpdateManyWithoutProjectNestedInput
   }
 
   export type ProjectUncheckedUpdateWithoutDocumentosInput = {
@@ -23498,20 +23498,20 @@ export namespace Prisma {
     localizacao?: StringFieldUpdateOperationsInput | string
     nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
-    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
     dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
-    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
-    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    checklists?: VerificationChecklistUncheckedUpdateManyWithoutProjectNestedInput
-    reactions?: ReactionUncheckedUpdateManyWithoutProjectNestedInput
-    ndas?: NDAUncheckedUpdateManyWithoutProjectNestedInput
     contactRequests?: ContactRequestUncheckedUpdateManyWithoutProjectNestedInput
     editorialPicks?: EditorialPickUncheckedUpdateManyWithoutProjectNestedInput
+    ndas?: NDAUncheckedUpdateManyWithoutProjectNestedInput
     payments?: PaymentUncheckedUpdateManyWithoutProjectNestedInput
+    reactions?: ReactionUncheckedUpdateManyWithoutProjectNestedInput
+    checklists?: VerificationChecklistUncheckedUpdateManyWithoutProjectNestedInput
   }
 
   export type UserCreateWithoutNewsletterSubscriptionInput = {
@@ -23528,12 +23528,12 @@ export namespace Prisma {
     kycMotivoRejeicao?: string | null
     criadoEm?: Date | string
     accounts?: AccountCreateNestedManyWithoutUserInput
-    sessions?: SessionCreateNestedManyWithoutUserInput
+    contactRequests?: ContactRequestCreateNestedManyWithoutBuyerInput
+    ndasComoComprador?: NDACreateNestedManyWithoutBuyerInput
+    payments?: PaymentCreateNestedManyWithoutUserInput
     projects?: ProjectCreateNestedManyWithoutOwnerInput
     reactions?: ReactionCreateNestedManyWithoutUserInput
-    ndasComoComprador?: NDACreateNestedManyWithoutBuyerInput
-    contactRequests?: ContactRequestCreateNestedManyWithoutBuyerInput
-    payments?: PaymentCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutNewsletterSubscriptionInput = {
@@ -23550,12 +23550,12 @@ export namespace Prisma {
     kycMotivoRejeicao?: string | null
     criadoEm?: Date | string
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    contactRequests?: ContactRequestUncheckedCreateNestedManyWithoutBuyerInput
+    ndasComoComprador?: NDAUncheckedCreateNestedManyWithoutBuyerInput
+    payments?: PaymentUncheckedCreateNestedManyWithoutUserInput
     projects?: ProjectUncheckedCreateNestedManyWithoutOwnerInput
     reactions?: ReactionUncheckedCreateNestedManyWithoutUserInput
-    ndasComoComprador?: NDAUncheckedCreateNestedManyWithoutBuyerInput
-    contactRequests?: ContactRequestUncheckedCreateNestedManyWithoutBuyerInput
-    payments?: PaymentUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutNewsletterSubscriptionInput = {
@@ -23588,12 +23588,12 @@ export namespace Prisma {
     kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUpdateManyWithoutUserNestedInput
-    sessions?: SessionUpdateManyWithoutUserNestedInput
+    contactRequests?: ContactRequestUpdateManyWithoutBuyerNestedInput
+    ndasComoComprador?: NDAUpdateManyWithoutBuyerNestedInput
+    payments?: PaymentUpdateManyWithoutUserNestedInput
     projects?: ProjectUpdateManyWithoutOwnerNestedInput
     reactions?: ReactionUpdateManyWithoutUserNestedInput
-    ndasComoComprador?: NDAUpdateManyWithoutBuyerNestedInput
-    contactRequests?: ContactRequestUpdateManyWithoutBuyerNestedInput
-    payments?: PaymentUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutNewsletterSubscriptionInput = {
@@ -23610,12 +23610,12 @@ export namespace Prisma {
     kycMotivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    contactRequests?: ContactRequestUncheckedUpdateManyWithoutBuyerNestedInput
+    ndasComoComprador?: NDAUncheckedUpdateManyWithoutBuyerNestedInput
+    payments?: PaymentUncheckedUpdateManyWithoutUserNestedInput
     projects?: ProjectUncheckedUpdateManyWithoutOwnerNestedInput
     reactions?: ReactionUncheckedUpdateManyWithoutUserNestedInput
-    ndasComoComprador?: NDAUncheckedUpdateManyWithoutBuyerNestedInput
-    contactRequests?: ContactRequestUncheckedUpdateManyWithoutBuyerNestedInput
-    payments?: PaymentUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type ProjectCreateWithoutEditorialPicksInput = {
@@ -23628,21 +23628,21 @@ export namespace Prisma {
     localizacao: string
     nivelVerificacao?: $Enums.NivelVerificacao
     estado?: $Enums.EstadoProjecto
-    motivoRejeicao?: string | null
     boostActivoAte?: Date | string | null
     dataLancamento?: Date | string | null
     linkSite?: string | null
+    criadoEm?: Date | string
+    motivoRejeicao?: string | null
+    faixaPreco?: string | null
     notaVerificacao?: string | null
     dadosSensiveis?: string | null
-    faixaPreco?: string | null
-    criadoEm?: Date | string
-    owner: UserCreateNestedOneWithoutProjectsInput
-    checklists?: VerificationChecklistCreateNestedManyWithoutProjectInput
-    reactions?: ReactionCreateNestedManyWithoutProjectInput
-    ndas?: NDACreateNestedManyWithoutProjectInput
     contactRequests?: ContactRequestCreateNestedManyWithoutProjectInput
     documentos?: DocumentoSensivelCreateNestedManyWithoutProjectInput
+    ndas?: NDACreateNestedManyWithoutProjectInput
     payments?: PaymentCreateNestedManyWithoutProjectInput
+    owner: UserCreateNestedOneWithoutProjectsInput
+    reactions?: ReactionCreateNestedManyWithoutProjectInput
+    checklists?: VerificationChecklistCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectUncheckedCreateWithoutEditorialPicksInput = {
@@ -23656,20 +23656,20 @@ export namespace Prisma {
     localizacao: string
     nivelVerificacao?: $Enums.NivelVerificacao
     estado?: $Enums.EstadoProjecto
-    motivoRejeicao?: string | null
     boostActivoAte?: Date | string | null
     dataLancamento?: Date | string | null
     linkSite?: string | null
+    criadoEm?: Date | string
+    motivoRejeicao?: string | null
+    faixaPreco?: string | null
     notaVerificacao?: string | null
     dadosSensiveis?: string | null
-    faixaPreco?: string | null
-    criadoEm?: Date | string
-    checklists?: VerificationChecklistUncheckedCreateNestedManyWithoutProjectInput
-    reactions?: ReactionUncheckedCreateNestedManyWithoutProjectInput
-    ndas?: NDAUncheckedCreateNestedManyWithoutProjectInput
     contactRequests?: ContactRequestUncheckedCreateNestedManyWithoutProjectInput
     documentos?: DocumentoSensivelUncheckedCreateNestedManyWithoutProjectInput
+    ndas?: NDAUncheckedCreateNestedManyWithoutProjectInput
     payments?: PaymentUncheckedCreateNestedManyWithoutProjectInput
+    reactions?: ReactionUncheckedCreateNestedManyWithoutProjectInput
+    checklists?: VerificationChecklistUncheckedCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectCreateOrConnectWithoutEditorialPicksInput = {
@@ -23698,21 +23698,21 @@ export namespace Prisma {
     localizacao?: StringFieldUpdateOperationsInput | string
     nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
-    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
     dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
-    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
-    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    owner?: UserUpdateOneRequiredWithoutProjectsNestedInput
-    checklists?: VerificationChecklistUpdateManyWithoutProjectNestedInput
-    reactions?: ReactionUpdateManyWithoutProjectNestedInput
-    ndas?: NDAUpdateManyWithoutProjectNestedInput
     contactRequests?: ContactRequestUpdateManyWithoutProjectNestedInput
     documentos?: DocumentoSensivelUpdateManyWithoutProjectNestedInput
+    ndas?: NDAUpdateManyWithoutProjectNestedInput
     payments?: PaymentUpdateManyWithoutProjectNestedInput
+    owner?: UserUpdateOneRequiredWithoutProjectsNestedInput
+    reactions?: ReactionUpdateManyWithoutProjectNestedInput
+    checklists?: VerificationChecklistUpdateManyWithoutProjectNestedInput
   }
 
   export type ProjectUncheckedUpdateWithoutEditorialPicksInput = {
@@ -23726,20 +23726,20 @@ export namespace Prisma {
     localizacao?: StringFieldUpdateOperationsInput | string
     nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
     estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
-    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
     boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
     notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
     dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
-    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
-    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    checklists?: VerificationChecklistUncheckedUpdateManyWithoutProjectNestedInput
-    reactions?: ReactionUncheckedUpdateManyWithoutProjectNestedInput
-    ndas?: NDAUncheckedUpdateManyWithoutProjectNestedInput
     contactRequests?: ContactRequestUncheckedUpdateManyWithoutProjectNestedInput
     documentos?: DocumentoSensivelUncheckedUpdateManyWithoutProjectNestedInput
+    ndas?: NDAUncheckedUpdateManyWithoutProjectNestedInput
     payments?: PaymentUncheckedUpdateManyWithoutProjectNestedInput
+    reactions?: ReactionUncheckedUpdateManyWithoutProjectNestedInput
+    checklists?: VerificationChecklistUncheckedUpdateManyWithoutProjectNestedInput
   }
 
   export type AccountCreateManyUserInput = {
@@ -23756,36 +23756,10 @@ export namespace Prisma {
     session_state?: string | null
   }
 
-  export type SessionCreateManyUserInput = {
-    id?: string
-    sessionToken: string
-    expires: Date | string
-  }
-
-  export type ProjectCreateManyOwnerInput = {
-    id?: string
-    seccao: $Enums.Seccao
-    titulo: string
-    descricao: string
-    categoria: string
-    sector: string
-    localizacao: string
-    nivelVerificacao?: $Enums.NivelVerificacao
-    estado?: $Enums.EstadoProjecto
-    motivoRejeicao?: string | null
-    boostActivoAte?: Date | string | null
-    dataLancamento?: Date | string | null
-    linkSite?: string | null
-    notaVerificacao?: string | null
-    dadosSensiveis?: string | null
-    faixaPreco?: string | null
-    criadoEm?: Date | string
-  }
-
-  export type ReactionCreateManyUserInput = {
+  export type ContactRequestCreateManyBuyerInput = {
     id?: string
     projectId: string
-    tipo?: string
+    estado?: string
     criadoEm?: Date | string
   }
 
@@ -23798,13 +23772,6 @@ export namespace Prisma {
     criadoEm?: Date | string
   }
 
-  export type ContactRequestCreateManyBuyerInput = {
-    id?: string
-    projectId: string
-    estado?: string
-    criadoEm?: Date | string
-  }
-
   export type PaymentCreateManyUserInput = {
     id?: string
     tipo: string
@@ -23814,8 +23781,41 @@ export namespace Prisma {
     estado?: string
     confirmadoPor?: string | null
     criadoEm?: Date | string
-    referencia: string
     motivoRejeicao?: string | null
+    referencia: string
+  }
+
+  export type ProjectCreateManyOwnerInput = {
+    id?: string
+    seccao: $Enums.Seccao
+    titulo: string
+    descricao: string
+    categoria: string
+    sector: string
+    localizacao: string
+    nivelVerificacao?: $Enums.NivelVerificacao
+    estado?: $Enums.EstadoProjecto
+    boostActivoAte?: Date | string | null
+    dataLancamento?: Date | string | null
+    linkSite?: string | null
+    criadoEm?: Date | string
+    motivoRejeicao?: string | null
+    faixaPreco?: string | null
+    notaVerificacao?: string | null
+    dadosSensiveis?: string | null
+  }
+
+  export type ReactionCreateManyUserInput = {
+    id?: string
+    projectId: string
+    tipo?: string
+    criadoEm?: Date | string
+  }
+
+  export type SessionCreateManyUserInput = {
+    id?: string
+    sessionToken: string
+    expires: Date | string
   }
 
   export type AccountUpdateWithoutUserInput = {
@@ -23860,116 +23860,24 @@ export namespace Prisma {
     session_state?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type SessionUpdateWithoutUserInput = {
+  export type ContactRequestUpdateWithoutBuyerInput = {
     id?: StringFieldUpdateOperationsInput | string
-    sessionToken?: StringFieldUpdateOperationsInput | string
-    expires?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type SessionUncheckedUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    sessionToken?: StringFieldUpdateOperationsInput | string
-    expires?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type SessionUncheckedUpdateManyWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    sessionToken?: StringFieldUpdateOperationsInput | string
-    expires?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ProjectUpdateWithoutOwnerInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    seccao?: EnumSeccaoFieldUpdateOperationsInput | $Enums.Seccao
-    titulo?: StringFieldUpdateOperationsInput | string
-    descricao?: StringFieldUpdateOperationsInput | string
-    categoria?: StringFieldUpdateOperationsInput | string
-    sector?: StringFieldUpdateOperationsInput | string
-    localizacao?: StringFieldUpdateOperationsInput | string
-    nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
-    estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
-    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
-    boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    linkSite?: NullableStringFieldUpdateOperationsInput | string | null
-    notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
-    dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
-    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: StringFieldUpdateOperationsInput | string
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    checklists?: VerificationChecklistUpdateManyWithoutProjectNestedInput
-    reactions?: ReactionUpdateManyWithoutProjectNestedInput
-    ndas?: NDAUpdateManyWithoutProjectNestedInput
-    contactRequests?: ContactRequestUpdateManyWithoutProjectNestedInput
-    documentos?: DocumentoSensivelUpdateManyWithoutProjectNestedInput
-    editorialPicks?: EditorialPickUpdateManyWithoutProjectNestedInput
-    payments?: PaymentUpdateManyWithoutProjectNestedInput
+    project?: ProjectUpdateOneRequiredWithoutContactRequestsNestedInput
   }
 
-  export type ProjectUncheckedUpdateWithoutOwnerInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    seccao?: EnumSeccaoFieldUpdateOperationsInput | $Enums.Seccao
-    titulo?: StringFieldUpdateOperationsInput | string
-    descricao?: StringFieldUpdateOperationsInput | string
-    categoria?: StringFieldUpdateOperationsInput | string
-    sector?: StringFieldUpdateOperationsInput | string
-    localizacao?: StringFieldUpdateOperationsInput | string
-    nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
-    estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
-    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
-    boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    linkSite?: NullableStringFieldUpdateOperationsInput | string | null
-    notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
-    dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
-    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
-    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    checklists?: VerificationChecklistUncheckedUpdateManyWithoutProjectNestedInput
-    reactions?: ReactionUncheckedUpdateManyWithoutProjectNestedInput
-    ndas?: NDAUncheckedUpdateManyWithoutProjectNestedInput
-    contactRequests?: ContactRequestUncheckedUpdateManyWithoutProjectNestedInput
-    documentos?: DocumentoSensivelUncheckedUpdateManyWithoutProjectNestedInput
-    editorialPicks?: EditorialPickUncheckedUpdateManyWithoutProjectNestedInput
-    payments?: PaymentUncheckedUpdateManyWithoutProjectNestedInput
-  }
-
-  export type ProjectUncheckedUpdateManyWithoutOwnerInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    seccao?: EnumSeccaoFieldUpdateOperationsInput | $Enums.Seccao
-    titulo?: StringFieldUpdateOperationsInput | string
-    descricao?: StringFieldUpdateOperationsInput | string
-    categoria?: StringFieldUpdateOperationsInput | string
-    sector?: StringFieldUpdateOperationsInput | string
-    localizacao?: StringFieldUpdateOperationsInput | string
-    nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
-    estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
-    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
-    boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    linkSite?: NullableStringFieldUpdateOperationsInput | string | null
-    notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
-    dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
-    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
-    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ReactionUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    tipo?: StringFieldUpdateOperationsInput | string
-    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    project?: ProjectUpdateOneRequiredWithoutReactionsNestedInput
-  }
-
-  export type ReactionUncheckedUpdateWithoutUserInput = {
+  export type ContactRequestUncheckedUpdateWithoutBuyerInput = {
     id?: StringFieldUpdateOperationsInput | string
     projectId?: StringFieldUpdateOperationsInput | string
-    tipo?: StringFieldUpdateOperationsInput | string
+    estado?: StringFieldUpdateOperationsInput | string
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type ReactionUncheckedUpdateManyWithoutUserInput = {
+  export type ContactRequestUncheckedUpdateManyWithoutBuyerInput = {
     id?: StringFieldUpdateOperationsInput | string
     projectId?: StringFieldUpdateOperationsInput | string
-    tipo?: StringFieldUpdateOperationsInput | string
+    estado?: StringFieldUpdateOperationsInput | string
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -24000,27 +23908,6 @@ export namespace Prisma {
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type ContactRequestUpdateWithoutBuyerInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    estado?: StringFieldUpdateOperationsInput | string
-    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    project?: ProjectUpdateOneRequiredWithoutContactRequestsNestedInput
-  }
-
-  export type ContactRequestUncheckedUpdateWithoutBuyerInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    projectId?: StringFieldUpdateOperationsInput | string
-    estado?: StringFieldUpdateOperationsInput | string
-    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ContactRequestUncheckedUpdateManyWithoutBuyerInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    projectId?: StringFieldUpdateOperationsInput | string
-    estado?: StringFieldUpdateOperationsInput | string
-    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
   export type PaymentUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     tipo?: StringFieldUpdateOperationsInput | string
@@ -24029,8 +23916,8 @@ export namespace Prisma {
     estado?: StringFieldUpdateOperationsInput | string
     confirmadoPor?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    referencia?: StringFieldUpdateOperationsInput | string
     motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
+    referencia?: StringFieldUpdateOperationsInput | string
     project?: ProjectUpdateOneWithoutPaymentsNestedInput
   }
 
@@ -24043,8 +23930,8 @@ export namespace Prisma {
     estado?: StringFieldUpdateOperationsInput | string
     confirmadoPor?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    referencia?: StringFieldUpdateOperationsInput | string
     motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
+    referencia?: StringFieldUpdateOperationsInput | string
   }
 
   export type PaymentUncheckedUpdateManyWithoutUserInput = {
@@ -24056,32 +23943,121 @@ export namespace Prisma {
     estado?: StringFieldUpdateOperationsInput | string
     confirmadoPor?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    referencia?: StringFieldUpdateOperationsInput | string
     motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
+    referencia?: StringFieldUpdateOperationsInput | string
   }
 
-  export type VerificationChecklistCreateManyProjectInput = {
-    id?: string
-    tipo: string
-    respostasJson: string
-    documentosUrls: string
-    estado?: string
+  export type ProjectUpdateWithoutOwnerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    seccao?: EnumSeccaoFieldUpdateOperationsInput | $Enums.Seccao
+    titulo?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
+    categoria?: StringFieldUpdateOperationsInput | string
+    sector?: StringFieldUpdateOperationsInput | string
+    localizacao?: StringFieldUpdateOperationsInput | string
+    nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
+    estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
+    boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
+    notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
+    contactRequests?: ContactRequestUpdateManyWithoutProjectNestedInput
+    documentos?: DocumentoSensivelUpdateManyWithoutProjectNestedInput
+    editorialPicks?: EditorialPickUpdateManyWithoutProjectNestedInput
+    ndas?: NDAUpdateManyWithoutProjectNestedInput
+    payments?: PaymentUpdateManyWithoutProjectNestedInput
+    reactions?: ReactionUpdateManyWithoutProjectNestedInput
+    checklists?: VerificationChecklistUpdateManyWithoutProjectNestedInput
   }
 
-  export type ReactionCreateManyProjectInput = {
-    id?: string
-    userId: string
-    tipo?: string
-    criadoEm?: Date | string
+  export type ProjectUncheckedUpdateWithoutOwnerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    seccao?: EnumSeccaoFieldUpdateOperationsInput | $Enums.Seccao
+    titulo?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
+    categoria?: StringFieldUpdateOperationsInput | string
+    sector?: StringFieldUpdateOperationsInput | string
+    localizacao?: StringFieldUpdateOperationsInput | string
+    nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
+    estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
+    boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
+    notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
+    contactRequests?: ContactRequestUncheckedUpdateManyWithoutProjectNestedInput
+    documentos?: DocumentoSensivelUncheckedUpdateManyWithoutProjectNestedInput
+    editorialPicks?: EditorialPickUncheckedUpdateManyWithoutProjectNestedInput
+    ndas?: NDAUncheckedUpdateManyWithoutProjectNestedInput
+    payments?: PaymentUncheckedUpdateManyWithoutProjectNestedInput
+    reactions?: ReactionUncheckedUpdateManyWithoutProjectNestedInput
+    checklists?: VerificationChecklistUncheckedUpdateManyWithoutProjectNestedInput
   }
 
-  export type NDACreateManyProjectInput = {
-    id?: string
-    buyerId: string
-    aceiteEm?: Date | string
-    ip: string
-    pago?: boolean
-    criadoEm?: Date | string
+  export type ProjectUncheckedUpdateManyWithoutOwnerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    seccao?: EnumSeccaoFieldUpdateOperationsInput | $Enums.Seccao
+    titulo?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
+    categoria?: StringFieldUpdateOperationsInput | string
+    sector?: StringFieldUpdateOperationsInput | string
+    localizacao?: StringFieldUpdateOperationsInput | string
+    nivelVerificacao?: EnumNivelVerificacaoFieldUpdateOperationsInput | $Enums.NivelVerificacao
+    estado?: EnumEstadoProjectoFieldUpdateOperationsInput | $Enums.EstadoProjecto
+    boostActivoAte?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dataLancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    linkSite?: NullableStringFieldUpdateOperationsInput | string | null
+    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
+    faixaPreco?: NullableStringFieldUpdateOperationsInput | string | null
+    notaVerificacao?: NullableStringFieldUpdateOperationsInput | string | null
+    dadosSensiveis?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ReactionUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tipo?: StringFieldUpdateOperationsInput | string
+    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    project?: ProjectUpdateOneRequiredWithoutReactionsNestedInput
+  }
+
+  export type ReactionUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    tipo?: StringFieldUpdateOperationsInput | string
+    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ReactionUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    tipo?: StringFieldUpdateOperationsInput | string
+    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SessionUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionToken?: StringFieldUpdateOperationsInput | string
+    expires?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SessionUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionToken?: StringFieldUpdateOperationsInput | string
+    expires?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SessionUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionToken?: StringFieldUpdateOperationsInput | string
+    expires?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ContactRequestCreateManyProjectInput = {
@@ -24106,6 +24082,15 @@ export namespace Prisma {
     semanaReferencia: string
   }
 
+  export type NDACreateManyProjectInput = {
+    id?: string
+    buyerId: string
+    aceiteEm?: Date | string
+    ip: string
+    pago?: boolean
+    criadoEm?: Date | string
+  }
+
   export type PaymentCreateManyProjectInput = {
     id?: string
     tipo: string
@@ -24115,80 +24100,23 @@ export namespace Prisma {
     estado?: string
     confirmadoPor?: string | null
     criadoEm?: Date | string
-    referencia: string
     motivoRejeicao?: string | null
+    referencia: string
   }
 
-  export type VerificationChecklistUpdateWithoutProjectInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    tipo?: StringFieldUpdateOperationsInput | string
-    respostasJson?: StringFieldUpdateOperationsInput | string
-    documentosUrls?: StringFieldUpdateOperationsInput | string
-    estado?: StringFieldUpdateOperationsInput | string
+  export type ReactionCreateManyProjectInput = {
+    id?: string
+    userId: string
+    tipo?: string
+    criadoEm?: Date | string
   }
 
-  export type VerificationChecklistUncheckedUpdateWithoutProjectInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    tipo?: StringFieldUpdateOperationsInput | string
-    respostasJson?: StringFieldUpdateOperationsInput | string
-    documentosUrls?: StringFieldUpdateOperationsInput | string
-    estado?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type VerificationChecklistUncheckedUpdateManyWithoutProjectInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    tipo?: StringFieldUpdateOperationsInput | string
-    respostasJson?: StringFieldUpdateOperationsInput | string
-    documentosUrls?: StringFieldUpdateOperationsInput | string
-    estado?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type ReactionUpdateWithoutProjectInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    tipo?: StringFieldUpdateOperationsInput | string
-    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutReactionsNestedInput
-  }
-
-  export type ReactionUncheckedUpdateWithoutProjectInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    tipo?: StringFieldUpdateOperationsInput | string
-    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ReactionUncheckedUpdateManyWithoutProjectInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    tipo?: StringFieldUpdateOperationsInput | string
-    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type NDAUpdateWithoutProjectInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    aceiteEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    ip?: StringFieldUpdateOperationsInput | string
-    pago?: BoolFieldUpdateOperationsInput | boolean
-    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    buyer?: UserUpdateOneRequiredWithoutNdasComoCompradorNestedInput
-  }
-
-  export type NDAUncheckedUpdateWithoutProjectInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    buyerId?: StringFieldUpdateOperationsInput | string
-    aceiteEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    ip?: StringFieldUpdateOperationsInput | string
-    pago?: BoolFieldUpdateOperationsInput | boolean
-    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type NDAUncheckedUpdateManyWithoutProjectInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    buyerId?: StringFieldUpdateOperationsInput | string
-    aceiteEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    ip?: StringFieldUpdateOperationsInput | string
-    pago?: BoolFieldUpdateOperationsInput | boolean
-    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+  export type VerificationChecklistCreateManyProjectInput = {
+    id?: string
+    tipo: string
+    respostasJson: string
+    documentosUrls: string
+    estado?: string
   }
 
   export type ContactRequestUpdateWithoutProjectInput = {
@@ -24257,6 +24185,33 @@ export namespace Prisma {
     semanaReferencia?: StringFieldUpdateOperationsInput | string
   }
 
+  export type NDAUpdateWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    aceiteEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    ip?: StringFieldUpdateOperationsInput | string
+    pago?: BoolFieldUpdateOperationsInput | boolean
+    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    buyer?: UserUpdateOneRequiredWithoutNdasComoCompradorNestedInput
+  }
+
+  export type NDAUncheckedUpdateWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    buyerId?: StringFieldUpdateOperationsInput | string
+    aceiteEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    ip?: StringFieldUpdateOperationsInput | string
+    pago?: BoolFieldUpdateOperationsInput | boolean
+    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NDAUncheckedUpdateManyWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    buyerId?: StringFieldUpdateOperationsInput | string
+    aceiteEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    ip?: StringFieldUpdateOperationsInput | string
+    pago?: BoolFieldUpdateOperationsInput | boolean
+    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type PaymentUpdateWithoutProjectInput = {
     id?: StringFieldUpdateOperationsInput | string
     tipo?: StringFieldUpdateOperationsInput | string
@@ -24265,8 +24220,8 @@ export namespace Prisma {
     estado?: StringFieldUpdateOperationsInput | string
     confirmadoPor?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    referencia?: StringFieldUpdateOperationsInput | string
     motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
+    referencia?: StringFieldUpdateOperationsInput | string
     user?: UserUpdateOneRequiredWithoutPaymentsNestedInput
   }
 
@@ -24279,8 +24234,8 @@ export namespace Prisma {
     estado?: StringFieldUpdateOperationsInput | string
     confirmadoPor?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    referencia?: StringFieldUpdateOperationsInput | string
     motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
+    referencia?: StringFieldUpdateOperationsInput | string
   }
 
   export type PaymentUncheckedUpdateManyWithoutProjectInput = {
@@ -24292,8 +24247,53 @@ export namespace Prisma {
     estado?: StringFieldUpdateOperationsInput | string
     confirmadoPor?: NullableStringFieldUpdateOperationsInput | string | null
     criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
-    referencia?: StringFieldUpdateOperationsInput | string
     motivoRejeicao?: NullableStringFieldUpdateOperationsInput | string | null
+    referencia?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ReactionUpdateWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tipo?: StringFieldUpdateOperationsInput | string
+    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutReactionsNestedInput
+  }
+
+  export type ReactionUncheckedUpdateWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    tipo?: StringFieldUpdateOperationsInput | string
+    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ReactionUncheckedUpdateManyWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    tipo?: StringFieldUpdateOperationsInput | string
+    criadoEm?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type VerificationChecklistUpdateWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tipo?: StringFieldUpdateOperationsInput | string
+    respostasJson?: StringFieldUpdateOperationsInput | string
+    documentosUrls?: StringFieldUpdateOperationsInput | string
+    estado?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type VerificationChecklistUncheckedUpdateWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tipo?: StringFieldUpdateOperationsInput | string
+    respostasJson?: StringFieldUpdateOperationsInput | string
+    documentosUrls?: StringFieldUpdateOperationsInput | string
+    estado?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type VerificationChecklistUncheckedUpdateManyWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tipo?: StringFieldUpdateOperationsInput | string
+    respostasJson?: StringFieldUpdateOperationsInput | string
+    documentosUrls?: StringFieldUpdateOperationsInput | string
+    estado?: StringFieldUpdateOperationsInput | string
   }
 
 

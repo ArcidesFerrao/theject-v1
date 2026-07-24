@@ -1,7 +1,3 @@
-// Schema Prisma — TheJect
-// Base: secção 15/16 do Documento de Guia (Modelo de Dados)
-// DB local: SQLite. Produção: trocar provider para "postgresql" + DATABASE_URL do Postgres.
-
 generator client {
   provider = "prisma-client-js"
   output   = "../src/generated/prisma"
@@ -9,12 +5,203 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  // url      = env("DATABASE_URL")
 }
 
-// ---------------------------------------------------------------------------
-// ENUMS
-// ---------------------------------------------------------------------------
+model User {
+  id                     String                  @id @default(cuid())
+  name                   String?
+  email                  String                  @unique
+  emailVerified          DateTime?
+  image                  String?
+  passwordHash           String?
+  role                   Role                    @default(reader)
+  telefone               String?
+  biNuit                 String?
+  kycStatus              KycStatus               @default(nao_iniciado)
+  kycMotivoRejeicao      String?
+  criadoEm               DateTime                @default(now())
+  accounts               Account[]
+  contactRequests        ContactRequest[]        @relation("ContactBuyer")
+  ndasComoComprador      NDA[]                   @relation("NdaBuyer")
+  newsletterSubscription NewsletterSubscription?
+  payments               Payment[]
+  projects               Project[]               @relation("ProjectOwner")
+  reactions              Reaction[]
+  sessions               Session[]
+
+  @@map("users")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map("verification_tokens")
+}
+
+model Project {
+  id               String                  @id @default(cuid())
+  ownerId          String
+  seccao           Seccao
+  titulo           String
+  descricao        String
+  categoria        String
+  sector           String
+  localizacao      String
+  nivelVerificacao NivelVerificacao        @default(nao_aplicavel)
+  estado           EstadoProjecto          @default(rascunho)
+  boostActivoAte   DateTime?
+  dataLancamento   DateTime?
+  linkSite         String?
+  criadoEm         DateTime                @default(now())
+  motivoRejeicao   String?
+  faixaPreco       String?
+  notaVerificacao  String?
+  dadosSensiveis   String?
+  contactRequests  ContactRequest[]
+  documentos       DocumentoSensivel[]
+  editorialPicks   EditorialPick[]
+  ndas             NDA[]
+  payments         Payment[]
+  owner            User                    @relation("ProjectOwner", fields: [ownerId], references: [id])
+  reactions        Reaction[]
+  checklists       VerificationChecklist[]
+
+  @@map("projects")
+}
+
+model VerificationChecklist {
+  id             String  @id @default(cuid())
+  projectId      String
+  tipo           String
+  respostasJson  String
+  documentosUrls String
+  estado         String  @default("pendente")
+  project        Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@map("verification_checklists")
+}
+
+model Reaction {
+  id        String   @id @default(cuid())
+  projectId String
+  userId    String
+  tipo      String   @default("like")
+  criadoEm  DateTime @default(now())
+  project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([projectId, userId, tipo])
+  @@map("reactions")
+}
+
+model NDA {
+  id        String   @id @default(cuid())
+  projectId String
+  buyerId   String
+  aceiteEm  DateTime @default(now())
+  ip        String
+  pago      Boolean  @default(false)
+  criadoEm  DateTime @default(now())
+  buyer     User     @relation("NdaBuyer", fields: [buyerId], references: [id])
+  project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@map("ndas")
+}
+
+model ContactRequest {
+  id        String   @id @default(cuid())
+  projectId String
+  buyerId   String
+  estado    String   @default("pendente")
+  criadoEm  DateTime @default(now())
+  buyer     User     @relation("ContactBuyer", fields: [buyerId], references: [id])
+  project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@map("contact_requests")
+}
+
+model Payment {
+  id              String   @id @default(cuid())
+  tipo            String
+  projectId       String?
+  userId          String
+  metodo          String
+  comprovativoUrl String?
+  estado          String   @default("pendente")
+  confirmadoPor   String?
+  criadoEm        DateTime @default(now())
+  motivoRejeicao  String?
+  referencia      String   @unique
+  project         Project? @relation(fields: [projectId], references: [id])
+  user            User     @relation(fields: [userId], references: [id])
+
+  @@map("payments")
+}
+
+model DocumentoSensivel {
+  id            String    @id @default(cuid())
+  projectId     String
+  tipo          String
+  urlEncriptado String
+  expiraEm      DateTime?
+  criadoEm      DateTime  @default(now())
+  project       Project   @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@map("documentos_sensiveis")
+}
+
+model NewsletterSubscription {
+  id       String   @id @default(cuid())
+  userId   String   @unique
+  estado   String   @default("gratis")
+  criadoEm DateTime @default(now())
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("newsletter_subscriptions")
+}
+
+model EditorialPick {
+  id               String  @id @default(cuid())
+  projectId        String
+  seccao           Seccao
+  posicao          Int
+  semanaReferencia String
+  project          Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@map("editorial_picks")
+}
 
 enum Role {
   reader
@@ -50,230 +237,4 @@ enum EstadoProjecto {
   publicado
   rejeitado
   arquivado
-}
-
-// ---------------------------------------------------------------------------
-// AUTENTICAÇÃO (NextAuth v5 — Prisma Adapter)
-// ---------------------------------------------------------------------------
-
-model User {
-  id            String    @id @default(cuid())
-  name          String?
-  email         String    @unique
-  emailVerified DateTime?
-  image         String?
-  passwordHash  String? // null se o utilizador só usa Google
-
-  role     Role    @default(reader)
-  telefone String?
-  biNuit   String?
-
-  kycStatus         KycStatus @default(nao_iniciado)
-  kycMotivoRejeicao String?
-  accounts          Account[]
-  sessions          Session[]
-
-  projects               Project[]               @relation("ProjectOwner")
-  reactions              Reaction[]
-  ndasComoComprador      NDA[]                   @relation("NdaBuyer")
-  contactRequests        ContactRequest[]        @relation("ContactBuyer")
-  payments               Payment[]
-  newsletterSubscription NewsletterSubscription?
-
-  criadoEm DateTime @default(now())
-
-  @@map("users")
-}
-
-model Account {
-  id                String  @id @default(cuid())
-  userId            String
-  type              String
-  provider          String
-  providerAccountId String
-  refresh_token     String?
-  access_token      String?
-  expires_at        Int?
-  token_type        String?
-  scope             String?
-  id_token          String?
-  session_state     String?
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@unique([provider, providerAccountId])
-  @@map("accounts")
-}
-
-model Session {
-  id           String   @id @default(cuid())
-  sessionToken String   @unique
-  userId       String
-  expires      DateTime
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@map("sessions")
-}
-
-model VerificationToken {
-  identifier String
-  token      String   @unique
-  expires    DateTime
-
-  @@unique([identifier, token])
-  @@map("verification_tokens")
-}
-
-// ---------------------------------------------------------------------------
-// DOMÍNIO — PROJECTOS E CONTEÚDO
-// ---------------------------------------------------------------------------
-
-model Project {
-  id      String @id @default(cuid())
-  ownerId String
-  owner   User   @relation("ProjectOwner", fields: [ownerId], references: [id])
-
-  seccao      Seccao
-  titulo      String
-  descricao   String
-  categoria   String
-  sector      String
-  localizacao String
-
-  nivelVerificacao NivelVerificacao @default(nao_aplicavel)
-  estado           EstadoProjecto   @default(rascunho)
-  motivoRejeicao   String?
-  boostActivoAte   DateTime?
-
-  // Campos específicos — Lançamentos (ficam null para outras secções)
-  dataLancamento DateTime?
-  linkSite       String?
-
-  // Campos específicos — Em Alta / Empresas em Funcionamento / À Venda
-  // (secção 5 do guia: exigem alguma prova de receita/documentação;
-  // por agora é texto livre revisto manualmente pelo admin — o upload
-  // de documentos e o checklist estruturado ficam para a fase NDA/KYC)
-  notaVerificacao String?
-
-  // Campo específico — Em Alta / À Venda: só visível após aceitação do NDA
-  dadosSensiveis String?
-
-  // Campo específico — À Venda (info pública no teaser, secção 10 do guia)
-  faixaPreco String?
-
-  checklists      VerificationChecklist[]
-  reactions       Reaction[]
-  ndas            NDA[]
-  contactRequests ContactRequest[]
-  documentos      DocumentoSensivel[]
-  editorialPicks  EditorialPick[]
-  payments        Payment[]
-
-  criadoEm DateTime @default(now())
-
-  @@map("projects")
-}
-
-model VerificationChecklist {
-  id        String  @id @default(cuid())
-  projectId String
-  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
-
-  tipo           String // "documentacao" | "rendimentos"
-  respostasJson  String // JSON serializado
-  documentosUrls String // JSON array serializado
-  estado         String @default("pendente")
-
-  @@map("verification_checklists")
-}
-
-model Reaction {
-  id        String   @id @default(cuid())
-  projectId String
-  project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
-  userId    String
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  tipo      String   @default("like")
-  criadoEm  DateTime @default(now())
-
-  @@unique([projectId, userId, tipo])
-  @@map("reactions")
-}
-
-model NDA {
-  id        String   @id @default(cuid())
-  projectId String
-  project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
-  buyerId   String
-  buyer     User     @relation("NdaBuyer", fields: [buyerId], references: [id])
-  aceiteEm  DateTime @default(now())
-  ip        String
-  pago      Boolean  @default(false)
-  criadoEm  DateTime @default(now())
-
-  @@map("ndas")
-}
-
-model ContactRequest {
-  id        String   @id @default(cuid())
-  projectId String
-  project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
-  buyerId   String
-  buyer     User     @relation("ContactBuyer", fields: [buyerId], references: [id])
-  estado    String   @default("pendente")
-  criadoEm  DateTime @default(now())
-
-  @@map("contact_requests")
-}
-
-model Payment {
-  id              String   @id @default(cuid())
-  tipo            String // listagem_venda | boost | nda_extra | newsletter | analytics
-  projectId       String?
-  project         Project? @relation(fields: [projectId], references: [id])
-  userId          String
-  user            User     @relation(fields: [userId], references: [id])
-  metodo          String // m-pesa | e-mola | transferencia
-  comprovativoUrl String?
-  estado          String   @default("pendente")
-  confirmadoPor   String?
-  criadoEm        DateTime @default(now())
-  referencia      String   @unique
-  motivoRejeicao  String?
-
-  @@map("payments")
-}
-
-model DocumentoSensivel {
-  id            String    @id @default(cuid())
-  projectId     String
-  project       Project   @relation(fields: [projectId], references: [id], onDelete: Cascade)
-  tipo          String
-  urlEncriptado String
-  expiraEm      DateTime?
-  criadoEm      DateTime  @default(now())
-
-  @@map("documentos_sensiveis")
-}
-
-model NewsletterSubscription {
-  id       String   @id @default(cuid())
-  userId   String   @unique
-  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  estado   String   @default("gratis") // gratis | paga
-  criadoEm DateTime @default(now())
-
-  @@map("newsletter_subscriptions")
-}
-
-model EditorialPick {
-  id               String  @id @default(cuid())
-  projectId        String
-  project          Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
-  seccao           Seccao
-  posicao          Int
-  semanaReferencia String
-
-  @@map("editorial_picks")
 }

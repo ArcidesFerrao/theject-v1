@@ -2,7 +2,8 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { auth } from "@/auth";
 import { db } from "@/lib/prisma";
-import { FormularioRejeitarPagamento } from "./FormularioRejeitarPagamento";
+import { FormularioRejeitarPagamento } from "@/components/FormularioRejeitarPagamento";
+import { BotaoConfirmarPagamento } from "@/components/BotaoConfirmarPagamento";
 
 const abas = [
   { estado: "pendente", label: "Pendentes" },
