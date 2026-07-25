@@ -55,6 +55,9 @@ export default async function AdminNewsletterPage() {
         <Link href="/admin/newsletter" className="font-medium text-[#1D9E75]">
           Newsletter
         </Link>
+        <Link href="/admin/curadoria" className="text-gray-500">
+          Curadoria
+        </Link>
       </div>
 
       <h1 className="mt-4 text-2xl font-semibold">Newsletter</h1>

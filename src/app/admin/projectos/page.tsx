@@ -51,8 +51,12 @@ export default async function AdminProjectosPage({
         <Link href="/admin/pagamentos" className="text-gray-500">
           Pagamentos
         </Link>
+
         <Link href="/admin/newsletter" className="text-gray-500">
           Newsletter
+        </Link>
+        <Link href="/admin/curadoria" className="text-gray-500">
+          Curadoria
         </Link>
       </div>
 

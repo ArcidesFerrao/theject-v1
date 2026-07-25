@@ -1,21 +1,36 @@
 import Link from "next/link";
 import { db } from "@/lib/prisma";
 import { SECCOES } from "@/lib/seccoes";
+import { semanaActualISO } from "@/lib/semana";
 import { ProjectCard } from "@/components/ProjectCard";
 
 const DESTAQUES_POR_SECCAO = 3;
 
 export default async function HomePage() {
+  const semana = semanaActualISO();
+
   const seccoesComProjectos = await Promise.all(
     SECCOES.map(async (seccao) => {
-      const projectos = await db.project.findMany({
-        where: { seccao: seccao.slug, estado: "publicado" },
-        include: { owner: { select: { name: true } } },
-        orderBy: { criadoEm: "desc" },
-        take: DESTAQUES_POR_SECCAO,
+      const picks = await db.editorialPick.findMany({
+        where: { seccao: seccao.slug, semanaReferencia: semana },
+        orderBy: { posicao: "asc" },
+        include: {
+          project: { include: { owner: { select: { name: true } } } },
+        },
       });
-      return { ...seccao, projectos };
-    })
+
+      // Curadoria manual da semana, se existir; senão os mais recentes publicados.
+      const projectos = picks.length
+        ? picks.map((p) => p.project).filter((p) => p.estado === "publicado")
+        : await db.project.findMany({
+            where: { seccao: seccao.slug, estado: "publicado" },
+            include: { owner: { select: { name: true } } },
+            orderBy: { criadoEm: "desc" },
+            take: DESTAQUES_POR_SECCAO,
+          });
+
+      return { ...seccao, projectos: projectos.slice(0, DESTAQUES_POR_SECCAO) };
+    }),
   );
 
   return (
@@ -23,8 +38,8 @@ export default async function HomePage() {
       <header className="mb-10">
         <h1 className="text-3xl font-semibold">TheJect</h1>
         <p className="mt-1 text-gray-600">
-          O jornal de negócios digitais de Moçambique — lançamentos, ideias e empresas em
-          destaque.
+          O jornal de negócios digitais de Moçambique — lançamentos, ideias e
+          empresas em destaque.
         </p>
       </header>
 
@@ -45,7 +60,9 @@ export default async function HomePage() {
             </div>
 
             {seccao.projectos.length === 0 ? (
-              <p className="text-sm text-gray-400">Ainda sem publicações nesta secção.</p>
+              <p className="text-sm text-gray-400">
+                Ainda sem publicações nesta secção.
+              </p>
             ) : (
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
                 {seccao.projectos.map((projecto) => (
