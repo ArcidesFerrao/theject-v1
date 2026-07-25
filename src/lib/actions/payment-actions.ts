@@ -18,7 +18,7 @@ async function exigirAdmin() {
 // ---------------------------------------------------------------------------
 
 const TIPOS_VALIDOS = ["listagem_venda", "boost", "nda_extra"] as const;
-type TipoPagamento = (typeof TIPOS_VALIDOS)[number];
+type TipoPagamento = (typeof TIPOS_VALIDOS)[number] | "newsletter";
 
 const submissaoSchema = z.object({
   tipo: z.enum(TIPOS_VALIDOS),
@@ -124,6 +124,14 @@ export async function confirmarPagamento(paymentId: string) {
     } else if (!existente.pago) {
       await db.nDA.update({ where: { id: existente.id }, data: { pago: true } });
     }
+  }
+
+  if (tipo === "newsletter") {
+    await db.newsletterSubscription.upsert({
+      where: { userId: pagamento.userId },
+      update: { estado: "paga" },
+      create: { userId: pagamento.userId, estado: "paga" },
+    });
   }
 
   revalidatePath("/admin/pagamentos");

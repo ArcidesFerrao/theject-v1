@@ -5,6 +5,7 @@ import { db } from "@/lib/prisma";
 const labelTipo: Record<string, string> = {
   listagem_venda: "Listagem À Venda",
   boost: "Boost (destaque 7 dias)",
+  newsletter: "Newsletter (assinatura paga)",
   nda_extra: "NDA extra",
 };
 

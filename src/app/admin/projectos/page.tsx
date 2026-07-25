@@ -51,6 +51,9 @@ export default async function AdminProjectosPage({
         <Link href="/admin/pagamentos" className="text-gray-500">
           Pagamentos
         </Link>
+        <Link href="/admin/newsletter" className="text-gray-500">
+          Newsletter
+        </Link>
       </div>
 
       <h1 className="mt-4 text-2xl font-semibold">Revisão editorial</h1>

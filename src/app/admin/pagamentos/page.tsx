@@ -14,6 +14,7 @@ const abas = [
 const labelTipo: Record<string, string> = {
   listagem_venda: "Listagem À Venda",
   boost: "Boost",
+  newsletter: "Newsletter (assinatura paga)",
   nda_extra: "NDA extra",
 };
 
@@ -51,6 +52,9 @@ export default async function AdminPagamentosPage({
         </Link>
         <Link href="/admin/pagamentos" className="font-medium text-[#1D9E75]">
           Pagamentos
+        </Link>
+        <Link href="/admin/newsletter" className="text-gray-500">
+          Newsletter
         </Link>
       </div>
 
