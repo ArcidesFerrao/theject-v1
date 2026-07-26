@@ -2,6 +2,8 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { auth } from "@/auth";
 import { db } from "@/lib/prisma";
+import { obterConteudoNewsletter } from "@/lib/newsletter-conteudo";
+import { BotaoEnviarNewsletter } from "@/components/BotaoEnviarNewsletter";
 
 export default async function AdminNewsletterPage() {
   const session = await auth();
@@ -9,36 +11,13 @@ export default async function AdminNewsletterPage() {
     redirect("/");
   }
 
-  const [
-    totalGratis,
-    totalPaga,
-    emAlta,
-    lancamentos,
-    comBoost,
-    editorialPicks,
-  ] = await Promise.all([
+  const [totalGratis, totalPaga, conteudo] = await Promise.all([
     db.newsletterSubscription.count({ where: { estado: "gratis" } }),
     db.newsletterSubscription.count({ where: { estado: "paga" } }),
-    db.project.findMany({
-      where: { seccao: "em_alta", estado: "publicado" },
-      orderBy: { criadoEm: "desc" },
-      take: 5,
-    }),
-    db.project.findMany({
-      where: { seccao: "lancamento", estado: "publicado" },
-      orderBy: { criadoEm: "desc" },
-      take: 5,
-    }),
-    db.project.findMany({
-      where: { boostActivoAte: { gt: new Date() } },
-      orderBy: { boostActivoAte: "desc" },
-    }),
-    db.editorialPick.findMany({
-      include: { project: { select: { titulo: true } } },
-      orderBy: { semanaReferencia: "desc" },
-      take: 10,
-    }),
+    obterConteudoNewsletter(),
   ]);
+
+  const { emAlta, lancamentos, comBoost, editorialPicks } = conteudo;
 
   return (
     <main className="mx-auto max-w-3xl px-4 py-12">
@@ -62,8 +41,8 @@ export default async function AdminNewsletterPage() {
 
       <h1 className="mt-4 text-2xl font-semibold">Newsletter</h1>
       <p className="mt-1 text-sm text-gray-600">
-        Sem envio automático configurado ainda (falta ligar um serviço de email)
-        — usa isto como conteúdo pronto a copiar para a edição desta semana.
+        Grátis recebe um resumo (top 3 destaques); Paga recebe o conteúdo
+        completo. Envio a partir de newsletter@evolurelabs.com.
       </p>
 
       <div className="mt-6 flex gap-6 text-sm">
@@ -77,18 +56,20 @@ export default async function AdminNewsletterPage() {
         </div>
       </div>
 
+      <BotaoEnviarNewsletter />
+
       <section className="mt-8">
         <h2 className="font-semibold">Em destaque (curadoria manual)</h2>
         {editorialPicks.length === 0 ? (
           <p className="mt-1 text-sm text-gray-400">
-            Ainda sem destaques manuais definidos — falta a UI de curadoria
-            (EditorialPick).
+            Sem destaques manuais esta semana — o email usa os mais recentes de
+            Em Alta.
           </p>
         ) : (
           <ul className="mt-2 flex flex-col gap-1 text-sm">
             {editorialPicks.map((pick) => (
               <li key={pick.id}>
-                {pick.project.titulo} — {pick.semanaReferencia}
+                #{pick.posicao} — {pick.project.titulo}
               </li>
             ))}
           </ul>
