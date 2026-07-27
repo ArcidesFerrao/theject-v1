@@ -24,13 +24,18 @@ function dividirEmLotes<T>(lista: T[], tamanho: number): T[][] {
   return lotes;
 }
 
-async function enviarParaLista(emails: string[], assunto: string, html: string): Promise<number> {
+async function enviarParaLista(
+  destinatarioTo: string,
+  emails: string[],
+  assunto: string,
+  html: string
+): Promise<number> {
   let enviados = 0;
   for (const lote of dividirEmLotes(emails, TAMANHO_LOTE)) {
     if (lote.length === 0) continue;
     const { error } = await resend.emails.send({
       from: NEWSLETTER_FROM,
-      to: NEWSLETTER_FROM,
+      to: destinatarioTo,
       bcc: lote,
       subject: assunto,
       html,
@@ -79,12 +84,19 @@ export async function enviarNewsletter(): Promise<EnviarNewsletterState> {
   const htmlGratis = montarHtmlNewsletter(conteudo, { completo: false });
   const htmlPaga = montarHtmlNewsletter(conteudo, { completo: true });
 
+  if (!session.user.email) {
+    return { error: "A tua conta de admin não tem email associado." };
+  }
+  const destinatarioTo = session.user.email;
+
   const enviadosGratis = await enviarParaLista(
+    destinatarioTo,
     subscritoresGratis.map((s) => s.user.email),
     assunto,
     htmlGratis
   );
   const enviadosPaga = await enviarParaLista(
+    destinatarioTo,
     subscritoresPaga.map((s) => s.user.email),
     assunto,
     htmlPaga
